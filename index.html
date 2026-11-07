@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="FirstFoundationkids">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="FirstFoundationkids: learning games for ages 2 to 7">
-<meta property="og:description" content="34 playful learning worlds with Pip the frog, plus School practice for kindergarten through third grade. Levels 1 to 3 of every age group are free, with no ads and no sign-up.">
+<meta property="og:description" content="38 playful learning worlds with Pip the frog, plus School practice for kindergarten through third grade. Levels 1 to 3 of every age group are free, with no ads and no sign-up.">
 <meta property="og:url" content="https://firstfoundationkids.com/">
 <meta property="og:image" content="https://firstfoundationkids.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="Pip the frog and the FirstFoundationkids name: learning games for ages 2 to 7">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FirstFoundationkids: learning games for ages 2 to 7">
-<meta name="twitter:description" content="34 playful learning worlds with Pip the frog, plus School practice for kindergarten through third grade. Levels 1 to 3 of every age group are free.">
+<meta name="twitter:description" content="38 playful learning worlds with Pip the frog, plus School practice for kindergarten through third grade. Levels 1 to 3 of every age group are free.">
 <meta name="twitter:image" content="https://firstfoundationkids.com/og-image.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800;900&family=Lexend:wght@400;500;600;700&display=swap">
@@ -1594,6 +1594,97 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
 .gradepick button{min-width:0}
 @media (max-width:560px){ .gradepick{display:grid;grid-template-columns:1fr 1fr;gap:10px} .gradepick button{padding:6px 10px 6px 6px} }
 .g23long .swword{font-size:clamp(26px,7.5vw,46px)}
+
+/* v35: car worlds (Garage Park, Traffic Lights, Car Wash, Road Race) */
+.cz-strip{position:relative;height:34px;margin:0 auto 10px;max-width:520px;border-radius:17px;background:#5E6E72;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18),0 4px 0 rgba(23,59,64,.12);overflow:hidden}
+.cz-strip::before{content:"";position:absolute;left:12px;right:40px;top:16px;height:3px;background:repeating-linear-gradient(90deg,#fff 0 14px,transparent 14px 28px);opacity:.8}
+.cz-flag{position:absolute;right:8px;top:4px;width:24px;height:26px;border-radius:4px;background:conic-gradient(#173B40 25%,#fff 0 50%,#173B40 0 75%,#fff 0) 0 0/12px 13px;box-shadow:0 0 0 2px #fff}
+.cz-mini{position:absolute;top:1px;width:50px;transition:left .8s cubic-bezier(.4,1.4,.5,1)}
+.cz-mini svg{width:50px;height:auto;display:block}
+.cz-mini.zoom svg{animation:czBounce .5s ease 2}
+.cz-carsvg{overflow:visible}
+.cz-lot{min-height:0;padding:10px}
+.cz-car{display:block;width:min(220px,52vw);transition:transform .75s cubic-bezier(.5,0,.4,1),opacity .3s}
+.cz-car svg{width:100%;height:auto;display:block;overflow:visible}
+.cz-car.drivein{animation:czIn .8s cubic-bezier(.2,1.3,.5,1) both}
+.cz-car.drivein .cz-wheel,.cz-car.driving .cz-wheel,.cz-car.go .cz-wheel{transform-box:fill-box;transform-origin:50% 50%;animation:czSpin .35s linear infinite}
+.cz-car.gone{opacity:0}
+@keyframes czIn{0%{transform:translateX(-70vw)}100%{transform:none}}
+@keyframes czSpin{to{transform:rotate(360deg)}}
+@keyframes czBounce{0%,100%{transform:none}50%{transform:translateY(-4px) rotate(-3deg)}}
+.cz-garages{gap:10px}
+.cz-car .cz-tag{display:block;width:max-content;margin:0 auto 4px;padding:4px 16px;border-radius:16px;background:#fff;border:3px solid var(--line);box-shadow:0 4px 0 var(--line);font-family:var(--display);font-weight:900;font-size:30px;color:var(--ink)}
+.cz-garage{padding:4px;min-width:0;min-height:0}
+.cz-garage svg{width:clamp(78px,21vw,128px);height:auto;display:block}
+.cz-garage .cz-door{transform-box:fill-box;transform-origin:50% 0;transition:transform .35s}
+.cz-garage.right .cz-door{transform:scaleY(.15)}
+.cz-garage.shut .cz-door{transform:none}
+.cz-road{position:relative;min-height:0;padding:12px 12px 0;align-items:flex-end;justify-content:flex-start;flex-wrap:nowrap;background:linear-gradient(180deg,#D9F0EC 0 62%,#5E6E72 62% 100%);overflow:hidden}
+.cz-road::after{content:"";position:absolute;left:0;right:0;bottom:22px;height:4px;background:repeating-linear-gradient(90deg,#fff 0 22px,transparent 22px 44px);opacity:.7}
+.cz-pole svg{width:clamp(48px,12vw,70px);height:auto;display:block}
+.cz-pole .cz-glow{animation:czGlow 1.2s ease-in-out infinite}
+@keyframes czGlow{50%{opacity:.08}}
+.cz-lane{display:flex;gap:6px;align-items:flex-end;flex:1;justify-content:center;padding-bottom:6px;flex-wrap:nowrap;min-width:0}
+.cz-lane .cz-car.small{width:min(170px,40vw)}
+.cz-queue .cz-lane{justify-content:flex-start}
+.cz-queue .cz-lane .cz-car.small{width:clamp(44px,13vw,96px);flex:0 1 auto;min-width:0}
+.cz-queue.tiny .cz-lane .cz-car.small{width:clamp(30px,8.5vw,66px)}
+.cz-road .cz-car.go{transform:translateX(70vw);transition:transform 1s cubic-bezier(.5,0,.8,.4)}
+.cz-road .cz-car.brake svg{animation:czBrake .5s ease}
+@keyframes czBrake{30%{transform:translateX(10px) rotate(2deg)}100%{transform:none}}
+.cz-cross{justify-content:center}
+.cz-ped svg{width:96px;height:96px;display:block;margin-bottom:30px}
+.cz-lamps .choice svg,.cz-signs .choice svg{width:clamp(64px,18vw,96px);height:auto;display:block}
+.cz-signs .choice svg{height:clamp(80px,22vw,124px)}
+.choices .choice > svg{max-width:100%}
+.cz-signbig{min-height:0}
+.cz-signbig svg{width:clamp(110px,30vw,160px);height:auto;display:block}
+.cz-wash{position:relative;min-height:0;padding:10px;background:linear-gradient(180deg,#DDF1FB,#BFE3F5)}
+.cz-washcar{position:relative;width:min(340px,80vw);margin:0 auto}
+.cz-washcar > svg{width:100%;height:auto;display:block}
+.cz-mud{position:absolute;width:12%;aspect-ratio:1;border:0;background:none;padding:0;cursor:pointer;transition:transform .15s}
+.cz-mud svg{width:100%;height:100%;display:block}
+.cz-mud:not(.clean):hover{transform:scale(1.12)}
+.cz-mud.clean{cursor:default;animation:popIn .35s cubic-bezier(.3,1.6,.5,1)}
+.cz-mud.clean svg{animation:czFloat 1.6s ease-in-out infinite}
+@keyframes czFloat{50%{transform:translateY(-4px)}}
+.cz-washcar.sparkle > svg{animation:czShine .9s ease 2}
+@keyframes czShine{0%,100%{filter:none}50%{filter:brightness(1.18) drop-shadow(0 0 10px #fff)}}
+.cz-tally,.cz-price,.cz-paid{font-family:var(--display);font-weight:900;color:var(--ink)}
+.cz-tally{position:absolute;right:12px;top:8px;min-width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:26px;box-shadow:0 4px 0 var(--line)}
+.cz-price{position:absolute;left:12px;top:8px;padding:6px 12px;border-radius:14px;background:#FFE27A;font-size:18px;box-shadow:0 4px 0 #E3B400}
+.cz-donerow{justify-content:center;margin-top:14px}
+.cz-done{font-size:24px;padding:12px 34px}
+.cz-two .choice{padding:6px}
+.cz-two .cz-washcar{width:clamp(130px,38vw,240px)}
+.cz-paid{text-align:center;font-size:22px;margin-top:10px}
+.cz-tray{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;min-height:34px;margin:6px auto 0;max-width:420px}
+.cz-coinin svg{width:30px;height:30px;display:block;animation:popIn .3s cubic-bezier(.3,1.6,.5,1)}
+.cz-coins{gap:16px}
+.cz-coin{border:0;background:none;padding:0;cursor:pointer;transition:transform .12s;border-radius:50%}
+.cz-coin svg{width:clamp(72px,19vw,96px);height:auto;display:block}
+.cz-coin:hover{transform:translateY(-4px) rotate(-6deg)}
+.cz-coin:active{transform:translateY(2px)}
+.cz-coin.wrong{animation:shake .45s ease}
+.cz-race{position:relative;display:block;min-height:0;padding:12px 4px 50px;background:linear-gradient(180deg,#FFF6D6,#FFE9A8)}
+.cz-die{width:70px;margin:0 auto 46px}
+.cz-die svg{width:70px;height:70px;display:block;animation:czRoll .6s ease}
+@keyframes czRoll{0%{transform:rotate(-200deg) scale(.4)}100%{transform:none}}
+.cz-track{display:flex;gap:3px;justify-content:center;margin-top:46px;padding:6px;border-radius:16px;background:#5E6E72;box-shadow:inset 0 -3px 0 rgba(0,0,0,.2)}
+.cz-space{flex:1 1 0;min-width:0;max-width:64px;height:54px;border-radius:12px;border:3px solid #fff;background:#fff;font-family:var(--display);font-weight:900;font-size:clamp(14px,3.6vw,22px);color:var(--ink);cursor:pointer;padding:0;box-shadow:0 3px 0 rgba(0,0,0,.18);transition:transform .12s}
+.cz-space:nth-child(odd){background:#FFF4CF}
+.cz-space:first-child{background:#D7F0DA}
+.cz-space:hover{transform:translateY(-3px)}
+.cz-space.wrong{animation:shake .45s ease;border-color:var(--berry)}
+.cz-space.right{background:#FFE27A;border-color:#E3B400}
+.cz-race .cz-car{position:absolute;width:clamp(48px,11vw,74px);transform:translate(-50%,-100%);transition:left .26s ease,top .26s ease;pointer-events:none;z-index:2}
+.cz-race .cz-car.rival{transform:translate(-50%,0);opacity:.85;z-index:1}
+.cz-race .cz-car.driving svg{animation:czBounce .28s ease infinite}
+@media (prefers-reduced-motion: reduce){
+  .cz-car,.cz-mini,.cz-race .cz-car{transition:none!important}
+  .cz-car.drivein,.cz-car .cz-wheel,.cz-mini svg,.cz-pole .cz-glow,.cz-mud.clean svg,.cz-die svg,.cz-washcar > svg{animation:none!important}
+}
+@media (min-width: 700px){ .cz-space{max-width:84px;height:66px;font-size:24px} .cz-race .cz-car{width:96px} .cz-die,.cz-die svg{width:84px;height:84px} }
 </style>
 </head>
 <body>
@@ -1656,7 +1747,7 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
       <div class="min-w0">
         <p class="eyebrow">Learning games for ages 2 to 7</p>
         <h1>Little minds <span class="hop">jump</span> into big ideas.</h1>
-        <p class="lead">Pip the frog guides your child through <span data-count="worlds">34</span> playful worlds: counting, letters, stories, handwriting, telling time, science, shapes, fruits and veggies, music, feelings, and their very first mouse and keyboard skills. Pip reads every question and answer out loud, so kids can play before they can read.</p>
+        <p class="lead">Pip the frog guides your child through <span data-count="worlds">38</span> playful worlds: counting, letters, stories, handwriting, telling time, science, shapes, fruits and veggies, music, feelings, and their very first mouse and keyboard skills. Pip reads every question and answer out loud, so kids can play before they can read.</p>
         <div class="ctas">
           <a class="btn btn-go" href="#lessons">Play a free game</a>
           <a class="btn btn-soft" href="#pricing">See plans</a>
@@ -1727,10 +1818,10 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
 
   <section class="band" style="padding-top:0">
     <div class="wrap">
-      <p class="eyebrow"><span data-count="worlds">34</span> worlds, 90 levels each</p>
+      <p class="eyebrow"><span data-count="worlds">38</span> worlds, 90 levels each</p>
       <h2 class="h2big">Pick a world and start hopping</h2>
       <div class="grid-games" id="homeGames"></div>
-      <div class="center" style="margin-top:28px"><a class="btn btn-go" href="#lessons">See all <span data-count="worlds">34</span> worlds and <span data-count="levels">3,060</span> levels</a></div>
+      <div class="center" style="margin-top:28px"><a class="btn btn-go" href="#lessons">See all <span data-count="worlds">38</span> worlds and <span data-count="levels">3,780</span> levels</a></div>
     </div>
   </section>
 
@@ -1785,7 +1876,7 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
       <h2 class="h2big">Try it, then decide</h2>
       <div class="steps">
         <div class="step"><div class="n">1</div><h3>Play levels 1–3 free</h3><p>For every age group in every world, with no account and no card. Hand over the tablet and watch.</p></div>
-        <div class="step"><div class="n">2</div><h3>Subscribe to unlock</h3><p>One plan opens all <span data-count="levels">3,060</span> levels, every Color Book picture, and the medals, trophies and prizes.</p></div>
+        <div class="step"><div class="n">2</div><h3>Subscribe to unlock</h3><p>One plan opens all <span data-count="levels">3,780</span> levels, every Color Book picture, and the medals, trophies and prizes.</p></div>
         <div class="step"><div class="n">3</div><h3>Keep the fun going</h3><p>Pick monthly, yearly or family. Cancel any time from your account in two taps.</p></div>
       </div>
     </div>
@@ -1825,7 +1916,7 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
       <p class="eyebrow">Questions</p>
       <h2 class="h2big">Parents often ask</h2>
       <div class="faq" style="margin-top:20px">
-        <details><summary>What is free?</summary><p>Levels 1 to 3 of every age group in all 34 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
+        <details><summary>What is free?</summary><p>Levels 1 to 3 of every age group in all 38 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
         <details><summary>Does my child need to read?</summary><p>No. Pip reads every question and answer out loud, and kids answer by tapping or by saying the answer. You can switch the voice off at any time.</p></details>
         <details><summary>Does it help with school?</summary><p>Yes, that is what Pip's Pond School is for. Its short lessons practice skills commonly taught in kindergarten through third grade: listening to and reading short stories, sight words, handwriting, math word problems, telling time and early science. It is extra practice for home and does not replace your child's teacher or school.</p></details>
         <details><summary>Is there a free trial?</summary><p>No trial. Instead, the first 3 levels of every age group stay free, so you can try before you pay.</p></details>
@@ -2072,7 +2163,7 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
         <div class="plan">
           <h3>Monthly</h3>
           <div class="price">$9.99 <small>/ month</small></div>
-          <ul><li>All <span data-count="worlds">34</span> worlds and <span data-count="levels">3,060</span> levels</li><li>Every Color Book picture</li><li>Medals, trophies, certificates and Pip's prizes</li><li>Progress page and daily play-time limit</li><li>1 child profile</li></ul>
+          <ul><li>All <span data-count="worlds">38</span> worlds and <span data-count="levels">3,780</span> levels</li><li>Every Color Book picture</li><li>Medals, trophies, certificates and Pip's prizes</li><li>Progress page and daily play-time limit</li><li>1 child profile</li></ul>
           <a class="btn btn-soft" href="#subscribe" data-plan="monthly">Choose Monthly</a>
         </div>
         <div class="plan pop">
@@ -2090,7 +2181,7 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
         </div>
       </div>
       <div class="faq">
-        <details><summary>What do we get without paying?</summary><p>Levels 1 to 3 of every age group in all <span data-count="worlds">34</span> worlds, plus Magic Paint, the Fruit &amp; Veggie Book and 3 Color Book pictures, with no account. Levels 4 to 30 and the rest of the Color Book unlock when you subscribe.</p></details>
+        <details><summary>What do we get without paying?</summary><p>Levels 1 to 3 of every age group in all <span data-count="worlds">38</span> worlds, plus Magic Paint, the Fruit &amp; Veggie Book and 3 Color Book pictures, with no account. Levels 4 to 30 and the rest of the Color Book unlock when you subscribe.</p></details>
         <details><summary>Which ages is FirstFoundationkids for?</summary><p>Ages 2 to 7. Rounds get harder as your child answers correctly, so older kids stay challenged.</p></details>
         <details><summary>Are there ads or in-game purchases?</summary><p>No. Plans are the only purchase, and they sit behind a grown-up check.</p></details>
         <details><summary>How do I cancel?</summary><p>From your account page, any time. Your plan stays open until the end of the period you paid for.</p></details>
@@ -2106,7 +2197,7 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
       <div class="min-w0" style="display:grid;gap:14px">
         <p class="eyebrow">Grown-ups only</p>
         <h1 style="font-size:clamp(36px,5vw,56px)">Unlock every level</h1>
-        <p class="lead">Subscribe to open levels 4 to 30 for every age group in all <span data-count="worlds">34</span> worlds, every Color Book picture, and all the medals and prizes. Cancel any time from your account.</p>
+        <p class="lead">Subscribe to open levels 4 to 30 for every age group in all <span data-count="worlds">38</span> worlds, every Color Book picture, and all the medals and prizes. Cancel any time from your account.</p>
         <div style="max-width:220px"><svg viewBox="0 0 120 100" style="width:100%;height:auto" aria-hidden="true"><use href="#pip"/></svg></div>
       </div>
       <form class="formcard" id="trialForm" novalidate>
@@ -2358,13 +2449,13 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
       <p class="lead" style="margin-top:10px">Can't find your answer? Email <a href="mailto:custmerservice@FirstFoundationkids.com">custmerservice@FirstFoundationkids.com</a>.</p>
       <div id="faqAll">
       <div class="faqcat"><h2>Getting started</h2><div class="faq">
-        <details><summary>What is FirstFoundationkids?</summary><p>An early-learning website for children ages 2 to 7. It has 34 game worlds, Pip's Pond School for kindergarten through third grade practice, a Fruit &amp; Veggie Book, and a Studio for painting, coloring and first computer skills. Pip the frog reads every question aloud.</p></details>
+        <details><summary>What is FirstFoundationkids?</summary><p>An early-learning website for children ages 2 to 7. It has 38 game worlds, Pip's Pond School for kindergarten through third grade practice, a Fruit &amp; Veggie Book, and a Studio for painting, coloring and first computer skills. Pip the frog reads every question aloud.</p></details>
         <details><summary>Which ages is it for?</summary><p>Ages 2 to 7, in three groups: Tadpoles (2–3), Froglets (4–5) and Jumpers (6–7). Each group gets its own version of every world, with 30 levels that get a little harder each time.</p></details>
         <details><summary>Does my child need to read?</summary><p>No. Pip reads every question and answer out loud, and kids answer by tapping or by saying the answer. You can switch the voice off at any time.</p></details>
         <details><summary>Which devices work?</summary><p>Any up-to-date web browser on a computer, tablet or phone. The mouse and keyboard worlds work best on a laptop or desktop, but tapping works too.</p></details>
       </div></div>
       <div class="faqcat"><h2>Plans and billing</h2><div class="faq">
-        <details><summary>What is free?</summary><p>Levels 1 to 3 of every age group in all 34 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
+        <details><summary>What is free?</summary><p>Levels 1 to 3 of every age group in all 38 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
         <details><summary>How much does a plan cost?</summary><p>Monthly is $9.99 a month. Yearly is $79.99 a year, which works out to about $6.67 a month. Family is $99.99 a year for up to 4 child profiles.</p></details>
         <details><summary>Is there a free trial?</summary><p>No trial. Instead, the first 3 levels of every age group stay free, so you can try before you pay.</p></details>
         <details><summary>How do I cancel?</summary><p>From My account, any time. Your plan stays open until the end of the period you paid for.</p></details>
@@ -7847,6 +7938,419 @@ renderPrizes = function(){
 var VPACKS0 = vPacks;
 vPacks = function(g){ var o = VPACKS0(g); if(VP.man && VP.man.packs && VP.man.packs.fun && o.indexOf("fun")<0) o.push("fun"); return o; };
 window.__v25 = {monSVG:monSVG, hideCard:hideCard, pizzaSVG:pizzaSVG, buddySVG:buddySVG, BUDDIES:BUDDIES, openEgg:openEgg};
+})();
+
+/* ---------- v35: car worlds (Garage Park, Traffic Lights, Car Wash, Road Race) ---------- */
+(function(){
+function fresh(key, list){ return scFresh("v35"+key, list); }
+function shade(hex, k){ var n = parseInt(hex.slice(1), 16), r = n>>16, g = (n>>8)&255, b = n&255; function f(v){ return Math.max(0, Math.min(255, Math.round(k>0 ? v+(255-v)*k : v*(1+k)))); } return "#"+((1<<24)+(f(r)<<16)+(f(g)<<8)+f(b)).toString(16).slice(1); }
+function plural(n, w, pl){ return n===1 ? w : pl; }
+var CZ_COLS = ["red","blue","yellow","green","orange","purple","pink"];
+var FONT = 'font-family="Grandstander,sans-serif" font-weight="900"';
+
+/* ===== drawings: a friendly clay car (faces right), garages, lights, signs, coins ===== */
+function carBody(col, o){
+  o = o || {}; var dk = shade(col, -.3), lt = shade(col, .45), s = "";
+  s += '<ellipse cx="80" cy="93" rx="64" ry="6" fill="#173B40" opacity=".14"/>';
+  s += '<path d="M14 70Q12 52 30 50L46 50Q55 25 79 24L103 24Q122 26 132 50L141 52Q153 55 151 70Q151 81 140 81L24 81Q14 81 14 70Z" fill="'+col+'" stroke="'+dk+'" stroke-width="3" stroke-linejoin="round"/>';
+  s += '<path d="M22 58Q26 53 34 53L132 53" stroke="'+lt+'" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7"/>';
+  s += '<path d="M56 49Q62 32 78 31L88 31L88 49Z" fill="#D6F1FF" stroke="'+dk+'" stroke-width="2.5" stroke-linejoin="round"/><path d="M95 31L104 31Q117 33 124 49L95 49Z" fill="#D6F1FF" stroke="'+dk+'" stroke-width="2.5" stroke-linejoin="round"/>';
+  s += '<path d="M62 44Q66 36 74 35" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/>';
+  // eyes look out of the front window
+  s += '<g class="cz-eyes"><circle cx="104" cy="41" r="4.6" fill="#173B40"/><circle cx="115" cy="41" r="4.6" fill="#173B40"/><circle cx="105.6" cy="39.4" r="1.6" fill="#fff"/><circle cx="116.6" cy="39.4" r="1.6" fill="#fff"/></g>';
+  s += '<path d="M134 66Q141 72 148 66" stroke="#173B40" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+  s += '<circle cx="146" cy="59" r="4.2" fill="#FFF3A0" stroke="'+dk+'" stroke-width="1.5"/><rect x="12" y="62" width="7" height="6" rx="2" fill="#FF8A70"/>';
+  if(o.door) s += o.door;
+  [44, 120].forEach(function(x){ s += '<g class="cz-wheel"><circle cx="'+x+'" cy="81" r="13" fill="#2F3E42"/><circle cx="'+x+'" cy="81" r="5.5" fill="#CFD8DA"/><path d="M'+(x-8)+' 81h16M'+x+' 73v16" stroke="#8B999C" stroke-width="2"/></g>'; });
+  return s;
+}
+function carSVG(col, o){ o = o || {}; return '<svg viewBox="0 0 160 100" aria-hidden="true" class="cz-carsvg">'+carBody(COLORS[col]||col, o)+(o.extra||"")+'</svg>'; }
+function doorBadge(inner){ return '<circle cx="70" cy="64" r="15" fill="#fff" stroke="#173B40" stroke-opacity=".25" stroke-width="2.5"/>'+inner; }
+function doorText(t, size){ return doorBadge('<text x="70" y="'+(64+(size||18)*0.36)+'" text-anchor="middle" '+FONT+' font-size="'+(size||18)+'" fill="#173B40">'+esc(String(t))+'</text>'); }
+function doorShape(kind, fill){ return doorBadge('<g transform="translate(58 52) scale(.24)">'+inner(shapeSVG(kind, fill))+'</g>'); }
+function doorDots(n){
+  var pos = {1:[[0,0]],2:[[-5,0],[5,0]],3:[[-6,4],[0,-5],[6,4]],4:[[-5,-5],[5,-5],[-5,5],[5,5]],5:[[-6,-6],[6,-6],[0,0],[-6,6],[6,6]],6:[[-5,-7],[5,-7],[-5,0],[5,0],[-5,7],[5,7]]};
+  var p = pos[n] || [], s = ""; if(n>6){ for(var i=0;i<n;i++){ var a = i/n*Math.PI*2; p.push([Math.cos(a)*9, Math.sin(a)*9]); } }
+  p.forEach(function(d){ s += '<circle cx="'+(70+d[0])+'" cy="'+(64+d[1])+'" r="'+(n>6 ? 2.6 : 3.4)+'" fill="#E7466B"/>'; });
+  return doorBadge(s);
+}
+function garageSVG(o){
+  var roof = o.roof || "#E7466B", door = o.door || "#F4EEE6", s = '<svg viewBox="0 0 120 112" aria-hidden="true">';
+  s += '<ellipse cx="60" cy="106" rx="54" ry="5" fill="#173B40" opacity=".12"/>';
+  s += '<rect x="12" y="40" width="96" height="66" rx="6" fill="#FFF7EC" stroke="#D9C3A5" stroke-width="3"/>';
+  s += '<path d="M4 46L60 8L116 46Z" fill="'+roof+'" stroke="'+shade(roof, -.3)+'" stroke-width="3" stroke-linejoin="round"/>';
+  s += '<g class="cz-door"><rect x="26" y="56" width="68" height="50" rx="4" fill="'+door+'" stroke="'+shade(door==="#FFFFFF"?"#CFE3E0":door, -.25)+'" stroke-width="3"/>';
+  for(var y=66;y<104;y+=10) s += '<path d="M28 '+y+'H92" stroke="'+shade(door, -.18)+'" stroke-width="2"/>';
+  s += '</g>';
+  if(o.sign!=null) s += '<rect x="34" y="22" width="52" height="30" rx="9" fill="#fff" stroke="#173B40" stroke-opacity=".2" stroke-width="2.5"/>'+o.sign;
+  return s+'</svg>';
+}
+function signText(t, size){ size = size || 22; return '<text x="60" y="'+(37+size*0.36)+'" text-anchor="middle" '+FONT+' font-size="'+size+'" fill="#173B40">'+esc(String(t))+'</text>'; }
+function signShape(kind, fill){ return '<g transform="translate(48 25) scale(.24)">'+inner(shapeSVG(kind, fill))+'</g>'; }
+function lightSVG(on, small){
+  var c = {red:["#E7466B","#5A2430"], yellow:["#FFC83A","#5C4A1E"], green:["#4DB35A","#1F4A26"]};
+  var s = '<svg viewBox="0 0 70 170" aria-hidden="true" class="cz-light"><rect x="30" y="140" width="10" height="30" fill="#5E6E72"/><rect x="6" y="4" width="58" height="142" rx="18" fill="#2F3E42" stroke="#1D2A2D" stroke-width="3"/>';
+  ["red","yellow","green"].forEach(function(k, i){ var lit = on===k, y = 30+i*44;
+    if(lit) s += '<circle cx="35" cy="'+y+'" r="22" fill="'+c[k][0]+'" opacity=".35" class="cz-glow"/>';
+    s += '<circle cx="35" cy="'+y+'" r="16" fill="'+(lit ? c[k][0] : c[k][1])+'"/>'+(lit ? '<circle cx="30" cy="'+(y-5)+'" r="5" fill="#fff" opacity=".6"/>' : ''); });
+  return s+'</svg>';
+}
+function lampSVG(k){ var c = {red:"#E7466B", yellow:"#FFC83A", green:"#4DB35A"}[k]; return '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="#2F3E42"/><circle cx="50" cy="50" r="32" fill="'+c+'"/><circle cx="40" cy="40" r="9" fill="#fff" opacity=".55"/></svg>'; }
+var SIGN = {
+  octagon:{w:"octagon", sides:8, col:"#E7466B"}, triangle:{w:"triangle", sides:3, col:"#FFC83A"}, circle:{w:"circle", sides:0, col:"#3E9BDB"},
+  diamond:{w:"diamond", sides:4, col:"#FF7F3F"}, square:{w:"square", sides:4, col:"#4DB35A"}, pentagon:{w:"pentagon", sides:5, col:"#8C5BD6"}, hexagon:{w:"hexagon", sides:6, col:"#2EB5A5"}
+};
+function signSVG(kind, word){
+  var sg = SIGN[kind], s = '<svg viewBox="0 0 100 140" aria-hidden="true"><rect x="45" y="80" width="10" height="58" rx="3" fill="#8B999C"/><g transform="translate(5 2) scale(.9)">'+inner(shapeSVG(kind, sg.col)).replace('stroke="rgba(0,0,0,.18)"','stroke="#fff"').replace('stroke-width="3"','stroke-width="5"')+'</g>';
+  if(word) s += '<text x="50" y="54" text-anchor="middle" '+FONT+' font-size="20" fill="#fff">'+word+'</text>';
+  return s+'</svg>';
+}
+function stopGoSVG(k){
+  if(k==="stop") return '<svg viewBox="0 0 100 100" aria-hidden="true">'+inner(shapeSVG("octagon", "#E7466B"))+'<text x="50" y="59" text-anchor="middle" '+FONT+' font-size="25" fill="#fff">STOP</text></svg>';
+  if(k==="go") return '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#4DB35A"/><path d="M30 50H66M54 34L70 50L54 66" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  if(k==="slow") return '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#FFC83A"/><path d="M50 26V52L64 62" stroke="#173B40" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  if(k==="walk") return '<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="8" y="8" width="84" height="84" rx="16" fill="#2F3E42"/><g fill="#7FE08A"><circle cx="54" cy="24" r="7"/><path d="M50 34L40 56L30 64M50 34L58 50L70 52M48 46L56 66L52 84M46 58L36 84" stroke="#7FE08A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg>';
+  return '<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="8" y="8" width="84" height="84" rx="16" fill="#2F3E42"/><path d="M36 74V40a5 5 0 0 1 10 0v18V30a5 5 0 0 1 10 0v28V34a5 5 0 0 1 10 0v26V44a5 5 0 0 1 10 0v18c0 14-8 22-20 22c-10 0-16-4-22-14l-8-12a5 5 0 0 1 8-6z" fill="#FF6B6B"/></svg>';
+}
+function coinSVG(v){ var c = v===10 ? ["#C9D3D6","#93A3A7"] : v===5 ? ["#E9EEF0","#A9B7BA"] : ["#E8A86B","#B5793F"];
+  return '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="54" r="40" fill="'+c[1]+'"/><circle cx="50" cy="48" r="40" fill="'+c[0]+'"/><circle cx="50" cy="48" r="31" fill="none" stroke="'+c[1]+'" stroke-width="3"/><text x="50" y="60" text-anchor="middle" '+FONT+' font-size="32" fill="#173B40">'+v+'</text></svg>'; }
+function mudSVG(){ return '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4C28 4 30 10 34 12C40 16 36 24 34 28C31 35 24 36 20 36C13 36 8 34 6 28C3 21 3 15 9 11C13 7 15 4 20 4Z" fill="#8A5A34"/><circle cx="14" cy="15" r="4" fill="#A7754A"/><circle cx="34" cy="34" r="3" fill="#8A5A34"/></svg>'; }
+var BUB = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="#D6F1FF" stroke="#7FC8F8" stroke-width="3" opacity=".9"/><circle cx="14" cy="14" r="4" fill="#fff"/></svg>';
+
+/* ===== the little race road at the top of Garage Park, Traffic Lights and Car Wash ===== */
+var RACE_IDS = {garage:1, traffic:1, carwash:1};
+function stripCol(){ return G && G.czCol || (G ? (G.czCol = pick(["red","blue","green","orange","purple"])) : "red"); }
+function raceStrip(area){
+  var got = G ? G.results.filter(function(x){ return x===true; }).length : 0;
+  var r = el("div","cz-strip", '<span class="cz-flag" aria-hidden="true"></span>');
+  var c = el("span","cz-mini", carSVG(stripCol())); c.style.left = "calc("+(got/ROUNDS*82)+"% + 2px)"; r.appendChild(c);
+  r.setAttribute("aria-hidden","true"); area.insertBefore(r, area.firstChild);
+}
+var ANSWER0 = answer;
+answer = function(ok, node, after){
+  if(ok && G && !G.locked && RACE_IDS[G.id]){
+    var c = $("#area .cz-mini"), got = G.results.filter(function(x){ return x===true; }).length + (G.first ? 1 : 0);
+    if(c){ c.style.left = "calc("+(got/ROUNDS*82)+"% + 2px)"; c.classList.add("zoom"); }
+    if(G.first) vroom(.6);
+  }
+  return ANSWER0.apply(this, arguments);
+};
+function vroom(len){
+  try{ if(muted) return; actx = actx || new (window.AudioContext||window.webkitAudioContext)();
+    var o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime; o.type = "sawtooth";
+    o.frequency.setValueAtTime(70, t); o.frequency.exponentialRampToValueAtTime(190, t+len*0.6); o.frequency.exponentialRampToValueAtTime(120, t+len);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.06, t+0.05); g.gain.exponentialRampToValueAtTime(0.0001, t+len);
+    o.connect(g); g.connect(actx.destination); o.start(t); o.stop(t+len+0.05);
+  }catch(e){}
+}
+function beep(){ tone(660, 0, .12, "square", .06); tone(660, .18, .12, "square", .06); }
+function squeak(){ tone(1400, 0, .18, "sine", .05); tone(1100, .08, .2, "sine", .05); }
+
+/* ===== Garage Park: drive each car into its matching garage ===== */
+function garageTask(c){
+  var k = c.t<.3 ? 2 : c.t<.75 ? 3 : 4, car = {}, opts = [], q, sub;
+  if(c.a===1){
+    var mode = c.t<.35 ? "color" : fresh("g1"+c.round%2, ["color","shape","color","shape"]);
+    if(mode==="color"){
+      var cols = shuffle(CZ_COLS).slice(0, k), cl = cols[0]; car.col = cl;
+      opts = cols.map(function(x){ return {roof:COLORS[x], door:COLORS[x], label:x, ok:x===cl}; });
+      q = "Park the "+cl+" car in the "+cl+" garage!"; sub = "Tap the garage that matches.";
+    } else {
+      var sh = shuffle(["circle","square","triangle","star","heart"]).slice(0, k), s0 = sh[0], fc = COLORS[pick(["red","blue","purple","orange"])];
+      car.col = pick(CZ_COLS); car.door = doorShape(s0, fc);
+      opts = sh.map(function(x){ return {roof:"#3E9BDB", sign:signShape(x, fc), label:x, ok:x===s0}; });
+      q = "This car has a "+s0+". Find the "+s0+" garage!"; sub = "Match the shapes.";
+    }
+  } else if(c.a===2){
+    var m2 = fresh("g2", c.t<.3 ? ["num","dots","num","dots"] : ["num","dots","letter","letter","dots"]);
+    k = c.t<.5 ? 3 : 4; car.col = pick(CZ_COLS);
+    if(m2==="letter"){
+      var pool = c.t<.6 ? EASY_LETTERS : LETTERS, ls = shuffle(pool).slice(0, k), L = ls[0], low = c.t>=.6;
+      car.door = doorText(L, 20);
+      opts = ls.map(function(x){ return {roof:"#8C5BD6", sign:signText(low ? x.toLowerCase() : x, 24), label:low ? x.toLowerCase() : x, say:x.toLowerCase(), ok:x===L}; });
+      q = low ? "This car has a big "+L+". Find the garage with the little "+L+"!" : "This car has the letter "+L+". Find the "+L+" garage!"; sub = low ? "Big letter, little letter." : "Match the letters.";
+    } else {
+      var hi = lerp(m2==="dots" ? 6 : 10, m2==="dots" ? 10 : 20, c.t), n = rand(1, hi), ns = near(n, k, 1, hi);
+      car.door = m2==="dots" ? doorDots(n) : doorText(n, n>9 ? 15 : 18);
+      opts = ns.map(function(x){ return {roof:"#FF7F3F", sign:signText(x), label:String(x), say:numSay(x), ok:x===n}; });
+      q = m2==="dots" ? "Count the dots on the car. Park it in that garage!" : "Car number "+n+"! Find garage "+n+"!"; sub = m2==="dots" ? "How many dots? Find that number." : "Match the numbers.";
+    }
+  } else {
+    var m3 = fresh("g3", c.t<.4 ? ["add","sub","add","sub"] : ["add","sub","tens","add","double"]), a, b, n3, txt, sp;
+    var top = lerp(10, 20, c.t); k = 4; car.col = pick(CZ_COLS);
+    if(m3==="add"){ a = rand(1, top-2); b = rand(1, Math.max(1, top-a)); n3 = a+b; txt = a+" + "+b; }
+    else if(m3==="sub"){ a = rand(4, top); b = rand(1, a-1); n3 = a-b; txt = a+" − "+b; }
+    else if(m3==="tens"){ a = 10*rand(1, 8) + rand(0, 9); n3 = a+10; txt = a+" + 10"; }
+    else { a = rand(2, 10); n3 = 2*a; txt = a+" + "+a; }
+    car.door = doorText("?", 20); car.tag = txt;
+    opts = near(n3, k, 0, Math.max(20, n3+3)).map(function(x){ return {roof:"#2EB5A5", sign:signText(x), label:String(x), say:numSay(x), ok:x===n3}; });
+    sp = txt.replace("−", "minus").replace("+", "plus");
+    q = "This car says "+sp+". Park it in the garage with the answer!"; sub = m3==="tens" ? "Ten more: the tens digit goes up by one." : m3==="double" ? "A double: the same number twice." : "Work it out, then find the garage.";
+    car.q = "This car says "+txt+".";
+  }
+  return {car:car, opts:shuffle(opts), q:q, sub:sub};
+}
+ENGINES.garage = function(area, c){
+  var T = garageTask(c), me = G, round = c.round;
+  setPrompt(esc(T.car.q || T.q), T.sub); say(T.q);
+  raceStrip(area);
+  var f = el("div","field cz-lot"), car = el("div","cz-car drivein", (T.car.tag ? '<span class="cz-tag">'+esc(T.car.tag)+'</span>' : '')+carSVG(T.car.col, {door:T.car.door})); f.appendChild(car); area.appendChild(f);
+  var ch = el("div","choices cz-garages");
+  T.opts.forEach(function(o){
+    var b = el("button","choice cz-garage", garageSVG(o)); b.type = "button"; b.setAttribute("aria-label", o.label); b.dataset.say = o.say || o.label;
+    b.addEventListener("click", function(){
+      if(!o.ok) return answer(false, b);
+      answer(true, b, function(){
+        var fr = car.getBoundingClientRect(), br = b.getBoundingClientRect();
+        if(!reduce && fr.width){ car.classList.remove("drivein"); car.classList.add("parking"); car.style.transform = "translate("+(br.left+br.width/2-(fr.left+fr.width/2))+"px,"+(br.top+br.height*0.62-(fr.top+fr.height/2))+"px) scale(.42)"; }
+        vroom(.8); setTimeout(function(){ if(G===me && G.round===round){ car.classList.add("gone"); b.classList.add("shut"); beep(); } }, 750);
+        return 900;
+      });
+    });
+    ch.appendChild(b);
+  });
+  area.appendChild(ch);
+};
+
+/* ===== Traffic Lights: stop and go, light order, signs, wheels and waiting ===== */
+var NEXT_LIGHT = {green:"yellow", yellow:"red", red:"green"};
+function roadScene(area, light, cars, cls){
+  var f = el("div","field cz-road"+(cls ? " "+cls : ""));
+  if(light) f.appendChild(el("div","cz-pole", lightSVG(light)));
+  var lane = el("div","cz-lane"); (cars||[]).forEach(function(col){ lane.appendChild(el("span","cz-car small", carSVG(col))); }); f.appendChild(lane);
+  area.appendChild(f); return {f:f, lane:lane};
+}
+function trafficTask(c){
+  if(c.a===1) return c.t<.25 ? "stopgo" : fresh("t1"+c.round%2, ["stopgo","lamp","stopgo","lamp"]);
+  if(c.a===2) return fresh("t2", c.t<.3 ? ["next","slow","walk","count"] : ["next","slow","walk","count","sign","sign"]);
+  return fresh("t3", c.t<.3 ? ["wheels","sides","jam"] : ["wheels","sides","jam","timer","wheels"]);
+}
+ENGINES.traffic = function(area, c){
+  var mode = trafficTask(c), me = G, round = c.round, q, sub, sc, items;
+  raceStrip(area);
+  function drive(go){ return function(){ var car = sc && $(".cz-car", sc.f); if(car && !reduce){ car.classList.add(go ? "go" : "brake"); } if(go) vroom(.9); else squeak(); return 700; }; }
+  if(mode==="stopgo" || mode==="slow"){
+    var lt = mode==="slow" ? "yellow" : pick(["red","green"]), ans = {red:"stop", green:"go", yellow:"slow"}[lt];
+    sc = roadScene(area, lt, [pick(CZ_COLS)]);
+    q = mode==="slow" ? "The light is yellow. What does the car do?" : "The light is "+lt+". Stop or go?";
+    sub = lt==="red" ? "Red means stop." : lt==="green" ? "Green means go." : "Yellow means slow down. Get ready to stop.";
+    if(c.a===1 && c.t<.5) sub = "Look at the light.";
+    setPrompt(esc(q), sub); say(q);
+    items = (mode==="slow" ? ["stop","go","slow"] : ["stop","go"]).map(function(k){ return {html:stopGoSVG(k), label:k==="slow" ? "slow down" : k, say:k==="slow" ? "slow down|slow" : k, ok:k===ans}; });
+    return choiceRowAfter(area, shuffle(items), drive(ans!=="stop"));
+  }
+  if(mode==="lamp"){
+    var want = pick(["red","yellow","green"]); sc = roadScene(area, null, [pick(CZ_COLS)]);
+    q = "Tap the "+want+" light!"; setPrompt(esc(q), "Red, yellow and green."); say(q);
+    return choiceRowAfter(area, shuffle(["red","yellow","green"]).map(function(k){ return {html:lampSVG(k), label:k, say:k, ok:k===want}; }), drive(want==="green"), "cz-lamps");
+  }
+  if(mode==="next"){
+    var now = pick(["red","yellow","green"]), nx = NEXT_LIGHT[now]; sc = roadScene(area, now, [pick(CZ_COLS)]);
+    q = "The light is "+now+". What color comes next?"; setPrompt(esc(q), "Green, then yellow, then red, then green again."); say(q);
+    return choiceRowAfter(area, shuffle(["red","yellow","green"]).map(function(k){ return {html:lampSVG(k), label:k, say:k, ok:k===nx}; }), drive(nx==="green"), "cz-lamps");
+  }
+  if(mode==="walk"){
+    var w = pick(["walk","wait"]); sc = roadScene(area, null, [], "cz-cross");
+    sc.f.insertBefore(el("div","cz-ped", stopGoSVG(w)), sc.f.firstChild);
+    q = "Look at the crossing light. Walk or wait?"; setPrompt(esc(q), w==="walk" ? "The walking person is lit." : "The hand is lit."); say(q);
+    return choiceRowAfter(area, shuffle([{html:stopGoSVG("walk"), label:"walk", say:"walk", ok:w==="walk"}, {html:stopGoSVG("wait"), label:"wait", say:"wait|stop", ok:w==="wait"}]), function(){ return 300; });
+  }
+  if(mode==="count"){
+    var n = rand(2, lerp(5, 10, c.t)), cars = []; for(var i=0;i<n;i++) cars.push(CZ_COLS[i % CZ_COLS.length]);
+    sc = roadScene(area, "red", shuffle(cars), "cz-queue");
+    q = "How many cars are waiting at the red light?"; setPrompt(esc(q), "Count each car."); say(q);
+    return numChoices(area, n, near(n, 3, 1, 12));
+  }
+  if(mode==="sign"){
+    var kinds = shuffle(["octagon","triangle","circle","diamond","square"]).slice(0, c.t<.6 ? 3 : 4), want2 = kinds[0], stop = want2==="octagon" && Math.random()<.6;
+    q = stop ? "Find the stop sign!" : "Find the sign shaped like a "+SIGN[want2].w+"!"; setPrompt(esc(q), stop ? "A stop sign has 8 sides." : "Look at the shapes."); say(q);
+    var ch = choiceRowAfter(area, shuffle(kinds).map(function(k){ return {html:signSVG(k, k==="octagon" ? "STOP" : ""), label:k==="octagon" && stop ? "stop sign" : SIGN[k].w, say:SIGN[k].w+(k==="octagon" ? "|stop sign|stop" : ""), ok:k===want2}; }), function(){ return 200; }, "cz-signs");
+    return ch;
+  }
+  if(mode==="wheels"){
+    var nc = rand(2, lerp(3, 5, c.t)), cs = shuffle(CZ_COLS).slice(0, nc), ans2 = nc*4;
+    sc = roadScene(area, null, cs, "cz-queue");
+    q = nc+" cars. Each car has 4 wheels. How many wheels in all?"; setPrompt(esc(q), "Count by 4s: 4, 8, 12..."); say(q);
+    return numChoices(area, ans2, withOthers(ans2, 3, function(){ return ans2 + pick([-4, 4, -2, 2, -1, 1]); }).filter(function(v){ return v>0; }));
+  }
+  if(mode==="sides"){
+    var kd = pick(["triangle","diamond","pentagon","hexagon","octagon","square"]), sd = SIGN[kd].sides;
+    var f2 = el("div","field cz-signbig", signSVG(kd, kd==="octagon" ? "STOP" : "")); area.appendChild(f2);
+    q = "How many sides does this sign have?"; setPrompt(esc(q), "Count the straight edges."); say(q);
+    return numChoices(area, sd, shuffle([3,4,5,6,8].filter(function(v){ return v!==sd; })).slice(0, 2).concat([sd]));
+  }
+  if(mode==="jam"){
+    var tot = rand(6, lerp(10, 18, c.t)), go = rand(2, tot-2), left = tot-go;
+    var all = []; for(var j=0;j<Math.min(tot, 10);j++) all.push(CZ_COLS[j % CZ_COLS.length]);
+    sc = roadScene(area, "green", all, "cz-queue tiny");
+    q = tot+" cars are in a line. The light turns green and "+go+" cars drive away. How many are still waiting?";
+    setPrompt(esc(tot+" cars wait. "+go+" drive away. How many are left?"), tot+" take away "+go+"."); say(q);
+    return numChoices(area, left, near(left, 4, 0, tot));
+  }
+  var total = pick([10, 15, 20, 30]), gone = rand(2, total-2), rest = total-gone;
+  sc = roadScene(area, "red", [pick(CZ_COLS)]);
+  q = "The red light stays on for "+total+" seconds. "+gone+" seconds are gone. How many seconds are left?";
+  setPrompt(esc("Red for "+total+" seconds. "+gone+" are gone. How many are left?"), "Count on from "+gone+" to "+total+"."); say(q);
+  return numChoices(area, rest, near(rest, 4, 0, total));
+};
+function choiceRowAfter(area, items, after, cls){
+  var ch = el("div","choices"+(cls ? " "+cls : ""));
+  items.forEach(function(it){ var b = el("button","choice", it.html); b.type = "button"; if(it.label) b.setAttribute("aria-label", it.label); if(it.say) b.dataset.say = it.say;
+    b.addEventListener("click", function(){ if(it.ok) answer(true, b, after); else answer(false, b); }); ch.appendChild(b); });
+  area.appendChild(ch); return ch;
+}
+
+/* ===== Car Wash: tap the mud spots, count, wash some, take away and pay ===== */
+function washCar(area, col, n, washed, cls){
+  var f = el("div","field cz-wash"+(cls ? " "+cls : "")), box = el("div","cz-washcar", carSVG(col)), spots = [];
+  var spotsAt = [[22,52],[36,44],[50,58],[62,40],[74,56],[86,46],[30,64],[56,70],[80,68],[44,36],[68,64],[90,58],[18,62],[40,54],[64,50],[84,40],[26,48],[52,46],[72,44],[94,66]];
+  var order = shuffle(spotsAt.slice(0, Math.max(n, 6) + 4)).slice(0, n);
+  for(var i=0;i<n;i++){ var s = el("button","cz-mud", mudSVG()); s.type = "button"; s.style.left = (order[i][0]-5)+"%"; s.style.top = (order[i][1]-6)+"%"; s.setAttribute("aria-label", "mud spot");
+    if(washed && i<washed){ s.classList.add("clean"); s.innerHTML = BUB; s.disabled = true; }
+    box.appendChild(s); spots.push(s); }
+  f.appendChild(box); area.appendChild(f); return {f:f, box:box, spots:spots};
+}
+function scrub(s){ s.classList.add("clean"); s.innerHTML = BUB; s.disabled = true; tone(900+Math.random()*400, 0, .08, "sine", .08); tone(1300+Math.random()*300, .05, .08, "sine", .06); }
+function shine(box){ box.classList.add("sparkle"); [523, 784, 1046].forEach(function(f, i){ tone(f, i*.07, .2, "triangle", .1); }); }
+ENGINES.carwash = function(area, c){
+  var me = G, round = c.round, col = pick(CZ_COLS), q, sub, W, alive = aliveFor(me, round);
+  raceStrip(area);
+  var mode = c.a===1 ? (c.t<.4 ? "all" : (c.round%2 ? "count1" : "all")) : c.a===2 ? fresh("w2", c.t<.3 ? ["some","count","some","count"] : ["some","count","more","some"]) : fresh("w3", c.t<.4 ? ["left","pay","left","pay"] : ["left","pay","sum","left","pay"]);
+  if(mode==="all"){
+    var n = rand(1, lerp(3, 5, c.t)), cnt = 0; W = washCar(area, col, n);
+    q = n===1 ? "Wash the mud off the car! Tap the mud spot." : "Wash the mud off the car! Tap each mud spot."; setPrompt(esc(q), "Count as you wash."); say(q);
+    W.spots.forEach(function(s){ s.addEventListener("click", function(){ if(!alive() || s.disabled) return; scrub(s); cnt++;
+      if(cnt===n) answer(true, null, function(){ shine(W.box); return 400; }); else say(cnt+"!"); }); });
+    return;
+  }
+  if(mode==="count1" || mode==="count"){
+    var nn = c.a===1 ? rand(1, 5) : rand(4, lerp(8, 12, c.t)); W = washCar(area, col, nn, 0, "look");
+    W.spots.forEach(function(s){ s.disabled = true; });
+    q = "How many mud spots are on the car?"; setPrompt(esc(q), "Count them, then pick the number."); say(q);
+    var ch = choiceRowAfter(area, shuffle(near(nn, 3, 1, 14)).map(function(v){ return {html:String(v), say:numSay(v), label:String(v), ok:v===nn}; }), function(){ W.spots.forEach(function(s, i){ setTimeout(function(){ scrub(s); }, i*70); }); setTimeout(function(){ shine(W.box); }, nn*70); return 300 + nn*70; });
+    return ch;
+  }
+  if(mode==="some"){
+    var want = rand(2, lerp(5, 9, c.t)), tot = Math.min(14, want + rand(2, 4)), got = 0; W = washCar(area, col, tot);
+    q = "Wash "+want+" mud spots, then tap Done!"; setPrompt(esc(q), "Only "+want+". Not one more!"); say(q);
+    var done = el("button","btn btn-go cz-done", "Done!"); done.type = "button"; done.setAttribute("aria-label", "done");
+    var tally = el("div","cz-tally", "0"); W.f.appendChild(tally);
+    W.spots.forEach(function(s){ s.addEventListener("click", function(){ if(!alive() || s.disabled) return; scrub(s); got++; tally.textContent = String(got); say(got+"!"); }); });
+    done.addEventListener("click", function(){ if(!alive()) return;
+      if(got===want) return answer(true, done, function(){ shine(W.box); return 400; });
+      answer(false, done);
+      if(got>want){ W.spots.forEach(function(s){ s.classList.remove("clean"); s.innerHTML = mudSVG(); s.disabled = false; }); got = 0; tally.textContent = "0"; say("Let's start again. Wash "+want+"!"); }
+    });
+    var row = el("div","row cz-donerow"); row.appendChild(done); area.appendChild(row);
+    return;
+  }
+  if(mode==="more"){
+    var a = rand(1, 6), b = a; while(b===a) b = rand(1, 8); var more = pick(["more","fewer"]), ans = more==="more" ? (a>b ? 0 : 1) : (a<b ? 0 : 1);
+    var cA = pick(CZ_COLS), cB = pick(CZ_COLS.filter(function(x){ return x!==cA; }));
+    q = "Which car has "+more+" mud spots?"; setPrompt(esc(q), more==="more" ? "More means the bigger number." : "Fewer means not as many."); say(q);
+    var row2 = el("div","choices cz-two");
+    [[cA, a], [cB, b]].forEach(function(p, i){ var bt = el("button","choice"), w = el("div","cz-washcar", carSVG(p[0]));
+      var at = shuffle([[22,52],[36,44],[50,58],[62,40],[74,56],[86,46],[30,64],[56,70],[80,68]]).slice(0, p[1]);
+      at.forEach(function(xy){ var m = el("span","cz-mud", mudSVG()); m.style.left = (xy[0]-5)+"%"; m.style.top = (xy[1]-6)+"%"; w.appendChild(m); });
+      bt.appendChild(w); bt.setAttribute("aria-label", "the "+p[0]+" car"); bt.dataset.say = p[0];
+      bt.addEventListener("click", function(){ if(i===ans) answer(true, bt, function(){ shine(w); return 300; }); else answer(false, bt); }); row2.appendChild(bt); });
+    area.appendChild(row2); return;
+  }
+  if(mode==="left" || mode==="sum"){
+    if(mode==="left"){
+      var t3 = rand(6, lerp(10, 18, c.t)), wsh = rand(2, t3-2), lf = t3-wsh; W = washCar(area, col, t3, wsh);
+      q = "The car had "+t3+" mud spots. You washed "+wsh+". How many are left?"; setPrompt(esc(q), t3+" take away "+wsh+"."); say(q);
+      W.spots.forEach(function(s){ s.disabled = true; });
+      return choiceRowAfter(area, shuffle(near(lf, 4, 0, t3)).map(function(v){ return {html:String(v), say:numSay(v), label:String(v), ok:v===lf}; }), function(){ W.spots.forEach(function(s, i){ if(!s.classList.contains("clean")) setTimeout(function(){ scrub(s); }, i*50); }); setTimeout(function(){ shine(W.box); }, 500); return 600; });
+    }
+    var x = rand(3, lerp(6, 10, c.t)), y = rand(2, lerp(5, 9, c.t)), sm = x+y;
+    W = washCar(area, col, Math.min(sm, 20), 0, "look"); W.spots.forEach(function(s){ s.disabled = true; });
+    q = "The front of the car has "+x+" mud spots. The back has "+y+". How many spots in all?"; setPrompt(esc(q), x+" plus "+y+"."); say(q);
+    return choiceRowAfter(area, shuffle(near(sm, 4, 1, 25)).map(function(v){ return {html:String(v), say:numSay(v), label:String(v), ok:v===sm}; }), function(){ W.spots.forEach(function(s, i){ setTimeout(function(){ scrub(s); }, i*40); }); setTimeout(function(){ shine(W.box); }, 500); return 700; });
+  }
+  // pay for the wash with 1, 5 and 10 coins
+  var price = c.t<.4 ? rand(3, 12) : rand(8, 25), paid = 0, coinsUsed = [];
+  W = washCar(area, col, 4, 0, "look"); W.spots.forEach(function(s){ s.disabled = true; });
+  var tag = el("div","cz-price", "Wash: "+price+" coins"); W.f.appendChild(tag);
+  q = "The car wash costs "+price+" coins. Tap coins to pay "+price+"!"; setPrompt(esc(q), "Use 10s, 5s and 1s."); say(q);
+  var tray = el("div","cz-tray"), paidEl = el("div","cz-paid", "Paid: 0"); area.appendChild(paidEl);
+  var coins = el("div","choices cz-coins");
+  [1, 5, 10].forEach(function(v){ var b = el("button","cz-coin", coinSVG(v)); b.type = "button"; b.setAttribute("aria-label", v+" coin");
+    b.addEventListener("click", function(){ if(!alive()) return;
+      paid += v; coinsUsed.push(v); tray.appendChild(el("span","cz-coinin", coinSVG(v))); tone(1500, 0, .06, "triangle", .1); tone(2000, .05, .1, "triangle", .08);
+      paidEl.textContent = "Paid: "+paid;
+      if(paid===price) return answer(true, b, function(){ W.spots.forEach(function(s, i){ setTimeout(function(){ scrub(s); }, i*90); }); setTimeout(function(){ shine(W.box); }, 400); return 600; });
+      if(paid>price){ answer(false, b); say("Too many! Let's count again. Pay "+price+"!"); paid = 0; coinsUsed = []; tray.innerHTML = ""; paidEl.textContent = "Paid: 0"; }
+      else say(String(paid)+"!");
+    }); coins.appendChild(b); });
+  area.appendChild(tray); area.appendChild(coins);
+};
+
+/* ===== Road Race: drive along a number track; your car zooms ahead with every right answer ===== */
+ENGINES.race = function(area, c){
+  var me = G, round = c.round, alive = aliveFor(me, round), myCol = stripCol(), q, sub, start, move, step, lo, cnt, end;
+  if(c.a===1){
+    step = 1; lo = 0; cnt = 6; move = rand(1, c.t<.5 ? 2 : 3); start = c.t<.6 ? 0 : rand(0, 5-move);
+    q = "Drive "+move+" "+plural(move, "space", "spaces")+"! Tap where your car will stop."; sub = "Hop one space at a time.";
+  } else if(c.a===2){
+    step = 1; var back = c.t>=.5 && Math.random()<.4; move = rand(1, lerp(3, 6, c.t));
+    lo = rand(0, 10); cnt = 11; start = back ? lo + rand(move, 10) : lo + rand(0, 10-move);
+    if(back) move = -move;
+    q = "Your car is on "+start+". "+(move>0 ? "Drive "+move+" more." : "Back up "+(-move)+".")+" Where will it stop?"; sub = move>0 ? "Count on from "+start+"." : "Count back from "+start+".";
+  } else {
+    step = c.t<.5 ? 10 : pick([5, 10]); cnt = 11; lo = step===10 ? 0 : 5*rand(0, 10);
+    var hops = rand(1, c.t<.5 ? 3 : 5), bk = c.t>=.4 && Math.random()<.35; move = hops*step*(bk ? -1 : 1);
+    var si = bk ? rand(hops, 10) : rand(0, 10-hops); start = lo + si*step;
+    q = "Your car is on "+start+". "+(move>0 ? "Drive "+move+" more." : "Back up "+(-move)+".")+" Where will it stop?"; sub = "Count by "+step+"s.";
+  }
+  end = start + move;
+  setPrompt(esc(q), sub); say(q);
+  var f = el("div","field cz-race"), track = el("div","cz-track"), spaces = [];
+  for(var i=0;i<cnt;i++){ var v = lo + i*step, sp = el("button","cz-space", c.a===1 ? (i===0 ? "GO" : '<b>'+v+'</b>') : String(v)); sp.type = "button"; sp.setAttribute("aria-label", c.a===1 && i===0 ? "start" : String(v)); sp.dataset.v = v; track.appendChild(sp); spaces.push(sp); }
+  f.appendChild(track);
+  var rival = el("span","cz-car rival", carSVG("#9AA4A6")), mine = el("span","cz-car mine", carSVG(myCol));
+  f.appendChild(rival); f.appendChild(mine); area.appendChild(f);
+  if(c.a===1){ var die = el("div","cz-die", '<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="8" y="8" width="84" height="84" rx="18" fill="#fff" stroke="#CFE3E0" stroke-width="4"/>'+({1:[[50,50]],2:[[30,30],[70,70]],3:[[28,28],[50,50],[72,72]]}[move]).map(function(p){ return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="9" fill="#173B40"/>'; }).join("")+'</svg>'); f.insertBefore(die, track); }
+  function place(node, v, lane){
+    var idx = Math.round((v-lo)/step), s = spaces[Math.max(0, Math.min(cnt-1, idx))]; if(!s) return;
+    node.style.left = (s.offsetLeft + s.offsetWidth/2)+"px"; node.style.top = (s.offsetTop + (lane ? s.offsetHeight + 4 : -2))+"px";
+  }
+  var rv = (G && G.czRival!=null) ? G.czRival : 0;
+  function lay(){ place(mine, start, 0); place(rival, lo + Math.min(cnt-1, Math.round((start-lo)/step) + (rv%2 ? 1 : -1))*step, 1); }
+  requestAnimationFrame(lay); var ro = function(){ if(G===me && G.round===round) lay(); }; window.addEventListener("resize", ro); onCleanup(function(){ window.removeEventListener("resize", ro); });
+  spaces.forEach(function(sp){ sp.addEventListener("click", function(){
+    if(!alive()) return; var v = +sp.dataset.v;
+    if(v!==end){ sp.classList.remove("wrong"); void sp.offsetWidth; sp.classList.add("wrong"); return answer(false, sp); }
+    answer(true, sp, function(){
+      var n = Math.abs(move/step), dir = move>0 ? 1 : -1, k = 0; mine.classList.add("driving"); vroom(.25*n + .3);
+      (function hop(){ if(G!==me || G.round!==round) return; k++; place(mine, start + dir*k*step, 0); tone(500 + k*70, 0, .1, "triangle", .1); if(k<n) setTimeout(hop, reduce ? 60 : 280); else { mine.classList.remove("driving"); sp.classList.add("right"); } })();
+      if(G) G.czRival = rv + 1;
+      return 300 + n*280;
+    });
+  }); });
+};
+
+/* ===== the four car worlds ===== */
+GAMES.push(
+  {id:"garage", name:"Garage Park", skill:"Matching & sums", area:"Numbers", age:"2–7", bg:"#FFE6DA", color:"#E8662E",
+   about:"Drives each car into its matching garage: colors and shapes, then numbers and letters, then sums.",
+   art:'<svg viewBox="0 0 150 120"><g transform="translate(74 18) scale(.6)">'+inner(garageSVG({roof:"#E7466B", door:"#E7466B"}))+'</g><g transform="translate(2 58) scale(.52)">'+carBody(COLORS.red)+'</g></svg>'},
+  {id:"traffic", name:"Traffic Lights", skill:"Stop, go & road signs", area:"Logic", age:"2–7", bg:"#E2EEDC", color:"#3F8F4A",
+   about:"Stops on red and goes on green, learns the light order and road sign shapes, then counts wheels and waiting cars.",
+   art:'<svg viewBox="0 0 150 120"><g transform="translate(14 8) scale(.6)">'+inner(lightSVG("green"))+'</g><g transform="translate(52 56) scale(.56)">'+carBody(COLORS.blue)+'</g></svg>'},
+  {id:"carwash", name:"Car Wash", skill:"Counting & taking away", area:"Numbers", age:"2–7", bg:"#DDF1FB", color:"#2B8FC7",
+   about:"Washes muddy cars spot by spot: count, wash just enough, take away, add and pay with coins.",
+   art:'<svg viewBox="0 0 150 120"><g transform="translate(14 34) scale(.76)">'+carBody(COLORS.green)+'<g transform="translate(40 50)">'+inner(mudSVG())+'</g><g transform="translate(86 46)">'+inner(BUB)+'</g></g><g transform="translate(100 6) scale(.7)">'+inner(BUB)+'</g><g transform="translate(70 0) scale(.5)">'+inner(BUB)+'</g></svg>'},
+  {id:"race", name:"Road Race", skill:"Counting on & number lines", area:"Math", age:"2–7", bg:"#FFF1C9", color:"#D99A06",
+   about:"Races along a number track: hop spaces, count on and back, then skip count by 5s and 10s.",
+   art:'<svg viewBox="0 0 150 120"><rect x="6" y="78" width="138" height="22" rx="8" fill="#5E6E72"/><path d="M14 89h18M42 89h18M70 89h18M98 89h18" stroke="#fff" stroke-width="4" stroke-linecap="round"/><g transform="translate(122 34)"><rect x="0" y="0" width="4" height="46" fill="#173B40"/><path d="M4 2h20v14H4z" fill="#fff"/><path d="M4 2h5v5H4zM14 2h5v5h-5zM9 7h5v5H9zM19 7h5v5h-5zM4 12h5v4H4zM14 12h5v4h-5z" fill="#173B40"/></g><g transform="translate(10 34) scale(.6)">'+carBody(COLORS.orange)+'</g></svg>'}
+);
+AGE_TXT.garage = ["Park cars by color and shape","Match numbers, dots and letters","Park by the answer: add, take away, ten more"];
+AGE_TXT.traffic = ["Stop on red, go on green","Light order, slow down, walk or wait, signs","Count wheels, sign sides and waiting cars"];
+AGE_TXT.carwash = ["Tap and count the mud spots","Wash just enough, more or fewer","Take away, add and pay with coins"];
+AGE_TXT.race = ["Roll and drive 1 to 3 spaces","Count on and back on a number track","Skip count by 5s and 10s up to 100"];
+MUSIC_OF.garage = "numbers"; MUSIC_OF.traffic = "nature"; MUSIC_OF.carwash = "art"; MUSIC_OF.race = "pond";
+window.__v35 = {carSVG:carSVG, garageSVG:garageSVG, lightSVG:lightSVG, signSVG:signSVG};
 })();
 
 window.addEventListener("hashchange", route);
