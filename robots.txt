@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://firstfoundationkids.com/sitemap.xml
+Sitemap: https://www.firstfoundationkids.com/sitemap.xml
