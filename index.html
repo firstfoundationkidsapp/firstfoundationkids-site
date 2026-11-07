@@ -3144,10 +3144,11 @@ function vInit(){
 }
 /* the clip packs Pip needs: shared lines, the game's age group, and the child's name */
 /* age groups listed in the manifest's "y" use the second voice (packs named y_...) */
-function vYBand(b){ return !!(VP.man && VP.man.y && VP.man.y.indexOf(+b) >= 0 && VP.man.packs.y_shared); }
-function vY(){ try{ return /^#play-/.test(location.hash) && !!G && vYBand(G.band); }catch(e){ return false; } }
+/* "yno" lists games that keep the first voice everywhere (story games: their stories are not recorded in the second voice yet) */
+function vYBand(b, id){ return !!(VP.man && VP.man.y && VP.man.y.indexOf(+b) >= 0 && VP.man.packs.y_shared && !(id && VP.man.yno && VP.man.yno.indexOf(id) >= 0)); }
+function vY(){ try{ return /^#play-/.test(location.hash) && !!G && vYBand(G.band, G.id); }catch(e){ return false; } }
 function vPacks(g){
-  var y = g ? vYBand(g.band) : vY(), pre = y ? "y_" : "";
+  var y = g ? vYBand(g.band, g.id) : vY(), pre = y ? "y_" : "";
   var out = [pre+"shared"]; if(!VP.man) return ["shared"];
   if(g){ var p = pre+g.id+"-"+g.band; if(VP.man.packs[p]) out.push(p); }
   var n = cheerName(); if(n){ var np = pre+"n_"+n.charAt(0).toLowerCase(); if(VP.man.packs[np]) out.push(np); }
