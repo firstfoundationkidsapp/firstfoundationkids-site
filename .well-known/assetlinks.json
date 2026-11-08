@@ -1,0 +1,12 @@
+[
+ {
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+   "namespace": "android_app",
+   "package_name": "com.firstfoundationkids.app",
+   "sha256_cert_fingerprints": [
+    "E7:00:35:6A:48:26:BD:D5:43:BE:67:3E:58:A3:D0:17:AD:37:34:25:B6:81:BA:55:D6:B6:B3:AA:9F:15:73:94"
+   ]
+  }
+ }
+]
