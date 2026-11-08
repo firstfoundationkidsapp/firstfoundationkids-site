@@ -4953,6 +4953,35 @@ refreshCheckout = function(){
   $("#payBox").textContent = "You'll pay on Stripe's secure checkout page. We never see or keep your card number. Cancel any time in My account.";
   $("#trialForm button[type=submit]").textContent = "Continue to secure payment";
 };
+/* ---------- v41: Android app (Google Play) mode ----------
+   The Play Store app opens /?source=android. Google Play does not allow other payment systems inside the app,
+   so in app mode the Stripe checkout and billing links are switched off. sessionStorage only: the app shares
+   Chrome's storage with the phone's browser, and the website in Chrome must keep Stripe. */
+var APP_MODE = (function(){
+  var on = /[?&]source=android/.test(location.search) || /^android-app:\/\/com\.firstfoundationkids\.app/.test(document.referrer || "");
+  try{ if(on) sessionStorage.setItem("ffk:app", "android"); else on = sessionStorage.getItem("ffk:app") === "android"; }catch(e){}
+  return on;
+})();
+var APP_SOON = "Subscriptions in the app are coming soon. Levels 1 to 3 of every game are free to play now.";
+if(APP_MODE){
+  document.documentElement.classList.add("ffk-app");
+  payGo = function(plan, email, code, btn, errEl){ if(errEl){ errEl.textContent = APP_SOON; errEl.hidden = false; } else toast(APP_SOON); };
+  payPortal = function(a, btn){ toast("This plan can be changed where it was bought."); };
+  var refreshCheckout1 = refreshCheckout;
+  refreshCheckout = function(){
+    refreshCheckout1();
+    if(CODE_ON && CODE_ON.kind==="gift") return;
+    $("#payBox").textContent = APP_SOON;
+    $("#payTotal").textContent = "Create a free account to save your child's progress.";
+    $("#trialForm button[type=submit]").textContent = "Create account";
+  };
+  var renderAccount1 = renderAccount;
+  renderAccount = function(){
+    renderAccount1();
+    $$("#acctBody p").forEach(function(el){ if(/handled securely by Stripe/.test(el.textContent)) el.parentNode.removeChild(el); });
+  };
+  try{ refreshCheckout(); }catch(e){}
+}
 
 /* ---------- v30: discount codes and free gift codes ---------- */
 /* A code looks like NAME-TERMS[-UYYMMDD]-CHECK. TERMS: D20 = 20% off the first payment on any plan (D20Y = Yearly only, D20MF = Monthly and Family);
