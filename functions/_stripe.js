@@ -121,5 +121,5 @@ export async function describe(env, sub) {
   const it = sub.items && sub.items.data[0], pr = it && it.price;
   const plan = (sub.metadata && PLANS[sub.metadata.plan] ? sub.metadata.plan : null) || await planOfPrice(env, pr && pr.id, pr && pr.unit_amount, pr && pr.recurring && pr.recurring.interval);
   const live = ["active", "trialing", "past_due"].indexOf(sub.status) >= 0;
-  return { plan, status: live ? (sub.cancel_at_period_end ? "cancelled" : "active") : "ended", renews: periodEnd(sub), sub: sub.id, stripeStatus: sub.status };
+  return { plan, status: live ? (sub.cancel_at_period_end || sub.cancel_at || sub.canceled_at ? "cancelled" : "active") : "ended", renews: periodEnd(sub), sub: sub.id, stripeStatus: sub.status };
 }
