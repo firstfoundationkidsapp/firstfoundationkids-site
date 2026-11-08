@@ -50,7 +50,7 @@ export async function priceIds(env) {
       if (m) ids[p] = m.id;
     }
   }
-  priceCache = { key: env.STRIPE_SECRET_KEY, ids };
+  if (Object.keys(ids).length === 3) priceCache = { key: env.STRIPE_SECRET_KEY, ids }; // keep looking until all 3 plans exist
   return ids;
 }
 export async function planOfPrice(env, priceId, amount, interval) {
