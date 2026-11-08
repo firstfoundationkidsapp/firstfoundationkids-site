@@ -4784,6 +4784,99 @@ function renderAccount(){
   var kf = $("#kidForm"); if(kf) kf.addEventListener("submit", function(e){ e.preventDefault(); var n = $("#kName").value.trim(); if(!n){ $("#kName").focus(); return; } a.kids.push({id:newId(), name:n, age:$("#kAge").value}); done(n+" was added."); });
 }
 
+/* ---------- v40: real payments with Stripe on the live site ----------
+   The live site (firstfoundationkids.com, *.pages.dev) sends paid plans to Stripe Checkout through /api/checkout,
+   checks the result with /api/verify, refreshes the plan with /api/status, and opens Stripe's billing page with /api/portal.
+   The Claude preview has no server, so it keeps the old pretend checkout. Add ?paytest=1 to force live mode in tests. */
+var PAY_LIVE = /(^|\.)firstfoundationkids\.com$|\.pages\.dev$/.test(location.hostname) || /[?&]paytest=1/.test(location.search);
+function payPost(path, body){ return fetch(path, {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify(body)}).then(function(r){ return r.json().catch(function(){ return {error:"The payment server didn't answer. Please try again."}; }); }, function(){ return {error:"No internet connection. Please try again."}; }); }
+function payGo(plan, email, code, btn, errEl){
+  var txt = btn ? btn.textContent : "";
+  if(btn){ btn.disabled = true; btn.textContent = "Opening secure checkout..."; }
+  payPost("/api/checkout", {plan:plan, email:email, code:code||""}).then(function(d){
+    if(d && d.url){ location.href = d.url; return; }
+    if(btn){ btn.disabled = false; btn.textContent = txt; }
+    var m = (d && d.error) || "Checkout didn't open. Please try again.";
+    if(errEl){ errEl.textContent = m; errEl.hidden = false; } else toast(m);
+  });
+}
+function payApply(d, welcome){
+  var em = (d.email||"").toLowerCase(), a = ACCTS[em], now = Date.now();
+  if(!em) return;
+  if(!a){ var k0 = {id:newId(), name:"Child", age:"4-5"}; a = ACCTS[em] = {name:d.name||"Grown-up", email:em, salt:newSalt(), hash:"", plan:d.plan, status:"pending", since:now, renews:now, agreed:{version:"1.0", at:now}, kids:[k0], active:k0.id}; }
+  a.plan = d.plan || a.plan; a.status = d.status; a.renews = d.renews || a.renews;
+  a.stripe = {customer:d.customer || (a.stripe && a.stripe.customer), token:d.token || (a.stripe && a.stripe.token), sub:d.sub, checked:now};
+  if(d.code){ a.codes = (a.codes||[]).concat(a.codes && a.codes.indexOf(d.code)>=0 ? [] : [d.code]); delete a.discount; }
+  SESSION = em; saveAccts(); syncAccount(); renderChip(); renderCards();
+  if(location.hash==="#account") renderAccount();
+  if(welcome){
+    var k = activeKid();
+    $("#wTitle").textContent = "You're all set"+(k && k.name!=="Child" ? ", "+k.name : "")+"!";
+    $("#wText").textContent = "Thank you! The "+PLANS[a.plan].name+" plan is active, and all "+totalLevels().toLocaleString("en-US")+" levels are open. Stripe emailed your receipt. Manage or cancel any time in My account."+(a.hash ? "" : " Set up your child in My account.");
+    showModal("welcome"); confetti(); sfx.fanfare(); say("Welcome to the pond!");
+  }
+}
+function payPortal(a, btn){
+  if(!a.stripe || !a.stripe.token){ toast("This plan wasn't bought on this device. Email us and we'll help."); return; }
+  if(btn){ btn.disabled = true; btn.textContent = "Opening..."; }
+  payPost("/api/portal", {customer:a.stripe.customer, token:a.stripe.token}).then(function(d){ if(d && d.url){ location.href = d.url; return; } if(btn){ btn.disabled = false; btn.textContent = "Manage plan"; } toast((d && d.error) || "Couldn't open billing. Please try again."); });
+}
+function payRefresh(force){
+  var a = me(); if(!PAY_LIVE || !a || !a.stripe || !a.stripe.token) return;
+  if(!force && a.stripe.checked && Date.now() - a.stripe.checked < 6*3600000 && Date.now() < a.renews) return;
+  payPost("/api/status", {customer:a.stripe.customer, token:a.stripe.token}).then(function(d){
+    if(!d || d.error) return;
+    var was = hasAccess(a);
+    if(d.plan) a.plan = d.plan; a.status = d.status; if(d.renews) a.renews = d.renews; a.stripe.sub = d.sub || a.stripe.sub; a.stripe.checked = Date.now();
+    saveAccts(); syncAccount(); renderChip(); renderCards(); if(location.hash==="#account") renderAccount();
+    if(was && !hasAccess(a)) toast("Your plan has ended. Levels 1 to 3 are still free.");
+  });
+}
+setTimeout(function(){
+  if(!PAY_LIVE) return;
+  var q = new URLSearchParams(location.search), sid = q.get("paid");
+  function clean(h){ try{ history.replaceState(null, "", location.pathname + (h || location.hash)); }catch(e){} }
+  if(sid){
+    clean();
+    fetch("/api/verify?session_id="+encodeURIComponent(sid)).then(function(r){ return r.json(); }).then(function(d){
+      if(d && !d.error) payApply(d, true); else toast((d && d.error) || "We couldn't confirm the payment yet. Refresh in a minute.");
+    }, function(){ toast("We couldn't confirm the payment yet. Refresh in a minute."); });
+  } else if(q.get("unpaid")){ clean(); toast("Payment wasn't finished, so no money was taken. You can pay any time from My account."); }
+  else if(q.get("billing")){ clean("#account"); payRefresh(true); }
+  else payRefresh(false);
+}, 400);
+var renderAccount0 = renderAccount;
+renderAccount = function(){
+  renderAccount0();
+  var a = me(); if(!PAY_LIVE || !a || a.owner) return;
+  function swap(id){ var b = $("#"+id); if(!b) return null; var n = b.cloneNode(true); b.parentNode.replaceChild(n, b); return n; }
+  var paid = !!(a.stripe && a.stripe.token && (a.status==="active" || a.status==="cancelled") && hasAccess(a));
+  var pill = $("#acctBody .acard .pill"); if(pill && a.status==="pending"){ pill.textContent = "Not paid yet"; }
+  var sw = swap("swBtn"), cb = swap("cancelBtn");
+  if(paid){
+    var fs = sw && sw.closest(".acard") ? $("fieldset", sw.closest(".acard")) : null; if(fs) fs.hidden = true;
+    if(sw){ sw.textContent = "Manage plan"; sw.addEventListener("click", function(){ payPortal(a, sw); }); }
+    if(cb){ cb.textContent = a.status==="active" ? "Cancel plan" : "Restart plan"; cb.addEventListener("click", function(){ payPortal(a, cb); }); }
+    else if(sw && a.status==="cancelled"){ sw.textContent = "Restart or manage plan"; }
+    var note = document.createElement("p"); note.style.cssText = "font-size:14px;color:var(--ink-soft)"; note.textContent = "Payments are handled securely by Stripe. Change your plan, update your card, see receipts or cancel there.";
+    if(sw) sw.parentNode.parentNode.insertBefore(note, sw.parentNode.nextSibling);
+  } else if(sw){
+    sw.textContent = a.status==="pending" ? "Pay and unlock" : a.status==="gift" ? "Start a paid plan" : "Choose a plan and pay";
+    sw.addEventListener("click", function(){
+      var k = ($("input[name=swPlan]:checked")||{}).value || a.plan, er = $("#acctErr");
+      if(PLANS[k].kids < a.kids.length){ er.textContent = "The "+PLANS[k].name+" plan allows "+PLANS[k].kids+" child profile. Remove children first, or keep the Family plan."; er.hidden = false; return; }
+      payGo(k, a.email, a.discount && a.discount.plans.indexOf(k)>=0 ? a.discount.code : "", sw, er);
+    });
+  }
+};
+var refreshCheckout0 = refreshCheckout;
+refreshCheckout = function(){
+  refreshCheckout0();
+  if(!PAY_LIVE || (CODE_ON && CODE_ON.kind==="gift")) return;
+  $("#payBox").textContent = "You'll pay on Stripe's secure checkout page. We never see or keep your card number. Cancel any time in My account.";
+  $("#trialForm button[type=submit]").textContent = "Continue to secure payment";
+};
+
 /* ---------- v30: discount codes and free gift codes ---------- */
 /* A code looks like NAME-TERMS[-UYYMMDD]-CHECK. TERMS: D20 = 20% off the first payment on any plan (D20Y = Yearly only, D20MF = Monthly and Family);
    GF12 = Family plan free for 12 months (GY6, GM1, GFL = no end date). U261231 = works until 31 Dec 2026. CHECK is made from a secret, so made-up codes fail.
@@ -5002,7 +5095,7 @@ $("#trialForm").addEventListener("submit", async function(e){
   var msg = "";
   if(!name) msg = "Add your name so we know who's in charge.";
   else if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) msg = "Enter an email like sam@example.com.";
-  else if(ACCTS[email]) msg = "That email already has an account. Sign in from My account instead.";
+  else if(ACCTS[email] && !(PAY_LIVE && ACCTS[email].status==="pending")) msg = "That email already has an account. Sign in from My account instead.";
   else if(pw.length < 8) msg = "Use a password with at least 8 characters.";
   else if(!$("#fAgree").checked) msg = "Please tick the box to agree to the Terms of Use and Privacy Policy.";
   else if(!kid) msg = "Add your child's first name so Pip can say hi.";
@@ -5011,6 +5104,14 @@ $("#trialForm").addEventListener("submit", async function(e){
   if(msg){ err.textContent = msg; err.hidden = false; return; }
   err.hidden = true;
   var plan = ($("input[name=plan]:checked")||{}).value || "yearly", cd = CODE_ON;
+  if(PAY_LIVE && !(cd && cd.kind==="gift")){
+    var salt0 = newSalt(), now0 = Date.now(), kid0 = {id:newId(), name:kid, age:$("#fAge").value}, old0 = ACCTS[email];
+    if(!old0){ var carry0 = PID==="guest" ? fixProg(JSON.parse(JSON.stringify(S))) : blankProg(); delete carry0.trial; carry0.band = kidBand(kid0); PROF[email+"#"+kid0.id] = carry0; }
+    ACCTS[email] = {name:name, email:email, salt:salt0, hash:await hashPw(pw, salt0), plan:plan, status:"pending", since:now0, renews:now0, agreed:{version:"1.0", at:now0}, kids:old0 ? old0.kids : [kid0], active:old0 ? old0.active : kid0.id};
+    SESSION = email; saveAccts(); syncAccount(); renderChip(); renderCards();
+    payGo(plan, email, cd && cd.kind==="discount" && cd.plans.indexOf(plan)>=0 ? cd.code : "", $("#trialForm button[type=submit]"), err);
+    return;
+  }
   var salt = newSalt(), now = Date.now(), kidObj = {id:newId(), name:kid, age:$("#fAge").value};
   var carry = PID==="guest" ? fixProg(JSON.parse(JSON.stringify(S))) : blankProg(); delete carry.trial; carry.band = kidBand(kidObj); PROF[email+"#"+kidObj.id] = carry;
   ACCTS[email] = {name:name, email:email, salt:salt, hash:await hashPw(pw, salt), plan:plan, status:"active", since:now, renews:now + PLANS[plan].days*86400000, agreed:{version:"1.0", at:now}, kids:[kidObj], active:kidObj.id};
