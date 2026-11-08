@@ -12,6 +12,7 @@ export async function onRequestPost({ request, env }) {
     const origin = new URL(request.url).origin;
     const p = {
       mode: "subscription",
+      managed_payments: { enabled: "false" }, // standard Stripe checkout; Managed Payments needs product tax codes
       line_items: { 0: { price: ids[plan], quantity: 1 } },
       customer_email: email,
       client_reference_id: email.slice(0, 200),
