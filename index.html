@@ -4845,18 +4845,37 @@ setTimeout(function(){
   else if(q.get("billing")){ clean("#account"); payRefresh(true); }
   else payRefresh(false);
 }, 400);
+/* grown-up lock: the account password (or a sum, if no password is saved) before billing or cancelling */
+function pwGate(a, btn, onOk){
+  var card = btn.closest(".acard"), old = $("#pwGate", card); if(old){ old.remove(); }
+  var x = 3+Math.floor(Math.random()*7), y = 4+Math.floor(Math.random()*6), usePw = !!a.hash;
+  var box = document.createElement("form"); box.id = "pwGate"; box.className = "confirm"; box.noValidate = true;
+  box.innerHTML = '<p><b>Grown-ups only.</b> '+(usePw ? 'Type your account password to continue.' : 'What is '+x+' × '+y+'?')+'</p>'+
+    '<input id="pgIn" '+(usePw ? 'type="password" autocomplete="current-password" placeholder="Your password"' : 'inputmode="numeric" autocomplete="off" placeholder="Answer"')+' style="font:inherit;font-size:17px;padding:10px 12px;border-radius:12px;border:3px solid var(--line);background:var(--card);color:var(--ink);width:100%;max-width:320px">'+
+    '<p class="err" id="pgErr" hidden></p><div class="row"><button class="btn btn-go btn-sm" type="submit">Continue</button><button class="btn btn-soft btn-sm" type="button" id="pgNo">Never mind</button></div>';
+  btn.parentNode.parentNode.insertBefore(box, btn.parentNode.nextSibling);
+  var inp = $("#pgIn", box); try{ inp.focus({preventScroll:true}); }catch(e){ inp.focus(); }
+  $("#pgNo", box).addEventListener("click", function(){ box.remove(); });
+  box.addEventListener("submit", async function(e){
+    e.preventDefault(); var v = inp.value, ok = usePw ? (await hashPw(v, a.salt)) === a.hash : parseInt(v,10) === x*y;
+    if(!ok){ var er = $("#pgErr", box); er.textContent = usePw ? "That password isn't right. Try again." : "That answer isn't right. Try again."; er.hidden = false; inp.value = ""; return; }
+    box.remove(); onOk();
+  });
+}
 var renderAccount0 = renderAccount;
 renderAccount = function(){
   renderAccount0();
-  var a = me(); if(!PAY_LIVE || !a || a.owner) return;
+  var a = me();
+  if(!PAY_LIVE && a && !a.owner){ var pcb = $("#cancelBtn"); if(pcb){ var n0 = pcb.cloneNode(true); pcb.parentNode.replaceChild(n0, pcb); n0.addEventListener("click", function(){ pwGate(a, n0, function(){ acctConfirm = "cancel"; renderAccount(); }); }); } }
+  if(!PAY_LIVE || !a || a.owner) return;
   function swap(id){ var b = $("#"+id); if(!b) return null; var n = b.cloneNode(true); b.parentNode.replaceChild(n, b); return n; }
   var paid = !!(a.stripe && a.stripe.token && (a.status==="active" || a.status==="cancelled") && hasAccess(a));
   var pill = $("#acctBody .acard .pill"); if(pill && a.status==="pending"){ pill.textContent = "Not paid yet"; }
   var sw = swap("swBtn"), cb = swap("cancelBtn");
   if(paid){
     var fs = sw && sw.closest(".acard") ? $("fieldset", sw.closest(".acard")) : null; if(fs) fs.hidden = true;
-    if(sw){ sw.textContent = "Manage plan"; sw.addEventListener("click", function(){ payPortal(a, sw); }); }
-    if(cb){ cb.textContent = a.status==="active" ? "Cancel plan" : "Restart plan"; cb.addEventListener("click", function(){ payPortal(a, cb); }); }
+    if(sw){ sw.textContent = "Manage plan"; sw.addEventListener("click", function(){ pwGate(a, sw, function(){ payPortal(a, sw); }); }); }
+    if(cb){ cb.textContent = a.status==="active" ? "Cancel plan" : "Restart plan"; cb.addEventListener("click", function(){ pwGate(a, cb, function(){ payPortal(a, cb); }); }); }
     else if(sw && a.status==="cancelled"){ sw.textContent = "Restart or manage plan"; }
     var note = document.createElement("p"); note.style.cssText = "font-size:14px;color:var(--ink-soft)"; note.textContent = "Payments are handled securely by Stripe. Change your plan, update your card, see receipts or cancel there.";
     if(sw) sw.parentNode.parentNode.insertBefore(note, sw.parentNode.nextSibling);
