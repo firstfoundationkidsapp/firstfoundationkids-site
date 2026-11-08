@@ -7,6 +7,12 @@ export const PLANS = {
   yearly: { amount: 7999, interval: "year", env: "PRICE_YEARLY" },
   family: { amount: 9999, interval: "year", env: "PRICE_FAMILY" },
 };
+const NAMES = { monthly: "FirstFoundationkids Monthly", yearly: "FirstFoundationkids Yearly", family: "FirstFoundationkids Family" };
+const DESCS = {
+  monthly: "All 30 levels in every learning world for 1 child. Billed every month.",
+  yearly: "All 30 levels in every learning world for 1 child. Billed once a year.",
+  family: "All 30 levels in every learning world for up to 4 children. Billed once a year.",
+};
 const CODE_KEY = "ffk:7Hq2wP9z:codes:v1"; // same key the page uses for discount codes
 const CB32 = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
@@ -49,6 +55,15 @@ export async function priceIds(env) {
         .sort((a, b) => b.created - a.created)[0];
       if (m) ids[p] = m.id;
     }
+  }
+  // Any plan still missing is created once in Stripe (product + recurring USD price).
+  for (const [p, c] of Object.entries(PLANS)) {
+    if (ids[p]) continue;
+    const prod = await stripe(env, "POST", "products", {
+      name: NAMES[p], description: DESCS[p], url: "https://www.firstfoundationkids.com/plans/", metadata: { plan: p },
+      default_price_data: { currency: "usd", unit_amount: c.amount, recurring: { interval: c.interval } },
+    });
+    ids[p] = prod.default_price;
   }
   if (Object.keys(ids).length === 3) priceCache = { key: env.STRIPE_SECRET_KEY, ids }; // keep looking until all 3 plans exist
   return ids;
