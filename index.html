@@ -4862,9 +4862,66 @@ function pwGate(a, btn, onOk){
     box.remove(); onOk();
   });
 }
+/* change password (signed in) and forgot password (sign-in page). Accounts live on this device, so a reset needs a grown-up check, not an email. */
+var PW_IN = 'style="font:inherit;font-size:17px;padding:10px 12px;border-radius:12px;border:3px solid var(--line);background:var(--card);color:var(--ink);width:100%;max-width:340px"';
+function pwExtras(){
+  var a = me(), body = $("#acctBody"); if(!body) return;
+  if(a && !a.owner){
+    var so = $("#signOut"); if(!so || $("#pwChBtn")) return;
+    var b = document.createElement("button"); b.className = "btn btn-soft btn-sm"; b.id = "pwChBtn"; b.type = "button"; b.textContent = a.hash ? "Change password" : "Set a password";
+    so.parentNode.insertBefore(b, so);
+    b.addEventListener("click", function(){
+      var old = $("#pwCh"); if(old){ old.remove(); return; }
+      var f = document.createElement("form"); f.id = "pwCh"; f.className = "confirm"; f.noValidate = true;
+      f.innerHTML = '<p><b>'+(a.hash ? 'Change password' : 'Set a password')+'</b></p>'+
+        (a.hash ? '<input id="pcOld" type="password" autocomplete="current-password" placeholder="Current password" '+PW_IN+'>' : '')+
+        '<input id="pcNew" type="password" autocomplete="new-password" placeholder="New password (at least 8 characters)" '+PW_IN+'>'+
+        '<input id="pcNew2" type="password" autocomplete="new-password" placeholder="Type the new password again" '+PW_IN+'>'+
+        '<p class="err" id="pcErr" hidden></p><div class="row"><button class="btn btn-go btn-sm" type="submit">Save new password</button><button class="btn btn-soft btn-sm" type="button" id="pcNo">Cancel</button></div>';
+      b.parentNode.parentNode.insertBefore(f, b.parentNode.nextSibling);
+      $("#pcNo", f).addEventListener("click", function(){ f.remove(); });
+      f.addEventListener("submit", async function(e){
+        e.preventDefault(); var er = $("#pcErr", f), n1 = $("#pcNew", f).value, n2 = $("#pcNew2", f).value, msg = "";
+        if(a.hash && (await hashPw($("#pcOld", f).value, a.salt)) !== a.hash) msg = "Your current password isn't right.";
+        else if(n1.length < 8) msg = "Use at least 8 characters for the new password.";
+        else if(n1 !== n2) msg = "The two new passwords don't match.";
+        if(msg){ er.textContent = msg; er.hidden = false; return; }
+        a.salt = newSalt(); a.hash = await hashPw(n1, a.salt); saveAccts(); f.remove(); toast("Password saved."); renderAccount();
+      });
+    });
+    return;
+  }
+  if(!a){
+    var lf = $("#loginForm"); if(!lf || $("#pwForgot")) return;
+    var l = document.createElement("p"); l.style.cssText = "font-size:15px;text-align:center"; l.innerHTML = '<a href="#account" id="pwForgot">Forgot your password?</a>';
+    lf.appendChild(l);
+    $("#pwForgot").addEventListener("click", function(e){
+      e.preventDefault(); var x = 4+Math.floor(Math.random()*6), y = 3+Math.floor(Math.random()*7);
+      lf.innerHTML = '<h2 style="font-size:22px">Reset your password</h2><p style="font-size:15px;color:var(--ink-soft)">Your account is saved on this device. A grown-up can set a new password here. Your plan and your children\'s progress stay the same.</p>'+
+        '<label for="fpEmail">Email<input id="fpEmail" type="email" autocomplete="email" placeholder="sam@example.com"></label>'+
+        '<label for="fpGate"><span>Grown-up check: what is <b>'+x+' × '+y+'</b>?</span><input id="fpGate" inputmode="numeric" autocomplete="off" placeholder="Type the answer"></label>'+
+        '<label for="fpNew">New password<input id="fpNew" type="password" autocomplete="new-password" placeholder="At least 8 characters"></label>'+
+        '<label for="fpNew2">New password again<input id="fpNew2" type="password" autocomplete="new-password" placeholder="Type it again"></label>'+
+        '<p class="err" id="fpErr" hidden></p><button class="btn btn-go" type="submit">Save and sign in</button><p style="font-size:15px;text-align:center"><a href="#account" id="fpBack">Back to sign in</a></p>';
+      $("#fpBack").addEventListener("click", function(ev){ ev.preventDefault(); renderAccount(); });
+      lf.addEventListener("submit", async function(ev){
+        ev.preventDefault(); ev.stopImmediatePropagation();
+        var em = $("#fpEmail").value.trim().toLowerCase(), acc = ACCTS[em], er = $("#fpErr"), n1 = $("#fpNew").value, msg = "";
+        if(parseInt($("#fpGate").value,10) !== x*y) msg = "The grown-up check answer isn't right.";
+        else if(!acc || acc.owner) msg = "There's no account with that email on this device. If you paid on another phone or computer, use that one, or email us at firstfoundationkidsapp@gmail.com and we'll help.";
+        else if(n1.length < 8) msg = "Use at least 8 characters for the new password.";
+        else if(n1 !== $("#fpNew2").value) msg = "The two new passwords don't match.";
+        if(msg){ er.textContent = msg; er.hidden = false; return; }
+        acc.salt = newSalt(); acc.hash = await hashPw(n1, acc.salt); SESSION = em; saveAccts(); syncAccount(); renderChip(); renderCards();
+        toast("New password saved. Welcome back, "+acc.name+"!"); renderAccount();
+      }, true);
+    });
+  }
+}
 var renderAccount0 = renderAccount;
 renderAccount = function(){
   renderAccount0();
+  pwExtras();
   var a = me();
   if(!PAY_LIVE && a && !a.owner){ var pcb = $("#cancelBtn"); if(pcb){ var n0 = pcb.cloneNode(true); pcb.parentNode.replaceChild(n0, pcb); n0.addEventListener("click", function(){ pwGate(a, n0, function(){ acctConfirm = "cancel"; renderAccount(); }); }); } }
   if(!PAY_LIVE || !a || a.owner) return;
