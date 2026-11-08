@@ -1,0 +1,48 @@
+{
+  "packageId": "com.firstfoundationkids.app",
+  "host": "www.firstfoundationkids.com",
+  "name": "FirstFoundationkids: Learn & Play",
+  "launcherName": "FFkids",
+  "display": "standalone",
+  "themeColor": "#E3F4F1",
+  "themeColorDark": "#16302B",
+  "navigationColor": "#E3F4F1",
+  "navigationColorDark": "#16302B",
+  "navigationDividerColor": "#E3F4F1",
+  "navigationDividerColorDark": "#16302B",
+  "backgroundColor": "#E3F4F1",
+  "enableNotifications": false,
+  "startUrl": "/?source=android",
+  "iconUrl": "https://www.firstfoundationkids.com/icon-512.png",
+  "maskableIconUrl": "https://www.firstfoundationkids.com/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./upload-key.jks",
+    "alias": "upload"
+  },
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://www.firstfoundationkids.com/site.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {
+    "playBilling": {
+      "enabled": true
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": false,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://www.firstfoundationkids.com/",
+  "minSdkVersion": 21,
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [
+    "firstfoundationkids.com"
+  ],
+  "retainedBundles": [],
+  "displayOverride": []
+}
