@@ -6,12 +6,16 @@ export const PLANS = {
   monthly: { amount: 999, interval: "month", env: "PRICE_MONTHLY" },
   yearly: { amount: 7999, interval: "year", env: "PRICE_YEARLY" },
   family: { amount: 9999, interval: "year", env: "PRICE_FAMILY" },
+  classroom15: { amount: 24999, interval: "year", env: "PRICE_CLASS15", classroom: true, seats: 15 },
+  classroom30: { amount: 34999, interval: "year", env: "PRICE_CLASS30", classroom: true, seats: 30 },
 };
-const NAMES = { monthly: "FirstFoundationkids Monthly", yearly: "FirstFoundationkids Yearly", family: "FirstFoundationkids Family" };
+const NAMES = { monthly: "FirstFoundationkids Monthly", yearly: "FirstFoundationkids Yearly", family: "FirstFoundationkids Family", classroom15: "FirstFoundationkids Classroom (up to 15 students)", classroom30: "FirstFoundationkids Classroom (up to 30 students)" };
 const DESCS = {
   monthly: "All 30 levels in every learning world for 1 child. Billed every month.",
   yearly: "All 30 levels in every learning world for 1 child. Billed once a year.",
   family: "All 30 levels in every learning world for up to 4 children. Billed once a year.",
+  classroom15: "Homework with all 30 levels in every learning world for up to 15 students. Billed once a year.",
+  classroom30: "Homework with all 30 levels in every learning world for up to 30 students. Billed once a year.",
 };
 const CODE_KEY = "ffk:7Hq2wP9z:codes:v1"; // same key the page uses for discount codes
 const CB32 = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -47,7 +51,7 @@ export async function priceIds(env) {
   if (priceCache && priceCache.key === env.STRIPE_SECRET_KEY) return priceCache.ids;
   const ids = {};
   for (const [p, c] of Object.entries(PLANS)) if (env[c.env]) ids[p] = env[c.env];
-  if (Object.keys(ids).length < 3) {
+  if (Object.keys(ids).length < Object.keys(PLANS).length) {
     const list = await stripe(env, "GET", "prices", { active: "true", type: "recurring", limit: 100 });
     for (const [p, c] of Object.entries(PLANS)) {
       if (ids[p]) continue;
@@ -65,7 +69,7 @@ export async function priceIds(env) {
     });
     ids[p] = prod.default_price;
   }
-  if (Object.keys(ids).length === 3) priceCache = { key: env.STRIPE_SECRET_KEY, ids }; // keep looking until all 3 plans exist
+  if (Object.keys(ids).length === Object.keys(PLANS).length) priceCache = { key: env.STRIPE_SECRET_KEY, ids }; // keep looking until all 3 plans exist
   return ids;
 }
 export async function planOfPrice(env, priceId, amount, interval) {

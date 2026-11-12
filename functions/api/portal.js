@@ -1,5 +1,5 @@
 // POST {customer, token} -> {url} of Stripe's page where parents switch plans, update their card or cancel.
-import { stripe, checkToken, priceIds, json, fail } from "../_stripe.js";
+import { stripe, checkToken, priceIds, json, fail, PLANS } from "../_stripe.js";
 
 export async function onRequestPost({ request, env }) {
   try {
@@ -13,7 +13,7 @@ export async function onRequestPost({ request, env }) {
       const have = await stripe(env, "GET", "billing_portal/configurations", { is_default: "true", limit: 1 });
       if (have.data.length) throw e;
       const ids = await priceIds(env), prods = {};
-      for (const id of Object.values(ids)) { const pr = await stripe(env, "GET", "prices/" + id); (prods[pr.product] = prods[pr.product] || []).push(id); }
+      for (const [pl, id] of Object.entries(ids)) { if (PLANS[pl] && PLANS[pl].classroom) continue; const pr = await stripe(env, "GET", "prices/" + id); (prods[pr.product] = prods[pr.product] || []).push(id); }
       const cfg = await stripe(env, "POST", "billing_portal/configurations", {
         business_profile: { headline: "FirstFoundationkids: manage your plan", privacy_policy_url: "https://www.firstfoundationkids.com/privacy/", terms_of_service_url: "https://www.firstfoundationkids.com/terms/" },
         default_return_url: "https://www.firstfoundationkids.com/?billing=1#account",

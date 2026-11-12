@@ -9,7 +9,7 @@ export function json(data, status = 200) {
 export function fail(msg, status = 400, extra) { return json(Object.assign({ error: msg }, extra || {}), status); }
 
 const SCHEMA = [
-  `CREATE TABLE IF NOT EXISTS teachers (email TEXT PRIMARY KEY, name TEXT, salt TEXT, hash TEXT, created INTEGER, plan_customer TEXT, plan_status TEXT, plan_renews INTEGER, plan_checked INTEGER)`,
+  `CREATE TABLE IF NOT EXISTS teachers (email TEXT PRIMARY KEY, name TEXT, salt TEXT, hash TEXT, created INTEGER, plan_customer TEXT, plan_name TEXT, plan_status TEXT, plan_renews INTEGER, plan_checked INTEGER)`,
   `CREATE TABLE IF NOT EXISTS sessions (token TEXT PRIMARY KEY, kind TEXT, who TEXT, expires INTEGER)`,
   `CREATE TABLE IF NOT EXISTS classes (id TEXT PRIMARY KEY, teacher TEXT, name TEXT, band INTEGER, created INTEGER)`,
   `CREATE INDEX IF NOT EXISTS classes_teacher ON classes(teacher)`,

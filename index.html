@@ -2016,6 +2016,14 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
 }
 @media (min-width:901px){nav.links{gap:0}nav.links a{padding:8px 5px}}
 @media (min-width:901px) and (max-width:1180px){#planChip{display:none}}
+.clplans{margin-top:18px;background:var(--card);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);display:grid;gap:14px;border:3px solid #FFD66B}
+.clplans h3{margin:0 0 4px}.clplans.warn{border-color:#FF9A3D}.clplans p{margin:0}
+.clplanrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.clplan{display:grid;gap:6px;justify-items:start;background:var(--pond);border-radius:var(--r-md);padding:14px 16px}
+.clplan b{font-size:18px}.clprice{font-family:var(--display);font-weight:900;font-size:28px}.clprice small{font-size:14px;font-weight:600;color:var(--ink-soft)}
+.classplans{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;background:var(--card);border-radius:var(--r-lg);padding:20px 24px;box-shadow:var(--shadow)}
+.classplans h3{margin:0 0 4px}.classplans p{margin:0;color:var(--ink-soft)}
+@media (max-width:620px){.clplanrow{grid-template-columns:1fr}}
 /* ---------- v46: Grade 4 and the three new worlds ---------- */
 .g46field{text-align:center}
 .g46eq{font-family:var(--display);font-weight:900;font-size:clamp(34px,8vw,64px);color:var(--ink);display:inline-flex;align-items:center;gap:.3em;flex-wrap:wrap;justify-content:center;line-height:1.1}
@@ -2767,6 +2775,7 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
           <a class="btn btn-soft" href="#subscribe" data-plan="family">Choose Family</a>
         </div>
       </div>
+      <div class="classplans"><div class="min-w0"><h3>For teachers and classrooms</h3><p>Give homework with kid logins. <b>Classroom 15:</b> $249.99 a year, up to 15 students. <b>Classroom 30:</b> $349.99 a year, up to 30 students. All prices in US dollars.</p></div><a class="btn btn-go" href="#teach">Set up a classroom</a></div>
       <div class="faq">
         <details><summary>What do we get without paying?</summary><p>Levels 1 to 3 of every age group in all <span data-count="worlds">38</span> worlds, plus Magic Paint, the Fruit &amp; Veggie Book and 3 Color Book pictures, with no account. Levels 4 to 30 and the rest of the Color Book unlock when you subscribe.</p></details>
         <details><summary>Which ages is FirstFoundationkids for?</summary><p>Ages 2 to 7. Rounds get harder as your child answers correctly, so older kids stay challenged.</p></details>
@@ -10450,7 +10459,11 @@ renderWorld = function(arg){
       T.loading = false;
       if(d._status===401){ T.token = null; tSave(); T.data = null; renderTeach(); return; }
       if(d.error){ $("#teachBody").innerHTML = '<div class="clcard"><p class="err">'+esc(d.error)+'</p><button class="btn btn-soft btn-sm" id="tRetry">Try again</button></div>'; $("#tRetry").addEventListener("click", function(){ tLoad(); }); return; }
-      T.data = d; if(!T.cls || !d.classes.some(function(c){ return c.id===T.cls; })) T.cls = d.classes.length ? d.classes[0].id : null;
+      T.data = d;
+      var cp = new URLSearchParams(location.search).get("classpaid");
+      if(cp){ try{ history.replaceState(null, "", location.pathname+"#teach"); }catch(e){}
+        api({action:"classpaid", session:cp}, T.token).then(function(r){ if(r.teacher){ T.data.teacher = r.teacher; renderTeach(); if(typeof confetti==="function") confetti(); toast("Thank you! Your Classroom plan is active. All 30 levels are open for homework."); } else toast(r.error || "We couldn't confirm the payment. Refresh in a minute, or email us."); }); }
+      if(!T.cls || !d.classes.some(function(c){ return c.id===T.cls; })) T.cls = d.classes.length ? d.classes[0].id : null;
       renderTeach(); if(T.cls) tProg(); if(then) then();
     });
   }
@@ -10458,10 +10471,20 @@ renderWorld = function(arg){
   function tPut(cls){ if(!T.data || !cls) return; var i = T.data.classes.map(function(c){ return c.id; }).indexOf(cls.id); if(i>=0) T.data.classes[i] = cls; else T.data.classes.push(cls); T.cls = cls.id; }
   function tProg(){ var c = tClass(); if(!c) return; api({action:"progress", classId:c.id}, T.token).then(function(d){ if(d.progress){ T.prog[c.id] = d.progress; if(curView==="teach" && T.cls===c.id) drawClass(); } }); }
   function tErr(d, fallback){ if(d && d._status===401){ T.token = null; tSave(); T.data = null; renderTeach(); toast("Please sign in again."); return true; } toast((d && d.error) || fallback || "That didn't work. Please try again."); return false; }
+  var CL_PLANS = [{id:"classroom15", n:"Classroom 15", price:"$249.99", seats:15}, {id:"classroom30", n:"Classroom 30", price:"$349.99", seats:30}];
+  var CL_PLAN_NAME = {classroom15:"Classroom 15", classroom30:"Classroom 30", family:"Family", yearly:"Yearly", monthly:"Monthly", "free-pass":"Free pass"};
   function proNote(){
+    var t = T.data.teacher, p = t.plan, nm = p && CL_PLAN_NAME[p.name] ? CL_PLAN_NAME[p.name] : "Plan";
+    if(t.planActive) return '<span class="pill '+(t.pro ? 'ok' : 'warn')+'">'+esc(nm)+' · '+t.kids+' of '+(t.seats>999 ? 'unlimited' : t.seats)+' students</span>'+(p && p.billing ? ' <button class="linkbtn" type="button" id="tBill">Manage plan</button>' : '');
+    return '<span class="pill warn">Free classroom · levels 1–3</span>';
+  }
+  function planBox(){
     var t = T.data.teacher, a = me(), canLink = a && a.stripe && a.stripe.token && hasAccess(a);
-    if(t.pro) return '<span class="pill ok">Plan linked · all 30 levels</span>'+(t.plan ? ' <button class="linkbtn" type="button" id="tUnlink">Unlink plan</button>' : '');
-    return '<span class="pill warn">Free classroom · levels 1–3</span> '+(canLink ? '<button class="btn btn-go btn-sm" type="button" id="tLink">Use my '+esc(PLANS[a.plan] ? PLANS[a.plan].name : "")+' plan here</button>' : '<a class="btn btn-soft btn-sm" href="#pricing">Unlock levels 4–30</a>');
+    if(t.planActive && t.pro) return "";
+    if(t.planActive && !t.pro) return '<div class="clplans warn"><p><b>Your plan covers '+t.seats+' student'+(t.seats===1?'':'s')+', and you have '+t.kids+'.</b> Levels 4 to 30 are paused until you remove some kids'+(t.seats<30 ? ' or switch to a bigger plan' : '')+'.</p>'+(t.seats<30 && t.plan && t.plan.billing ? '<button class="btn btn-go btn-sm" type="button" id="tBill2">Switch plan</button>' : '')+'</div>';
+    return '<div class="clplans"><div class="min-w0"><h3>Unlock all 30 levels for your class</h3><p class="clsmall">Free classrooms can give levels 1 to 3 of every game. A Classroom plan opens every level in every world for homework. Prices in US dollars, billed once a year, cancel any time.</p></div><div class="clplanrow">'+
+      CL_PLANS.map(function(pl){ return '<div class="clplan"><b>'+pl.n+'</b><span class="clprice">'+pl.price+'<small> / year</small></span><span>Up to '+pl.seats+' students</span><button class="btn btn-go btn-sm" type="button" data-buy="'+pl.id+'">Choose '+pl.n+'</button></div>'; }).join("")+'</div>'+
+      (canLink ? '<p class="clsmall">Teaching your own kids at home? <button class="linkbtn" type="button" id="tLink">Use my '+esc(PLANS[a.plan] ? PLANS[a.plan].name : "")+' plan</button> ('+(a.plan==="family" ? "up to 4 kids" : "1 kid")+').</p>' : '')+'</div>';
   }
   function renderTeach(){
     var box = $("#teachBody"); if(!box) return;
@@ -10495,12 +10518,16 @@ renderWorld = function(arg){
     var t = T.data.teacher, cs = T.data.classes;
     box.innerHTML = '<div class="tbar"><div class="min-w0"><b>'+esc(t.name)+'</b><span>'+esc(t.email)+'</span></div><div class="tbarr">'+proNote()+'<button class="btn btn-soft btn-sm" type="button" id="tOut">Sign out</button></div></div>'+
       '<div class="clchips" role="tablist" aria-label="Your classes">'+cs.map(function(c){ return '<button type="button" role="tab" data-cls="'+c.id+'" aria-selected="'+(c.id===T.cls)+'"><b>'+esc(c.name)+'</b><span>'+CL_BAND_SHORT[c.band]+' · '+c.kids.length+' kid'+(c.kids.length===1?'':'s')+'</span></button>'; }).join("")+
-      '<button type="button" class="clnew" id="tNewBtn">+ New class</button></div><div id="tNew" hidden></div><div id="tClass"></div>'+
+      '<button type="button" class="clnew" id="tNewBtn">+ New class</button></div>'+planBox()+'<div id="tNew" hidden></div><div id="tClass"></div>'+
       '<details class="clacct"><summary>Account settings</summary><form class="formcard" id="tPw" novalidate><h3>Change password</h3><label>Current password<input type="password" id="tPwOld" autocomplete="current-password"></label><label>New password<input type="password" id="tPwNew" autocomplete="new-password" placeholder="At least 8 characters"></label><button class="btn btn-soft btn-sm" type="submit">Change password</button></form>'+
       '<form class="formcard" id="tDel" novalidate><h3>Delete classroom account</h3><p class="clsmall">This deletes your account, every class, every kid login and all homework and stars. It can\'t be undone.</p><label>Type your password<input type="password" id="tDelPw" autocomplete="current-password"></label><button class="btn btn-soft btn-sm cldanger" type="submit">Delete everything</button></form></details>';
     $("#tOut").addEventListener("click", function(){ api({action:"logout"}, T.token); T.token = null; T.data = null; T.prog = {}; T.fresh = {}; tSave(); renderTeach(); toast("Signed out."); });
     var lk = $("#tLink"); if(lk) lk.addEventListener("click", function(){ var a = me(); busy(lk, true, "Linking...");
-      api({action:"linkplan", customer:a.stripe.customer, token:a.stripe.token}, T.token).then(function(d){ busy(lk, false); if(d.teacher){ T.data.teacher = d.teacher; renderTeach(); toast(d.teacher.pro ? "Plan linked. You can give all 30 levels now." : "That plan isn't active right now."); } else tErr(d); }); });
+      api({action:"linkplan", customer:a.stripe.customer, token:a.stripe.token}, T.token).then(function(d){ busy(lk, false); if(d.teacher){ T.data.teacher = d.teacher; renderTeach(); toast(d.teacher.planActive ? "Plan linked." : "That plan isn't active right now."); } else tErr(d); }); });
+    $$("[data-buy]", box).forEach(function(bt){ bt.addEventListener("click", function(){ busy(bt, true, "Opening checkout...");
+      api({action:"buyclass", plan:bt.dataset.buy}, T.token).then(function(d){ if(d.url){ location.href = d.url; return; } busy(bt, false); tErr(d, "Checkout didn't open. Please try again."); }); }); });
+    ["#tBill", "#tBill2"].forEach(function(sel){ var bb = $(sel); if(bb) bb.addEventListener("click", function(){ busy(bb, true, "Opening...");
+      api({action:"billing"}, T.token).then(function(d){ if(d.url){ location.href = d.url; return; } busy(bb, false); tErr(d, "Couldn't open billing. Please try again."); }); }); });
     var ul = $("#tUnlink"); if(ul) ul.addEventListener("click", function(){ if(!confirmTwice(ul, "Tap again to unlink")) return; api({action:"unlinkplan"}, T.token).then(function(d){ if(d.teacher){ T.data.teacher = d.teacher; renderTeach(); } else tErr(d); }); });
     $$("[data-cls]", box).forEach(function(b){ b.addEventListener("click", function(){ T.cls = b.dataset.cls; renderTeach(); tProg(); }); });
     $("#tNewBtn").addEventListener("click", function(){ drawNewClass(); });
@@ -10538,7 +10565,7 @@ renderWorld = function(arg){
       h += '<form class="formcard clform" id="aF" novalidate><h3>Give homework</h3>'+
         '<div class="clgrid2"><label>Grade or age group'+bandSelect("aB", c.band)+'</label><label>Game<select id="aG">'+gameOptions(c.band, defG)+'</select></label></div>'+
         '<div class="clgrid3"><label>From level<select id="aFrom">'+lvOptions(1, pro)+'</select></label><label>To level<select id="aTo">'+lvOptions(3, pro)+'</select></label><label>Due date (optional)<input type="date" id="aDue"></label></div>'+
-        (pro ? '' : '<p class="clsmall">Free classrooms can give levels 1 to 3 of every game. <a href="#pricing">A plan</a> unlocks levels 4 to 30.</p>')+
+        (pro ? '' : '<p class="clsmall">Free classrooms can give levels 1 to 3 of every game. A Classroom plan (see above) unlocks levels 4 to 30.</p>')+
         '<label>Note for the kids (optional)<input id="aNote" maxlength="200" placeholder="Try to get 3 stars on each level!"></label>'+
         '<fieldset class="clwho"><legend>Who gets it?</legend><label class="clcheck"><input type="radio" name="aW" value="all" checked> <span>Everyone in '+esc(c.name)+'</span></label>'+(c.kids.length ? '<label class="clcheck"><input type="radio" name="aW" value="some"> <span>Only some kids</span></label><div class="clkidpick" id="aKids" hidden>'+c.kids.map(function(k){ return '<label class="clcheck"><input type="checkbox" value="'+esc(k.user)+'"> <span>'+esc(k.name)+'</span></label>'; }).join("")+'</div>' : '')+'</fieldset>'+
         '<p class="err" id="aErr" hidden></p><button class="btn btn-go" type="submit">Give homework</button></form>';
@@ -10623,7 +10650,7 @@ renderWorld = function(arg){
       '<li><b>Make kid logins.</b> Type first names and we make a username and an easy password for each kid. Print the login cards.</li>'+
       '<li><b>Give homework:</b> pick a game, the levels and a due date, for everyone or just some kids.</li>'+
       '<li><b>Kids log in</b> on any phone, tablet or computer and see only their homework. You see who finished and their stars.</li></ol>'+
-      '<p class="clsmall"><b>Free:</b> unlimited classes and kids, levels 1 to 3 of every game. <b>With any plan:</b> give all 30 levels. Kids never need an email address.</p></div>';
+      '<p class="clsmall"><b>Free:</b> unlimited classes and kids, levels 1 to 3 of every game. <b>Classroom 15:</b> $249.99 a year for up to 15 students. <b>Classroom 30:</b> $349.99 a year for up to 30 students. Both open all 30 levels (US dollars). Kids never need an email address.</p></div>';
   }
 
   /* ---------- routing ---------- */

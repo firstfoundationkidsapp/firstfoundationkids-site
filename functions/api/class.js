@@ -2,7 +2,7 @@
 // GET  /api/class -> {ok, db} (is the database connected?)
 // Sign-in comes back as a token; send it as "authorization: Bearer <token>".
 import { json, fail, db, randHex, randInt, pwHash, same, newSession, session, endSession, tooMany, failed, cleared, kidPassword, cleanUser, cleanName, cleanEmail } from "../_class.js";
-import { stripe, checkToken, describe } from "../_stripe.js";
+import { stripe, checkToken, describe, priceIds, PLANS } from "../_stripe.js";
 
 const FREE_TO = 3, MAX_CLASSES = 40, MAX_KIDS = 60, MAX_ASSIGN = 300;
 
@@ -23,26 +23,32 @@ export async function onRequestPost({ request, env }) {
     if (!h) return fail("Unknown action.");
     const s = await session(D, request);
     if (h.who && (!s || s.kind !== h.who)) return fail(h.who === "t" ? "Please sign in again." : "Please log in again.", 401, { code: "signin" });
-    return await h.run({ b, env, D, s, ip });
+    return await h.run({ b, env, D, s, ip, origin: new URL(request.url).origin });
   } catch (e) { return fail(e.message || "Something went wrong.", e.status || 500); }
 }
 
 async function teacherRow(D, email) { return D.prepare("SELECT * FROM teachers WHERE email = ?").bind(email).first(); }
 function proList(env) { return String(env.CLASS_PRO_EMAILS || "").toLowerCase().split(/[\s,;]+/).filter(Boolean); }
-// Does this teacher have a paid plan? (a linked Stripe plan, or listed in CLASS_PRO_EMAILS)
-async function isPro(env, D, t) {
-  if (!t) return false;
-  if (proList(env).indexOf(t.email) >= 0) return true;
-  if (!t.plan_customer) return false;
+const SEATS = { monthly: 1, yearly: 1, family: 4, classroom15: 15, classroom30: 30 };
+async function kidCount(D, email) { const r = await D.prepare("SELECT COUNT(*) AS n FROM kids k JOIN classes c ON c.id = k.class_id WHERE c.teacher = ?").bind(email).first(); return r ? r.n : 0; }
+// What this teacher's plan allows: {active, plan, seats, kids, pro}. pro = levels 4 to 30 open (plan active and kids within its seats).
+async function planInfo(env, D, t) {
+  if (!t) return { active: false, plan: null, seats: 0, kids: 0, pro: false };
+  const kids = await kidCount(D, t.email);
+  if (proList(env).indexOf(t.email) >= 0) return { active: true, plan: "free-pass", seats: 9999, kids, pro: true };
+  if (!t.plan_customer) return { active: false, plan: null, seats: 0, kids, pro: false };
   if (env.STRIPE_SECRET_KEY && Date.now() - (t.plan_checked || 0) > 6 * 3600000) {
     try {
       const d = await planOf(env, t.plan_customer);
-      await D.prepare("UPDATE teachers SET plan_status = ?, plan_renews = ?, plan_checked = ? WHERE email = ?").bind(d.status, d.renews, Date.now(), t.email).run();
-      t.plan_status = d.status; t.plan_renews = d.renews;
+      await D.prepare("UPDATE teachers SET plan_status = ?, plan_renews = ?, plan_name = ?, plan_checked = ? WHERE email = ?").bind(d.status, d.renews, d.plan || t.plan_name, Date.now(), t.email).run();
+      t.plan_status = d.status; t.plan_renews = d.renews; t.plan_name = d.plan || t.plan_name;
     } catch (e) { /* keep the last known state */ }
   }
-  return (t.plan_status === "active" || t.plan_status === "cancelled") && (t.plan_renews || 0) > Date.now();
+  const active = (t.plan_status === "active" || t.plan_status === "cancelled") && (t.plan_renews || 0) > Date.now();
+  const seats = SEATS[t.plan_name] || 1;
+  return { active, plan: t.plan_name, seats, kids, pro: active && kids <= seats };
 }
+async function isPro(env, D, t) { return (await planInfo(env, D, t)).pro; }
 async function planOf(env, customer) {
   const list = await stripe(env, "GET", "subscriptions", { customer, status: "all", limit: 10 });
   const rank = { active: 0, trialing: 1, past_due: 2 };
@@ -50,7 +56,7 @@ async function planOf(env, customer) {
   if (!subs.length) return { status: "ended", renews: 0, plan: null };
   return describe(env, subs[0]);
 }
-function pubTeacher(t, pro) { return { email: t.email, name: t.name, pro, plan: t.plan_customer ? { status: t.plan_status, renews: t.plan_renews } : null }; }
+function pubTeacher(t, pi) { return { email: t.email, name: t.name, pro: pi.pro, kids: pi.kids, seats: pi.seats, planActive: pi.active, plan: t.plan_customer || pi.plan ? { name: pi.plan, status: t.plan_status, renews: t.plan_renews, billing: !!t.plan_customer } : null }; }
 async function ownClass(D, s, id) {
   const c = await D.prepare("SELECT * FROM classes WHERE id = ?").bind(String(id || "")).first();
   if (!c || c.teacher !== s.who) { const e = new Error("That class isn't yours."); e.status = 403; throw e; }
@@ -113,21 +119,49 @@ const HANDLERS = {
     const t = await teacherRow(D, s.who); if (!t) return fail("Please sign in again.", 401, { code: "signin" });
     const cs = (await D.prepare("SELECT * FROM classes WHERE teacher = ? ORDER BY created").bind(s.who).all()).results;
     const classes = []; for (const c of cs) classes.push(await classFull(D, c));
-    return json({ teacher: pubTeacher(t, await isPro(env, D, t)), classes, freeTo: FREE_TO });
+    return json({ teacher: pubTeacher(t, await planInfo(env, D, t)), classes, freeTo: FREE_TO });
   } },
   linkplan: { who: "t", run: async ({ b, env, D, s }) => {
     if (!(await checkToken(env, b.customer, b.token))) return fail("We couldn't find a paid plan on this device.", 403);
     const other = await D.prepare("SELECT email FROM teachers WHERE plan_customer = ? AND email != ?").bind(b.customer, s.who).first();
     if (other) return fail("This plan is already linked to another classroom account.", 409);
     const d = await planOf(env, b.customer);
-    await D.prepare("UPDATE teachers SET plan_customer = ?, plan_status = ?, plan_renews = ?, plan_checked = ? WHERE email = ?").bind(b.customer, d.status, d.renews, Date.now(), s.who).run();
+    await D.prepare("UPDATE teachers SET plan_customer = ?, plan_name = ?, plan_status = ?, plan_renews = ?, plan_checked = ? WHERE email = ?").bind(b.customer, d.plan, d.status, d.renews, Date.now(), s.who).run();
     const t = await teacherRow(D, s.who);
-    return json({ teacher: pubTeacher(t, await isPro(env, D, t)) });
+    return json({ teacher: pubTeacher(t, await planInfo(env, D, t)) });
+  } },
+  buyclass: { who: "t", run: async ({ b, env, D, s, origin }) => {
+    const plan = String(b.plan || ""); if (!PLANS[plan] || !PLANS[plan].classroom) return fail("Pick a Classroom plan.");
+    const t = await teacherRow(D, s.who), ids = await priceIds(env);
+    if (!ids[plan]) return fail("This plan isn't set up in Stripe yet.", 500);
+    const p = { mode: "subscription", managed_payments: { enabled: "false" }, line_items: { 0: { price: ids[plan], quantity: 1 } },
+      client_reference_id: ("class:" + t.email).slice(0, 200), metadata: { plan, teacher: t.email }, subscription_data: { metadata: { plan, teacher: t.email } },
+      success_url: origin + "/?classpaid={CHECKOUT_SESSION_ID}#teach", cancel_url: origin + "/#teach" };
+    if (t.plan_customer) p.customer = t.plan_customer; else p.customer_email = t.email;
+    const cs = await stripe(env, "POST", "checkout/sessions", p);
+    return json({ url: cs.url });
+  } },
+  classpaid: { who: "t", run: async ({ b, env, D, s }) => {
+    const id = String(b.session || ""); if (!/^cs_[A-Za-z0-9_]+$/.test(id)) return fail("Bad session.");
+    const cs = await stripe(env, "GET", "checkout/sessions/" + id, { expand: { 0: "subscription" } });
+    if (!cs.metadata || cs.metadata.teacher !== s.who) return fail("This payment belongs to another classroom account.", 403);
+    if (cs.status !== "complete" || !cs.subscription) return fail("This payment isn't finished.", 402);
+    const sub = typeof cs.subscription === "string" ? await stripe(env, "GET", "subscriptions/" + cs.subscription) : cs.subscription;
+    const d = await describe(env, sub);
+    await D.prepare("UPDATE teachers SET plan_customer = ?, plan_name = ?, plan_status = ?, plan_renews = ?, plan_checked = ? WHERE email = ?").bind(cs.customer, d.plan, d.status, d.renews, Date.now(), s.who).run();
+    const t = await teacherRow(D, s.who);
+    return json({ teacher: pubTeacher(t, await planInfo(env, D, t)) });
+  } },
+  billing: { who: "t", run: async ({ env, D, s, origin }) => {
+    const t = await teacherRow(D, s.who); if (!t.plan_customer) return fail("There's no plan to manage yet.");
+    const ps = await stripe(env, "POST", "billing_portal/sessions", { customer: t.plan_customer, return_url: origin + "/#teach" });
+    await D.prepare("UPDATE teachers SET plan_checked = 0 WHERE email = ?").bind(s.who).run();
+    return json({ url: ps.url });
   } },
   unlinkplan: { who: "t", run: async ({ env, D, s }) => {
-    await D.prepare("UPDATE teachers SET plan_customer = NULL, plan_status = NULL, plan_renews = NULL WHERE email = ?").bind(s.who).run();
+    await D.prepare("UPDATE teachers SET plan_customer = NULL, plan_name = NULL, plan_status = NULL, plan_renews = NULL WHERE email = ?").bind(s.who).run();
     const t = await teacherRow(D, s.who);
-    return json({ teacher: pubTeacher(t, await isPro(env, D, t)) });
+    return json({ teacher: pubTeacher(t, await planInfo(env, D, t)) });
   } },
   deleteaccount: { who: "t", run: async ({ b, D, s }) => {
     const t = await teacherRow(D, s.who);
@@ -156,12 +190,14 @@ const HANDLERS = {
   delclass: { who: "t", run: async ({ b, D, s }) => { const c = await ownClass(D, s, b.classId); await dropClass(D, c.id); return json({ ok: true }); } },
 
   /* ---------- kids ---------- */
-  addkids: { who: "t", run: async ({ b, D, s }) => {
+  addkids: { who: "t", run: async ({ b, env, D, s }) => {
     const c = await ownClass(D, s, b.classId);
     const list = (Array.isArray(b.kids) ? b.kids : []).map((k) => ({ name: cleanName(k && k.name, 30), user: cleanUser(k && k.user), password: String((k && k.password) || "").trim() })).filter((k) => k.name);
     if (!list.length) return fail("Type at least one name.");
     const n = await D.prepare("SELECT COUNT(*) AS n FROM kids WHERE class_id = ?").bind(c.id).first();
     if (n.n + list.length > MAX_KIDS) return fail("A class can have up to " + MAX_KIDS + " kids.");
+    const pi = await planInfo(env, D, await teacherRow(D, s.who));
+    if (pi.active && pi.kids + list.length > pi.seats) return fail("Your plan covers " + pi.seats + " student" + (pi.seats === 1 ? "" : "s") + " and you have " + pi.kids + ". " + (pi.seats < 30 ? "Switch to a bigger Classroom plan to add more." : "Remove a kid first, or make a second classroom account."), 402, { code: "seats" });
     const made = [];
     for (const k of list) {
       let user = k.user;
@@ -207,7 +243,7 @@ const HANDLERS = {
   /* ---------- homework ---------- */
   assign: { who: "t", run: async ({ b, env, D, s }) => {
     const c = await ownClass(D, s, b.classId), a = cleanAssign(b);
-    if (a.to > FREE_TO && !(await isPro(env, D, await teacherRow(D, s.who)))) return fail("Levels 4 to 30 need a plan. Free classrooms can give levels 1 to 3 of every game.", 402, { code: "needplan" });
+    if (a.to > FREE_TO && !(await isPro(env, D, await teacherRow(D, s.who)))) return fail("Levels 4 to 30 need a Classroom plan. Free classrooms can give levels 1 to 3 of every game.", 402, { code: "needplan" });
     const n = await D.prepare("SELECT COUNT(*) AS n FROM assignments WHERE class_id = ?").bind(c.id).first();
     if (n.n >= MAX_ASSIGN) return fail("This class has a lot of homework already. Delete some old ones first.");
     const id = "a" + randHex(6);
