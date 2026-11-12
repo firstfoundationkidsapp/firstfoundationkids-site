@@ -1888,6 +1888,154 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
 @media (prefers-reduced-motion: reduce){
   #area .choices.ps > .choice,#area .choices.ps > .choice .ps-d i,.vd,.vt-banner{animation:none!important}
 }
+
+/* ---------- v42: favorite subjects on the home page ---------- */
+.favs{margin:6px 0 26px}
+.favs .fhead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:6px 20px;margin-bottom:14px}
+.favs .fhead p.lead{max-width:520px;margin:0;font-size:16px;color:var(--ink-soft)}
+.favgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.fav{position:relative;display:flex;flex-direction:column;border-radius:var(--r-lg);padding:16px 16px 18px;background:var(--fbg);border:3px solid var(--fln);box-shadow:0 6px 0 var(--fln);min-width:0}
+.fav .fart{display:block;border-radius:20px;background:rgba(255,255,255,.6);aspect-ratio:16/10;overflow:hidden;text-decoration:none}
+.fav .fart svg{display:block;width:100%;height:100%}
+.fav h3{font-size:30px;margin:14px 0 2px;color:var(--fink)}
+.fav h3 a{color:inherit;text-decoration:none}
+.fav .fsub{font-size:15px;color:var(--ink);margin:0 0 12px;min-height:3.1em}
+.fav .fgo{align-self:flex-start;background:var(--fink);color:#fff;box-shadow:0 5px 0 rgba(23,59,64,.35);margin-bottom:14px}
+.fav .fchips{display:flex;flex-wrap:wrap;gap:8px}
+.fav .fchips a{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:4px 12px 4px 4px;background:#fff;border-radius:999px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;border:2px solid var(--fln)}
+.fav .fchips a .ic{display:inline-block;width:30px;height:30px;border-radius:50%;overflow:hidden;flex:none;background:var(--fbg)}
+.fav .fchips a .ic svg{width:100%;height:100%;display:block}
+.fav .fchips a:hover,.fav .fgo:hover{transform:translateY(-2px)}
+.fav-math{--fbg:#FFF0C9;--fln:#F2D27C;--fink:#B9780A}
+.fav-sci{--fbg:#DDF3D4;--fln:#A9DB9C;--fink:#2F8A3C}
+.fav-mus{--fbg:#DCEBFA;--fln:#A8CDEF;--fink:#2B6FB0}
+.fav-col{--fbg:#FCE0EA;--fln:#F2AFC4;--fink:#C22F55}
+.fav .wig{transform-box:fill-box;transform-origin:center;animation:favwig 2.6s ease-in-out infinite}
+.fav .wig.d2{animation-delay:-.9s}.fav .wig.d3{animation-delay:-1.7s}
+.fav .bob2{transform-box:fill-box;transform-origin:center;animation:favbob 2.2s ease-in-out infinite}
+@keyframes favwig{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes favbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.fav .wig,.fav .bob2{animation:none}}
+@media (max-width:980px){.favgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.favgrid{gap:10px}.fav{padding:10px 10px 12px;border-radius:22px}.fav .fart{border-radius:14px}.fav h3{font-size:22px;margin-top:8px}.fav .fsub{display:none}.fav .fgo{padding:8px 12px;font-size:14px;min-height:44px;margin-bottom:10px;align-self:stretch}.fav .fchips{gap:6px}.fav .fchips a{font-size:12px;min-height:36px;padding-right:8px;gap:4px;max-width:100%}.fav .fchips a .ic{width:26px;height:26px}}
+
+/* ---------- v43: printables, Pip's Path, subject chips ---------- */
+#filters .fcount{display:inline-block;min-width:22px;margin-left:6px;padding:0 6px;border-radius:999px;background:var(--pond);color:var(--ink-soft);font-size:12px;line-height:20px;text-align:center}
+#filters button[aria-pressed="true"] .fcount{background:rgba(255,255,255,.18);color:#fff}
+.artx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.artx:empty{display:none}
+.fav .fall{margin-top:auto;padding-top:12px;font-weight:700;font-size:14px;color:var(--fink);text-decoration:none}
+.fav .fall:hover{text-decoration:underline}
+#v-lessons .quick{grid-template-columns:repeat(3,minmax(0,1fr))}
+.qtile.qnew{position:relative}
+.qtile.qnew::after{content:"New";position:absolute;top:-8px;right:10px;background:var(--tang);color:#fff;font-size:11px;font-weight:700;border-radius:999px;padding:1px 8px}
+.newduo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.duo{display:flex;gap:18px;align-items:center;background:var(--card);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .15s}
+.duo:hover{transform:translateY(-3px)}
+.duo .duoart{flex:none;width:150px;height:120px;border-radius:20px;display:block;overflow:hidden}
+.duo .duoart svg{width:100%;height:100%;display:block}
+.duo b{display:block;font-family:var(--display);font-size:26px;line-height:1.1;margin:4px 0 6px}
+.duo .dtx{display:block;color:var(--ink-soft);font-size:15px;margin-bottom:12px}
+.duo-path .duoart{background:#DDF3D4}.duo-print .duoart{background:#FFF0C9}
+/* printables */
+.prkinds{margin-top:18px}
+.prgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:20px}
+.prcard{position:relative;display:flex;flex-direction:column;gap:6px;border:0;background:var(--card);border-radius:var(--r-md);padding:10px 10px 12px;box-shadow:var(--shadow);text-align:left;color:var(--ink);font:inherit;cursor:pointer;transition:transform .15s;min-width:0}
+.prcard:hover{transform:translateY(-3px)}
+.prthumb{display:block;position:relative;width:100%;aspect-ratio:700/940;max-width:100%;overflow:hidden;border-radius:10px;border:2px solid var(--line);background:#fff}
+.prthumb .prscale{position:absolute;left:0;top:0;transform-origin:0 0}
+.prthumb.pic{aspect-ratio:1}
+.prthumb.pic svg{width:100%;height:100%;display:block}
+.prcard b{font-size:15px;line-height:1.25}
+.prcard small{font-size:13px;color:var(--ink-soft)}
+.prcard .plock{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='5' y='9' width='10' height='7' rx='1.5' fill='white'/%3E%3Cpath d='M7 9V7a3 3 0 016 0v2' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E") center/20px no-repeat}
+.prcard .pfree{position:absolute;top:16px;right:16px;background:var(--leaf);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px}
+.prnote{margin-top:16px;font-size:14px;color:var(--ink-soft)}
+.prview{position:fixed;inset:0;z-index:110;background:rgba(23,59,64,.72);display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.prbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--card);border-radius:999px;padding:8px 10px 8px 18px;margin:0 auto 10px;max-width:760px;width:100%}
+.prbar b{flex:1;min-width:0;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prbar .btn{min-height:44px}
+.prstage{flex:1;min-height:0;overflow:auto;display:flex;justify-content:center}
+.prstage .prfit{position:relative;flex:none}
+.prstage .prscale{position:absolute;left:0;top:0;transform-origin:0 0;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+#printArea{display:none}
+/* the printed page (designed at 700 x 940 px = about 7.3 x 9.8 inches) */
+.sheet{width:700px;height:940px;background:#fff;color:#1d2b2e;font-family:var(--body);display:flex;flex-direction:column;padding:26px 34px 18px;box-sizing:border-box;overflow:hidden;line-height:1.3}
+.sheet .shhead{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:3px solid #1d2b2e;padding-bottom:10px}
+.sheet .shbrand{display:flex;align-items:center;gap:6px;font-family:var(--display);font-weight:900;font-size:22px;color:#1d2b2e}
+.sheet .shbrand b{color:#FF7F3F}
+.sheet .shbrand svg{width:44px;height:36px}
+.sheet .shname{font-size:18px;font-weight:600;display:flex;align-items:flex-end;gap:8px}
+.sheet .shname i{display:inline-block;width:230px;border-bottom:2px solid #1d2b2e;height:24px}
+.sheet .shtitle{font-family:var(--display);font-size:34px;font-weight:900;margin:16px 0 2px;color:#1d2b2e}
+.sheet .shins{font-size:17px;margin:0 0 12px;color:#33484c}
+.sheet .shbody{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-evenly;gap:10px}
+.sheet .shfoot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#5b6e71;border-top:1px solid #cfdcda;padding-top:8px;margin-top:10px}
+.sheet .shans{display:inline-block;transform:rotate(180deg);font-size:11px}
+.sheet .shrow{display:flex;align-items:center;gap:16px;border:2px dashed #c3d3d0;border-radius:16px;padding:10px 14px}
+.sheet .shpics{flex:1;display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.sheet .shpics svg{display:block}
+.sheet .shop{font-family:var(--display);font-weight:900;font-size:40px;color:#1d2b2e}
+.sheet .shbox{width:76px;height:76px;border:3px solid #1d2b2e;border-radius:14px;flex:none;background:#fff}
+.sheet .shnums{display:flex;gap:16px;flex:none}
+.sheet .shnums span{width:58px;height:58px;border:2px solid #9fb3b0;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:32px}
+.sheet .shgrid{display:grid;gap:14px}
+.sheet .shsum{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:900;font-size:42px;color:#1d2b2e;padding:6px 12px}
+.sheet .shsum .shbox{width:84px;height:62px}
+.sheet .shclock{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:22px;font-weight:600}
+.sheet .shclock svg{width:180px;height:180px}
+.sheet .shline{display:inline-block;width:70px;border-bottom:2px solid #1d2b2e;height:26px}
+.sheet .shcard{display:flex;flex-direction:column;align-items:center;gap:6px;border:2px dashed #c3d3d0;border-radius:16px;padding:10px;font-size:18px;font-weight:600;text-transform:capitalize}
+.sheet .shcard svg{width:96px;height:96px}
+.sheet .shpic{display:flex;justify-content:center;align-items:center;flex:1;min-height:0}
+.sheet .shpic svg{width:620px;height:620px}
+.sheet .shwhy{font-size:18px;display:flex;flex-direction:column;gap:18px}
+.sheet .shwhy i{display:block;border-bottom:2px solid #1d2b2e;height:24px}
+/* Pip's Path */
+.pathhero{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center;background:linear-gradient(135deg,#FFF6D8,#E4F6E0);border:3px solid var(--line);border-radius:var(--r-lg);padding:20px 24px;margin-top:16px}
+.pathhero .pnart{width:120px;height:96px;border-radius:20px;display:grid;place-items:center}
+.pathhero .pnart svg{width:100px;height:80px}
+.pathhero h2{font-size:clamp(26px,3.4vw,36px)}
+.pathhero p{color:var(--ink-soft);font-size:15px;margin-top:2px}
+.pathprog{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:16px;font-weight:600;font-size:15px}
+.pathprog .bar{flex:1 1 220px;height:16px;background:var(--card);border:2px solid var(--line)}
+.punits{display:grid;gap:18px;margin-top:22px}
+.punit{background:var(--card);border-radius:var(--r-lg);padding:16px 18px 30px;box-shadow:var(--shadow)}
+.punit.done{background:linear-gradient(180deg,#FFF8DD,#fff 60%)}
+.puhead{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.puhead h3{font-size:24px}
+.puhead span{font-size:14px;font-weight:600;color:var(--ink-soft)}
+.punit.done .puhead span{color:#B9780A}
+.pstones{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;position:relative}
+.pstones::before{content:"";position:absolute;left:10%;right:10%;top:44px;border-top:4px dashed #BFE0D9}
+.pstones li{position:relative;min-width:0}
+.pstones li:nth-child(even){transform:translateY(18px)}
+.pstone{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink);text-align:center}
+.pstone .pst{position:relative;width:88px;height:88px;max-width:100%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;border:4px solid var(--line);box-shadow:0 5px 0 rgba(23,59,64,.12);transition:transform .15s}
+.pstone .pst svg{width:64%;height:64%}
+.pstone:hover .pst{transform:translateY(-3px) scale(1.04)}
+.pstone b{font-size:14px;line-height:1.2}
+.pstone small{font-size:12px;color:var(--ink-soft);line-height:1.2}
+.pstone.done .pst{border-color:#E5A70F;box-shadow:0 5px 0 #E5A70F}
+.pstone.done .pst::after{content:"";position:absolute;right:-4px;bottom:-4px;width:28px;height:28px;border-radius:50%;background:var(--leaf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border:3px solid #fff}
+.pstone.next .pst{border-color:var(--tang);box-shadow:0 5px 0 var(--tang-dark),0 0 0 8px rgba(255,127,63,.22);animation:pnext 1.6s ease-in-out infinite}
+@keyframes pnext{50%{box-shadow:0 5px 0 var(--tang-dark),0 0 0 14px rgba(255,127,63,.1)}}
+.pstone.lock .pst{filter:grayscale(.6);opacity:.75;border-style:dashed}
+.pstone.lock .pst::after{content:"";position:absolute;right:-4px;bottom:-4px;width:26px;height:26px;border-radius:50%;background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='5' y='9' width='10' height='7' rx='1.5' fill='white'/%3E%3Cpath d='M7 9V7a3 3 0 016 0v2' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E") center/16px no-repeat}
+.pathmore{display:flex;justify-content:center;margin-top:20px}
+@media (prefers-reduced-motion:reduce){.pstone.next .pst{animation:none}}
+@media (max-width:980px){.prgrid{grid-template-columns:repeat(3,minmax(0,1fr))}#v-lessons .quick{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.newduo{grid-template-columns:minmax(0,1fr)}.artx{grid-template-columns:minmax(0,1fr)}.pathhero{grid-template-columns:auto minmax(0,1fr)}.pathhero .btn{grid-column:1/-1}}
+@media (max-width:520px){.prgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.duo{flex-direction:column;align-items:stretch}.duo .duoart{width:100%;height:110px}.pathhero{padding:14px}.pathhero .pnart{width:84px;height:70px}.pstones{gap:4px}.pstone .pst{width:60px;height:60px;border-width:3px}.pstone b{font-size:11px}.pstone small{display:none}.pstones::before{top:30px}.pstone.done .pst::after,.pstone.lock .pst::after{width:20px;height:20px;background-size:13px}.punit{padding:14px 10px 26px}}
+@media (max-width:400px){#v-lessons .quick{grid-template-columns:minmax(0,1fr)}}
+@media print{
+  @page{size:auto;margin:0.4in}
+  body.ffk-printing{background:#fff!important}
+  body.ffk-printing::before{display:none!important}
+  body.ffk-printing > *:not(#printArea){display:none!important}
+  body.ffk-printing #printArea{display:block!important}
+  body.ffk-printing #printArea .sheet{margin:0 auto;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style>
 <style>/* live site: stop tilted 3D cards from making phones scroll sideways */html,body{overflow-x:clip}</style>
 </head>
@@ -1980,6 +2128,72 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
       <span><svg aria-hidden="true"><use href="#ok"/></svg>Separate progress for each child</span>
     </div>
 
+
+    <!-- v42: favorite subjects -->
+    <section class="favs" aria-labelledby="favsTitle">
+      <div class="fhead">
+        <div><p class="eyebrow">Kids' favorites</p><h2 class="h2big" id="favsTitle">Math, science, music and coloring</h2></div>
+        <p class="lead">The four things kids ask for most. Tap a big button to jump straight in, or pick a game below it.</p>
+      </div>
+      <div class="favgrid">
+        <div class="fav fav-math">
+          <a class="fart" href="#world-count-2" data-w="count" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 240 150" aria-hidden="true"><rect x="0" y="118" width="240" height="32" fill="#F7DE9A"/>
+<g class="wig"><rect x="22" y="46" width="52" height="52" rx="12" fill="#FF7F3F"/><text x="48" y="84" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="38" font-weight="800" fill="#fff" text-anchor="middle">1</text></g>
+<text x="90" y="86" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="36" font-weight="800" fill="#B9780A" text-anchor="middle">+</text>
+<g class="wig d2"><rect x="106" y="46" width="52" height="52" rx="12" fill="#3E9BDB"/><text x="132" y="84" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="38" font-weight="800" fill="#fff" text-anchor="middle">2</text></g>
+<text x="174" y="86" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="36" font-weight="800" fill="#B9780A" text-anchor="middle">=</text>
+<g class="bob2"><circle cx="212" cy="72" r="24" fill="#4DB35A"/><text x="212" y="86" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="38" font-weight="800" fill="#fff" text-anchor="middle">3</text></g>
+<path d="M28 22l5 10 11 1.5-8 7.5 2 11-10-5.5-10 5.5 2-11-8-7.5 11-1.5z" fill="#FFC83A"/>
+<circle cx="40" cy="132" r="7" fill="#E7466B"/><circle cx="60" cy="132" r="7" fill="#8C5BD6"/><circle cx="80" cy="132" r="7" fill="#3E9BDB"/></svg></a>
+          <h3><a href="#world-count-2" data-w="count">Math</a></h3>
+          <p class="fsub">Counting, adding, shapes, time and number races.</p>
+          <a class="btn btn-sm fgo" href="#world-count-2" data-w="count" data-say="Let's count!">Play math</a>
+          <div class="fchips" data-games="sums,shapes,clock,race,storysums"></div>
+        </div>
+        <div class="fav fav-sci">
+          <a class="fart" href="#world-science-2" data-w="science" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 240 150" aria-hidden="true"><rect x="0" y="118" width="240" height="32" fill="#B6E2A8"/>
+<g class="bob2"><path d="M96 20h28v34l30 52a10 10 0 0 1-9 15H75a10 10 0 0 1-9-15l30-52z" fill="#fff" stroke="#2F8A3C" stroke-width="5" stroke-linejoin="round"/>
+<path d="M80 86h60l12 21a6 6 0 0 1-5 9H73a6 6 0 0 1-5-9z" fill="#8C5BD6"/><circle cx="98" cy="100" r="5" fill="#fff" opacity=".8"/><circle cx="118" cy="94" r="3.5" fill="#fff" opacity=".8"/><rect x="90" y="14" width="40" height="10" rx="5" fill="#2F8A3C"/></g>
+<circle class="wig" cx="112" cy="8" r="0" fill="none"/>
+<g class="wig d2"><circle cx="134" cy="2" r="0"/></g>
+<circle cx="140" cy="40" r="6" fill="#C9B4F0"/><circle cx="152" cy="22" r="8" fill="#C9B4F0" opacity=".8"/><circle cx="168" cy="8" r="5" fill="#C9B4F0" opacity=".6"/>
+<g class="wig"><path d="M190 118c0-30 0-44 0-56" stroke="#3E8E41" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M190 80c-22-2-30-18-28-30 16 0 28 12 28 30z" fill="#4DB35A"/><path d="M190 70c18-4 26-20 24-30-14 2-24 14-24 30z" fill="#6CC56F"/><circle cx="190" cy="54" r="10" fill="#FFC83A"/></g>
+<g class="wig d3"><circle cx="38" cy="58" r="22" fill="#FFC83A"/><path d="M38 24v8M38 84v8M4 58h8M64 58h8M14 34l6 6M56 76l6 6M14 82l6-6M56 40l6-6" stroke="#FFC83A" stroke-width="5" stroke-linecap="round"/></g></svg></a>
+          <h3><a href="#world-science-2" data-w="science">Science</a></h3>
+          <p class="fsub">Five senses, weather, living things, hot and cold, sink or float.</p>
+          <a class="btn btn-sm fgo" href="#world-science-2" data-w="science" data-say="Science time!">Play science</a>
+          <div class="fchips" data-games="animals,veggies,size"></div>
+        </div>
+        <div class="fav fav-mus">
+          <a class="fart" href="#world-music-2" data-w="music" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 240 150" aria-hidden="true"><rect x="0" y="118" width="240" height="32" fill="#B7D8F4"/>
+<g class="bob2"><ellipse cx="120" cy="80" rx="52" ry="14" fill="#E7466B"/><path d="M68 80v30c0 8 23 14 52 14s52-6 52-14V80" fill="#E7466B"/><path d="M68 80v30c0 8 23 14 52 14s52-6 52-14V80" fill="none" stroke="#B32A4C" stroke-width="4"/>
+<ellipse cx="120" cy="80" rx="52" ry="14" fill="#FFF3E0" stroke="#B32A4C" stroke-width="4"/><path d="M76 88l18 32M100 92l12 32M140 92l-12 32M164 88l-18 32" stroke="#FFC83A" stroke-width="4"/></g>
+<g class="wig"><path d="M84 58L110 30" stroke="#9A6A44" stroke-width="6" stroke-linecap="round"/><circle cx="112" cy="28" r="7" fill="#FFC83A"/></g>
+<g class="wig d2"><path d="M156 58L132 30" stroke="#9A6A44" stroke-width="6" stroke-linecap="round"/><circle cx="130" cy="28" r="7" fill="#FFC83A"/></g>
+<g class="wig d3"><path d="M30 70V26l24-6v42" stroke="#2B6FB0" stroke-width="5" fill="none" stroke-linejoin="round"/><ellipse cx="24" cy="70" rx="10" ry="8" fill="#2B6FB0"/><ellipse cx="48" cy="62" rx="10" ry="8" fill="#2B6FB0"/></g>
+<g class="wig"><path d="M206 64V24c8 2 16 8 16 18" stroke="#8C5BD6" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="198" cy="66" rx="11" ry="8.5" fill="#8C5BD6"/></g>
+<circle cx="186" cy="100" r="4" fill="#FFC83A"/><circle cx="50" cy="100" r="4" fill="#4DB35A"/></svg></a>
+          <h3><a href="#world-music-2" data-w="music">Music</a></h3>
+          <p class="fsub">Drum along, copy the beat and hear the animal chorus.</p>
+          <a class="btn btn-sm fgo" href="#world-music-2" data-w="music" data-say="Let's make music!">Play music</a>
+          <div class="fchips" data-games="music,animals"></div>
+        </div>
+        <div class="fav fav-col">
+          <a class="fart" href="#colorbook" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 240 150" aria-hidden="true"><rect x="0" y="118" width="240" height="32" fill="#F6C2D3"/>
+<rect x="70" y="18" width="100" height="96" rx="10" fill="#fff" stroke="#F2AFC4" stroke-width="4"/>
+<circle cx="120" cy="58" r="22" fill="#FFC83A"/><path d="M92 106c8-22 20-30 28-30s20 8 28 30z" fill="#4DB35A"/><path d="M84 40q8-10 16 0" stroke="#3E9BDB" stroke-width="4" fill="none" stroke-linecap="round"/>
+<g class="wig"><rect x="20" y="40" width="16" height="70" rx="4" fill="#E7466B" transform="rotate(-14 28 75)"/><path d="M20 40l8-16 8 16z" fill="#E7466B" transform="rotate(-14 28 75)"/></g>
+<g class="wig d2"><rect x="42" y="52" width="16" height="64" rx="4" fill="#3E9BDB" transform="rotate(-4 50 84)"/><path d="M42 52l8-16 8 16z" fill="#3E9BDB" transform="rotate(-4 50 84)"/></g>
+<g class="bob2"><path d="M200 26l14 14-44 52-12 2 2-12z" fill="#8C5BD6"/><path d="M158 82l12 10c-4 10-14 16-26 14 6-6 6-18 14-24z" fill="#FF7F3F"/></g>
+<circle cx="196" cy="104" r="9" fill="#FFC83A"/><circle cx="214" cy="92" r="6" fill="#4DB35A"/><circle cx="216" cy="112" r="5" fill="#E7466B"/></svg></a>
+          <h3><a href="#colorbook">Coloring</a></h3>
+          <p class="fsub">100 pictures to color, magic paint and color mixing.</p>
+          <a class="btn btn-sm fgo" href="#colorbook" data-say="Let's color!">Start coloring</a>
+          <div class="fchips"><a href="#paint"><span class="ic" style="background:#fff"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#FCE0EA"/><path d="M22 6l3 3-10 11-3 1 1-3z" fill="#8C5BD6"/><path d="M12 18l3 3c-1 3-4 4-7 3 2-2 2-5 4-6z" fill="#FF7F3F"/></svg></span>Magic Paint</a></div>
+          <div class="fchips" data-games="colors" style="margin-top:8px"></div>
+        </div>
+      </div>
+    </section>
     <div class="ages" aria-label="Age groups">
       <div class="age"><span class="yrs">Ages 2–3</span><h3>Tadpoles</h3><p>Big pictures, two or three choices, colors, shapes and counting to 5.</p></div>
       <div class="age"><span class="yrs">Ages 4–5</span><h3>Froglets</h3><p>Letters and sounds, numbers to 20, first patterns and first mixing.</p></div>
@@ -2012,10 +2226,20 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
     </div>
   </section>
 
+  <!-- v43: path and printables -->
+  <section class="band" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="newduo">
+        <a class="duo duo-path" href="#path"><span class="duoart"><svg viewBox="0 0 150 120" aria-hidden="true"><path d="M10 104C40 104 30 70 64 70S96 40 128 34" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M10 104C40 104 30 70 64 70S96 40 128 34" stroke="#9ACF8C" stroke-width="3" fill="none" stroke-dasharray="6 7" stroke-linecap="round"/><ellipse cx="22" cy="102" rx="15" ry="7" fill="#4DB35A"/><ellipse cx="64" cy="70" rx="15" ry="7" fill="#4DB35A"/><ellipse cx="102" cy="48" rx="15" ry="7" fill="#4DB35A"/><path d="M128 14l4 9 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#FFC83A"/><text x="22" y="99" text-anchor="middle" font-family="Grandstander,sans-serif" font-weight="900" font-size="12" fill="#fff">1</text><text x="64" y="67" text-anchor="middle" font-family="Grandstander,sans-serif" font-weight="900" font-size="12" fill="#fff">2</text><text x="102" y="45" text-anchor="middle" font-family="Grandstander,sans-serif" font-weight="900" font-size="12" fill="#fff">3</text></svg></span><span class="min-w0"><span class="eyebrow">New · Pip's Path</span><b>A step-by-step learning path</b><span class="dtx">Math, reading, science, music and thinking games in a set order, one short stop at a time. Your child always knows what to play next.</span><span class="btn btn-go btn-sm">Start the path</span></span></a>
+        <a class="duo duo-print" href="#printables"><span class="duoart"><svg viewBox="0 0 150 120" aria-hidden="true"><rect x="34" y="12" width="70" height="94" rx="6" fill="#fff" stroke="#E5A70F" stroke-width="3" transform="rotate(-6 69 59)"/><rect x="46" y="16" width="70" height="94" rx="6" fill="#fff" stroke="#173B40" stroke-width="3"/><path d="M56 32h40M56 42h28" stroke="#173B40" stroke-width="3" stroke-linecap="round"/><circle cx="64" cy="62" r="7" fill="#E7466B"/><circle cx="82" cy="62" r="7" fill="#3E9BDB"/><circle cx="100" cy="62" r="7" fill="#4DB35A"/><rect x="58" y="80" width="18" height="18" rx="4" fill="none" stroke="#173B40" stroke-width="2.5"/><text x="96" y="95" text-anchor="middle" font-family="Grandstander,sans-serif" font-weight="900" font-size="18" fill="#FF7F3F">3</text><path d="M120 30l12 12-34 40-14 4 3-14z" fill="#FFC83A" stroke="#173B40" stroke-width="2.5" stroke-linejoin="round"/></svg></span><span class="min-w0"><span class="eyebrow">New · Printables</span><b>Worksheets and coloring pages</b><span class="dtx">Counting, adding, letter tracing, telling time, shapes, sink or float, and 100 coloring pages to print at home.</span><span class="btn btn-soft btn-sm">See printables</span></span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="band">
     <div class="wrap">
       <p class="eyebrow">What they learn</p>
-      <h2 class="h2big">Eight learning areas, a School and a Studio</h2>
+      <h2 class="h2big">Nine subjects, a School and a Studio</h2>
       <div class="areas" id="homeAreas"></div>
     </div>
   </section>
@@ -2156,12 +2380,50 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
         <a class="qtile" href="#food"><span class="ic" style="background:#FFE9EE" id="qFood"></span><span><b>Fruit &amp; Veggie Book</b><span>Tap to hear 27 foods</span></span></a>
         <a class="qtile" href="#studio"><span class="ic" style="background:#DCEBFA"><svg viewBox="0 0 150 120" aria-hidden="true"><rect x="24" y="16" width="102" height="78" rx="10" fill="#fff" stroke="#173B40" stroke-width="5"/><path d="M44 80a31 31 0 0162 0" stroke="#E7466B" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M58 80a17 17 0 0134 0" stroke="#3E9BDB" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M60 94l-10 20M90 94l10 20" stroke="#9A6A44" stroke-width="6" stroke-linecap="round"/></svg></span><span><b>Studio</b><span>Paint, color and type</span></span></a>
         <a class="qtile" href="#prizes"><span class="ic" style="background:#FFF3B8" id="qPrize"></span><span><b>My prizes</b><span id="qPrizeTxt">Stickers, medals and hats</span></span></a>
+        <a class="qtile qnew" href="#path"><span class="ic" style="background:#DDF3D4"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 34C14 34 12 22 20 22S28 12 34 8" stroke="#4DB35A" stroke-width="3" fill="none" stroke-dasharray="4 4" stroke-linecap="round"/><circle cx="6" cy="34" r="4" fill="#4DB35A"/><circle cx="20" cy="22" r="4" fill="#4DB35A"/><path d="M34 3l2 4 4 .5-3 3 1 4-4-2-4 2 1-4-3-3 4-.5z" fill="#FFC83A"/></svg></span><span><b>Pip's Path</b><span>Step-by-step learning path</span></span></a>
+        <a class="qtile qnew" href="#printables"><span class="ic" style="background:#FFF0C9"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="9" y="5" width="22" height="30" rx="3" fill="#fff" stroke="#173B40" stroke-width="2.5"/><path d="M14 13h12M14 19h8" stroke="#173B40" stroke-width="2.2" stroke-linecap="round"/><circle cx="16" cy="27" r="3" fill="#E7466B"/><circle cx="24" cy="27" r="3" fill="#3E9BDB"/></svg></span><span><b>Printables</b><span>Worksheets and coloring pages</span></span></a>
       </div>
       <div class="lvlegend"><span><i class="lv">1</i>Free to play</span><span><i class="lv done">2</i>Stars earned</span><span><i class="lv locked">4</i>Needs a plan</span><span><i class="lv ms">15</i>Silver medal</span><span><i class="lv ms t30">30</i>Gold trophy</span></div>
       <div class="filters" id="filters" aria-label="Filter by learning area"></div>
       <div class="grid-games" id="allGames"></div>
     </div>
   </section>
+</div>
+
+<!-- ================= v43: PRINTABLES ================= -->
+<div class="view" id="v-printables">
+  <section class="band" style="padding-top:36px">
+    <div class="wrap">
+      <p class="eyebrow">For grown-ups · Print and play</p>
+      <h1 style="font-size:clamp(36px,5.5vw,60px);margin-top:6px">Printables</h1>
+      <p class="lead" style="margin-top:10px">Worksheets and coloring pages to print at home. Pick an age group, tap a page to see it big, then print it. Worksheets get a fresh mix every time you tap New mix.</p>
+      <div class="who" id="prWho" aria-label="Age group"></div>
+      <div class="filters prkinds" id="prKinds" role="group" aria-label="Kind of page"></div>
+      <div class="prgrid" id="prGrid"></div>
+      <p class="prnote" id="prNote"></p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= v43: PIP'S PATH ================= -->
+<div class="view" id="v-path">
+  <section class="band" style="padding-top:36px">
+    <div class="wrap">
+      <p class="eyebrow" id="pathEyebrow">Pip's Path</p>
+      <h1 style="font-size:clamp(36px,5.5vw,60px);margin-top:6px">Pip's Path</h1>
+      <p class="lead" style="margin-top:10px">A step-by-step path through math, reading, science, music and art, and thinking games. Each stop is one short level. Finish all five stops in a unit to win a path star.</p>
+      <div class="who" id="pathWho" aria-label="Age group"></div>
+      <div class="pathhero" id="pathNext"></div>
+      <div class="pathprog" id="pathProg"></div>
+      <div class="punits" id="pathUnits"></div>
+      <div class="pathmore" id="pathMore"></div>
+    </div>
+  </section>
+</div>
+
+<div class="prview" id="prView" hidden role="dialog" aria-modal="true" aria-labelledby="prVTitle">
+  <div class="prbar"><button type="button" class="btn btn-soft btn-sm" id="prClose">Close</button><b id="prVTitle">Printable page</b><button type="button" class="btn btn-soft btn-sm" id="prMix">New mix</button><button type="button" class="btn btn-go btn-sm" id="prPrint">Print</button></div>
+  <div class="prstage" id="prStage"><div class="prfit" id="prFit"><div class="prscale" id="prSheet"></div></div></div>
 </div>
 
 <!-- ================= PLAY ================= -->
@@ -2720,7 +2982,7 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
         <p>Learning games for ages 2 to 7, led by Pip the frog. Parental guidance recommended.</p>
         <p><a href="mailto:firstfoundationkidsapp@gmail.com">firstfoundationkidsapp@gmail.com</a></p>
       </div>
-      <div><h4>Play</h4><ul><li><a href="#lessons">All worlds</a></li><li><a href="#school">Pip's Pond School</a></li><li><a href="#studio">Studio</a></li><li><a href="#food">Fruit &amp; Veggie Book</a></li><li><a href="#prizes">My prizes</a></li></ul></div>
+      <div><h4>Play</h4><ul><li><a href="#lessons">All worlds</a></li><li><a href="#school">Pip's Pond School</a></li><li><a href="#studio">Studio</a></li><li><a href="#food">Fruit &amp; Veggie Book</a></li><li><a href="#path">Pip's Path</a></li><li><a href="#printables">Printables</a></li><li><a href="#prizes">My prizes</a></li></ul></div>
       <div><h4>Parents</h4><ul><li><a href="#parents">Progress and screen time</a></li><li><a href="#pricing">Plans</a></li><li><a href="#account">My account</a></li><li><a href="#faq">Questions</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="#about">About us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
       <div><h4>Learn more</h4><ul><li><a href="/learning-games/">All learning games</a></li><li><a href="/school/">School practice</a></li><li><a href="/blog/">Parent guides</a></li><li><a href="/plans/">Plans and prices</a></li><li><a href="/faq/">All questions</a></li></ul></div><div><h4>Legal</h4><ul><li><a href="#terms">Terms of Use</a></li><li><a href="#privacy">Privacy Policy</a></li></ul></div>
@@ -9113,6 +9375,284 @@ renderWorld = function(arg){
 };
 })();
 
+
+/* ---------- v42: favorite subjects on the home page ---------- */
+(function(){
+  function fillFavs(){
+    $$(".favs .fchips[data-games]").forEach(function(box){
+      if(box.dataset.done) return;
+      box.innerHTML = box.dataset.games.split(",").map(function(id){
+        var g = gameById(id); if(!g) return "";
+        return '<a href="#world-'+id+'-'+(S.band||2)+'" data-w="'+id+'"><span class="ic" style="background:'+g.bg+'">'+(g.art||"")+'</span>'+g.name+'</a>';
+      }).join("");
+      box.dataset.done = "1";
+    });
+    if(typeof bandLinks==="function") bandLinks();
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest(".favs [data-say]");
+    if(a && typeof say==="function"){ try{ say(a.dataset.say); }catch(_){} }
+  }, true);
+  fillFavs();
+  window.addEventListener("hashchange", fillFavs);
+})();
+
+/* ---------- v43: printables, Pip's Path and clearer subjects ---------- */
+(function(){
+  /* subjects: Math, Reading, Science & nature, Music, Art & coloring, Thinking, Food, Computer, Feelings */
+  function grp(k){ for(var i=0;i<AREA_GROUPS.length;i++) if(AREA_GROUPS[i].k===k) return AREA_GROUPS[i]; return null; }
+  var num = grp("Numbers"), rd = grp("Reading"), lg = grp("Logic"), fd = grp("Food"), cp = grp("Computer"), cr = grp("Creative"), wd = grp("World"), sc = grp("Science");
+  if(num && rd && lg && fd && cp && cr && wd && sc && !grp("Music")){
+    num.label = "Math";
+    sc.label = "Science & nature"; sc.areas = ["Science","Nature"]; sc.blurb = "Senses, weather, sink or float, animals and plants";
+    cr.label = "Art & coloring"; cr.areas = ["Art"]; cr.blurb = "Colors, mixing, painting and 100 coloring pages";
+    wd.label = "Feelings"; wd.areas = ["Feelings"]; wd.blurb = "Naming feelings and kind choices";
+    var mu = {k:"Music", label:"Music", areas:["Music"], bg:"#DCEBFA", blurb:"Drums, rhythm and listening games",
+      icon:'<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M15 30V10l16-4v20" stroke="#2B6FB0" stroke-width="3.2" fill="none" stroke-linejoin="round"/><ellipse cx="11" cy="30" rx="5.5" ry="4.5" fill="#2B6FB0"/><ellipse cx="27" cy="26" rx="5.5" ry="4.5" fill="#2B6FB0"/></svg>'};
+    var order = [num, rd, sc, mu, cr, lg, fd, cp, wd];
+    AREA_GROUPS.length = 0; order.forEach(function(g){ AREA_GROUPS.push(g); });
+  }
+  var mk = function(tag, cls, html){ var e = document.createElement(tag); if(cls) e.className = cls; if(html!=null) e.innerHTML = html; return e; };
+  renderFilters = function(){
+    var f = $("#filters"); if(!f) return; f.innerHTML = "";
+    [{k:"All", label:"All worlds"}].concat(AREA_GROUPS).forEach(function(gr){
+      var n = gr.k==="All" ? GAMES.length : GAMES.filter(function(g){ return groupOf(g.area)===gr; }).length;
+      var b = mk("button", "", esc(gr.label)+'<span class="fcount">'+n+'</span>'); b.type = "button";
+      b.setAttribute("aria-pressed", String(gr.k===filterArea));
+      b.addEventListener("click", function(){ filterArea = gr.k; renderFilters(); renderCards(); });
+      f.appendChild(b);
+    });
+    var x = $("#artExtras"); if(!x){ x = mk("div", "artx"); x.id = "artExtras"; f.parentNode.insertBefore(x, f.nextSibling); }
+    x.innerHTML = filterArea==="Creative" ?
+      '<a class="qtile" href="#colorbook"><span class="ic" style="background:#FCE0EA">'+STUDIO_IC+'</span><span><b>Color Book</b><span>100 pictures to color</span></span></a>'+
+      '<a class="qtile" href="#paint"><span class="ic" style="background:#DCEBFA">'+STUDIO_IC+'</span><span><b>Magic Paint</b><span>Paint anything you like</span></span></a>'+
+      '<a class="qtile" href="#printables" data-prkind="color"><span class="ic" style="background:#FFF0C9">'+TILE_PRINT+'</span><span><b>Printable coloring pages</b><span>Print and color at home</span></span></a>' : "";
+  };
+  var TILE_PRINT = '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="9" y="5" width="22" height="30" rx="3" fill="#fff" stroke="#173B40" stroke-width="2.5"/><path d="M14 13h12M14 19h8" stroke="#173B40" stroke-width="2.2" stroke-linecap="round"/><circle cx="16" cy="27" r="3" fill="#E7466B"/><circle cx="24" cy="27" r="3" fill="#3E9BDB"/></svg>';
+
+  /* home: one more line under the favorite tiles */
+  function favLinks(){
+    var nm = GAMES.filter(function(g){ return groupOf(g.area).k==="Numbers"; }).length;
+    [["fav-math", '<a class="fall" href="#lessons" data-area="Numbers">See all '+nm+' math games ›</a>'],
+     ["fav-sci", '<a class="fall" href="#printables" data-prkind="float">Print a science worksheet ›</a>'],
+     ["fav-mus", '<a class="fall" href="#path">Music is on Pip\'s Path ›</a>'],
+     ["fav-col", '<a class="fall" href="#printables" data-prkind="color">Print coloring pages ›</a>']].forEach(function(x){
+      var t = $(".favs ."+x[0]); if(t && !$(".fall", t)) t.insertAdjacentHTML("beforeend", x[1]); });
+  }
+
+  /* ================= printables ================= */
+  var PR_KINDS = [
+    {k:"color", label:"Coloring pages"}, {k:"count", label:"Counting"}, {k:"add", label:"Adding"},
+    {k:"trace", label:"Letter tracing"}, {k:"time", label:"Telling time"}, {k:"shapes", label:"Shapes"}, {k:"float", label:"Science: sink or float"}];
+  var PR_SHEETS = 10, PR_FREE = 3;
+  var prKind = "count", prMix = {}, prCur = null;
+  function prBand(){ var b = S.band||2; return b>3 ? 3 : b; }
+  function rng(seed){ var h = 1779033703; for(var i=0;i<seed.length;i++){ h = Math.imul(h ^ seed.charCodeAt(i), 3432918353); h = h<<13 | h>>>19; }
+    return function(){ h = h + 0x6D2B79F5 | 0; var t = Math.imul(h ^ h>>>15, 1 | h); t = t + Math.imul(t ^ t>>>7, 61 | t) ^ t; return ((t ^ t>>>14)>>>0)/4294967296; }; }
+  function ri(r, a, b){ return a + Math.floor(r()*(b-a+1)); }
+  function shuf(r, a){ a = a.slice(); for(var i=a.length-1;i>0;i--){ var j = Math.floor(r()*(i+1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function sized(svg, px){ return String(svg).replace("<svg ", '<svg width="'+px+'" height="'+px+'" '); }
+  function pics(c, n, px){ var h = ""; for(var i=0;i<n;i++) h += sized(c.svg, px); return h; }
+  function opts(r, ans, lo, hi){ var o = [ans]; while(o.length<3){ var v = ri(r, lo, hi); if(o.indexOf(v)<0) o.push(v); } return shuf(r, o); }
+  function nums(list){ return '<div class="shnums">'+list.map(function(v){ return '<span>'+v+'</span>'; }).join("")+'</div>'; }
+  var AGE = ["Ages 2–3","Ages 4–5","Ages 6–7"];
+  function sheet(o){
+    var pip = ""; try{ pip = pipSVG(""); }catch(e){}
+    return '<div class="sheet"><div class="shhead"><span class="shbrand">'+pip+'<span>FirstFoundation<b>kids</b></span></span><span class="shname">Name <i></i></span></div>'+
+      '<h2 class="shtitle">'+o.title+'</h2><p class="shins">'+o.ins+'</p><div class="shbody">'+o.body+'</div>'+
+      '<div class="shfoot"><span>www.firstfoundationkids.com · '+o.foot+'</span>'+(o.ans ? '<span class="shans">Answers: '+o.ans+'</span>' : '')+'</div></div>';
+  }
+  var B = {};
+  B.count = function(b, r){
+    var rows = b===1 ? 4 : 5, lo = b===1 ? 1 : b===2 ? 3 : 8, hi = b===1 ? 5 : b===2 ? 10 : 20, px = b===1 ? 56 : b===2 ? 42 : 30, body = "", ans = [];
+    var cs = shuf(r, CRITTERS);
+    for(var i=0;i<rows;i++){ var c = cs[i%cs.length], n = ri(r, lo, hi); ans.push(n);
+      body += '<div class="shrow"><div class="shpics">'+pics(c, n, px)+'</div>'+(b===1 ? nums(opts(r, n, 1, 5)) : '<span class="shbox"></span>')+'</div>'; }
+    return {title:"How many?", ins: b===1 ? "Count the pictures. Circle the right number." : "Count the pictures. Write the number in the box.", body:body, ans:ans.join(", ")};
+  };
+  B.add = function(b, r){
+    var body = "", ans = [];
+    if(b===3){
+      var cells = "";
+      for(var i=0;i<12;i++){ var a = ri(r, 2, 10), c = ri(r, 2, Math.min(10, 20-a)); ans.push(a+c); cells += '<div class="shsum">'+a+' + '+c+' = <span class="shbox"></span></div>'; }
+      return {title:"Adding to 20", ins:"Add the numbers. Write the answer in the box.", body:'<div class="shgrid" style="grid-template-columns:1fr 1fr">'+cells+'</div>', ans:ans.join(", ")};
+    }
+    var rows = b===1 ? 4 : 5, max = b===1 ? 5 : 10, px = b===1 ? 46 : 28, cs = shuf(r, CRITTERS);
+    for(var k=0;k<rows;k++){ var c1 = cs[k%cs.length], x = ri(r, 1, max-1), y = ri(r, 1, max-x); ans.push(x+y);
+      body += '<div class="shrow"><div class="shpics" style="flex:none">'+pics(c1, x, px)+'</div><span class="shop">+</span><div class="shpics" style="flex:none">'+pics(c1, y, px)+'</div><span class="shop">=</span>'+(b===1 ? nums(opts(r, x+y, 2, 5)) : '<span class="shbox"></span>')+'</div>'; }
+    return {title: b===1 ? "How many in all?" : "Picture sums", ins: b===1 ? "Count all the pictures. Circle how many in all." : "Count both groups. Write how many in all.", body:body, ans:ans.join(", ")};
+  };
+  var WORDS = ["cat","dog","sun","hat","pig","bus","cup","bed","egg","fox","hen","jam","box","van","web","log","map","net","pen","rug","fish","frog","duck","cake","ball","tree","star","moon","book","milk","kite","lamp","nest","rain","sock","ship","bird","hand","leaf","boat"];
+  function traceRow(solid, n, fs, gap){
+    var w = 632, h = 112, x = 12, out = '<svg viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'">'+
+      '<path d="M0 22H'+w+'M0 100H'+w+'" stroke="#9fb3b0" stroke-width="2"/><path d="M0 61H'+w+'" stroke="#c3d3d0" stroke-width="2" stroke-dasharray="8 6"/>';
+    for(var i=0;i<n;i++){
+      out += '<text x="'+x+'" y="100" font-family="Lexend,Arial,sans-serif" font-size="'+fs+'" '+(i===0 ? 'fill="#1d2b2e"' : 'fill="none" stroke="#7d9693" stroke-width="2" stroke-dasharray="6 5"')+'>'+solid+'</text>';
+      x += gap;
+    }
+    return out+'</svg>';
+  }
+  B.trace = function(b, r, n){
+    var body = "", list = [];
+    if(b===1){ for(var i=0;i<4;i++) list.push(String.fromCharCode(65+((n-1)*4+i)%26)); list.forEach(function(L){ body += traceRow(L, 5, 104, 126); });
+      return {title:"Trace the letters", ins:"Trace each letter with a crayon. Start at the top.", body:body}; }
+    if(b===2){ for(var j=0;j<5;j++){ var c = (n-1)*5+j; list.push(String.fromCharCode(65+c%26)+String.fromCharCode(97+c%26)); } list.forEach(function(L){ body += traceRow(L, 4, 96, 156); });
+      return {title:"Big and small letters", ins:"Trace each pair. Then say the letter's sound.", body:body}; }
+    var ws = WORDS.slice(((n-1)*5)%WORDS.length).concat(WORDS).slice(0, 5); ws.forEach(function(w){ body += traceRow(w, 3, 80, 212); });
+    return {title:"Trace the words", ins:"Trace each word two times. Read it out loud.", body:body};
+  };
+  function clockSVG(h, m){
+    var o = '<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="#fff" stroke="#1d2b2e" stroke-width="5"/>';
+    for(var i=0;i<60;i++){ var a = i*6*Math.PI/180, big = i%5===0, r1 = big ? 78 : 84; o += '<line x1="'+(100+r1*Math.sin(a)).toFixed(1)+'" y1="'+(100-r1*Math.cos(a)).toFixed(1)+'" x2="'+(100+88*Math.sin(a)).toFixed(1)+'" y2="'+(100-88*Math.cos(a)).toFixed(1)+'" stroke="#1d2b2e" stroke-width="'+(big?3:1.2)+'"/>'; }
+    for(var k=1;k<=12;k++){ var b2 = k*30*Math.PI/180; o += '<text x="'+(100+64*Math.sin(b2)).toFixed(1)+'" y="'+(100-64*Math.cos(b2)+8).toFixed(1)+'" text-anchor="middle" font-family="Lexend,Arial,sans-serif" font-size="22" font-weight="600" fill="#1d2b2e">'+k+'</text>'; }
+    var ha = ((h%12)+m/60)*30*Math.PI/180, ma = m*6*Math.PI/180;
+    o += '<line x1="100" y1="100" x2="'+(100+44*Math.sin(ha)).toFixed(1)+'" y2="'+(100-44*Math.cos(ha)).toFixed(1)+'" stroke="#E7466B" stroke-width="9" stroke-linecap="round"/>';
+    o += '<line x1="100" y1="100" x2="'+(100+70*Math.sin(ma)).toFixed(1)+'" y2="'+(100-70*Math.cos(ma)).toFixed(1)+'" stroke="#3E9BDB" stroke-width="5" stroke-linecap="round"/><circle cx="100" cy="100" r="7" fill="#1d2b2e"/></svg>';
+    return o;
+  }
+  B.time = function(b, r){
+    var hrs = shuf(r, [1,2,3,4,5,6,7,8,9,10,11,12]).slice(0, 6), cells = "", ans = [];
+    hrs.forEach(function(h){ var m = b===1 ? 0 : b===2 ? (r()<.5 ? 0 : 30) : ri(r, 0, 11)*5; ans.push(h+":"+(m<10?"0":"")+m);
+      cells += '<div class="shclock">'+clockSVG(h, m)+(b===1 ? '<span><span class="shline"></span> o\'clock</span>' : '<span><span class="shline"></span> : <span class="shline"></span></span>')+'</div>'; });
+    return {title:"What time is it?", ins: b===1 ? "The short red hand shows the hour. Write the hour." : b===2 ? "Look at both hands. Write the time. Some are half past!" : "Write the time. Count the minutes by fives.",
+      body:'<div class="shgrid" style="grid-template-columns:repeat(3,1fr)">'+cells+'</div>', ans:ans.join(", ")};
+  };
+  var SH = {
+    circle:{p:'<circle cx="50" cy="50" r="40"/>', s:0}, square:{p:'<rect x="12" y="12" width="76" height="76"/>', s:4},
+    triangle:{p:'<path d="M50 10L92 88H8z"/>', s:3}, star:{p:'<path d="M50 8l11 27 29 2-22 19 7 28-25-16-25 16 7-28-22-19 29-2z"/>', s:10},
+    heart:{p:'<path d="M50 86C20 64 8 48 8 32 8 18 19 10 30 10c9 0 16 5 20 13 4-8 11-13 20-13 11 0 22 8 22 22 0 16-12 32-42 54z"/>', s:0},
+    rectangle:{p:'<rect x="6" y="26" width="88" height="48"/>', s:4}, oval:{p:'<ellipse cx="50" cy="50" rx="42" ry="28"/>', s:0},
+    diamond:{p:'<path d="M50 6L90 50 50 94 10 50z"/>', s:4}, pentagon:{p:'<path d="M50 8l40 30-15 50H25L10 38z"/>', s:5},
+    hexagon:{p:'<path d="M28 12h44l22 38-22 38H28L6 50z"/>', s:6}, octagon:{p:'<path d="M34 8h32l26 26v32L66 92H34L8 66V34z"/>', s:8}};
+  function shp(name, px, dashed){ return '<svg viewBox="0 0 100 100" width="'+px+'" height="'+px+'"><g fill="#fff" stroke="'+(dashed ? '#7d9693' : '#1d2b2e')+'" stroke-width="'+(dashed ? 3 : 4)+'" stroke-linejoin="round"'+(dashed ? ' stroke-dasharray="7 6"' : '')+'>'+SH[name].p+'</g></svg>'; }
+  B.shapes = function(b, r, n){
+    if(b===1){ var base = ["circle","square","triangle","star","heart"], tgt = base[(n-1)%5], cells = "", cnt = 0;
+      for(var i=0;i<16;i++){ var s = r()<.34 ? tgt : base[ri(r, 0, 4)]; if(s===tgt) cnt++; cells += '<div style="display:grid;place-items:center">'+shp(s, 112)+'</div>'; }
+      return {title:"Find the "+tgt+"s", ins:"Color every "+tgt+". Count how many you found: ____", body:'<div class="shgrid" style="grid-template-columns:repeat(4,1fr)">'+cells+'</div>', ans:cnt+" "+tgt+"s"}; }
+    if(b===2){ var set = shuf(r, ["circle","square","triangle","star","heart","rectangle","oval","diamond"]).slice(0, 6), c2 = "";
+      set.forEach(function(s){ c2 += '<div class="shcard" style="border-style:solid">'+shp(s, 150, true)+'<span>'+s+'</span></div>'; });
+      return {title:"Trace the shapes", ins:"Trace each shape. Say its name. Then color it in.", body:'<div class="shgrid" style="grid-template-columns:repeat(3,1fr)">'+c2+'</div>'}; }
+    var set3 = shuf(r, ["triangle","square","rectangle","pentagon","hexagon","octagon","diamond"]).slice(0, 6), c3 = "", ans = [];
+    set3.forEach(function(s){ ans.push(s+" "+SH[s].s); c3 += '<div class="shrow" style="gap:14px">'+shp(s, 140)+'<div style="font-size:20px;font-weight:600;display:grid;grid-template-columns:auto 70px;gap:18px 10px;align-items:end">Sides <span class="shline"></span>Corners <span class="shline"></span></div></div>'; });
+    return {title:"Sides and corners", ins:"Count the sides and the corners of each shape.", body:'<div class="shgrid" style="grid-template-columns:1fr 1fr">'+c3+'</div>', ans:ans.join(", ")};
+  };
+  B.float = function(b, r){
+    var k = b===1 ? 6 : 8, items = shuf(r, SC_SF).slice(0, k), cells = "";
+    items.forEach(function(it){ cells += '<div class="shcard">'+sized(it.svg, b===1 ? 120 : 96)+'<span>'+esc(it.w)+'</span></div>'; });
+    var why = b===3 ? '<div class="shwhy"><span>Pick one thing that floats. Why does it float?</span><i></i><i></i></div>' : "";
+    return {title:"Sink or float?", ins: b===1 ? "Circle the things that float on water." : "Circle the things that float. Cross out the things that sink.",
+      body:'<div class="shgrid" style="grid-template-columns:repeat('+(b===1 ? 3 : 4)+',1fr)">'+cells+'</div>'+why,
+      ans:"float: "+items.filter(function(i){ return i.f; }).map(function(i){ return i.w; }).join(", ")};
+  };
+  function cbOutline(p, b){ var svg = (b===3 && p.svgA) ? p.svgA : p.svg;
+    return '<svg viewBox="0 0 300 300" role="img" aria-label="'+esc(p.name)+'"><g stroke="#1d2b2e" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">'+svg.replace(/class="r"/g, 'fill="#fff"')+'</g></svg>'; }
+  function build(kind, n){
+    var b = prBand();
+    if(kind==="color"){ var p = CB[n-1]; if(!p) return ""; return sheet({title:esc(p.name), ins:"Color the picture. Use any colors you like!", body:'<div class="shpic">'+cbOutline(p, b)+'</div>', foot:"Coloring page "+n+" of "+CB.length}); }
+    var r = rng(kind+"|"+b+"|"+n+"|"+(prMix[kind+"|"+n]||0)), o = B[kind](b, r, n);
+    o.foot = kindOf(kind).label+" · "+AGE[b-1]+" · Sheet "+n; return sheet(o);
+  }
+  function kindOf(k){ for(var i=0;i<PR_KINDS.length;i++) if(PR_KINDS[i].k===k) return PR_KINDS[i]; return PR_KINDS[1]; }
+  function prOpen(n){ return n<=PR_FREE || unlocked(); }
+  function fitThumbs(){ $$("#prGrid .prthumb .prscale").forEach(function(sc){ var w = sc.parentNode.clientWidth; if(w) sc.style.transform = "scale("+(w/700)+")"; }); }
+  function renderPrintables(){
+    var w = $("#prWho"); if(w) w.innerHTML = whoHTML(true);
+    var kb = $("#prKinds"); if(kb) kb.innerHTML = PR_KINDS.map(function(k){ return '<button type="button" data-prk="'+k.k+'" aria-pressed="'+(k.k===prKind)+'">'+k.label+'</button>'; }).join("");
+    var g = $("#prGrid"); if(!g) return; var b = prBand(), h = "";
+    if(prKind==="color"){
+      CB.forEach(function(p, i){ var n = i+1; h += '<button type="button" class="prcard" data-pr="color|'+n+'"><span class="prthumb pic">'+cbOutline(p, b)+'</span><b>'+esc(p.name)+'</b><small>Coloring page</small>'+(prOpen(n) ? (unlocked() ? '' : '<span class="pfree">Free</span>') : '<span class="plock" aria-label="Needs a plan"></span>')+'</button>'; });
+    } else {
+      for(var n=1;n<=PR_SHEETS;n++) h += '<button type="button" class="prcard" data-pr="'+prKind+'|'+n+'"><span class="prthumb"><span class="prscale">'+build(prKind, n)+'</span></span><b>'+kindOf(prKind).label+' '+n+'</b><small>'+AGE[b-1]+'</small>'+(prOpen(n) ? (unlocked() ? '' : '<span class="pfree">Free</span>') : '<span class="plock" aria-label="Needs a plan"></span>')+'</button>';
+    }
+    g.innerHTML = h; fitThumbs();
+    var nt = $("#prNote"); if(nt) nt.textContent = (unlocked() ? "Your plan opens every page. " : "The first 3 pages of each kind are free to print. A plan opens them all. ")+"Pages fit US Letter and A4 paper.";
+  }
+  function fitView(){ var st = $("#prStage"), fit = $("#prFit"), sh = $("#prSheet"); if(!st || !fit) return;
+    var s = Math.min(1, (st.clientWidth-4)/700, window.innerWidth>700 ? (st.clientHeight-4)/940 : 1); fit.style.width = (700*s)+"px"; fit.style.height = (940*s)+"px"; sh.style.transform = "scale("+s+")"; }
+  function openSheet(kind, n){
+    if(!prOpen(n)){ $("#pwTitle").textContent = "This page needs a grown-up"; $("#pwText").textContent = "The first 3 pages of each kind are free to print. Pick a plan to print every worksheet and all 100 coloring pages."; showModal("paywall"); return; }
+    prCur = {kind:kind, n:n}; $("#prSheet").innerHTML = build(kind, n);
+    $("#prVTitle").textContent = kind==="color" ? (CB[n-1] ? CB[n-1].name : "Coloring page") : kindOf(kind).label+" "+n+" · "+AGE[prBand()-1];
+    $("#prMix").hidden = kind==="color" || kind==="trace";
+    $("#prView").hidden = false; fitView(); try{ $("#prPrint").focus({preventScroll:true}); }catch(e){}
+  }
+  function closeSheet(){ $("#prView").hidden = true; prCur = null; }
+  function printSheet(){
+    if(!prCur) return;
+    if(window.claude){ toast("Printing works on firstfoundationkids.com. This preview can only show the page."); return; }
+    var pa = $("#printArea"); if(!pa){ pa = mk("div"); pa.id = "printArea"; document.body.appendChild(pa); }
+    pa.innerHTML = build(prCur.kind, prCur.n); document.body.classList.add("ffk-printing");
+    setTimeout(function(){ try{ window.print(); }catch(e){} setTimeout(function(){ document.body.classList.remove("ffk-printing"); }, 800); }, 80);
+  }
+  window.addEventListener("afterprint", function(){ document.body.classList.remove("ffk-printing"); });
+  $("#prClose").addEventListener("click", closeSheet);
+  $("#prPrint").addEventListener("click", printSheet);
+  $("#prMix").addEventListener("click", function(){ if(!prCur) return; var key = prCur.kind+"|"+prCur.n; prMix[key] = (prMix[key]||0)+1; $("#prSheet").innerHTML = build(prCur.kind, prCur.n); if(curView==="printables") renderPrintables(); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape" && !$("#prView").hidden) closeSheet(); });
+  window.addEventListener("resize", function(){ if(curView==="printables") fitThumbs(); if(!$("#prView").hidden) fitView(); });
+
+  /* ================= Pip's Path ================= */
+  var PATH_SLOTS = [
+    {label:"Math", ids:["count","sums","shapes","numpond","dice","flies","size","berries","clock","storysums","share","race","garage","carwash","monster"]},
+    {label:"Reading", ids:["letters","sounds","sightwords","storytime","trace"]},
+    {label:"Science", ids:["science","animals","veggies","fruits"]},
+    {label:"Music & art", ids:["music","colors"]},
+    {label:"Thinking", ids:["patterns","odd","shadow","memory","hide","traffic","feelings","bubbles","keys","feed","dots","smoothie"]}];
+  var PATH_UNITS = 30, pathShow = 0;
+  function pathUnits(b){
+    var units = [];
+    for(var u=1;u<=PATH_UNITS;u++){ var row = [];
+      PATH_SLOTS.forEach(function(s){ var ids = s.ids.filter(function(id){ return gameById(id); }); if(!ids.length) return;
+        var g = gameById(ids[(u-1)%ids.length]), lvl = Math.min(LEVELS, Math.floor((u-1)/ids.length)+1);
+        row.push({slot:s.label, g:g, lvl:lvl, done:S.lv[lvKey(g.id, b, lvl)]!=null, open:levelOpen(lvl)}); });
+      units.push(row); }
+    return units;
+  }
+  function renderPath(){
+    var b = S.band||2; if(b>3) b = 3;
+    var w = $("#pathWho"); if(w) w.innerHTML = whoHTML(true);
+    $("#pathEyebrow").textContent = "Pip's Path · "+AGE[b-1];
+    var units = pathUnits(b), total = 0, done = 0, unitsDone = 0, next = null, nextU = -1, firstLocked = null, lockU = -1;
+    units.forEach(function(row, ui){ var all = true; row.forEach(function(st){ total++; if(st.done) done++; else { all = false;
+      if(!next && st.open){ next = st; nextU = ui; } if(!firstLocked && !st.open){ firstLocked = st; lockU = ui; } } }); if(all) unitsDone++; });
+    var hero = $("#pathNext");
+    if(next){ next.isNext = true;
+      hero.innerHTML = '<div class="pnart" style="background:'+next.g.bg+'">'+next.g.art+'</div><div class="min-w0"><p class="eyebrow">Next stop · Unit '+(nextU+1)+' · '+next.slot+'</p><h2>'+next.g.name+'</h2><p>'+esc(next.g.skill)+' · Level '+next.lvl+' · about 3 minutes</p></div><a class="btn btn-go" href="#play-'+next.g.id+'-'+b+'-'+next.lvl+'">Play next stop</a>';
+    } else if(firstLocked){
+      hero.innerHTML = '<div class="pnart" style="background:#FFF0C9">'+TILE_PRINT.replace('viewBox','style="width:70px;height:70px" viewBox')+'</div><div class="min-w0"><p class="eyebrow">Great hopping!</p><h2>You finished every free stop</h2><p>Unit '+(lockU+1)+' needs level '+firstLocked.lvl+'. Ask a grown-up to pick a plan to keep going.</p></div><a class="btn btn-go" href="#pricing">See plans</a>';
+    } else {
+      hero.innerHTML = '<div class="pnart" style="background:#FFF3B8">'+medalSVG("gold")+'</div><div class="min-w0"><p class="eyebrow">The whole path!</p><h2>You finished Pip\'s Path</h2><p>Every unit for '+AGE[b-1]+' is done. Try the next age group for new levels.</p></div><a class="btn btn-go" href="#prizes">See my prizes</a>';
+    }
+    $("#pathProg").innerHTML = '<span>'+done+' of '+total+' stops</span><div class="bar"><i style="width:'+(total ? done/total*100 : 0)+'%;background:var(--leaf)"></i></div><span>'+unitsDone+' path star'+(unitsDone===1?'':'s')+'</span>';
+    var cur = nextU>=0 ? nextU : lockU>=0 ? lockU : PATH_UNITS-1, show = Math.min(PATH_UNITS, Math.max(cur+3, 4, pathShow));
+    var h = "";
+    for(var ui=0; ui<show; ui++){ var row = units[ui], nd = row.filter(function(s){ return s.done; }).length, all = nd===row.length;
+      h += '<section class="punit'+(all ? ' done' : '')+'" aria-label="Unit '+(ui+1)+'"><div class="puhead"><h3>Unit '+(ui+1)+'</h3><span>'+(all ? '★ Path star won!' : nd+' of '+row.length+' stops done')+'</span></div><ol class="pstones">'+
+        row.map(function(st){ var cls = st.done ? " done" : st.isNext ? " next" : !st.open ? " lock" : "";
+          return '<li><a class="pstone'+cls+'" href="#play-'+st.g.id+'-'+b+'-'+st.lvl+'"'+(!st.open && !st.done ? ' data-pathlock="1"' : '')+' aria-label="'+esc(st.slot+': '+st.g.name+', level '+st.lvl+(st.done ? ', done' : !st.open ? ', needs a plan' : ''))+'"><span class="pst" style="background:'+st.g.bg+'">'+st.g.art+'</span><b>'+st.g.name+'</b><small>'+st.slot+' · Level '+st.lvl+'</small></a></li>'; }).join("")+
+        '</ol></section>'; }
+    $("#pathUnits").innerHTML = h;
+    $("#pathMore").innerHTML = show<PATH_UNITS ? '<button type="button" class="btn btn-soft" id="pathMoreBtn">Show more units ('+(PATH_UNITS-show)+' left)</button>' : "";
+  }
+  document.addEventListener("click", function(e){
+    var t = e.target; if(!t || !t.closest) return;
+    var pk = t.closest("[data-prkind]"); if(pk){ prKind = pk.dataset.prkind; }
+    var k = t.closest("[data-prk]"); if(k){ prKind = k.dataset.prk; renderPrintables(); return; }
+    var c = t.closest("[data-pr]"); if(c){ var p = c.dataset.pr.split("|"); openSheet(p[0], +p[1]); return; }
+    var pl = t.closest("[data-pathlock]"); if(pl){ e.preventDefault(); showPaywall("level"); return; }
+    if(t.closest("#pathMoreBtn")){ pathShow = Math.max(pathShow, $$("#pathUnits .punit").length) + 5; renderPath(); return; }
+    if(t.closest(".who [data-band]") || t.closest("[data-kid]")){ setTimeout(function(){ if(curView==="path") renderPath(); if(curView==="printables") renderPrintables(); }, 0); }
+  });
+
+  /* routing for the two new pages */
+  NAV_OF.path = "lessons"; NAV_OF.printables = "lessons";
+  VIEW_TITLES.path = "Pip's Path: a step-by-step learning path for kids";
+  VIEW_TITLES.printables = "Printable worksheets and coloring pages for kids";
+  function v43route(){ var h = (location.hash||"").replace("#",""); if(h!=="printables") closeSheet();
+    if(h==="path") setTimeout(renderPath, 0); else if(h==="printables") setTimeout(renderPrintables, 0); else if(h==="" || h==="home") setTimeout(favLinks, 0); }
+  window.addEventListener("hashchange", v43route);
+  favLinks(); v43route();
+})();
 window.addEventListener("hashchange", route);
 
 syncAccount(); renderCards(); renderChip(); drawMute(); drawVoice(); drawNames(); fillScene(); fillHero(); renderPalRow(); fillCounts(); vInit(); drawSaveButtons(); route();
