@@ -5,7 +5,7 @@ export async function onRequestPost({ request, env }) {
   try {
     const b = await request.json().catch(() => ({}));
     const plan = String(b.plan || ""), email = String(b.email || "").trim().toLowerCase();
-    if (!PLANS[plan]) return fail("Pick a plan first.");
+    if (!PLANS[plan] || PLANS[plan].classroom) return fail("Pick a plan first.");
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail("Enter a real email address.");
     const ids = await priceIds(env);
     if (!ids[plan]) return fail("This plan isn't set up in Stripe yet.", 500);
