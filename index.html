@@ -3429,22 +3429,46 @@ function vNeed(list){
   if(!VP.man) return;
   list.forEach(function(p){ VP.used[p] = ++VP.clock; });
   list.forEach(function(p){
-    var f = VP.man.packs[p]; if(!f || VP.buf[p] || VP.wait[p]) return;
+    if(VP.man.parts && VP.man.parts[p]){ /* a story pack's index: which part holds each line */
+      if(VP.pix[p] || VP.wait[p]) return;
+      VP.wait[p] = fetch(VP.base+VP.man.parts[p]+".json").then(function(r){ if(!r.ok) throw new Error("pack"); return r.json(); }).then(function(j){
+        var m = {}; j.i.forEach(function(ix, n){ for(var k in ix) m[k] = n; }); j.k = m; VP.pix[p] = j; }).catch(function(){ delete VP.wait[p]; });
+      return;
+    }
+    var pt = vPartOf(p), f = pt ? pt.stem : VP.man.packs[p]; if(!f || VP.buf[p] || VP.wait[p]) return;
     var get = function(ext, how){ return fetch(VP.base+f+ext).then(function(r){ if(!r.ok) throw new Error("pack"); return r[how](); }); };
     VP.wait[p] = Promise.all([
       get(".mp3", "arrayBuffer").then(function(ab){ return new Promise(function(res, rej){ var a = audio(); var pr = a.decodeAudioData(ab, res, rej); if(pr && pr.then) pr.then(res, rej); }); }),
-      get(".json", "json")
+      pt ? Promise.resolve(pt.idx) : get(".json", "json")
     ]).then(function(r){
       vAlign(p, r[0]); VP.buf[p] = r[0]; VP.idx[p] = r[1] || {}; vTrim(list);
       if(/^n_/.test(p) && /parents/.test(location.hash)) try{ renderVoiceCard(); }catch(e){}
     }).catch(function(){ delete VP.wait[p]; });
   });
 }
+/* story parts are named "<pack>.p<n>"; their sound file and clip list come from the pack's index */
+VP.pix = {}; VP.ptok = 0;
+function vPartOf(p){ var m = /^(.+)\.p(\d+)$/.exec(p), ix = m && VP.pix[m[1]]; return ix && ix.s[+m[2]] ? {stem:ix.s[+m[2]], idx:ix.i[+m[2]]} : null; }
+function vStoryPack(){ try{ var ps = vPacks(null); for(var i=0;i<ps.length;i++) if(VP.man.parts && VP.man.parts[ps[i]]) return ps[i]; }catch(e){} return null; }
+/* the parts (not loaded yet) that these lines need */
+function vPartsFor(texts){
+  var sp = vOn() && vStoryPack(), ix = sp && VP.pix[sp], out = [];
+  if(!ix) return out;
+  var put = function(k){ var n = ix.k[k]; if(n==null) return; var p = sp+".p"+n; if(out.indexOf(p)<0) out.push(p); };
+  texts.forEach(function(t){ if(t) vSegs(String(t)).forEach(function(sg){
+    put(vKey(sg)); var np = vNumParts(sg), op = np ? null : vOrParts(sg);
+    if(np) np.forEach(function(x){ put(x.key); }); if(op) op.forEach(function(x){ x.keys.forEach(put); }); }); });
+  out.forEach(function(p){ VP.used[p] = ++VP.clock; });
+  return out.filter(function(p){ return !VP.buf[p]; });
+}
+/* run fn once the parts for these lines are here (at most ms); false when nothing had to load */
+function vWhen(texts, ms, fn){ var ps = vPartsFor(texts); if(!ps.length) return false; vNeed(ps); vReady(ps, ms, fn); return true; }
 /* decoded sound takes a lot of memory on phones: keep the shared lines, what is needed now and the 2 packs used last */
 function vTrim(keep){
   var mine = vPacks(null), old = Object.keys(VP.buf).filter(function(p){ return p!=="shared" && p!=="y_shared" && keep.indexOf(p) < 0 && mine.indexOf(p) < 0; });
   old.sort(function(a, b){ return (VP.used[b]||0) - (VP.used[a]||0); });
-  old.slice(2).forEach(function(p){ delete VP.buf[p]; delete VP.idx[p]; delete VP.off[p]; delete VP.wait[p]; });
+  var isPt = function(p){ return /\.p\d+$/.test(p); };
+  old.filter(function(p){ return !isPt(p); }).slice(2).concat(old.filter(isPt).slice(6)).forEach(function(p){ delete VP.buf[p]; delete VP.idx[p]; delete VP.off[p]; delete VP.wait[p]; });
 }
 function vNeedName(){ vNeed(vPacks(null)); }
 function vOn(){ return VSTYLE==="natural" && !!VP.man; }
@@ -3516,7 +3540,7 @@ function spokenName(){ var n = cheerName(); if(!n) return ""; if(VSTYLE==="natur
 function vReady(list, ms, cb){
   var t0 = Date.now();
   (function chk(){
-    var pending = VSTYLE==="natural" && !VP.failed && (VP.wait.man && !VP.man || (VP.man && list.some(function(p){ return VP.man.packs[p] && !VP.buf[p] && VP.wait[p]; })));
+    var pending = VSTYLE==="natural" && !VP.failed && (VP.wait.man && !VP.man || (VP.man && list.some(function(p){ return (VP.man.packs[p] || vPartOf(p)) && !VP.buf[p] && VP.wait[p] || VP.man.parts && VP.man.parts[p] && !VP.pix[p] && VP.wait[p]; })));
     if(!pending || Date.now()-t0 > ms){ cb(); return; }
     setTimeout(chk, 50);
   })();
@@ -3874,6 +3898,7 @@ function nextRound(){
   var area = $("#area"); area.innerHTML = ""; $("#heard").textContent = listening ? "Pip is listening. Say your answer!" : "";
   G.intro = introLine(); ASKING = true;
   try{ ENGINES[G.id](area, {a:G.band, t:(G.level-1)/(LEVELS-1), round:G.round}); } finally { ASKING = false; if(G) G.intro = ""; }
+  try{ if(G && vStoryPack()){ var pw = [lastSpoken]; $$(".choice", area).forEach(function(b){ var w = wordOf(b); if(w) pw.push(capWord(w)+"!", w+"?"); }); var pp = vPartsFor(pw); if(pp.length) vNeed(pp); } }catch(e){}
   if(!G) return;
   G.q = lastSpoken;
   $$("#area .choices > .choice").slice(0, 6).forEach(function(b, i){ setTimeout(function(){ sfx.pop(i); }, 40 + i*70); });
@@ -6712,7 +6737,11 @@ function joinOr(l){ return l.length<2 ? l.join("") : l.slice(0,-1).join(", ")+" 
 
 /* ---------- reading out loud, one sentence at a time ---------- */
 var RA_TOK = 0, SAY_BASE = say;
-say = function(t, x, m){ RA_TOK++; SAY_BASE(t, x, m); };
+say = function(t, x, m){ RA_TOK++; var tok = ++VP.ptok, asking = ASKING, intro = G && G.intro;
+  var later = function(){
+    if(tok!==VP.ptok) return; var keep = lastSpoken, a0 = ASKING, i0 = G && G.intro; ASKING = asking; if(G) G.intro = intro;
+    try{ SAY_BASE(t, x, m); } finally { ASKING = a0; if(G) G.intro = i0; } lastSpoken = keep; };
+  if(voiceOn && vWhen([asking ? intro : "", t, x], 5000, later)) lastSpoken = t; else SAY_BASE(t, x, m); };
 function readAlong(nodes, done){
   var me = G, round = G ? G.round : -1, tok = ++RA_TOK, i = 0, timer = null, ss = window.speechSynthesis, stopped = false;
   function alive(){ return !stopped && tok===RA_TOK && G===me && G && G.round===round && !G.locked; }
@@ -6728,9 +6757,10 @@ function readAlong(nodes, done){
     timer = setTimeout(next, window.__TESTING ? 0 : dur);
   }
   try{ if(ss && voiceOn) ss.cancel(); }catch(e){} if(voiceOn) vStop();
-  var useClips = vOn() && nodes.every(function(n){ return !!vPlan(vSegs(n.textContent)); });
+  var useClips = false;
   onCleanup(function(){ stopped = true; clearTimeout(timer); clear(); });
-  step();
+  var go = function(){ if(stopped || tok!==RA_TOK) return; useClips = vOn() && nodes.every(function(n){ return !!vPlan(vSegs(n.textContent)); }); step(); };
+  if(!(voiceOn && vWhen(nodes.map(function(n){ return n.textContent; }), 5000, go))) go();
 }
 function storyCard(lines, pic){
   var c = el("div","storycard"), p = el("p","storytxt");
@@ -8617,7 +8647,8 @@ renderPrizes = function(){
 var VPACKS0 = vPacks;
 vPacks = function(g){ var o = VPACKS0(g), f = (o[0]==="y_shared" ? "y_" : "")+"fun"; if(VP.man && VP.man.packs && VP.man.packs[f] && o.indexOf(f)<0) o.push(f); if(o[0]==="y_shared" && VP.man && VP.man.packs && VP.man.packs.y_more && o.indexOf("y_more")<0) o.push("y_more");
   /* "y_<game>-<band>x": lines added later to a game's guy-voice pack */
-  var gx = g || G; if(o[0]==="y_shared" && gx && VP.man && VP.man.packs){ var xp = "y_"+gx.id+"-"+gx.band+"x"; if(VP.man.packs[xp] && o.indexOf(xp)<0) o.push(xp); }
+  var gx = g || G; if(o[0]==="y_shared" && gx && VP.man && VP.man.packs){ var xp = "y_"+gx.id+"-"+gx.band+"x"; if(VP.man.packs[xp] && o.indexOf(xp)<0) o.push(xp);
+    var sx = "y_"+gx.id+"-"+gx.band; if(VP.man.parts && VP.man.parts[sx] && o.indexOf(sx)<0) o.push(sx); }
   return o; };
 window.__v25 = {monSVG:monSVG, hideCard:hideCard, pizzaSVG:pizzaSVG, buddySVG:buddySVG, BUDDIES:BUDDIES, openEgg:openEgg};
 })();
