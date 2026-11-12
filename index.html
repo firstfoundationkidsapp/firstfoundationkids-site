@@ -1888,6 +1888,36 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
 @media (prefers-reduced-motion: reduce){
   #area .choices.ps > .choice,#area .choices.ps > .choice .ps-d i,.vd,.vt-banner{animation:none!important}
 }
+
+/* ---------- v42: favorite subjects on the home page ---------- */
+.favs{margin:6px 0 26px}
+.favs .fhead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:6px 20px;margin-bottom:14px}
+.favs .fhead p.lead{max-width:520px;margin:0;font-size:16px;color:var(--ink-soft)}
+.favgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.fav{position:relative;display:flex;flex-direction:column;border-radius:var(--r-lg);padding:16px 16px 18px;background:var(--fbg);border:3px solid var(--fln);box-shadow:0 6px 0 var(--fln);min-width:0}
+.fav .fart{display:block;border-radius:20px;background:rgba(255,255,255,.6);aspect-ratio:16/10;overflow:hidden;text-decoration:none}
+.fav .fart svg{display:block;width:100%;height:100%}
+.fav h3{font-size:30px;margin:14px 0 2px;color:var(--fink)}
+.fav h3 a{color:inherit;text-decoration:none}
+.fav .fsub{font-size:15px;color:var(--ink);margin:0 0 12px;min-height:3.1em}
+.fav .fgo{align-self:flex-start;background:var(--fink);color:#fff;box-shadow:0 5px 0 rgba(23,59,64,.35);margin-bottom:14px}
+.fav .fchips{display:flex;flex-wrap:wrap;gap:8px}
+.fav .fchips a{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:4px 12px 4px 4px;background:#fff;border-radius:999px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;border:2px solid var(--fln)}
+.fav .fchips a .ic{display:inline-block;width:30px;height:30px;border-radius:50%;overflow:hidden;flex:none;background:var(--fbg)}
+.fav .fchips a .ic svg{width:100%;height:100%;display:block}
+.fav .fchips a:hover,.fav .fgo:hover{transform:translateY(-2px)}
+.fav-math{--fbg:#FFF0C9;--fln:#F2D27C;--fink:#B9780A}
+.fav-sci{--fbg:#DDF3D4;--fln:#A9DB9C;--fink:#2F8A3C}
+.fav-mus{--fbg:#DCEBFA;--fln:#A8CDEF;--fink:#2B6FB0}
+.fav-col{--fbg:#FCE0EA;--fln:#F2AFC4;--fink:#C22F55}
+.fav .wig{transform-box:fill-box;transform-origin:center;animation:favwig 2.6s ease-in-out infinite}
+.fav .wig.d2{animation-delay:-.9s}.fav .wig.d3{animation-delay:-1.7s}
+.fav .bob2{transform-box:fill-box;transform-origin:center;animation:favbob 2.2s ease-in-out infinite}
+@keyframes favwig{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes favbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.fav .wig,.fav .bob2{animation:none}}
+@media (max-width:980px){.favgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.favgrid{gap:10px}.fav{padding:10px 10px 12px;border-radius:22px}.fav .fart{border-radius:14px}.fav h3{font-size:22px;margin-top:8px}.fav .fsub{display:none}.fav .fgo{padding:8px 12px;font-size:14px;min-height:44px;margin-bottom:10px;align-self:stretch}.fav .fchips{gap:6px}.fav .fchips a{font-size:12px;min-height:36px;padding-right:8px;gap:4px;max-width:100%}.fav .fchips a .ic{width:26px;height:26px}}
 </style>
 <style>/* live site: stop tilted 3D cards from making phones scroll sideways */html,body{overflow-x:clip}</style>
 </head>
@@ -1980,6 +2010,72 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
       <span><svg aria-hidden="true"><use href="#ok"/></svg>Separate progress for each child</span>
     </div>
 
+
+    <!-- v42: favorite subjects -->
+    <section class="favs" aria-labelledby="favsTitle">
+      <div class="fhead">
+        <div><p class="eyebrow">Kids' favorites</p><h2 class="h2big" id="favsTitle">Math, science, music and coloring</h2></div>
+        <p class="lead">The four things kids ask for most. Tap a big button to jump straight in, or pick a game below it.</p>
+      </div>
+      <div class="favgrid">
+        <div class="fav fav-math">
+          <a class="fart" href="#world-count-2" data-w="count" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 240 150" aria-hidden="true"><rect x="0" y="118" width="240" height="32" fill="#F7DE9A"/>
+<g class="wig"><rect x="22" y="46" width="52" height="52" rx="12" fill="#FF7F3F"/><text x="48" y="84" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="38" font-weight="800" fill="#fff" text-anchor="middle">1</text></g>
+<text x="90" y="86" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="36" font-weight="800" fill="#B9780A" text-anchor="middle">+</text>
+<g class="wig d2"><rect x="106" y="46" width="52" height="52" rx="12" fill="#3E9BDB"/><text x="132" y="84" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="38" font-weight="800" fill="#fff" text-anchor="middle">2</text></g>
+<text x="174" y="86" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="36" font-weight="800" fill="#B9780A" text-anchor="middle">=</text>
+<g class="bob2"><circle cx="212" cy="72" r="24" fill="#4DB35A"/><text x="212" y="86" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="38" font-weight="800" fill="#fff" text-anchor="middle">3</text></g>
+<path d="M28 22l5 10 11 1.5-8 7.5 2 11-10-5.5-10 5.5 2-11-8-7.5 11-1.5z" fill="#FFC83A"/>
+<circle cx="40" cy="132" r="7" fill="#E7466B"/><circle cx="60" cy="132" r="7" fill="#8C5BD6"/><circle cx="80" cy="132" r="7" fill="#3E9BDB"/></svg></a>
+          <h3><a href="#world-count-2" data-w="count">Math</a></h3>
+          <p class="fsub">Counting, adding, shapes, time and number races.</p>
+          <a class="btn btn-sm fgo" href="#world-count-2" data-w="count" data-say="Let's count!">Play math</a>
+          <div class="fchips" data-games="sums,shapes,clock,race,storysums"></div>
+        </div>
+        <div class="fav fav-sci">
+          <a class="fart" href="#world-science-2" data-w="science" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 240 150" aria-hidden="true"><rect x="0" y="118" width="240" height="32" fill="#B6E2A8"/>
+<g class="bob2"><path d="M96 20h28v34l30 52a10 10 0 0 1-9 15H75a10 10 0 0 1-9-15l30-52z" fill="#fff" stroke="#2F8A3C" stroke-width="5" stroke-linejoin="round"/>
+<path d="M80 86h60l12 21a6 6 0 0 1-5 9H73a6 6 0 0 1-5-9z" fill="#8C5BD6"/><circle cx="98" cy="100" r="5" fill="#fff" opacity=".8"/><circle cx="118" cy="94" r="3.5" fill="#fff" opacity=".8"/><rect x="90" y="14" width="40" height="10" rx="5" fill="#2F8A3C"/></g>
+<circle class="wig" cx="112" cy="8" r="0" fill="none"/>
+<g class="wig d2"><circle cx="134" cy="2" r="0"/></g>
+<circle cx="140" cy="40" r="6" fill="#C9B4F0"/><circle cx="152" cy="22" r="8" fill="#C9B4F0" opacity=".8"/><circle cx="168" cy="8" r="5" fill="#C9B4F0" opacity=".6"/>
+<g class="wig"><path d="M190 118c0-30 0-44 0-56" stroke="#3E8E41" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M190 80c-22-2-30-18-28-30 16 0 28 12 28 30z" fill="#4DB35A"/><path d="M190 70c18-4 26-20 24-30-14 2-24 14-24 30z" fill="#6CC56F"/><circle cx="190" cy="54" r="10" fill="#FFC83A"/></g>
+<g class="wig d3"><circle cx="38" cy="58" r="22" fill="#FFC83A"/><path d="M38 24v8M38 84v8M4 58h8M64 58h8M14 34l6 6M56 76l6 6M14 82l6-6M56 40l6-6" stroke="#FFC83A" stroke-width="5" stroke-linecap="round"/></g></svg></a>
+          <h3><a href="#world-science-2" data-w="science">Science</a></h3>
+          <p class="fsub">Five senses, weather, living things, hot and cold, sink or float.</p>
+          <a class="btn btn-sm fgo" href="#world-science-2" data-w="science" data-say="Science time!">Play science</a>
+          <div class="fchips" data-games="animals,veggies,size"></div>
+        </div>
+        <div class="fav fav-mus">
+          <a class="fart" href="#world-music-2" data-w="music" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 240 150" aria-hidden="true"><rect x="0" y="118" width="240" height="32" fill="#B7D8F4"/>
+<g class="bob2"><ellipse cx="120" cy="80" rx="52" ry="14" fill="#E7466B"/><path d="M68 80v30c0 8 23 14 52 14s52-6 52-14V80" fill="#E7466B"/><path d="M68 80v30c0 8 23 14 52 14s52-6 52-14V80" fill="none" stroke="#B32A4C" stroke-width="4"/>
+<ellipse cx="120" cy="80" rx="52" ry="14" fill="#FFF3E0" stroke="#B32A4C" stroke-width="4"/><path d="M76 88l18 32M100 92l12 32M140 92l-12 32M164 88l-18 32" stroke="#FFC83A" stroke-width="4"/></g>
+<g class="wig"><path d="M84 58L110 30" stroke="#9A6A44" stroke-width="6" stroke-linecap="round"/><circle cx="112" cy="28" r="7" fill="#FFC83A"/></g>
+<g class="wig d2"><path d="M156 58L132 30" stroke="#9A6A44" stroke-width="6" stroke-linecap="round"/><circle cx="130" cy="28" r="7" fill="#FFC83A"/></g>
+<g class="wig d3"><path d="M30 70V26l24-6v42" stroke="#2B6FB0" stroke-width="5" fill="none" stroke-linejoin="round"/><ellipse cx="24" cy="70" rx="10" ry="8" fill="#2B6FB0"/><ellipse cx="48" cy="62" rx="10" ry="8" fill="#2B6FB0"/></g>
+<g class="wig"><path d="M206 64V24c8 2 16 8 16 18" stroke="#8C5BD6" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="198" cy="66" rx="11" ry="8.5" fill="#8C5BD6"/></g>
+<circle cx="186" cy="100" r="4" fill="#FFC83A"/><circle cx="50" cy="100" r="4" fill="#4DB35A"/></svg></a>
+          <h3><a href="#world-music-2" data-w="music">Music</a></h3>
+          <p class="fsub">Drum along, copy the beat and hear the animal chorus.</p>
+          <a class="btn btn-sm fgo" href="#world-music-2" data-w="music" data-say="Let's make music!">Play music</a>
+          <div class="fchips" data-games="music,animals"></div>
+        </div>
+        <div class="fav fav-col">
+          <a class="fart" href="#colorbook" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 240 150" aria-hidden="true"><rect x="0" y="118" width="240" height="32" fill="#F6C2D3"/>
+<rect x="70" y="18" width="100" height="96" rx="10" fill="#fff" stroke="#F2AFC4" stroke-width="4"/>
+<circle cx="120" cy="58" r="22" fill="#FFC83A"/><path d="M92 106c8-22 20-30 28-30s20 8 28 30z" fill="#4DB35A"/><path d="M84 40q8-10 16 0" stroke="#3E9BDB" stroke-width="4" fill="none" stroke-linecap="round"/>
+<g class="wig"><rect x="20" y="40" width="16" height="70" rx="4" fill="#E7466B" transform="rotate(-14 28 75)"/><path d="M20 40l8-16 8 16z" fill="#E7466B" transform="rotate(-14 28 75)"/></g>
+<g class="wig d2"><rect x="42" y="52" width="16" height="64" rx="4" fill="#3E9BDB" transform="rotate(-4 50 84)"/><path d="M42 52l8-16 8 16z" fill="#3E9BDB" transform="rotate(-4 50 84)"/></g>
+<g class="bob2"><path d="M200 26l14 14-44 52-12 2 2-12z" fill="#8C5BD6"/><path d="M158 82l12 10c-4 10-14 16-26 14 6-6 6-18 14-24z" fill="#FF7F3F"/></g>
+<circle cx="196" cy="104" r="9" fill="#FFC83A"/><circle cx="214" cy="92" r="6" fill="#4DB35A"/><circle cx="216" cy="112" r="5" fill="#E7466B"/></svg></a>
+          <h3><a href="#colorbook">Coloring</a></h3>
+          <p class="fsub">100 pictures to color, magic paint and color mixing.</p>
+          <a class="btn btn-sm fgo" href="#colorbook" data-say="Let's color!">Start coloring</a>
+          <div class="fchips"><a href="#paint"><span class="ic" style="background:#fff"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#FCE0EA"/><path d="M22 6l3 3-10 11-3 1 1-3z" fill="#8C5BD6"/><path d="M12 18l3 3c-1 3-4 4-7 3 2-2 2-5 4-6z" fill="#FF7F3F"/></svg></span>Magic Paint</a></div>
+          <div class="fchips" data-games="colors" style="margin-top:8px"></div>
+        </div>
+      </div>
+    </section>
     <div class="ages" aria-label="Age groups">
       <div class="age"><span class="yrs">Ages 2–3</span><h3>Tadpoles</h3><p>Big pictures, two or three choices, colors, shapes and counting to 5.</p></div>
       <div class="age"><span class="yrs">Ages 4–5</span><h3>Froglets</h3><p>Letters and sounds, numbers to 20, first patterns and first mixing.</p></div>
@@ -9113,6 +9209,27 @@ renderWorld = function(arg){
 };
 })();
 
+
+/* ---------- v42: favorite subjects on the home page ---------- */
+(function(){
+  function fillFavs(){
+    $$(".favs .fchips[data-games]").forEach(function(box){
+      if(box.dataset.done) return;
+      box.innerHTML = box.dataset.games.split(",").map(function(id){
+        var g = gameById(id); if(!g) return "";
+        return '<a href="#world-'+id+'-'+(S.band||2)+'" data-w="'+id+'"><span class="ic" style="background:'+g.bg+'">'+(g.art||"")+'</span>'+g.name+'</a>';
+      }).join("");
+      box.dataset.done = "1";
+    });
+    if(typeof bandLinks==="function") bandLinks();
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest(".favs [data-say]");
+    if(a && typeof say==="function"){ try{ say(a.dataset.say); }catch(_){} }
+  }, true);
+  fillFavs();
+  window.addEventListener("hashchange", fillFavs);
+})();
 window.addEventListener("hashchange", route);
 
 syncAccount(); renderCards(); renderChip(); drawMute(); drawVoice(); drawNames(); fillScene(); fillHero(); renderPalRow(); fillCounts(); vInit(); drawSaveButtons(); route();
