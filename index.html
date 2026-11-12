@@ -3402,7 +3402,7 @@ function vInit(){
   if(VP.man || VP.wait.man || !window.fetch) return;
   VP.wait.man = fetch(VP.base+"manifest.json").then(function(r){ if(!r.ok) throw new Error("no voice pack"); return r.json(); }).then(function(m){
     if(!m || !m.packs) throw new Error("bad voice pack");
-    VP.man = m; vNeed(vPacks(G)); if(/^#food/.test(location.hash)) vNeed(["food"]);
+    VP.man = m; vNeed(vPacks(G)); if(/^#food/.test(location.hash)) vNeed([vFood()]);
     if(/parents/.test(location.hash)) try{ renderVoiceCard(); }catch(e){}
   }).catch(function(){ VP.wait.man = null; VP.failed = true; });
 }
@@ -3410,7 +3410,8 @@ function vInit(){
 /* age groups listed in the manifest's "y" use the second voice (packs named y_...) */
 /* "yno" lists games that keep the first voice everywhere (story games: their stories are not recorded in the second voice yet) */
 function vYBand(b, id){ return !!(VP.man && VP.man.y && VP.man.y.indexOf(+b) >= 0 && VP.man.packs.y_shared && !(id && VP.man.yno && VP.man.yno.indexOf(id) >= 0)); }
-function vY(){ try{ return /^#play-/.test(location.hash) && !!G && vYBand(G.band, G.id); }catch(e){ return false; } }
+function vY(){ try{ var pl = /^#play-/.test(location.hash) && !!G; if(VP.man && VP.man.yall && VP.man.packs.y_shared && !pl) return true; return pl && vYBand(G.band, G.id); }catch(e){ return false; } }
+function vFood(){ return vY() && VP.man.packs.y_food ? "y_food" : "food"; }
 function vPacks(g){
   var y = g ? vYBand(g.band, g.id) : vY(), pre = y ? "y_" : "";
   var out = [pre+"shared"]; if(!VP.man) return ["shared"];
@@ -6403,7 +6404,7 @@ function fcol(f){ return BOOKCOL[f.w] || f.col; }
 function byCol(c){ return function(f){ return fcol(f)===c; }; }
 var FOOD_FILTERS = [["All",null],["Fruits",function(f){ return f.t!=="veg"; }],["Vegetables",function(f){ return f.t!=="fruit"; }],["Red",byCol("red")],["Orange",byCol("orange")],["Yellow",byCol("yellow")],["Green",byCol("green")],["Blue and purple",byCol("purple")],["Brown",byCol("brown")]];
 var GROWS = {tree:"Grows on a tree", vine:"Grows on a vine", bush:"Grows on a bush", plant:"Grows on a plant", under:"Grows under the ground", pod:"Grows in a pod"};
-function renderFood(){ if(VP.man) vNeed(["food"]);
+function renderFood(){ if(VP.man) vNeed([vFood()]);
   var fb = $("#foodFilters"); fb.innerHTML = "";
   FOOD_FILTERS.forEach(function(ff){ var b = el("button","",ff[0]); b.setAttribute("aria-pressed", String(foodFilter===ff[0])); b.addEventListener("click", function(){ foodFilter = ff[0]; renderFood(); }); fb.appendChild(b); });
   var fn = (FOOD_FILTERS.filter(function(ff){ return ff[0]===foodFilter; })[0]||[])[1];
@@ -8614,7 +8615,10 @@ renderPrizes = function(){
 };
 /* Pip's recorded lines for the eggs live in the "fun" voice pack */
 var VPACKS0 = vPacks;
-vPacks = function(g){ var o = VPACKS0(g), f = (o[0]==="y_shared" ? "y_" : "")+"fun"; if(VP.man && VP.man.packs && VP.man.packs[f] && o.indexOf(f)<0) o.push(f); return o; };
+vPacks = function(g){ var o = VPACKS0(g), f = (o[0]==="y_shared" ? "y_" : "")+"fun"; if(VP.man && VP.man.packs && VP.man.packs[f] && o.indexOf(f)<0) o.push(f); if(o[0]==="y_shared" && VP.man && VP.man.packs && VP.man.packs.y_more && o.indexOf("y_more")<0) o.push("y_more");
+  /* "y_<game>-<band>x": lines added later to a game's guy-voice pack */
+  var gx = g || G; if(o[0]==="y_shared" && gx && VP.man && VP.man.packs){ var xp = "y_"+gx.id+"-"+gx.band+"x"; if(VP.man.packs[xp] && o.indexOf(xp)<0) o.push(xp); }
+  return o; };
 window.__v25 = {monSVG:monSVG, hideCard:hideCard, pizzaSVG:pizzaSVG, buddySVG:buddySVG, BUDDIES:BUDDIES, openEgg:openEgg};
 })();
 
