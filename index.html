@@ -2016,6 +2016,8 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
 }
 @media (min-width:901px){nav.links{gap:0}nav.links a{padding:8px 5px}}
 @media (min-width:901px) and (max-width:1180px){#planChip{display:none}}
+.clgrown{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;background:var(--card);border-radius:var(--r-md);padding:14px 18px;box-shadow:var(--shadow);border:3px solid #FFD66B}
+.clgrown b{display:block;font-size:18px}.clgrown span{color:var(--ink-soft);font-size:15px}
 .clplans{margin-top:18px;background:var(--card);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);display:grid;gap:14px;border:3px solid #FFD66B}
 .clplans h3{margin:0 0 4px}.clplans.warn{border-color:#FF9A3D}.clplans p{margin:0}
 .clplanrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -10387,12 +10389,12 @@ renderWorld = function(arg){
       return;
     }
     if(!KID.on){
-      box.innerHTML = '<div class="kidlogin"><div class="kidpip" aria-hidden="true"><svg><use href="#pip"/></svg></div>'+
+      box.innerHTML = '<div class="clgrown"><div class="min-w0"><b>Parent or teacher?</b><span>Sign up, pick a plan, then make your kids\' usernames and passwords.</span></div><a class="btn btn-go" href="#teach">Sign up or sign in</a></div><div class="kidlogin"><div class="kidpip" aria-hidden="true"><svg><use href="#pip"/></svg></div>'+
         '<form class="formcard" id="kidForm" novalidate><h2>Hi! Log in to see your homework</h2>'+
         '<label for="kUser">My username<input id="kUser" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="mia27"></label>'+
         '<label for="kPass">My password<input id="kPass" type="password" autocomplete="current-password" autocapitalize="none" placeholder="frog12"></label>'+
         '<p class="err" id="kErr" hidden></p><button class="btn btn-go kidgo" type="submit">Let\'s go!</button></form></div>'+
-        '<p class="clsmall" style="text-align:center;margin-top:18px">Grown-up? <a href="#teach">Make a class and give homework</a></p>';
+        '';
       $("#kidForm").addEventListener("submit", function(e){
         e.preventDefault(); var er = $("#kErr"), bt = $(".kidgo", this), u = $("#kUser").value.trim(), p = $("#kPass").value.trim();
         if(!u || !p){ er.textContent = "Type your username and your password."; er.hidden = false; return; }
