@@ -131,7 +131,7 @@ const HANDLERS = {
     return json({ teacher: pubTeacher(t, await planInfo(env, D, t)) });
   } },
   buyclass: { who: "t", run: async ({ b, env, D, s, origin }) => {
-    const plan = String(b.plan || ""); if (!PLANS[plan] || !PLANS[plan].classroom) return fail("Pick a Classroom plan.");
+    const plan = String(b.plan || ""); if (!PLANS[plan] || !SEATS[plan]) return fail("Pick a plan.");
     const t = await teacherRow(D, s.who), ids = await priceIds(env);
     if (!ids[plan]) return fail("This plan isn't set up in Stripe yet.", 500);
     const p = { mode: "subscription", managed_payments: { enabled: "false" }, line_items: { 0: { price: ids[plan], quantity: 1 } },
@@ -197,7 +197,8 @@ const HANDLERS = {
     const n = await D.prepare("SELECT COUNT(*) AS n FROM kids WHERE class_id = ?").bind(c.id).first();
     if (n.n + list.length > MAX_KIDS) return fail("A class can have up to " + MAX_KIDS + " kids.");
     const pi = await planInfo(env, D, await teacherRow(D, s.who));
-    if (pi.active && pi.kids + list.length > pi.seats) return fail("Your plan covers " + pi.seats + " student" + (pi.seats === 1 ? "" : "s") + " and you have " + pi.kids + ". " + (pi.seats < 30 ? "Switch to a bigger Classroom plan to add more." : "Remove a kid first, or make a second classroom account."), 402, { code: "seats" });
+    if (!pi.active) return fail("Pick a plan first. After you pay, you can make kid logins.", 402, { code: "needplan" });
+    if (pi.kids + list.length > pi.seats) return fail("Your plan covers " + pi.seats + " student" + (pi.seats === 1 ? "" : "s") + " and you have " + pi.kids + ". " + (pi.seats < 30 ? "Switch to a bigger plan to add more." : "Remove a kid first, or make a second account."), 402, { code: "seats" });
     const made = [];
     for (const k of list) {
       let user = k.user;
