@@ -10355,7 +10355,7 @@ renderWorld = function(arg){
   function api(body, tok){
     var h = {"content-type":"application/json"}; if(tok) h.authorization = "Bearer "+tok;
     return fetch("/api/class", {method:"POST", headers:h, body:JSON.stringify(body)}).then(function(r){
-      return r.json().catch(function(){ return {error:"The classroom server didn't answer. Please try again."}; }).then(function(d){ d = d || {}; d._status = r.status; return d; });
+      return r.json().catch(function(){ return {error:"The classroom server didn't answer (error "+r.status+"). Please try again."}; }).then(function(d){ d = d || {}; d._status = r.status; return d; });
     }, function(){ return {error:"No internet connection. Please try again.", _status:0}; });
   }
   function dueTx(d){ if(!d) return ""; var p = d.split("-"), t = new Date(+p[0], +p[1]-1, +p[2]); return t.toLocaleDateString(undefined, {weekday:"short", month:"short", day:"numeric"}); }
@@ -10487,14 +10487,15 @@ renderWorld = function(arg){
     T.loading = true;
     api({action:"me"}, T.token).then(function(d){
       T.loading = false;
-      if(d._status===401){ T.token = null; tSave(); T.data = null; renderTeach(); return; }
+      if(d._status===401){ T.token = null; tSave(); T.data = null; renderTeach(); if(then){ var e1 = $("#tErr"); if(e1){ e1.textContent = "Your account was made, but it didn't open (error 401). Tap Sign in and use the same email and password."; e1.hidden = false; } } return; }
       if(d.error){ $("#teachBody").innerHTML = '<div class="clcard"><p class="err">'+esc(d.error)+'</p><button class="btn btn-soft btn-sm" id="tRetry">Try again</button></div>'; $("#tRetry").addEventListener("click", function(){ tLoad(); }); return; }
       T.data = d;
       var cp = new URLSearchParams(location.search).get("classpaid");
       if(cp){ try{ history.replaceState(null, "", location.pathname+"#teach"); }catch(e){}
         api({action:"classpaid", session:cp}, T.token).then(function(r){ if(r.teacher){ T.data.teacher = r.teacher; renderTeach(); if(typeof confetti==="function") confetti(); toast("Thank you! Your plan is active. Now add your kids and their logins."); } else toast(r.error || "We couldn't confirm the payment. Refresh in a minute, or email us."); }); }
       if(!T.cls || !d.classes.some(function(c){ return c.id===T.cls; })) T.cls = d.classes.length ? d.classes[0].id : null;
-      renderTeach(); if(T.cls) tProg(); if(then) then();
+      try{ renderTeach(); }catch(err){ $("#teachBody").innerHTML = '<div class="clcard"><p class="err">Something went wrong opening your account: '+esc(String(err && err.message || err))+'. Please send us a screenshot.</p></div>'; return; }
+      if(T.cls) tProg(); if(then) then();
     });
   }
   function tClass(){ if(!T.data) return null; for(var i=0;i<T.data.classes.length;i++) if(T.data.classes[i].id===T.cls) return T.data.classes[i]; return null; }
@@ -10564,7 +10565,7 @@ renderWorld = function(arg){
         busy(bt, true); er.hidden = true;
         api({action:mode==="up" ? "signup" : "login", name:$("#tName").value, email:$("#tEmail").value, password:$("#tPass").value}).then(function(d){
           busy(bt, false);
-          if(!d.token){ er.textContent = d.error || "That didn't work. Please try again."; er.hidden = false; return; }
+          if(!d.token){ er.textContent = (d.error || "That didn't work. Please try again.")+(d._status && d._status>=500 ? " (error "+d._status+")" : ""); er.hidden = false; try{ er.scrollIntoView({block:"center", behavior:"smooth"}); }catch(x){} return; }
           T.token = d.token; tSave(); box.innerHTML = '<div class="clcard">'+BUSY+' Opening your classroom...</div>'; tLoad(function(){ if(mode==="up") toast("Account made. Now pick a plan."); });
         });
       });
