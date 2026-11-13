@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="FirstFoundationkids">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="FirstFoundationkids: learning games for ages 2 to 7">
-<meta property="og:description" content="41 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Levels 1 to 3 of every age group are free, with no ads and no sign-up.">
+<meta property="og:description" content="44 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Levels 1 to 3 of every age group are free, with no ads and no sign-up.">
 <meta property="og:url" content="https://www.firstfoundationkids.com/">
 <meta property="og:image" content="https://www.firstfoundationkids.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
 <meta property="og:image:alt" content="Pip the frog and the FirstFoundationkids name: learning games for ages 2 to 7">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FirstFoundationkids: learning games for ages 2 to 7">
-<meta name="twitter:description" content="41 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Levels 1 to 3 of every age group are free.">
+<meta name="twitter:description" content="44 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Levels 1 to 3 of every age group are free.">
 <meta name="twitter:image" content="https://www.firstfoundationkids.com/og-image.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800;900&family=Lexend:wght@400;500;600;700&display=swap">
@@ -2173,6 +2173,56 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
   body.ffk-printing #printArea{display:block!important}
   body.ffk-printing #printArea .sheet{margin:0 auto;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+/* ---------- v48: animal worlds ---------- */
+.azsvg{width:100%;height:100%;display:block;overflow:visible}
+.azsvg .azb{transform-origin:60px 112px;animation:azBob 2.6s ease-in-out infinite}
+.azpic{display:block;width:96px;height:96px}
+.azpic .azsvg{filter:drop-shadow(0 4px 3px rgba(23,59,64,.12))}
+.azsvg.azbaby{transform:scale(.72)}
+.azsvg.azbaby .azb{animation:azWig 1.8s ease-in-out infinite}
+.choice:hover .azsvg .azb,.choice:focus-visible .azsvg .azb{animation:azHop .5s ease}
+.choice.right .azsvg .azb,.choice.correct .azsvg .azb{animation:azHop .45s ease 2}
+.azfield{display:flex;justify-content:center;align-items:center;min-height:0;padding:4px 0}
+.azstage{display:flex;align-items:flex-end;justify-content:center;gap:6px;perspective:600px}
+.azstage.azbig{width:150px;height:150px}
+.azstage.azbig .azsvg{transform:rotateY(-8deg);animation:azTurn 4s ease-in-out infinite}
+.azstage.azhintpic{display:none}
+.azpeek{position:relative;display:block;width:150px;height:150px;overflow:hidden;border-radius:24px}
+.azpeek .azsvg{position:absolute;inset:0;transform:translateY(18px);animation:azPeek 2.4s ease-in-out infinite}
+.azbush{position:absolute;left:-10px;right:-10px;bottom:-14px;height:96px;border-radius:50% 50% 0 0;
+  background:radial-gradient(circle at 20% 30%,#8FD46B 0 30%,transparent 31%),radial-gradient(circle at 50% 18%,#7DCB5A 0 32%,transparent 33%),radial-gradient(circle at 80% 30%,#8FD46B 0 30%,transparent 31%),linear-gradient(#5DAA4E,#3E8F3A 70%);
+  box-shadow:inset 0 10px 18px rgba(255,255,255,.25)}
+.azcry,.azmom,.azmomsm,.azkid1{display:block;width:120px;height:120px}
+.azmom{width:130px;height:130px}
+.azmomsm{width:110px;height:110px}
+.azkid1{width:84px;height:84px}
+.azbabystage .azcry{animation:azWig 1.2s ease-in-out infinite}
+.azfamily{flex-wrap:wrap;max-width:420px}
+.azkids{display:flex;flex-wrap:wrap;max-width:260px;justify-content:center}
+.azkid{display:block;width:52px;height:52px}
+.azword{flex-direction:column;align-items:center}
+.azmini2{display:block;width:96px;height:96px}
+.azspell{display:flex;gap:6px;font:900 34px/1 Grandstander,sans-serif;color:#173B40}
+.azspell b{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:50px;border-radius:12px;background:#fff;box-shadow:0 4px 0 rgba(23,59,64,.15)}
+.azspell b.blank{background:#FFE58A;color:#D9581C;animation:azPulse 1.2s ease-in-out infinite}
+.azbabyword{font:900 44px/1.1 Grandstander,sans-serif;color:#D93A60;background:#fff;border-radius:20px;padding:10px 26px;box-shadow:0 6px 0 rgba(23,59,64,.12)}
+.azhomebig{width:170px;height:130px}
+.azhome{width:100%;height:100%;display:block;border-radius:16px}
+.azhomebig .azhome{box-shadow:0 8px 0 rgba(23,59,64,.12)}
+.azhomecard{display:flex;flex-direction:column;align-items:center;gap:4px;width:110px}
+.azhomecard .azhome{width:100px;height:80px}
+.azhomecard b,.azcap{font:800 15px/1.1 Nunito,sans-serif;color:#173B40}
+.azfood{display:block;width:76px;height:76px}
+.azfood svg{width:100%;height:100%}
+.azrow .choice{flex-direction:column}
+@keyframes azBob{0%,100%{transform:translateY(0) scale(1,1)}50%{transform:translateY(-3px) scale(1.02,.98)}}
+@keyframes azWig{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes azHop{0%,100%{transform:translateY(0)}40%{transform:translateY(-14px) scale(1.05,.95)}70%{transform:translateY(0) scale(1.08,.92)}}
+@keyframes azTurn{0%,100%{transform:rotateY(-14deg)}50%{transform:rotateY(14deg)}}
+@keyframes azPeek{0%,100%{transform:translateY(42px)}45%,60%{transform:translateY(14px)}}
+@keyframes azPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@media (max-width:560px){.azpic{width:78px;height:78px}.azstage.azbig,.azpeek{width:124px;height:124px}.azhomecard{width:92px}.azhomecard .azhome{width:86px;height:68px}.azspell{font-size:26px}.azspell b{min-width:30px;height:40px}}
+@media (prefers-reduced-motion:reduce){.azsvg .azb,.azpeek .azsvg,.azstage.azbig .azsvg,.azbabystage .azcry,.azspell b.blank{animation:none!important}}
 </style>
 <style>/* live site: stop tilted 3D cards from making phones scroll sideways */html,body{overflow-x:clip}</style>
 </head>
@@ -2387,7 +2437,7 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
       <p class="eyebrow"><span data-count="worlds">38</span> worlds, 90 levels each</p>
       <h2 class="h2big">Pick a world and start hopping</h2>
       <div class="grid-games" id="homeGames"></div>
-      <div class="center" style="margin-top:28px"><a class="btn btn-go" href="#lessons">See all <span data-count="worlds">38</span> worlds and <span data-count="levels">4,500</span> levels</a></div>
+      <div class="center" style="margin-top:28px"><a class="btn btn-go" href="#lessons">See all <span data-count="worlds">38</span> worlds and <span data-count="levels">4,770</span> levels</a></div>
     </div>
   </section>
 
@@ -2442,7 +2492,7 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
       <h2 class="h2big">Try it, then decide</h2>
       <div class="steps">
         <div class="step"><div class="n">1</div><h3>Play levels 1–3 free</h3><p>For every age group in every world, with no account and no card. Hand over the tablet and watch.</p></div>
-        <div class="step"><div class="n">2</div><h3>Subscribe to unlock</h3><p>One plan opens all <span data-count="levels">4,500</span> levels, every Color Book picture, and the medals, trophies and prizes.</p></div>
+        <div class="step"><div class="n">2</div><h3>Subscribe to unlock</h3><p>One plan opens all <span data-count="levels">4,770</span> levels, every Color Book picture, and the medals, trophies and prizes.</p></div>
         <div class="step"><div class="n">3</div><h3>Keep the fun going</h3><p>Pick monthly, yearly or family. Cancel any time from your account in two taps.</p></div>
       </div>
     </div>
@@ -2482,7 +2532,7 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
       <p class="eyebrow">Questions</p>
       <h2 class="h2big">Parents often ask</h2>
       <div class="faq" style="margin-top:20px">
-        <details><summary>What is free?</summary><p>Levels 1 to 3 of every age group in all 41 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
+        <details><summary>What is free?</summary><p>Levels 1 to 3 of every age group in all 44 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
         <details><summary>Does my child need to read?</summary><p>No. Pip reads every question and answer out loud, and kids answer by tapping or by saying the answer. You can switch the voice off at any time.</p></details>
         <details><summary>Does it help with school?</summary><p>Yes, that is what Pip's Pond School is for. Its short lessons practice skills commonly taught in kindergarten through fourth grade: listening to and reading short stories, sight words, handwriting, math word problems, telling time and early science. It is extra practice for home and does not replace your child's teacher or school.</p></details>
         <details><summary>Is there a free trial?</summary><p>No trial. Instead, the first 3 levels of every age group stay free, so you can try before you pay.</p></details>
@@ -2767,7 +2817,7 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
         <div class="plan">
           <h3>Monthly</h3>
           <div class="price">$9.99 <small>/ month</small></div>
-          <ul><li>All <span data-count="worlds">38</span> worlds and <span data-count="levels">4,500</span> levels</li><li>Every Color Book picture</li><li>Medals, trophies, certificates and Pip's prizes</li><li>Progress page and daily play-time limit</li><li>1 child profile</li></ul>
+          <ul><li>All <span data-count="worlds">38</span> worlds and <span data-count="levels">4,770</span> levels</li><li>Every Color Book picture</li><li>Medals, trophies, certificates and Pip's prizes</li><li>Progress page and daily play-time limit</li><li>1 child profile</li></ul>
           <a class="btn btn-soft" href="#subscribe" data-plan="monthly">Choose Monthly</a>
         </div>
         <div class="plan pop">
@@ -3054,13 +3104,13 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
       <p class="lead" style="margin-top:10px">Can't find your answer? Email <a href="mailto:firstfoundationkidsapp@gmail.com">firstfoundationkidsapp@gmail.com</a>.</p>
       <div id="faqAll">
       <div class="faqcat"><h2>Getting started</h2><div class="faq">
-        <details><summary>What is FirstFoundationkids?</summary><p>An early-learning website for children ages 2 to 7. It has 41 game worlds, Pip's Pond School for kindergarten through fourth grade practice, a Fruit &amp; Veggie Book, and a Studio for painting, coloring and first computer skills. Pip the frog reads every question aloud.</p></details>
+        <details><summary>What is FirstFoundationkids?</summary><p>An early-learning website for children ages 2 to 7. It has 44 game worlds, Pip's Pond School for kindergarten through fourth grade practice, a Fruit &amp; Veggie Book, and a Studio for painting, coloring and first computer skills. Pip the frog reads every question aloud.</p></details>
         <details><summary>Which ages is it for?</summary><p>Ages 2 to 7, in three groups: Tadpoles (2–3), Froglets (4–5) and Jumpers (6–7). Each group gets its own version of every world, with 30 levels that get a little harder each time.</p></details>
         <details><summary>Does my child need to read?</summary><p>No. Pip reads every question and answer out loud, and kids answer by tapping or by saying the answer. You can switch the voice off at any time.</p></details>
         <details><summary>Which devices work?</summary><p>Any up-to-date web browser on a computer, tablet or phone. The mouse and keyboard worlds work best on a laptop or desktop, but tapping works too.</p></details>
       </div></div>
       <div class="faqcat"><h2>Plans and billing</h2><div class="faq">
-        <details><summary>What is free?</summary><p>Levels 1 to 3 of every age group in all 41 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
+        <details><summary>What is free?</summary><p>Levels 1 to 3 of every age group in all 44 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
         <details><summary>How much does a plan cost?</summary><p>Monthly is $9.99 a month. Yearly is $79.99 a year, which works out to about $6.67 a month. Family is $99.99 a year for up to 4 child profiles.</p></details>
         <details><summary>Is there a free trial?</summary><p>No trial. Instead, the first 3 levels of every age group stay free, so you can try before you pay.</p></details>
         <details><summary>How do I cancel?</summary><p>From My account, any time. Your plan stays open until the end of the period you paid for.</p></details>
@@ -10706,6 +10756,396 @@ renderWorld = function(arg){
   if(KID.on) useProfile();
   if(KID.on && KID.data) setTimeout(function(){ kidRefresh(function(){ if(curView==="kids") renderKids(); }); }, 400);
 })();
+/* ---------- v48: animal worlds (Animal Parade, Baby Animals, Animal Homes) ---------- */
+(function(){
+/* ===== 31 original clay-style 3D cartoon animals ===== */
+function shade(hex, k){ var n = parseInt(hex.slice(1), 16), r = n>>16, g = (n>>8)&255, b = n&255; function f(v){ return Math.max(0, Math.min(255, Math.round(k>0 ? v+(255-v)*k : v*(1+k)))); } return "#"+((1<<24)+(f(r)<<16)+(f(g)<<8)+f(b)).toString(16).slice(1); }
+var AZN = 0, INK = "#173B40";
+function E(cx, cy, rx, ry, fill, x){ return '<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="'+fill+'"'+(x||"")+'/>'; }
+function C(cx, cy, r, fill, x){ return '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="'+fill+'"'+(x||"")+'/>'; }
+function P(d, fill, x){ return '<path d="'+d+'" fill="'+fill+'"'+(x||"")+'/>'; }
+function L(d, col, w){ return '<path d="'+d+'" stroke="'+col+'" stroke-width="'+(w||3)+'" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'; }
+function rot(a, x, y){ return ' transform="rotate('+a+' '+x+' '+y+')"'; }
+function hi(cx, cy, rx, ry){ return E(cx, cy, rx, ry, "#fff", ' opacity=".42"'+rot(-25, cx, cy)); }
+function eyes(y, x1, x2, r){ x1 = x1||49; x2 = x2||71; r = r||6.5; var s = '<g class="az-eyes">';
+  [x1, x2].forEach(function(x){ s += C(x, y, r, "#fff")+C(x+.6, y+.6, r*.62, INK)+C(x-r*.25, y-r*.3, r*.24, "#fff"); }); return s+'</g>'; }
+function cheeks(y, x1, x2){ return C(x1||39, y, 5, "#FF8FA8", ' opacity=".5"')+C(x2||81, y, 5, "#FF8FA8", ' opacity=".5"'); }
+function smile(y, w){ w = w||7; return L("M"+(60-w)+" "+y+"Q60 "+(y+w*.9)+" "+(60+w)+" "+y, INK, 2.8); }
+function feet(f, col, y){ y = y||108; return E(47, y, 9, 5, f(col))+E(73, y, 9, 5, f(col)); }
+function body(f, col, belly, o){ o = o||{}; var cy = o.cy||90, s = "";
+  s += E(37, cy-2, 6, 10, f(o.arm||col), rot(22, 37, cy-2))+E(83, cy-2, 6, 10, f(o.arm||col), rot(-22, 83, cy-2));
+  s += feet(f, o.foot||shade(col, -.12), o.fy);
+  s += E(60, cy, o.rx||25, o.ry||19, f(col));
+  if(belly) s += E(60, cy+4, (o.rx||25)*.56, (o.ry||19)*.62, f(belly));
+  return s; }
+var DRAW = {
+cow:function(f){ var c = "#F7F3EC", k = "#3B3B44";
+  return body(f, c, null, {foot:"#5B5050"})+E(70, 86, 7, 5, k)+E(48, 94, 5, 4, k)+
+    L("M43 30Q38 18 44 14", "#E9D6AE", 6)+L("M77 30Q82 18 76 14", "#E9D6AE", 6)+
+    E(30, 44, 12, 6, f(c), rot(-20, 30, 44))+E(90, 44, 12, 6, f(c), rot(20, 90, 44))+E(30, 44, 7, 3, "#F9B8C4", rot(-20, 30, 44))+E(90, 44, 7, 3, "#F9B8C4", rot(20, 90, 44))+
+    C(60, 52, 28, f(c))+P("M66 26q14 2 14 14q-8 6-15-2q-6-6 1-12z", k)+E(42, 40, 5, 4, k)+hi(48, 34, 9, 5)+
+    E(60, 68, 18, 12, f("#F9B8C4"))+E(54, 67, 2.4, 3.4, "#B5596E")+E(66, 67, 2.4, 3.4, "#B5596E")+eyes(47)+smile(73, 5); },
+pig:function(f){ var c = "#FFB3C6";
+  return body(f, c, "#FFD1DC", {foot:"#F58FB0"})+L("M84 92q8-2 6 4q-2 5 3 4", "#F58FB0", 3)+
+    P("M36 34L33 15L51 27Z", f("#F58FB0"))+P("M84 34L87 15L69 27Z", f("#F58FB0"))+
+    C(60, 52, 28, f(c))+hi(48, 34, 9, 5)+E(60, 63, 12, 9, f("#F58FB0"))+E(55, 63, 2.4, 3.6, "#B5596E")+E(65, 63, 2.4, 3.6, "#B5596E")+eyes(46)+cheeks(60, 37, 83)+smile(74, 5); },
+sheep:function(f){ var w = "#FFFFFF", s = "", i;
+  s += feet(f, "#4A4448")+E(37, 88, 5, 9, f("#4A4448"), rot(22, 37, 88))+E(83, 88, 5, 9, f("#4A4448"), rot(-22, 83, 88));
+  for(i=0;i<8;i++){ var a = i/8*Math.PI*2; s += C(Math.round(60+Math.cos(a)*18), Math.round(90+Math.sin(a)*12), 10, f(w)); }
+  s += C(60, 90, 16, f(w));
+  for(i=0;i<10;i++){ var b = i/10*Math.PI*2; s += C(Math.round(60+Math.cos(b)*25), Math.round(50+Math.sin(b)*24), 11, f(w)); }
+  s += E(34, 54, 9, 5, f("#E8C9A8"), rot(-20, 34, 54))+E(86, 54, 9, 5, f("#E8C9A8"), rot(20, 86, 54));
+  s += E(60, 57, 18, 21, f("#F6DEC4"))+C(50, 33, 7, f(w))+C(60, 31, 8, f(w))+C(70, 33, 7, f(w))+hi(52, 46, 6, 4);
+  return s+eyes(54, 52, 68, 5.5)+P("M57 66h6l-3 3z", "#B5596E")+smile(70, 4); },
+horse:function(f){ var c = "#B5763F", m = "#5A3A22";
+  return body(f, c, "#D49A63", {foot:"#4A3020"})+P("M40 34L41 14L53 27Z", f(c))+P("M80 34L79 14L67 27Z", f(c))+
+    E(60, 52, 24, 27, f(c))+C(50, 27, 7, f(m))+C(60, 24, 8, f(m))+C(70, 27, 7, f(m))+P("M57 30q3-4 6 0l-1 16q-2 2-4 0z", "#fff", ' opacity=".9"')+hi(47, 38, 7, 5)+
+    E(60, 70, 17, 12, f("#E2B48A"))+E(54, 70, 2.4, 3.4, "#7A4A2A")+E(66, 70, 2.4, 3.4, "#7A4A2A")+eyes(47, 48, 72)+smile(76, 5); },
+chicken:function(f){ var c = "#FFF8EE";
+  return L("M50 100v8m-4 2l4-2 4 2M70 100v8m-4 2l4-2 4 2", "#FFA22E", 3.5)+E(30, 80, 9, 15, f(c), rot(20, 30, 80))+E(90, 80, 9, 15, f(c), rot(-20, 90, 80))+
+    E(60, 72, 31, 34, f(c))+C(52, 37, 6, f("#E7466B"))+C(60, 33, 7, f("#E7466B"))+C(68, 37, 6, f("#E7466B"))+hi(46, 50, 9, 6)+
+    P("M53 60L67 60L60 70Z", f("#FFB52E"))+E(60, 75, 3.5, 5, f("#E7466B"))+eyes(52, 49, 71, 6)+cheeks(64, 38, 82); },
+duck:function(f){ var c = "#FFD54A";
+  return P("M44 104h12l-6 6zM64 104h12l-6 6z", "#FF9A2E")+E(30, 80, 9, 15, f(c), rot(20, 30, 80))+E(90, 80, 9, 15, f(c), rot(-20, 90, 80))+
+    E(60, 72, 31, 34, f(c))+L("M60 38q-2-10 6-10", "#E5B72E", 4)+hi(46, 50, 9, 6)+E(60, 66, 15, 7, f("#FF9A2E"))+L("M48 66q12 4 24 0", "#D9771C", 1.8)+eyes(52, 48, 72, 6)+cheeks(62, 36, 84); },
+goat:function(f){ var c = "#E9E4DC";
+  return body(f, c, null, {foot:"#6B625A"})+L("M46 30Q38 16 30 22", "#9C8B76", 6)+L("M74 30Q82 16 90 22", "#9C8B76", 6)+
+    E(30, 48, 12, 5, f(c), rot(-15, 30, 48))+E(90, 48, 12, 5, f(c), rot(15, 90, 48))+E(60, 52, 24, 27, f(c))+hi(48, 36, 8, 5)+
+    P("M54 76q6 16 12 0z", f("#BDB5A8"))+E(60, 67, 14, 10, f("#F2D9CF"))+E(55, 66, 2, 3, "#9C6B5E")+E(65, 66, 2, 3, "#9C6B5E")+eyes(48, 49, 71, 6)+smile(72, 4); },
+dog:function(f){ var c = "#D9A36A", e = "#7E5634";
+  return body(f, c, "#F5DDBF")+L("M84 94q10-4 8-14", c, 5)+C(60, 52, 28, f(c))+E(71, 46, 9, 8, "#B07A45")+
+    E(31, 54, 9, 19, f(e), rot(16, 31, 54))+E(89, 54, 9, 19, f(e), rot(-16, 89, 54))+hi(47, 34, 9, 5)+
+    E(60, 65, 15, 11, f("#F5DDBF"))+E(60, 59, 6, 4.5, INK)+P("M56 70q4 10 8 0z", "#FF7F8F")+eyes(47)+L("M52 68Q60 73 68 68", INK, 2.6); },
+cat:function(f){ var c = "#FF9A4D";
+  return body(f, c, "#FFE2C4")+L("M84 96q14 0 10-16q-2-6 2-8", c, 6)+P("M34 38L32 14L52 28Z", f(c))+P("M86 38L88 14L68 28Z", f(c))+P("M37 33L36 20L47 28Z", "#FFB3C6")+P("M83 33L84 20L73 28Z", "#FFB3C6")+
+    C(60, 52, 28, f(c))+L("M60 26v8M52 28l2 7M68 28l-2 7", "#D9681C", 3)+hi(46, 36, 8, 5)+
+    E(54, 64, 7, 6, f("#FFE2C4"))+E(66, 64, 7, 6, f("#FFE2C4"))+P("M56 59h8l-4 4z", "#FF7F8F")+L("M38 62h10M38 67l10-2M82 62H72M82 67l-10-2", INK, 1.6)+eyes(48)+smile(70, 4); },
+rabbit:function(f){ var c = "#E7E3EE";
+  return body(f, c, "#FFFFFF")+E(48, 20, 7, 20, f(c), rot(-8, 48, 20))+E(72, 20, 7, 20, f(c), rot(8, 72, 20))+E(48, 22, 3.5, 14, "#FFB3C6", rot(-8, 48, 22))+E(72, 22, 3.5, 14, "#FFB3C6", rot(8, 72, 22))+
+    C(60, 56, 26, f(c))+hi(48, 42, 8, 5)+E(54, 66, 7, 5.5, f("#FFFFFF"))+E(66, 66, 7, 5.5, f("#FFFFFF"))+C(60, 62, 3.5, "#FF7F8F")+'<rect x="56.5" y="70" width="3" height="5" rx="1" fill="#fff" stroke="#ccc"/><rect x="60.5" y="70" width="3" height="5" rx="1" fill="#fff" stroke="#ccc"/>'+eyes(52)+cheeks(64, 40, 80); },
+mouse:function(f){ var c = "#A9A9B8";
+  return L("M84 98q16 2 14-10q-2-8 6-8", "#F2A6B8", 3)+body(f, c, "#D8D8E2", {foot:"#F2A6B8"})+C(34, 34, 14, f(c))+C(86, 34, 14, f(c))+C(34, 34, 9, "#F7C1CF")+C(86, 34, 9, "#F7C1CF")+
+    C(60, 58, 24, f(c))+hi(50, 44, 7, 4)+C(60, 66, 3.6, "#FF7F8F")+L("M40 64h12M40 69l12-2M80 64H68M80 69l-12-2", INK, 1.5)+eyes(55, 51, 69, 6)+smile(72, 4); },
+lion:function(f){ var m = "#D9681C", c = "#FFC83A", s = body(f, c, "#FFE7A6")+L("M84 96q12 0 12-12", c, 4)+C(97, 82, 4, m), i;
+  s += C(60, 50, 32, f(m)); for(i=0;i<12;i++){ var a = i/12*Math.PI*2; s += C(Math.round(60+Math.cos(a)*30), Math.round(50+Math.sin(a)*30), 11, f(m)); }
+  return s+C(40, 30, 7, f(c))+C(80, 30, 7, f(c))+C(60, 52, 24, f(c))+hi(50, 38, 7, 4)+E(54, 63, 7, 6, f("#FFF1D0"))+E(66, 63, 7, 6, f("#FFF1D0"))+P("M55 57h10l-5 5z", "#7E5634")+eyes(48, 50, 70, 6)+smile(69, 4); },
+tiger:function(f){ var c = "#FF8A2B", k = "#2D2620";
+  return body(f, c, "#FFF4E6")+L("M41 82l6 3M79 82l-6 3M43 92l6 1", k, 3)+L("M84 96q14-2 10-16", c, 6)+C(38, 30, 9, f(c))+C(82, 30, 9, f(c))+C(38, 30, 5, "#FFF4E6")+C(82, 30, 5, "#FFF4E6")+
+    C(60, 52, 28, f(c))+L("M60 25v9M51 27l3 8M69 27l-3 8M33 46l8 2M32 54l8 0M87 46l-8 2M88 54l-8 0", k, 3)+hi(46, 36, 7, 4)+
+    E(60, 65, 17, 11, f("#FFF4E6"))+P("M55 59h10l-5 5z", "#FF7F8F")+eyes(48)+smile(70, 4); },
+elephant:function(f){ var c = "#9AAFC4";
+  return body(f, c, null, {foot:"#7F93A8"})+E(27, 52, 19, 24, f(c))+E(93, 52, 19, 24, f(c))+E(29, 53, 11, 15, "#F2BFCB")+E(91, 53, 11, 15, "#F2BFCB")+
+    C(60, 50, 26, f(c))+hi(49, 36, 8, 5)+P("M52 58Q50 82 60 88Q68 92 70 86Q62 82 68 58Z", f(c))+L("M55 68h8M55 75h7", "#7F93A8", 2)+eyes(46, 48, 72, 6)+cheeks(60, 40, 80); },
+giraffe:function(f){ var c = "#F7C548", s = "#B9722F";
+  return E(37, 92, 5, 9, f(c), rot(22, 37, 92))+E(83, 92, 5, 9, f(c), rot(-22, 83, 92))+feet(f, "#8A5422")+E(60, 96, 22, 14, f(c))+E(52, 94, 5, 4, s)+E(68, 98, 4, 3, s)+
+    '<rect x="50" y="50" width="20" height="40" rx="8" fill="'+f(c)+'"/>'+E(56, 64, 4, 4, s)+E(64, 76, 4, 3.5, s)+E(57, 85, 3, 3, s)+
+    L("M50 26L47 12M70 26L73 12", "#B9722F", 4)+C(47, 11, 4, s)+C(73, 11, 4, s)+E(36, 36, 9, 4, f(c), rot(-20, 36, 36))+E(84, 36, 9, 4, f(c), rot(20, 84, 36))+
+    E(60, 40, 22, 20, f(c))+E(72, 30, 4, 3, s)+E(47, 30, 3, 2.5, s)+hi(50, 28, 6, 4)+E(60, 52, 14, 9, f("#F9DE96"))+E(55, 51, 2, 2.6, "#8A5422")+E(65, 51, 2, 2.6, "#8A5422")+eyes(38, 50, 70, 5.5)+smile(56, 4); },
+zebra:function(f){ var c = "#FFFFFF", k = "#2B2B33";
+  return body(f, c, null, {foot:k})+L("M44 82l4 10M56 78l2 14M68 78l-2 14M78 82l-4 10", k, 3.5)+P("M40 34L41 14L53 27Z", f(c))+P("M80 34L79 14L67 27Z", f(c))+
+    E(60, 52, 24, 27, f(c))+'<rect x="54" y="20" width="12" height="16" rx="6" fill="'+k+'"/>'+L("M38 42q6 2 8 8M37 52q6 0 8 4M82 42q-6 2-8 8M83 52q-6 0-8 4M54 34l2 6M66 34l-2 6", k, 3.5)+hi(47, 38, 6, 4)+
+    E(60, 70, 16, 11, f("#4A4A55"))+E(54, 69, 2.4, 3.4, "#111")+E(66, 69, 2.4, 3.4, "#111")+eyes(48, 48, 72)+L("M55 76Q60 79 65 76", "#fff", 2.4); },
+monkey:function(f){ var c = "#8C5A3C", t = "#F2C9A0";
+  return L("M84 96q18 4 14-14q-3-10 6-10", c, 5)+body(f, c, t)+C(31, 50, 10, f(c))+C(89, 50, 10, f(c))+C(31, 50, 6, t)+C(89, 50, 6, t)+
+    C(60, 50, 27, f(c))+hi(47, 32, 7, 4)+C(51, 47, 11, f(t))+C(69, 47, 11, f(t))+E(60, 62, 17, 12, f(t))+C(57, 58, 1.6, INK)+C(63, 58, 1.6, INK)+eyes(47, 51, 69, 6)+smile(64, 6); },
+bear:function(f){ var c = "#A26A3E";
+  return body(f, c, "#E9C79C")+C(38, 28, 10, f(c))+C(82, 28, 10, f(c))+C(38, 28, 5, "#D9A877")+C(82, 28, 5, "#D9A877")+
+    C(60, 52, 28, f(c))+hi(47, 36, 8, 5)+E(60, 65, 14, 11, f("#E9C79C"))+E(60, 59, 6, 4.5, INK)+eyes(48)+smile(69, 5); },
+panda:function(f){ var c = "#FFFFFF", k = "#2D2D35";
+  return body(f, c, null, {arm:k, foot:k})+L("M86 74L98 100", "#7DBF4A", 5)+E(93, 82, 6, 3, "#7DBF4A", rot(-30, 93, 82))+C(37, 28, 10, f(k))+C(83, 28, 10, f(k))+
+    C(60, 52, 28, f(c))+hi(48, 36, 8, 5)+E(48, 50, 9, 11, k, rot(25, 48, 50))+E(72, 50, 9, 11, k, rot(-25, 72, 50))+eyes(49, 49, 71, 5)+E(60, 62, 5, 3.5, k)+smile(67, 4)+cheeks(64, 38, 82); },
+hippo:function(f){ var c = "#A88EC2";
+  return body(f, c, "#C9B5DD", {rx:28})+C(40, 28, 6, f(c))+C(80, 28, 6, f(c))+C(40, 28, 3, "#F2BFCB")+C(80, 28, 3, "#F2BFCB")+
+    E(60, 48, 26, 22, f(c))+hi(48, 36, 8, 5)+E(60, 66, 26, 17, f("#C4AEDB"))+E(50, 60, 3, 4, "#6E5A85")+E(70, 60, 3, 4, "#6E5A85")+
+    L("M46 72Q60 80 74 72", INK, 2.6)+'<rect x="50" y="73" width="4" height="5" rx="1" fill="#fff"/><rect x="66" y="73" width="4" height="5" rx="1" fill="#fff"/>'+eyes(40, 48, 72, 5.5); },
+crocodile:function(f){ var c = "#5DAA4E";
+  return L("M84 96q20 2 26-14", c, 7)+body(f, c, "#C9E6A0")+C(50, 76, 2.5, "#3E7F33")+C(60, 74, 2.5, "#3E7F33")+C(70, 76, 2.5, "#3E7F33")+
+    E(60, 58, 30, 18, f(c))+C(45, 40, 11, f(c))+C(75, 40, 11, f(c))+hi(50, 50, 8, 4)+E(60, 70, 21, 12, f("#7CC46B"))+C(54, 64, 1.8, "#2E5F26")+C(66, 64, 1.8, "#2E5F26")+
+    L("M42 72Q60 80 78 72", INK, 2.6)+P("M46 73l3 5 3-4 3 5 3-5 3 5 3-5 3 5 3-4 3 4 2-5z", "#fff")+eyes(40, 45, 75, 6); },
+kangaroo:function(f){ var c = "#C98B55";
+  return L("M84 100q20 4 26-6", c, 7)+body(f, c, "#E9C29A", {ry:21})+P("M48 92q12 8 24 0v8q-12 6-24 0z", f("#B9794A"))+C(60, 89, 6, f(c))+E(56, 83, 2, 4, f(c))+E(64, 83, 2, 4, f(c))+C(58, 88, 1, INK)+C(62, 88, 1, INK)+
+    E(44, 22, 7, 16, f(c), rot(-15, 44, 22))+E(76, 22, 7, 16, f(c), rot(15, 76, 22))+E(44, 24, 3.5, 11, "#F2BFCB", rot(-15, 44, 24))+E(76, 24, 3.5, 11, "#F2BFCB", rot(15, 76, 24))+
+    E(60, 48, 22, 24, f(c))+hi(50, 34, 7, 4)+E(60, 62, 12, 9, f("#E9C29A"))+E(60, 58, 5, 3.5, INK)+eyes(46, 50, 70, 6)+smile(66, 4); },
+penguin:function(f){ var k = "#2F3A4A";
+  return P("M44 104h12l-6 6zM64 104h12l-6 6z", "#FF9A2E")+E(28, 78, 8, 18, f(k), rot(25, 28, 78))+E(92, 78, 8, 18, f(k), rot(-25, 92, 78))+
+    E(60, 70, 32, 38, f(k))+E(60, 82, 22, 24, f("#FFFFFF"))+C(50, 54, 12, f("#FFFFFF"))+C(70, 54, 12, f("#FFFFFF"))+hi(46, 40, 8, 5)+P("M54 62L66 62L60 70Z", f("#FF9A2E"))+eyes(53, 50, 70, 5.5)+cheeks(64, 42, 78); },
+owl:function(f){ var c = "#9C6B43", d = "#F4E3C3";
+  return P("M46 104h10l-5 5zM64 104h10l-5 5z", "#FF9A2E")+E(29, 78, 9, 18, f(shade(c, -.1)), rot(15, 29, 78))+E(91, 78, 9, 18, f(shade(c, -.1)), rot(-15, 91, 78))+
+    E(60, 70, 31, 36, f(c))+P("M34 40L34 20L48 34Z", f(c))+P("M86 40L86 20L72 34Z", f(c))+E(60, 88, 18, 15, f("#E7C99F"))+L("M54 82l3 3 3-3 3 3 3-3M52 90l3 3 3-3 3 3 3-3 3 3", "#B88A5C", 1.8)+
+    C(46, 54, 14, f(d))+C(74, 54, 14, f(d))+hi(42, 44, 6, 4)+C(46, 54, 8, "#FFB52E")+C(74, 54, 8, "#FFB52E")+C(46.5, 54.5, 5, INK)+C(74.5, 54.5, 5, INK)+C(44.5, 52, 1.8, "#fff")+C(72.5, 52, 1.8, "#fff")+P("M56 63h8l-4 7z", f("#FF9A2E")); },
+fox:function(f){ var c = "#F07A2A", w = "#FFF4E6";
+  return E(92, 92, 10, 18, f(c), rot(-40, 92, 92))+E(99, 82, 5, 7, w, rot(-40, 99, 82))+body(f, c, w, {foot:"#3A2A22"})+P("M32 40L30 10L54 28Z", f(c))+P("M88 40L90 10L66 28Z", f(c))+P("M30 18L30 10L37 15Z", "#3A2A22")+P("M90 18L90 10L83 15Z", "#3A2A22")+P("M35 34L34 20L46 28Z", w)+P("M85 34L86 20L74 28Z", w)+
+    P("M32 52Q34 26 60 26Q86 26 88 52Q86 74 60 80Q34 74 32 52Z", f(c))+hi(46, 36, 8, 4)+P("M36 56Q48 58 54 52Q60 60 66 52Q72 58 84 56Q78 76 60 80Q42 76 36 56Z", f(w))+E(60, 62, 5, 3.5, INK)+eyes(47, 48, 72, 6)+smile(68, 4); },
+frog:function(f){ var c = "#6CC24A";
+  return E(42, 106, 12, 5, f(c))+E(78, 106, 12, 5, f(c))+E(60, 90, 24, 18, f(c))+E(60, 94, 15, 12, f("#D8F0B0"))+E(37, 90, 5, 9, f(c), rot(22, 37, 90))+E(83, 90, 5, 9, f(c), rot(-22, 83, 90))+
+    E(60, 58, 32, 22, f(c))+C(42, 38, 12, f(c))+C(78, 38, 12, f(c))+hi(48, 52, 9, 4)+eyes(38, 42, 78, 7.5)+L("M40 62Q60 76 80 62", INK, 3)+cheeks(64, 34, 86); },
+turtle:function(f){ var s = "#5E9E3F", c = "#A9D66B";
+  return E(34, 104, 8, 6, f(c))+E(86, 104, 8, 6, f(c))+E(60, 86, 36, 22, f(s))+E(60, 100, 37, 6, f("#E6D58F"))+
+    P("M60 70l9 5v9l-9 5-9-5v-9z", "none", ' stroke="#8CC266" stroke-width="2.5"')+L("M51 75l-12-4M69 75l12-4M51 84l-12 6M69 84l12 6M60 89v8", "#8CC266", 2.5)+hi(44, 74, 8, 4)+
+    C(60, 48, 22, f(c))+hi(52, 36, 6, 4)+eyes(46, 51, 69, 6)+smile(58, 6)+cheeks(54, 42, 78); },
+whale:function(f){ var c = "#4D8FD6";
+  return L("M58 30q-2-10 -10-14M60 30q0-12 0-16M62 30q2-10 10-14", "#7CC7F2", 3.5)+P("M96 70Q108 58 116 44Q106 46 100 52Q100 40 92 36Q94 52 90 64Z", f(c))+
+    E(56, 72, 42, 30, f(c))+E(56, 86, 30, 14, f("#CFE6FA"))+L("M40 82v10M50 84v12M60 84v12M70 82v10", "#A9CDEE", 2)+hi(36, 56, 12, 6)+eyes(66, 40, 62, 6)+smile(76, 6)+cheeks(74, 30, 72); },
+octopus:function(f){ var c = "#B06BD6", d = shade(c, -.1), s = "", xs = [30, 42, 54, 66, 78, 90];
+  xs.forEach(function(x, i){ var dx = i<3 ? -10 : 10; s += L("M"+x+" 70Q"+(x+dx/2)+" 92 "+(x+dx)+" 100q"+(-dx/2)+" 8 "+(-dx/4)+" 10", d, 11); s += C(x+dx*.7, 94, 2, "#E9C6F7"); });
+  return s+E(60, 48, 30, 30, f(c))+E(60, 70, 32, 8, f(c))+hi(46, 32, 10, 6)+eyes(50, 50, 70, 6.5)+smile(62, 6)+cheeks(60, 38, 82); },
+camel:function(f){ var c = "#D9A86A", d = "#9C7340";
+  return '<rect x="44" y="92" width="9" height="16" rx="4" fill="'+f(c)+'"/><rect x="58" y="94" width="9" height="15" rx="4" fill="'+f(c)+'"/><rect x="78" y="94" width="9" height="15" rx="4" fill="'+f(c)+'"/><rect x="92" y="92" width="9" height="16" rx="4" fill="'+f(c)+'"/>'+
+    E(48, 108, 6, 3.5, f(d))+E(62, 109, 6, 3.5, f(d))+E(83, 109, 6, 3.5, f(d))+E(97, 108, 6, 3.5, f(d))+L("M104 86q8 4 6 14", d, 3)+
+    C(62, 70, 14, f(c))+C(88, 70, 14, f(c))+E(74, 88, 32, 16, f(c))+hi(60, 62, 6, 4)+hi(86, 62, 6, 4)+L("M48 86Q36 74 36 54", c, 16)+
+    E(26, 34, 6, 3.5, f(c), rot(-25, 26, 34))+E(48, 34, 6, 3.5, f(c), rot(25, 48, 34))+E(37, 44, 17, 16, f(c))+C(37, 28, 6, f("#B98A4E"))+hi(30, 36, 5, 3)+
+    E(37, 56, 12, 9, f("#ECCB9A"))+L("M32 53l2 2M42 53l-2 2", "#7A5530", 2.2)+eyes(42, 30, 44, 5)+L("M24 36l2 2M27 34l1 2M50 36l-2 2M47 34l-1 2", INK, 1.6)+L("M33 60Q37 63 41 60", INK, 2.4); },
+fish:function(f){ var c = "#FF8C42";
+  return C(100, 30, 4, "none", ' stroke="#7CC7F2" stroke-width="2"')+C(108, 18, 2.5, "none", ' stroke="#7CC7F2" stroke-width="2"')+P("M86 66L110 46Q104 66 110 86Z", f(c))+P("M48 44Q60 26 74 42Z", f(c))+P("M54 88Q62 100 70 88Z", f(c))+
+    E(56, 66, 34, 26, f(c))+P("M44 42q-6 24 0 48h9q-6-24 0-48z", "#fff", ' stroke="#2D2D35" stroke-width="1.5"')+P("M70 43q-5 23 0 46h8q-5-23 0-46z", "#fff", ' stroke="#2D2D35" stroke-width="1.5"')+hi(36, 54, 8, 5)+
+    C(36, 60, 7, "#fff")+C(36.6, 60.6, 4.4, INK)+C(34.3, 57.9, 1.7, "#fff")+L("M26 74Q32 79 38 74", INK, 2.5); }
+};
+var AZ_LIST = Object.keys(DRAW);
+var AZ_CACHE = {};
+function azSVG(name, cls){
+  var n = ++AZN, defs = {}, gr = "";
+  function f(col){ if(!defs[col]){ var id = "az"+n+"g"+Object.keys(defs).length; defs[col] = id;
+    gr += '<radialGradient id="'+id+'" cx="36%" cy="30%" r="75%"><stop offset="0" stop-color="'+shade(col, .55)+'"/><stop offset=".55" stop-color="'+col+'"/><stop offset="1" stop-color="'+shade(col, -.3)+'"/></radialGradient>'; }
+    return "url(#"+defs[col]+")"; }
+  var b = DRAW[name](f);
+  return '<svg viewBox="0 0 120 120" class="azsvg az-'+name+(cls ? " "+cls : "")+'" aria-hidden="true"><defs>'+gr+'</defs><ellipse cx="60" cy="113" rx="36" ry="5" fill="#173B40" opacity=".16"/><g class="azb">'+b+'</g></svg>';
+}
+function babySVG(name){ return azSVG(name, "azbaby"); }
+
+/* ===== facts about each animal ===== */
+var AN = {
+  cow:{home:"farm", baby:"calf", eats:"grass", no:["leaves"], grp:"mammal", legs:4, size:7},
+  pig:{home:"farm", baby:"piglet", grp:"mammal", legs:4, size:4},
+  sheep:{home:"farm", baby:"lamb", eats:"grass", no:["leaves"], grp:"mammal", legs:4, size:4},
+  horse:{home:"farm", baby:"foal", eats:"grass", no:["leaves","carrot","corn"], grp:"mammal", legs:4, size:7},
+  chicken:{home:"farm", baby:"chick", eats:"corn", no:["bugs","grass"], grp:"bird", legs:2, size:2, egg:true},
+  duck:{home:"pond", baby:"duckling", grp:"bird", legs:2, size:2, egg:true},
+  goat:{home:"farm", baby:"kid", eats:"grass", no:["leaves","carrot","corn"], grp:"mammal", legs:4, size:4},
+  dog:{baby:"puppy", grp:"mammal", legs:4, size:3},
+  cat:{baby:"kitten", grp:"mammal", legs:4, size:2},
+  rabbit:{eats:"carrot", no:["grass","leaves"], grp:"mammal", legs:4, size:2},
+  mouse:{grp:"mammal", legs:4, size:1},
+  lion:{home:"grassland", baby:"cub", eats:"meat", grp:"mammal", legs:4, size:6},
+  tiger:{home:"jungle", baby:"cub", eats:"meat", grp:"mammal", legs:4, size:6},
+  elephant:{home:"grassland", baby:"calf", eats:"leaves", no:["grass","bamboo","banana"], grp:"mammal", legs:4, size:10},
+  giraffe:{home:"grassland", baby:"calf", eats:"leaves", no:["grass"], grp:"mammal", legs:4, size:9},
+  zebra:{home:"grassland", baby:"foal", eats:"grass", no:["leaves","carrot"], grp:"mammal", legs:4, size:7},
+  monkey:{home:"jungle", eats:"banana", no:["leaves","bugs"], grp:"mammal", size:4},
+  bear:{home:"forest", baby:"cub", grp:"mammal", legs:4, size:6},
+  panda:{home:"forest", baby:"cub", eats:"bamboo", no:["leaves"], grp:"mammal", legs:4, size:5},
+  hippo:{baby:"calf", grp:"mammal", legs:4, size:9},
+  crocodile:{baby:"hatchling", grp:"reptile", legs:4, size:7, egg:true},
+  kangaroo:{home:"grassland", baby:"joey", grp:"mammal", size:5},
+  penguin:{home:"snow", baby:"chick", eats:"fish", grp:"bird", legs:2, size:3, egg:true},
+  owl:{home:"forest", baby:"owlet", grp:"bird", legs:2, size:2, egg:true},
+  fox:{home:"forest", grp:"mammal", legs:4, size:3},
+  frog:{home:"pond", baby:"tadpole", eats:"bugs", grp:"amphibian", legs:4, size:1, egg:true},
+  turtle:{home:"pond", baby:"hatchling", grp:"reptile", legs:4, size:3, egg:true},
+  whale:{home:"sea", baby:"calf", grp:"mammal", legs:0, size:12},
+  octopus:{home:"sea", size:3, egg:true},
+  camel:{home:"desert", baby:"calf", grp:"mammal", legs:4, size:8},
+  fish:{home:"sea", grp:"fish", legs:0, size:1, egg:true}
+};
+var FIRST = ["cow","pig","sheep","horse","chicken","duck","dog","cat","rabbit","lion","elephant","fish","frog","bear","monkey"];
+var EARLY = FIRST.concat(["giraffe","zebra","tiger","penguin","owl","turtle","whale","panda"]);
+function A(n){ return /^[aeiou]/.test(n) ? "an "+n : "a "+n; }
+function plural(n){ return n==="mouse" ? "mice" : n==="sheep" ? "sheep" : n==="fish" ? "fish" : n==="octopus" ? "octopuses" : n+"s"; }
+
+/* ===== homes and foods, drawn as little scenes ===== */
+var HOME = {
+  farm:'<rect x="0" y="62" width="100" height="38" fill="#9BD36A"/><path d="M28 64V40l22-16 22 16v24z" fill="#E7466B"/><path d="M22 42l28-22 28 22" stroke="#fff" stroke-width="4" fill="none" stroke-linejoin="round"/><rect x="42" y="46" width="16" height="18" fill="#fff"/><path d="M42 46l16 18M58 46L42 64" stroke="#E7466B" stroke-width="2.5"/><path d="M4 70h20M4 78h20M8 66v16M18 66v16" stroke="#C99A6B" stroke-width="3"/>',
+  sea:'<rect x="0" y="0" width="100" height="100" fill="#BFE6FA"/><rect x="0" y="38" width="100" height="62" fill="#3E9BDB"/><path d="M0 40q8-6 16 0t16 0 16 0 16 0 16 0 16 0" stroke="#fff" stroke-width="3" fill="none"/><path d="M0 64q8-6 16 0t16 0 16 0 16 0 16 0 16 0" stroke="#7CC7F2" stroke-width="3" fill="none"/><path d="M14 96q4-16 0-26M20 96q-2-12 4-22" stroke="#4DB35A" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="76" cy="80" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="84" cy="70" r="2.5" fill="none" stroke="#fff" stroke-width="2"/>',
+  jungle:'<rect x="0" y="0" width="100" height="100" fill="#CFEFC0"/><rect x="0" y="80" width="100" height="20" fill="#5DAA4E"/><path d="M30 100V40M70 100V48" stroke="#8C5A3C" stroke-width="7"/><path d="M30 40q-24-6-28 10q14-12 28-10q-10-24-30-18q20 0 30 18q8-24 30-20q-20 2-30 20q22-6 30 12q-14-14-30-12z" fill="#3E8F3A"/><path d="M70 48q-20-6-24 8q12-10 24-8q-6-20-24-16q16 0 24 16q8-20 26-16q-16 2-26 16q18-4 26 10q-12-12-26-10z" fill="#4DB35A"/><path d="M8 0q4 30 0 50M92 0q-4 26 2 40" stroke="#3E8F3A" stroke-width="3" fill="none"/>',
+  snow:'<rect x="0" y="0" width="100" height="100" fill="#DCEEFB"/><path d="M0 70q30-14 50-4t50-6v40H0z" fill="#fff"/><path d="M50 72l14-30 14 30z" fill="#BFE0F5"/><path d="M8 58l16-34 16 34z" fill="#E9F5FD" stroke="#BFE0F5" stroke-width="2"/><g fill="#fff"><circle cx="70" cy="14" r="3"/><circle cx="86" cy="28" r="2.5"/><circle cx="48" cy="22" r="2"/><circle cx="20" cy="12" r="2.5"/></g>',
+  desert:'<rect x="0" y="0" width="100" height="100" fill="#FFF1C9"/><circle cx="78" cy="22" r="12" fill="#FFC83A"/><path d="M0 72q26-18 52-4t48-6v38H0z" fill="#F2C46E"/><path d="M0 86q30-10 60 0t40-4v18H0z" fill="#E5A94F"/><path d="M26 80V50q0-6 5-6t5 6v30M36 64h7v-10M26 60h-7v-8" stroke="#4DB35A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+  forest:'<rect x="0" y="0" width="100" height="100" fill="#E2F2DA"/><rect x="0" y="82" width="100" height="18" fill="#7DBF4A"/><path d="M24 14l18 30H32l14 24H2l14-24H6z" fill="#2E7D3A"/><rect x="21" y="68" width="6" height="16" fill="#8C5A3C"/><path d="M70 6l20 34H79l15 26H46l15-26H50z" fill="#3E8F3A"/><rect x="67" y="66" width="6" height="18" fill="#8C5A3C"/><circle cx="48" cy="86" r="5" fill="#E7466B"/><rect x="47" y="86" width="2" height="6" fill="#fff"/>',
+  pond:'<rect x="0" y="0" width="100" height="100" fill="#D9F2E6"/><ellipse cx="50" cy="66" rx="48" ry="28" fill="#5BB8D9"/><ellipse cx="34" cy="62" rx="12" ry="6" fill="#4DB35A"/><path d="M34 62l10-4" stroke="#5BB8D9" stroke-width="3"/><ellipse cx="66" cy="74" rx="10" ry="5" fill="#4DB35A"/><path d="M84 40v-26M90 42v-22" stroke="#7E5634" stroke-width="3"/><ellipse cx="84" cy="14" rx="3" ry="8" fill="#8C5A3C"/><ellipse cx="90" cy="20" rx="3" ry="8" fill="#8C5A3C"/>',
+  grassland:'<rect x="0" y="0" width="100" height="100" fill="#FFE6C2"/><circle cx="22" cy="24" r="10" fill="#FF9A4D"/><rect x="0" y="70" width="100" height="30" fill="#E5C35A"/><path d="M60 72V40" stroke="#7E5634" stroke-width="5"/><path d="M60 42q-6-12-24-10q-6 6 2 10zM60 42q6-12 26-10q6 6-2 10z" fill="#5E9E3F"/><path d="M28 34q-14 -6 -34 0 34 4 34 0z" fill="#3E8F3A" opacity="0"/><path d="M6 80l3-8 3 8M16 84l3-9 3 9M80 82l3-8 3 8M90 86l3-8 3 8" stroke="#C49A2E" stroke-width="2" fill="none"/>'
+};
+var HOME_NAME = {farm:"farm", sea:"sea", jungle:"jungle", snow:"snow and ice", desert:"desert", forest:"forest", pond:"pond", grassland:"grassland"};
+var HOME_Q1 = {farm:"Who lives on the farm?", sea:"Who lives in the sea?", jungle:"Who lives in the jungle?", snow:"Who lives in the snow and ice?", desert:"Who lives in the desert?", forest:"Who lives in the forest?", pond:"Who lives in the pond?", grassland:"Who lives on the grassland?"};
+var HOME_ODD = {farm:"Who does not live on the farm?", sea:"Who does not live in the sea?", forest:"Who does not live in the forest?", grassland:"Who does not live on the grassland?", pond:"Who does not live in the pond?", jungle:"Who does not live in the jungle?"};
+function homeSVG(h){ return '<svg viewBox="0 0 100 100" class="azhome" aria-hidden="true"><clipPath id="azc'+(++AZN)+'"><rect width="100" height="100" rx="16"/></clipPath><g clip-path="url(#azc'+AZN+')">'+HOME[h]+'</g></svg>'; }
+var V0 = '<svg viewBox="0 0 100 100" aria-hidden="true">';
+function fb(w){ return (typeof FOOD_BY!=="undefined" && FOOD_BY[w]) ? FOOD_BY[w].svg : V0+'<circle cx="50" cy="50" r="30" fill="#FFC83A"/></svg>'; }
+var FOODS = {
+  grass:function(){ return V0+'<path d="M20 86q2-30-6-50M32 86q0-36 6-60M46 86q-2-30-10-46M58 86q2-40 12-62M72 86q-2-28 10-44M84 86q0-24-4-36" stroke="#4DB35A" stroke-width="6" fill="none" stroke-linecap="round"/><rect x="10" y="84" width="80" height="8" rx="4" fill="#8C5A3C"/></svg>'; },
+  carrot:function(){ return fb("carrot"); },
+  banana:function(){ return fb("banana"); },
+  corn:function(){ return fb("corn"); },
+  bamboo:function(){ return V0+'<rect x="30" y="8" width="14" height="86" rx="5" fill="#7DBF4A"/><rect x="56" y="18" width="14" height="76" rx="5" fill="#5DAA4E"/><path d="M30 34h14M30 60h14M56 44h14M56 70h14" stroke="#3E8F3A" stroke-width="3"/><path d="M44 30q14-10 22-4q-12 8-22 4zM70 40q12-12 22-8q-10 10-22 8z" fill="#4DB35A"/></svg>'; },
+  fish:function(){ return azSVG("fish"); },
+  bugs:function(){ return V0+'<ellipse cx="34" cy="40" rx="12" ry="8" fill="#D6F1FF" opacity=".9"/><ellipse cx="54" cy="40" rx="12" ry="8" fill="#D6F1FF" opacity=".9"/><ellipse cx="44" cy="50" rx="10" ry="12" fill="#2F3E42"/><circle cx="40" cy="44" r="3" fill="#E7466B"/><circle cx="48" cy="44" r="3" fill="#E7466B"/><circle cx="72" cy="72" r="14" fill="#E7466B"/><path d="M72 58v28" stroke="#173B40" stroke-width="2.5"/><circle cx="66" cy="68" r="3" fill="#173B40"/><circle cx="78" cy="76" r="3" fill="#173B40"/><circle cx="72" cy="58" r="6" fill="#173B40"/></svg>'; },
+  leaves:function(){ return V0+'<path d="M50 90V40" stroke="#7E5634" stroke-width="4"/><path d="M50 50q-30-4-34-30q30 0 34 30zM50 44q30-4 34-30q-30 0-34 30zM50 70q-26 0-30-22q26 0 30 22zM50 64q26 0 30-22q-26 0-30 22z" fill="#4DB35A"/></svg>'; },
+  honey:function(){ return V0+'<path d="M24 40q0-8 10-8h32q10 0 10 8v36q0 14-26 14T24 76z" fill="#FFB52E"/><rect x="22" y="22" width="56" height="14" rx="6" fill="#D99A06"/><path d="M30 40q6 14 0 22M70 40q-6 10 0 20" stroke="#FFD86B" stroke-width="5" fill="none" stroke-linecap="round"/><text x="50" y="70" text-anchor="middle" font-family="Grandstander,sans-serif" font-weight="900" font-size="15" fill="#8C5A0C">HONEY</text></svg>'; },
+  meat:function(){ return V0+'<path d="M30 64q-18-24 6-42q22-14 38 6q12 18-6 34z" fill="#C9583A"/><path d="M36 58q-8-16 6-26" stroke="#E9917A" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="58" y="58" width="12" height="26" rx="5" fill="#F4EEE6" transform="rotate(-40 64 70)"/><circle cx="78" cy="84" r="7" fill="#F4EEE6"/><circle cx="86" cy="76" r="7" fill="#F4EEE6"/></svg>'; }
+};
+var FOOD_LIST = Object.keys(FOODS);
+var GRP = ["mammal","bird","reptile","amphibian","fish"];
+var GRP_HINT = {mammal:"Mammals have fur or hair and drink milk.", bird:"Birds have feathers and lay eggs.", reptile:"Reptiles have scales.", amphibian:"Amphibians start life in water.", fish:"Fish breathe with gills."};
+
+/* ===== question helpers ===== */
+function ask(q, small){ setPrompt(esc(q), small); say(q); }
+function others(t, pool, k, bad){ return shuffle(pool.filter(function(x){ return x!==t && (!bad || !bad(x)); })).slice(0, k-1); }
+function picRow(area, names, t, o){ o = o||{};
+  choiceRow(area, shuffle(names).map(function(v){ return {html:'<span class="azpic'+(o.baby ? " azsmall" : "")+'">'+(o.baby ? babySVG(v) : azSVG(v))+'</span>', label:v, say:v+(v==="rabbit" ? "|bunny" : v==="dog" ? "|puppy|doggy" : v==="cat" ? "|kitty" : ""), ok:t.indexOf ? t.indexOf(v)>=0 : v===t}; }));
+  area.lastChild.classList.add("azrow"); }
+function wordRow(area, words, t){
+  choiceRow(area, shuffle(words).map(function(v){ return {html:'<span class="wordopt">'+esc(cap1(v))+'</span>', label:v, say:v, ok:v===t}; }), true);
+  area.lastChild.classList.add("wordc"); }
+function stage(area, inner, cls){ var f = textField(area, '<div class="azstage'+(cls ? " "+cls : "")+'">'+inner+'</div>'); f.classList.add("azfield"); return f; }
+function poolFor(c, n){ var p = c.t<.3 ? FIRST : c.t<.65 ? EARLY : AZ_LIST; return p.filter(function(x){ return !n || AN[x][n]!=null; }); }
+function fresh(key, list){ return scFresh("v48"+key, list); }
+function kOf(c, lo, hi){ return c.t<.34 ? lo : c.t<.67 ? Math.min(hi, lo+1) : hi; }
+
+/* ===== Animal Parade: animal names ===== */
+var FEAT = [
+  {q:"Which animal can fly?", a:["owl","duck"], no:["chicken"]},
+  {q:"Which animal has a long trunk?", a:["elephant"]},
+  {q:"Which animal has a very long neck?", a:["giraffe"]},
+  {q:"Which animal has black and white stripes?", a:["zebra"]},
+  {q:"Which animal has a big fluffy mane?", a:["lion"], no:["horse","zebra"]},
+  {q:"Which animal has a shell on its back?", a:["turtle"]},
+  {q:"Which animal has eight arms?", a:["octopus"]},
+  {q:"Which animal has humps on its back?", a:["camel"]},
+  {q:"Which animal hops and carries a baby in a pouch?", a:["kangaroo"]},
+  {q:"Which animal is the biggest in the sea?", a:["whale"]},
+  {q:"Which animal has orange fur and black stripes?", a:["tiger"]},
+  {q:"Which animal loves to eat bamboo?", a:["panda"]},
+  {q:"Which animal has long ears and hops?", a:["rabbit"], no:["kangaroo"]},
+  {q:"Which animal has a curly tail and a pink snout?", a:["pig"]},
+  {q:"Which animal gives us wool?", a:["sheep"]},
+  {q:"Which bird cannot fly but swims very well?", a:["penguin"]},
+  {q:"Which animal swings from trees?", a:["monkey"]},
+  {q:"Which animal gives us milk?", a:["cow"], no:["goat","sheep","camel"]},
+  {q:"Which animal says ribbit?", a:["frog"]},
+  {q:"Which animal has gills and fins?", a:["fish"], no:["whale"]}
+];
+var LETTERS48 = {}; AZ_LIST.forEach(function(n){ var l = n.charAt(0).toUpperCase(); (LETTERS48[l] = LETTERS48[l] || []).push(n); });
+ENGINES.zoo = function(area, c){
+  var t, opts, k;
+  if(c.a===1){
+    var m1 = scModes(c, ["find","find","find","peek","peek"]), pool = poolFor(c); k = kOf(c, 2, 3);
+    t = fresh("z1", pool); opts = [t].concat(others(t, pool, k));
+    if(m1==="peek"){ ask("Who is peeking out?", "Look at the ears and eyes."); stage(area, '<span class="azpeek">'+azSVG(t)+'<span class="azbush"></span></span>'); picRow(area, opts, t); area.lastChild.classList.add("hrow"); return; }
+    else { ask("Find the "+t+"!", "Tap the "+t+"."); }
+    return picRow(area, opts, t);
+  }
+  if(c.a===2){
+    var m2 = scModes(c, ["name","find","feat","letter","name"]); k = kOf(c, 3, 4);
+    if(m2==="feat"){ var fq = fresh("z2f", FEAT), a = pick(fq.a), ex = fq.a.concat(fq.no||[]); ask(fq.q, "Think about what the animal looks like."); return picRow(area, [a].concat(others(a, AZ_LIST, k, function(x){ return ex.indexOf(x)>=0; })), a); }
+    if(m2==="letter"){ var L1 = fresh("z2l", Object.keys(LETTERS48)); t = pick(LETTERS48[L1]); ask("Which animal starts with the letter "+L1+"?", "Say each name. Listen to the first sound.");
+      return picRow(area, [t].concat(others(t, AZ_LIST, k, function(x){ return x.charAt(0).toUpperCase()===L1; })), t); }
+    var pool2 = poolFor(c); t = fresh("z2", pool2);
+    if(m2==="name"){ ask("What is this animal?", "Tap its name."); stage(area, azSVG(t), "azbig"); return wordRow(area, [t].concat(others(t, pool2, k)), t); }
+    ask("Find the "+t+"!", "Tap the "+t+"."); return picRow(area, [t].concat(others(t, pool2, k)), t);
+  }
+  var m3 = scModes(c, ["miss","legs","size","miss","legs"]); k = kOf(c, 3, 4);
+  if(m3==="miss"){ t = fresh("z3m", AZ_LIST.filter(function(x){ return x.length>=3; })); var up = t.toUpperCase(), i = rand(0, up.length-1), L3 = up.charAt(i);
+    ask("Which letter is missing from "+t+"?", "Say the name slowly and listen for each sound.");
+    stage(area, '<span class="azmini2">'+azSVG(t)+'</span><span class="azspell">'+up.split("").map(function(ch, j){ return '<b'+(j===i ? ' class="blank"' : '')+'>'+(j===i ? "?" : ch)+'</b>'; }).join("")+'</span>', "azword");
+    var lets = [L3].concat(shuffle("ABCDEFGHIKLMNOPRSTUW".split("").filter(function(x){ return x!==L3; })).slice(0, k-1));
+    choiceRow(area, shuffle(lets).map(function(v){ return {html:'<span class="bigletter">'+v+'</span>', label:v, say:(typeof LETTER_SAY!=="undefined" && LETTER_SAY[v]) || v.toLowerCase(), ok:v===L3}; })); return; }
+  if(m3==="legs"){ t = fresh("z3l", AZ_LIST.filter(function(x){ return AN[x].legs!=null; })); var lg = AN[t].legs; ask("How many legs does "+A(t)+" have?", "Picture the animal walking.");
+    stage(area, azSVG(t), "azbig"); return numChoices(area, lg, shuffle([0, 2, 4, 6].filter(function(v){ return v!==lg; })).slice(0, k-1).concat([lg])); }
+  var big = Math.random()<.5, tries = 0, set;
+  do { set = shuffle(AZ_LIST).slice(0, 3); set.sort(function(x, y){ return AN[x].size-AN[y].size; }); tries++; }
+  while(tries<50 && !(AN[set[1]].size-AN[set[0]].size>=2 && AN[set[2]].size-AN[set[1]].size>=2));
+  t = big ? set[2] : set[0];
+  ask(big ? "Which animal is the biggest in real life?" : "Which animal is the smallest in real life?", "The pictures are all the same size. Think about the real animals!");
+  return picRow(area, set, t);
+};
+
+/* ===== Baby Animals ===== */
+var BABY_ANIMALS = AZ_LIST.filter(function(x){ return AN[x].baby; });
+var BABY_WORDS = []; BABY_ANIMALS.forEach(function(x){ if(BABY_WORDS.indexOf(AN[x].baby)<0) BABY_WORDS.push(AN[x].baby); });
+var BABY_UNIQUE = BABY_ANIMALS.filter(function(x){ return BABY_ANIMALS.filter(function(y){ return AN[y].baby===AN[x].baby; }).length===1; });
+ENGINES.babies = function(area, c){
+  var t, k;
+  if(c.a===1){
+    var m1 = scModes(c, ["mom","mom","baby","baby","mom"]), pool = poolFor(c); k = kOf(c, 2, 3); t = fresh("b1", pool);
+    if(m1==="mom"){ ask("Find the baby's mommy!", "Which grown-up looks the same?"); stage(area, '<span class="azcry">'+babySVG(t)+'</span>', "azbabystage"); return picRow(area, [t].concat(others(t, pool, k)), t); }
+    ask("Find the baby "+t+"!", "The babies are little."); stage(area, '<span class="azmom">'+azSVG(t)+'</span>', "azmomstage"); return picRow(area, [t].concat(others(t, pool, k)), t, {baby:true});
+  }
+  if(c.a===2){
+    var m2 = scModes(c, ["name","name","mom","name","count"]); k = kOf(c, 3, 4);
+    if(m2==="mom"){ t = fresh("b2m", AZ_LIST); ask("Find the baby's mommy!", "Which grown-up looks the same?"); stage(area, '<span class="azcry">'+babySVG(t)+'</span>', "azbabystage"); return picRow(area, [t].concat(others(t, AZ_LIST, k)), t); }
+    if(m2==="count"){ t = pick(["duck","chicken","pig","dog","cat","rabbit","penguin"]); var n = rand(2, c.t<.5 ? 5 : 8), h = "";
+      for(var i=0;i<n;i++) h += '<span class="azkid">'+babySVG(t)+'</span>';
+      ask("How many babies does mommy "+t+" have?", "Count each baby once."); stage(area, '<span class="azmomsm">'+azSVG(t)+'</span><span class="azkids">'+h+'</span>', "azfamily");
+      return numChoices(area, n, shuffle([n].concat(shuffle([n-1, n+1, n+2, n-2].filter(function(v){ return v>0 && v!==n; })).slice(0, k-1)))); }
+    t = fresh("b2", BABY_ANIMALS); var w = AN[t].baby; ask("What is a baby "+t+" called?", "Tap the baby name.");
+    stage(area, '<span class="azmomsm">'+azSVG(t)+'</span><span class="azkid1">'+babySVG(t)+'</span>', "azfamily");
+    return wordRow(area, [w].concat(others(w, BABY_WORDS, k)), w);
+  }
+  var m3 = scModes(c, ["rev","egg","name","rev","milk"]); k = kOf(c, 3, 4);
+  if(m3==="rev"){ t = fresh("b3r", BABY_UNIQUE); var bw = AN[t].baby; ask(cap1(A(bw))+" is a baby what?", "Which grown-up animal has this baby?");
+    stage(area, '<span class="azbabyword">'+esc(cap1(bw))+'</span>', "azword"); return picRow(area, [t].concat(others(t, BABY_ANIMALS, k, function(x){ return AN[x].baby===bw; })), t); }
+  if(m3==="egg" || m3==="milk"){ var egg = m3==="egg", yes = AZ_LIST.filter(function(x){ return egg ? AN[x].egg : AN[x].grp==="mammal"; }), no = AZ_LIST.filter(function(x){ return egg ? !AN[x].egg : AN[x].grp && AN[x].grp!=="mammal"; });
+    t = pick(yes); ask(egg ? "Which baby hatches from an egg?" : "Which baby drinks milk from its mommy?", egg ? "Birds, reptiles, frogs and fish lay eggs." : "Mammal babies drink milk.");
+    return picRow(area, [t].concat(shuffle(no).slice(0, k-1)), t, {baby:true}); }
+  t = fresh("b3", BABY_ANIMALS); var w3 = AN[t].baby; ask("What is a baby "+t+" called?", "Tap the baby name.");
+  stage(area, '<span class="azkid1">'+babySVG(t)+'</span>', "azfamily"); return wordRow(area, [w3].concat(others(w3, BABY_WORDS, k)), w3);
+};
+
+/* ===== Animal Homes ===== */
+var HOMED = AZ_LIST.filter(function(x){ return AN[x].home; });
+var HOMES = Object.keys(HOME);
+function homeRow(area, list, t){
+  choiceRow(area, shuffle(list).map(function(h){ return {html:'<span class="azhomecard">'+homeSVG(h)+'<b>'+esc(cap1(HOME_NAME[h]))+'</b></span>', label:HOME_NAME[h], say:HOME_NAME[h]+(h==="sea" ? "|ocean" : h==="snow" ? "|snow|ice" : ""), ok:h===t}; }));
+  area.lastChild.classList.add("azhomes"); }
+function foodRow(area, list, t){
+  choiceRow(area, shuffle(list).map(function(w){ return {html:'<span class="azfood">'+FOODS[w]()+'</span><span class="azcap">'+esc(cap1(w))+'</span>', label:w, say:w, ok:w===t}; }));
+  area.lastChild.classList.add("azrow"); }
+ENGINES.habitat = function(area, c){
+  var t, k, h;
+  if(c.a===1){
+    k = kOf(c, 2, 3); var hs = c.t<.4 ? ["farm","sea","snow","pond"] : HOMES; h = fresh("h1", hs.filter(function(x){ return HOMED.some(function(a){ return AN[a].home===x; }); }));
+    t = pick(HOMED.filter(function(a){ return AN[a].home===h; }));
+    ask(HOME_Q1[h], "Tap the animal that lives here."); stage(area, homeSVG(h), "azhomebig");
+    return picRow(area, [t].concat(others(t, HOMED, k, function(a){ return AN[a].home===h; })), t);
+  }
+  if(c.a===2){
+    var m2 = scModes(c, ["where","where","odd","where","who"]); k = kOf(c, 3, 4);
+    if(m2==="odd"){ h = fresh("h2o", Object.keys(HOME_ODD)); var ins = shuffle(HOMED.filter(function(a){ return AN[a].home===h; })), outs = HOMED.filter(function(a){ return AN[a].home!==h; });
+      if(ins.length<2){ h = "farm"; ins = shuffle(HOMED.filter(function(a){ return AN[a].home===h; })); outs = HOMED.filter(function(a){ return AN[a].home!==h; }); }
+      t = pick(outs); ask(HOME_ODD[h], "One animal lives somewhere else."); stage(area, homeSVG(h), "azhomebig"); return picRow(area, [t].concat(ins.slice(0, Math.min(k-1, ins.length))), t); }
+    if(m2==="who"){ h = fresh("h2w", HOMES); t = pick(HOMED.filter(function(a){ return AN[a].home===h; })); ask(HOME_Q1[h], "Tap the animal that lives here."); stage(area, homeSVG(h), "azhomebig");
+      return picRow(area, [t].concat(others(t, HOMED, k, function(a){ return AN[a].home===h; })), t); }
+    t = fresh("h2", HOMED); h = AN[t].home; ask("Where does "+A(t)+" live?", "Tap its home."); stage(area, azSVG(t), "azbig");
+    return homeRow(area, [h].concat(others(h, HOMES, k)), h);
+  }
+  var m3 = scModes(c, ["eat","grp","where","eat","grp"]); k = kOf(c, 3, 4);
+  if(m3==="eat"){ t = fresh("h3e", AZ_LIST.filter(function(x){ return AN[x].eats; })); var fd = AN[t].eats, no = AN[t].no||[];
+    ask("What does "+A(t)+" like to eat?", "Think about where it lives."); stage(area, azSVG(t), "azbig");
+    return foodRow(area, [fd].concat(others(fd, FOOD_LIST, k, function(x){ return no.indexOf(x)>=0 || x==="fish" && t==="penguin"; })), fd); }
+  if(m3==="grp"){ t = fresh("h3g", AZ_LIST.filter(function(x){ return AN[x].grp; })); var g = AN[t].grp;
+    ask("What kind of animal is "+A(t)+"?", GRP_HINT[g]); stage(area, azSVG(t), "azbig");
+    return wordRow(area, [g].concat(others(g, GRP, k)), g); }
+  t = fresh("h3", HOMED); h = AN[t].home; ask("Where does "+A(t)+" live?", "Tap its home."); stage(area, azSVG(t), "azbig");
+  return homeRow(area, [h].concat(others(h, HOMES, k)), h);
+};
+
+/* ===== the three animal worlds ===== */
+function worldArt(names){ return '<svg viewBox="0 0 150 120">'+names.map(function(n, i){ return '<g transform="translate('+[4, 52, 28][i]+' '+[30, 30, 0][i]+') scale(.78)">'+inner(azSVG(n))+'</g>'; }).join("")+'</svg>'; }
+GAMES.push(
+  {id:"zoo", name:"Animal Parade", skill:"Animal names", area:"Nature", age:"2–7", bg:"#E6F4DC", color:"#3F8F4A",
+   about:"Meets 31 friendly 3D animals: find them by name, guess who is peeking, then learn letters, legs and sizes.",
+   art:'<svg viewBox="0 0 150 120"><g transform="translate(0 34) scale(.72)">'+inner(azSVG("elephant"))+'</g><g transform="translate(64 34) scale(.72)">'+inner(azSVG("lion"))+'</g><g transform="translate(36 2) scale(.6)">'+inner(azSVG("giraffe"))+'</g></svg>'},
+  {id:"babies", name:"Baby Animals", skill:"Animal babies", area:"Nature", age:"2–7", bg:"#FFE9F0", color:"#D93A60",
+   about:"Helps each baby find its mommy, learns baby names like puppy, calf and joey, and who hatches from an egg.",
+   art:'<svg viewBox="0 0 150 120"><g transform="translate(4 18) scale(.8)">'+inner(azSVG("duck"))+'</g><g transform="translate(80 58) scale(.42)">'+inner(azSVG("duck"))+'</g><g transform="translate(106 66) scale(.36)">'+inner(azSVG("duck"))+'</g></svg>'},
+  {id:"habitat", name:"Animal Homes", skill:"Where animals live", area:"Nature", age:"2–7", bg:"#DDF1FB", color:"#2B8FC7",
+   about:"Sends animals home to the farm, sea, jungle, snow and more, then learns what they eat and what kind of animal they are.",
+   art:'<svg viewBox="0 0 150 120"><g transform="translate(8 8) scale(1.04)">'+inner(homeSVG("sea"))+'</g><g transform="translate(58 34) scale(.74)">'+inner(azSVG("whale"))+'</g></svg>'}
+);
+AGE_TXT.zoo = ["Find animals by name and guess who is peeking","Name animals, letters and what makes them special","Missing letters, legs and real-life sizes"];
+AGE_TXT.babies = ["Help each baby find its mommy","Baby names: puppy, kitten, calf and more","Hatch or milk? Which baby belongs to whom?"];
+AGE_TXT.habitat = ["Who lives on the farm, in the sea, in the snow?","Send each animal to its home","What animals eat and mammal, bird or reptile"];
+if(typeof MUSIC_OF!=="undefined"){ MUSIC_OF.zoo = "nature"; MUSIC_OF.babies = "pond"; MUSIC_OF.habitat = "nature"; }
+window.__v48 = {azSVG:azSVG, babySVG:babySVG, homeSVG:homeSVG, FOODS:FOODS, AN:AN, LIST:AZ_LIST, FEAT:FEAT, LETTERS:LETTERS48, HOME_Q1:HOME_Q1, HOME_ODD:HOME_ODD, HOME_NAME:HOME_NAME, BABY_ANIMALS:BABY_ANIMALS, BABY_WORDS:BABY_WORDS, BABY_UNIQUE:BABY_UNIQUE, GRP:GRP, A:A};
+})();
+
 window.addEventListener("hashchange", route);
 
 syncAccount(); renderCards(); renderChip(); drawMute(); drawVoice(); drawNames(); fillScene(); fillHero(); renderPalRow(); fillCounts(); vInit(); drawSaveButtons(); route();
