@@ -2173,6 +2173,179 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
   body.ffk-printing #printArea{display:block!important}
   body.ffk-printing #printArea .sheet{margin:0 auto;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
+/* ---------- v47: Story Books (picture books + bedtime stories) ---------- */
+.bk-svg{display:block;width:100%;height:100%}
+.bk-it{transform-box:fill-box;transform-origin:50% 100%}
+.bk-bob{animation:bkbob 2.4s ease-in-out infinite}
+.bk-hop{animation:bkhop 1.1s cubic-bezier(.3,.6,.4,1) infinite}
+.bk-sway{animation:bksway 3.2s ease-in-out infinite}
+.bk-float{animation:bkfloat 3.6s ease-in-out infinite}
+.bk-drift{animation:bkdrift 9s ease-in-out infinite}
+.bk-breathe{animation:bkbreathe 4.5s ease-in-out infinite}
+.bk-rock{animation:bkrock 5s ease-in-out infinite;transform-origin:50% 80%}
+.bk-fly{animation:bkfly 2.6s ease-in-out infinite}
+.bk-wiggle{animation:bkwig 1.2s ease-in-out infinite}
+.bk-zoom{animation:bkzoom 3s ease-in-out infinite}
+.bk-tw{animation:bktw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.bk-spin{animation:bkspin 30s linear infinite;transform-box:fill-box;transform-origin:center}
+.bk-blink{animation:bkblink 5s infinite;transform-box:fill-box;transform-origin:center}
+.bk-ear{animation:bkear 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.bk-ear.d2{animation-delay:-1.4s}
+.bk-wag{animation:bkwag 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 100%}
+.bk-wave1{animation:bkwave .9s ease-in-out infinite}
+.bk-flap{animation:bkflap .5s ease-in-out infinite;transform-box:fill-box}
+.bk-flutter{animation:bkflut .35s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.bk-swim{animation:bkswim 2s ease-in-out infinite}
+.bk-glow{animation:bkglow 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.bk-drift2{animation:bkdrift2 7s ease-in-out infinite}
+.bk-snow{animation:bksnow 6s linear infinite}
+.bk-rain{animation:bkrain 1s linear infinite}
+.bk-fall{animation:bkfall 2.4s linear infinite}
+.bk-fall2{animation:bkfall2 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.bk-zzz{animation:bkzzz 3s ease-in-out infinite}
+.bk-pop{animation:bkpop 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.bk-flame{animation:bkflame .4s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 100%}
+.bk-flame2{animation:bkflame .25s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 0}
+.bk-steam{animation:bksteam 2.4s ease-in-out infinite}
+.bk-wave{animation:bkwavex 4s ease-in-out infinite}
+.bk-ripple{animation:bkwavex 5s ease-in-out infinite}
+.bk-sway2{animation:bksway2 3s ease-in-out infinite;transform-box:fill-box}
+.bk-floatn{animation:bkfloatn 2.4s ease-in-out infinite}
+.bk-spray{animation:bkspray .6s linear infinite}
+.bk-trunk{animation:bktrunk 3s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+@keyframes bkbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes bkhop{0%,100%{transform:translateY(0) scale(1.04,.96)}40%{transform:translateY(-34px) scale(.96,1.05)}70%{transform:translateY(0) scale(1.06,.94)}}
+@keyframes bksway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes bkfloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-16px) rotate(3deg)}}
+@keyframes bkdrift{0%,100%{transform:translateX(-18px)}50%{transform:translateX(18px)}}
+@keyframes bkbreathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.03,.97)}}
+@keyframes bkrock{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes bkfly{0%,100%{transform:translate(0,0)}25%{transform:translate(10px,-14px)}75%{transform:translate(-10px,8px)}}
+@keyframes bkwig{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes bkzoom{0%,100%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(0,-20px) rotate(4deg)}}
+@keyframes bktw{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+@keyframes bkspin{to{transform:rotate(360deg)}}
+@keyframes bkblink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes bkear{0%,100%{transform:rotate(0)}50%{transform:rotate(-6deg)}}
+@keyframes bkwag{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(12deg)}}
+@keyframes bkwave{0%,100%{transform:rotate(0)}50%{transform:rotate(-40deg)}}
+@keyframes bkflap{0%,100%{transform:rotate(0)}50%{transform:rotate(-24deg)}}
+@keyframes bkflut{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.35)}}
+@keyframes bkswim{0%,100%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(14px,-6px) rotate(4deg)}}
+@keyframes bkglow{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:.5;transform:scale(1.25)}}
+@keyframes bkdrift2{0%,100%{transform:translate(0,0)}33%{transform:translate(16px,-12px)}66%{transform:translate(-12px,-20px)}}
+@keyframes bksnow{from{transform:translateY(-40px)}to{transform:translateY(120px)}}
+@keyframes bkrain{from{transform:translateY(-60px)}to{transform:translateY(220px)}}
+@keyframes bkfall{from{transform:translateY(-60px)}to{transform:translateY(560px)}}
+@keyframes bkfall2{0%,100%{transform:translate(0,0) rotate(-20deg)}50%{transform:translate(20px,26px) rotate(30deg)}}
+@keyframes bkzzz{0%{opacity:0;transform:translate(0,10px)}30%,70%{opacity:1}100%{opacity:0;transform:translate(14px,-16px)}}
+@keyframes bkpop{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes bkflame{from{transform:scaleY(.85)}to{transform:scaleY(1.15)}}
+@keyframes bksteam{0%,100%{opacity:.3;transform:translateY(4px)}50%{opacity:.9;transform:translateY(-6px)}}
+@keyframes bkwavex{0%,100%{transform:translateX(0)}50%{transform:translateX(-30px)}}
+@keyframes bksway2{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes bkfloatn{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-12px) rotate(8deg)}}
+@keyframes bkspray{to{stroke-dashoffset:-48}}
+@keyframes bktrunk{0%,100%{transform:rotate(0)}50%{transform:rotate(14deg)}}
+/* gentle Ken Burns pan on every picture */
+.bk-kb{transform-box:view-box;transform-origin:50% 50%}
+.bkr-pg.on .bk-kb{animation:bkkb 16s ease-in-out infinite alternate}
+.bkr-pg.on.k2 .bk-kb{animation-name:bkkb2}
+.bkr-pg.on.k3 .bk-kb{animation-name:bkkb3}
+.bkr.night .bkr-pg.on .bk-kb{animation-duration:26s}
+@keyframes bkkb{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.1) translate(-18px,-6px)}}
+@keyframes bkkb2{from{transform:scale(1.1) translate(14px,-4px)}to{transform:scale(1.02) translate(0,0)}}
+@keyframes bkkb3{from{transform:scale(1.03) translate(10px,4px)}to{transform:scale(1.09) translate(-8px,-10px)}}
+.bkr.night .bk-hop,.bkr.night .bk-bob,.bkr.night .bk-float{animation-duration:5s}
+
+/* ---------- library page ---------- */
+.bk-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;margin-bottom:22px}
+.bk-hero .lead{font-size:18px;color:var(--ink-soft);max-width:560px}
+.bk-hero .bkh-art{border-radius:28px;overflow:hidden;aspect-ratio:16/10;box-shadow:var(--clay)}
+.bk-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 18px}
+.bk-tabs button{font:inherit;font-weight:800;font-size:17px;min-height:48px;padding:8px 18px;border-radius:999px;border:3px solid #C9E6E0;background:#fff;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.bk-tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.bk-tabs button.night[aria-pressed="true"]{background:#2B2F6E;border-color:#2B2F6E}
+.bk-shelf{margin:8px 0 34px}
+.bk-shelf h2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bk-shelf .shsub{margin:-4px 0 14px;color:var(--ink-soft);font-size:16px}
+.bk-shelf.night{background:linear-gradient(180deg,#1E2460,#3A3F86);border-radius:32px;padding:22px 20px 26px;color:#EEF0FF}
+.bk-shelf.night h2{color:#fff}.bk-shelf.night .shsub{color:#C9CDF5}
+.bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.bk-card{position:relative;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;background:#fff;border:0;border-radius:24px;padding:0;overflow:hidden;cursor:pointer;box-shadow:var(--clay-sm);transition:transform .2s}
+.bk-card:hover,.bk-card:focus-visible{transform:translateY(-4px) rotate(-.6deg)}
+.bk-card .cv{position:relative;aspect-ratio:16/10;overflow:hidden;background:#DDF4FF}
+.bk-card .cv .bk-svg *{animation-play-state:paused}
+.bk-card:hover .cv .bk-svg *{animation-play-state:running}
+.bk-card .cvt{position:absolute;left:10px;right:10px;bottom:8px;font-family:Grandstander,"Comic Sans MS",sans-serif;font-weight:800;font-size:20px;line-height:1.1;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.35),0 0 12px rgba(0,0,0,.35)}
+.bk-card .meta{padding:10px 14px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;font-weight:700;color:var(--ink-soft)}
+.bk-card .meta .pg{display:inline-flex;align-items:center;gap:6px}
+.bk-card .badge{position:absolute;top:10px;left:10px;background:#fff;color:var(--ink);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800;box-shadow:0 3px 0 rgba(0,0,0,.12)}
+.bk-card .badge.free{background:#4DB35A;color:#fff}
+.bk-card .badge.lock{background:#FFC83A}
+.bk-card .badge.done{left:auto;right:10px;background:#FF7F3F;color:#fff}
+.bk-shelf.night .bk-card{background:#2B2F6E;color:#EEF0FF}
+.bk-shelf.night .bk-card .meta{color:#C9CDF5}
+.bk-card.locked .cv{filter:saturate(.75)}
+.bk-age{display:inline-block;background:var(--pond);border-radius:999px;padding:2px 8px;font-size:12px;color:var(--ink)}
+
+/* ---------- reader (slide show) ---------- */
+.bkr{position:fixed;inset:0;z-index:9000;display:flex;flex-direction:column;background:#FFF8EC;color:var(--ink);overscroll-behavior:contain}
+.bkr[hidden]{display:none}
+.bkr.night{background:#12163C;color:#EEF0FF}
+.bkr-top{display:flex;align-items:center;gap:8px;padding:10px 14px;flex:none}
+.bkr-top .tt{flex:1;min-width:0;font-family:Grandstander,"Comic Sans MS",sans-serif;font-weight:800;font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bkr-btn{font:inherit;font-weight:800;font-size:15px;min-width:48px;min-height:48px;padding:6px 14px;border-radius:999px;border:0;background:#fff;color:var(--ink);box-shadow:0 4px 0 rgba(23,59,64,.15);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bkr.night .bkr-btn{background:#2B2F6E;color:#EEF0FF;box-shadow:0 4px 0 rgba(0,0,0,.3)}
+.bkr-btn[aria-pressed="true"]{background:var(--leaf);color:#fff}
+.bkr.night .bkr-btn[aria-pressed="true"]{background:#7C8BE0;color:#fff}
+.bkr-btn svg{width:22px;height:22px}
+.bkr-stage{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 14px}
+.bkr-pages{position:relative;width:100%;max-width:min(1100px,calc((100vh - 280px)*1.6));aspect-ratio:16/10;border-radius:28px;overflow:hidden;box-shadow:0 18px 40px -16px rgba(23,59,64,.45);background:#DDF4FF;perspective:1400px}
+.bkr.night .bkr-pages{box-shadow:0 0 0 4px rgba(201,210,255,.15),0 18px 50px -10px rgba(0,0,0,.6)}
+.bkr-pg{position:absolute;inset:0;opacity:0;transition:opacity .7s ease,transform .7s cubic-bezier(.3,.7,.3,1);transform:translateX(40px) rotateY(-8deg);pointer-events:none}
+.bkr-pg.on{opacity:1;transform:none;pointer-events:auto}
+.bkr-pg.out{opacity:0;transform:translateX(-40px) rotateY(8deg)}
+.bkr-pg.back{transform:translateX(-40px) rotateY(8deg)}
+.bkr-pg.back.out{transform:translateX(40px) rotateY(-8deg)}
+.bkr.night .bkr-pg{transition-duration:1.4s}
+.bkr-text{width:100%;max-width:min(1100px,calc((100vh - 280px)*1.6));margin:14px auto 0;min-height:3.2em;font-family:Grandstander,"Comic Sans MS",sans-serif;font-weight:700;font-size:clamp(20px,2.6vw,30px);line-height:1.35;text-align:center;letter-spacing:.2px}
+.bkr-text .w{transition:color .15s,background .15s;border-radius:8px;padding:0 2px}
+.bkr-text .w.on{background:#FFE38A;color:#173B40}
+.bkr.night .bkr-text .w.on{background:#7C8BE0;color:#fff}
+.bkr-nav{position:absolute;top:50%;transform:translateY(-50%);width:64px;height:64px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);box-shadow:0 6px 0 rgba(23,59,64,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2}
+.bkr-nav svg{width:34px;height:34px}
+.bkr-nav.prev{left:22px}.bkr-nav.next{right:22px}
+.bkr-nav:disabled{opacity:.3;cursor:default}
+.bkr.night .bkr-nav{background:rgba(43,47,110,.92);color:#EEF0FF}
+.bkr-foot{flex:none;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 14px 16px;flex-wrap:wrap}
+.bkr-dots{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.bkr-dots button{width:14px;height:14px;border-radius:50%;border:0;padding:0;background:#D4E6E2;cursor:pointer}
+.bkr-dots button.on{background:var(--tang);transform:scale(1.25)}
+.bkr.night .bkr-dots button{background:#3A3F86}.bkr.night .bkr-dots button.on{background:#FFF0B3}
+.bkr-end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:safe center;gap:14px;background:rgba(255,248,236,.94);text-align:center;padding:72px 16px 24px;z-index:5;overflow:auto}
+.bkr-end>.bk-svg{position:fixed!important}
+.bkr-end .bkr-btn.x{position:absolute;top:10px;left:14px}
+.bkr.night .bkr-end{background:rgba(18,22,60,.94)}
+.bkr-end h3{font-family:Grandstander,"Comic Sans MS",sans-serif;font-size:clamp(34px,6vw,60px);margin:0}
+.bkr-end .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.bkr-end .next{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;max-width:720px}
+.bkr-end .next .bk-card{width:200px}
+@media (max-width:560px){.bkr-end .next .bk-card{width:calc(50% - 8px)}.bkr-end .next{gap:10px}}
+.bkr-dim{position:fixed;inset:0;background:#000;pointer-events:none;opacity:0;transition:opacity 4s;z-index:9001}
+@media (max-width:820px){.bk-hero{grid-template-columns:1fr}.bkr-nav{width:52px;height:52px}.bkr-nav.prev{left:8px}.bkr-nav.next{right:8px}}
+@media (max-width:560px){.bk-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.bk-card .cvt{font-size:15px}.bk-card .meta{font-size:12px;padding:8px 10px 10px}.bkr-top .tt{font-size:16px}.bkr-btn .lb{display:none}.bkr-stage{padding:0 8px}.bkr-pages{border-radius:18px}.bkr-nav{top:auto;bottom:-6px;transform:none;width:48px;height:48px}.bk-shelf.night{padding:16px 10px 18px;border-radius:22px}}
+@media (orientation:landscape) and (max-height:500px){.bkr-top{padding:4px 10px}.bkr-text{margin-top:6px;font-size:18px;min-height:2.6em}.bkr-foot{padding:4px 10px 8px}.bkr-pages{max-width:calc((100vh - 170px)*1.6)}}
+@media (prefers-reduced-motion:reduce){.bk-it,.bk-kb,.bk-tw,.bk-blink,.bk-ear,.bk-wag,.bk-flap,.bk-glow,.bk-snow,.bk-rain,.bk-fall,.bk-zzz,.bk-pop,.bk-flame,.bk-wave,.bk-ripple,.bk-sway2,.bk-floatn,.bk-drift2,.bk-swim,.bk-flutter,.bk-spin{animation:none!important}.bkr-pg{transition:opacity .3s}}
+.bk-char.bk-tapped{animation:bkhop .7s 1!important}
+@media (min-width:901px){header.top .wrap{gap:6px}header.top nav.links a{padding:8px 4px}}
+@media (min-width:1200px){header.top .chip{font-size:12px;padding:4px 8px}header.top .vtoggle{padding:5px 9px;font-size:13px}}
+.bkpromo{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:center;background:linear-gradient(120deg,#FFF0C9,#FCE0EA 55%,#DCE3FA);border-radius:32px;padding:20px 22px;margin:4px 0 26px;box-shadow:var(--clay-sm)}
+.bkpromo .pa{border-radius:22px;overflow:hidden;aspect-ratio:16/10;display:block}
+.bkpromo h2{margin:2px 0 6px}.bkpromo p{margin:0 0 14px;color:var(--ink-soft);font-size:17px}
+.bkpromo .row{display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:760px){.bkpromo{grid-template-columns:1fr;padding:14px}.bkpromo p{font-size:15px}}
 </style>
 <style>/* live site: stop tilted 3D cards from making phones scroll sideways */html,body{overflow-x:clip}</style>
 </head>
@@ -2218,6 +2391,7 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
     <nav class="links" aria-label="Main">
       <a href="#lessons" data-nav="lessons">Learn</a>
       <a href="#school" data-nav="school">School</a>
+      <a href="#books" data-nav="books">Stories</a>
       <a href="#kids" data-nav="kids" id="hwLink">Homework</a>
       <a href="#studio" data-nav="studio">Studio</a>
       <a href="#parents" data-nav="parents">Parents</a>
@@ -2374,6 +2548,13 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
     </div>
   </section>
 
+  <!-- v47: Story Books promo -->
+  <section class="band" style="padding-top:0;padding-bottom:0"><div class="wrap"><div class="bkpromo">
+    <a class="pa" href="#books" aria-label="Open Story Books"><svg viewBox="0 0 800 500" aria-hidden="true" style="display:block;width:100%;height:100%"><defs><linearGradient id="bkpg" x1="0" y1="0" x2="1" y2="0"><stop offset=".5" stop-color="#8FD3FF"/><stop offset=".5" stop-color="#1B2350"/></linearGradient></defs><rect width="800" height="500" fill="url(#bkpg)"/><path d="M0 330 C140 270 260 340 400 300 V500 H0z" fill="#6CC55F"/><path d="M400 300 C540 260 660 320 800 290 V500 H400z" fill="#1E4650"/><circle cx="130" cy="100" r="42" fill="#FFD84A"/><path d="M652 58 A44 44 0 1 0 652 142 A50 50 0 0 1 652 58z" fill="#FFF0B3"/><circle cx="500" cy="80" r="3" fill="#FFF7D6"/><circle cx="740" cy="200" r="3" fill="#FFF7D6"/><circle cx="560" cy="180" r="2.5" fill="#FFF7D6"/><path d="M250 470 L250 330 Q325 300 400 330 Q475 300 550 330 L550 470 Q475 440 400 470 Q325 440 250 470z" fill="#fff" stroke="#FF7F3F" stroke-width="10" stroke-linejoin="round"/><path d="M400 330 V470" stroke="#FF7F3F" stroke-width="6"/><path d="M280 370h90M280 395h80M430 370h90M430 395h80" stroke="#C9B4F0" stroke-width="8" stroke-linecap="round"/><text x="560" y="250" font-family="Grandstander,Comic Sans MS,sans-serif" font-size="52" font-weight="900" fill="#C9D2FF">z z z</text><g transform="translate(130 300)"><ellipse cx="0" cy="-30" rx="32" ry="28" fill="#4DB35A"/><ellipse cx="0" cy="-24" rx="20" ry="17" fill="#CFF0B8"/><ellipse cx="0" cy="-70" rx="40" ry="28" fill="#4DB35A"/><circle cx="-20" cy="-92" r="15" fill="#4DB35A"/><circle cx="20" cy="-92" r="15" fill="#4DB35A"/><circle cx="-20" cy="-92" r="10" fill="#fff"/><circle cx="20" cy="-92" r="10" fill="#fff"/><circle cx="-18" cy="-92" r="5.5" fill="#2A2230"/><circle cx="22" cy="-92" r="5.5" fill="#2A2230"/><path d="M-12 -64 q12 12 24 0" stroke="#2A2230" stroke-width="4" fill="none" stroke-linecap="round"/></g></svg></a>
+    <div><p class="eyebrow">New: Story Books</p><h2 class="h2big">Picture stories and bedtime stories</h2>
+    <p>19 story books with 152 moving pictures. Pip reads every page out loud, and the bedtime stories come with a soft lullaby.</p>
+    <div class="row"><a class="btn btn-go" href="#books">📖 Read a story</a><a class="btn btn-soft" href="#books" data-bktab="night">🌙 Bedtime stories</a></div></div>
+  </div></div></section>
   <section class="band">
     <div class="wrap">
       <p class="eyebrow">What they learn</p>
@@ -2562,6 +2743,29 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
 <div class="prview" id="prView" hidden role="dialog" aria-modal="true" aria-labelledby="prVTitle">
   <div class="prbar"><button type="button" class="btn btn-soft btn-sm" id="prClose">Close</button><b id="prVTitle">Printable page</b><button type="button" class="btn btn-soft btn-sm" id="prMix">New mix</button><button type="button" class="btn btn-go btn-sm" id="prPrint">Print</button></div>
   <div class="prstage" id="prStage"><div class="prfit" id="prFit"><div class="prscale" id="prSheet"></div></div></div>
+</div>
+
+<!-- ================= v47: Story Books ================= -->
+<div class="view" id="v-books">
+  <section class="band" style="padding-top:30px">
+    <div class="wrap">
+      <div class="bk-hero">
+        <div>
+          <p class="eyebrow">Story Books</p>
+          <h1 style="font-size:clamp(34px,5.5vw,58px);margin-top:6px">Picture stories and bedtime stories</h1>
+          <p class="lead">A slide show for every story, with lots of moving pictures. Pip reads each page out loud and lights up every word, so little ones can follow along. Bedtime stories are slow, quiet and calm, with a soft lullaby.</p>
+          <div class="bk-tabs" id="bkTabs" role="group" aria-label="Which stories">
+            <button type="button" data-tab="all" aria-pressed="true">📚 All stories</button>
+            <button type="button" data-tab="day" aria-pressed="false">☀️ Picture books</button>
+            <button type="button" data-tab="night" class="night" aria-pressed="false">🌙 Bedtime</button>
+          </div>
+        </div>
+        <div class="bkh-art" id="bkHeroArt"></div>
+      </div>
+      <div id="bkShelves"></div>
+      <p class="lead" style="font-size:15px">Tip for grown-ups: tap <b>Read to me</b> and the pages turn by themselves. Swipe, or use the arrow keys, to turn pages yourself.</p>
+    </div>
+  </section>
 </div>
 
 <!-- ================= PLAY ================= -->
@@ -3142,7 +3346,7 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
         <p>Learning games for ages 2 to 7, led by Pip the frog. Parental guidance recommended.</p>
         <p><a href="mailto:firstfoundationkidsapp@gmail.com">firstfoundationkidsapp@gmail.com</a></p>
       </div>
-      <div><h4>Play</h4><ul><li><a href="#lessons">All worlds</a></li><li><a href="#school">Pip's Pond School</a></li><li><a href="#studio">Studio</a></li><li><a href="#food">Fruit &amp; Veggie Book</a></li><li><a href="#path">Pip's Path</a></li><li><a href="#printables">Printables</a></li><li><a href="#prizes">My prizes</a></li></ul></div>
+      <div><h4>Play</h4><ul><li><a href="#lessons">All worlds</a></li><li><a href="#school">Pip's Pond School</a></li><li><a href="#studio">Studio</a></li><li><a href="#food">Fruit &amp; Veggie Book</a></li><li><a href="#books">Story books</a></li><li><a href="#path">Pip's Path</a></li><li><a href="#printables">Printables</a></li><li><a href="#prizes">My prizes</a></li></ul></div>
       <div><h4>Parents</h4><ul><li><a href="#parents">Progress and screen time</a></li><li><a href="#pricing">Plans</a></li><li><a href="#account">My account</a></li><li><a href="#teach">Teachers: give homework</a></li><li><a href="#kids">Kid login</a></li><li><a href="#faq">Questions</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="#about">About us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
       <div><h4>Learn more</h4><ul><li><a href="/learning-games/">All learning games</a></li><li><a href="/school/">School practice</a></li><li><a href="/blog/">Parent guides</a></li><li><a href="/plans/">Plans and prices</a></li><li><a href="/faq/">All questions</a></li></ul></div><div><h4>Legal</h4><ul><li><a href="#terms">Terms of Use</a></li><li><a href="#privacy">Privacy Policy</a></li></ul></div>
@@ -10706,6 +10910,855 @@ renderWorld = function(arg){
   if(KID.on) useProfile();
   if(KID.on && KID.data) setTimeout(function(){ kidRefresh(function(){ if(curView==="kids") renderKids(); }); }, 400);
 })();
+/* ---------- v47: Story Books ---------- */
+/* v47: Story Books picture library. Every picture is drawn from a scene spec:
+   {bg:"meadow", tod:"day|sunset|night", it:[[type, x, y, scale, opts], ...]}
+   viewBox 0 0 800 500; characters stand with their feet at (x, y), 100 px tall at scale 1. */
+var BK_ART = (function(){
+  var uid = 0;
+  function n(v){ return Math.round(v*10)/10; }
+  function g(o, inner){ return '<g'+(o?' '+o:'')+'>'+inner+'</g>'; }
+
+  /* ---------- skies and grounds ---------- */
+  var SKY = {
+    day:    ["#8FD3FF","#DDF4FF"], sunset:["#FF9E7A","#FFE0A3"], night:["#141B45","#3A3F86"], dusk:["#5B5AA8","#F6B7A6"]
+  };
+  var GROUND = { // [back hill, front hill]
+    day:["#9EDB86","#6CC55F"], sunset:["#B8C76A","#86B25A"], night:["#2C5A63","#1E4650"], dusk:["#6E9C78","#4F8466"]
+  };
+  function stars(seed, cnt, ymax){
+    var o = '', r = seed;
+    function rnd(){ r = (r*9301+49297)%233280; return r/233280; }
+    for(var i=0;i<cnt;i++){ var x = n(rnd()*800), y = n(rnd()*ymax), s = n(1+rnd()*2.2);
+      o += '<circle class="bk-tw" style="animation-delay:-'+n(rnd()*3)+'s" cx="'+x+'" cy="'+y+'" r="'+s+'" fill="#FFF7D6"/>'; }
+    return o;
+  }
+  function sky(tod){
+    var id = 'bks'+(++uid), c = SKY[tod]||SKY.day;
+    return '<defs><linearGradient id="'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="800" height="500" fill="url(#'+id+')"/>'
+      + (tod==="night" ? stars(7, 46, 300) : tod==="dusk" ? stars(3, 14, 160) : '');
+  }
+  function hills(tod, y){
+    var c = GROUND[tod]||GROUND.day; y = y||330;
+    return '<path d="M0 '+(y-30)+' C140 '+(y-90)+' 260 '+(y-20)+' 400 '+(y-50)+' S640 '+(y-100)+' 800 '+(y-40)+' V500 H0z" fill="'+c[0]+'"/>'
+      + '<path d="M0 '+(y+10)+' C180 '+(y-30)+' 330 '+(y+30)+' 520 '+(y)+' S720 '+(y-20)+' 800 '+(y+5)+' V500 H0z" fill="'+c[1]+'"/>';
+  }
+  function grassTufts(tod){
+    var c = tod==="night" ? "#2E6B6A" : "#4FAF52", o = '';
+    [[60,450],[180,470],[300,440],[470,465],[610,445],[730,470]].forEach(function(p){
+      o += '<path d="M'+p[0]+' '+p[1]+'q4-16 8 0q4-20 8 0q4-14 8 0" stroke="'+c+'" stroke-width="4" fill="none" stroke-linecap="round"/>'; });
+    return o;
+  }
+  var BG = {
+    meadow:function(t){ return sky(t)+hills(t)+grassTufts(t); },
+    garden:function(t){ var o = sky(t)+hills(t); var f = t==="night" ? "#8B7B6A" : "#E9C79A";
+      for(var x=10;x<800;x+=46) o += '<rect x="'+x+'" y="300" width="22" height="70" rx="8" fill="'+f+'"/>';
+      o += '<rect x="0" y="318" width="800" height="10" fill="'+f+'"/><rect x="0" y="345" width="800" height="10" fill="'+f+'"/>';
+      return o + '<path d="M0 370 H800 V500 H0z" fill="'+(t==="night"?"#1E4650":"#6CC55F")+'"/>' + grassTufts(t); },
+    pond:function(t){ var w = t==="night" ? ["#24407A","#365A9A"] : t==="sunset" ? ["#F4A98E","#F9CDB0"] : ["#5DBCE8","#9FDCF5"];
+      return sky(t)+hills(t,300)+'<ellipse cx="420" cy="420" rx="430" ry="88" fill="'+w[0]+'"/><ellipse cx="420" cy="410" rx="380" ry="62" fill="'+w[1]+'" opacity=".55"/>'
+        + '<path class="bk-ripple" d="M200 420q20-8 40 0M520 440q22-8 44 0M380 400q16-6 32 0" stroke="#fff" stroke-width="3" fill="none" opacity=".7" stroke-linecap="round"/>'; },
+    forest:function(t){ var o = sky(t)+hills(t,320); var c = t==="night" ? ["#1F4A55","#173C46"] : ["#58A85A","#3F8F4A"];
+      [[40,300,1.2],[150,280,1.5],[280,300,1.1],[650,290,1.4],[760,300,1.2],[540,305,1]].forEach(function(p,i){
+        o += '<g transform="translate('+p[0]+' '+p[1]+') scale('+p[2]+')"><rect x="-7" y="-10" width="14" height="40" fill="'+(t==="night"?"#3B3340":"#8A5A3B")+'"/><path d="M0 -110 L44 -10 H-44z" fill="'+c[i%2]+'"/><path d="M0 -140 L34 -60 H-34z" fill="'+c[(i+1)%2]+'"/></g>'; });
+      return o + '<path d="M0 380 C200 360 600 400 800 375 V500 H0z" fill="'+(t==="night"?"#1E4650":"#6CC55F")+'"/>' + grassTufts(t); },
+    sea:function(t){ var w = t==="night" ? ["#1C3470","#2B4C92"] : t==="sunset" ? ["#E58F86","#F5B79A"] : ["#3FA9E0","#7FCDF2"];
+      return sky(t)+'<rect y="290" width="800" height="210" fill="'+w[0]+'"/><rect y="290" width="800" height="40" fill="'+w[1]+'" opacity=".6"/>'
+        + '<g class="bk-wave"><path d="M-40 360q30-14 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0" stroke="#fff" stroke-width="4" fill="none" opacity=".55"/>'
+        + '<path d="M-10 420q30-14 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0" stroke="#fff" stroke-width="4" fill="none" opacity=".4"/></g>'; },
+    beach:function(t){ return BG.sea(t)+'<path d="M0 420 C200 400 500 440 800 410 V500 H0z" fill="'+(t==="night"?"#8C7D74":"#F7DFA4")+'"/>'; },
+    snow:function(t){ var o = sky(t)+'<path d="M0 300 C160 240 300 320 430 280 S660 230 800 290 V500 H0z" fill="'+(t==="night"?"#B9C4E8":"#EEF6FF")+'"/><path d="M0 370 C200 330 420 390 800 350 V500 H0z" fill="'+(t==="night"?"#D3DBF3":"#FFFFFF")+'"/>';
+      for(var i=0;i<40;i++){ var x = (i*197+i*i*31)%800, y = (i*113+i*i*17)%420; o += '<circle class="bk-snow" style="animation-delay:-'+((i*0.37)%6).toFixed(2)+'s" cx="'+x+'" cy="'+y+'" r="'+(2+(i%3))+'" fill="#fff"/>'; }
+      return o; },
+    sky:function(t){ return sky(t); },
+    space:function(){ var o = '<rect width="800" height="500" fill="#10143A"/>'+stars(11, 90, 500);
+      return o + '<circle cx="120" cy="110" r="46" fill="#FF9E7A"/><ellipse cx="120" cy="110" rx="78" ry="14" fill="none" stroke="#FFD27A" stroke-width="6" transform="rotate(-18 120 110)"/>'; },
+    moonland:function(){ return BG.space() + '<path d="M0 380 C200 340 500 400 800 360 V500 H0z" fill="#D9D4E8"/><ellipse cx="200" cy="430" rx="40" ry="10" fill="#BDB6D3"/><ellipse cx="560" cy="410" rx="56" ry="12" fill="#BDB6D3"/><ellipse cx="680" cy="460" rx="30" ry="8" fill="#BDB6D3"/>'; },
+    room:function(t){ var night = t==="night", wall = night ? "#3E3A6E" : "#FFE9C7", fl = night ? "#5A4A6A" : "#E2B98A";
+      var o = '<rect width="800" height="500" fill="'+wall+'"/>';
+      for(var x=40;x<800;x+=80) o += '<circle cx="'+x+'" cy="60" r="5" fill="'+(night?"#55508A":"#FFD9A0")+'"/>';
+      o += '<g transform="translate(470 70)"><rect width="220" height="170" rx="14" fill="#7B5A45"/><rect x="12" y="12" width="196" height="146" rx="8" fill="'+(night?"#1B2350":"#9FD8FF")+'"/>'
+        + (night ? '<circle cx="150" cy="60" r="26" fill="#FFF3C4"/><circle cx="162" cy="52" r="24" fill="#1B2350"/>'+'<circle class="bk-tw" cx="50" cy="40" r="3" fill="#FFF7D6"/><circle class="bk-tw" style="animation-delay:-1s" cx="90" cy="100" r="2.5" fill="#FFF7D6"/><circle class="bk-tw" style="animation-delay:-2s" cx="60" cy="120" r="2" fill="#FFF7D6"/><circle class="bk-tw" style="animation-delay:-1.6s" cx="180" cy="120" r="2.5" fill="#FFF7D6"/>' : '<circle cx="150" cy="56" r="22" fill="#FFD84A"/><ellipse cx="70" cy="80" rx="34" ry="14" fill="#fff"/>')
+        + '<rect x="104" y="12" width="12" height="146" fill="#7B5A45"/><rect x="12" y="80" width="196" height="10" fill="#7B5A45"/></g>';
+      o += '<path d="M440 60 q30 120 10 210 h30 q-10 -110 -10 -210z" fill="'+(night?"#8A6FB3":"#FF9CB4")+'"/><path d="M720 60 q-30 120 -10 210 h-30 q10 -110 10 -210z" fill="'+(night?"#8A6FB3":"#FF9CB4")+'"/>';
+      o += '<rect y="350" width="800" height="150" fill="'+fl+'"/><ellipse cx="400" cy="440" rx="260" ry="40" fill="'+(night?"#7A6AA6":"#FFB3A0")+'" opacity=".8"/>';
+      return o + (night ? '<rect width="800" height="500" fill="#0B0F33" opacity=".18"/>' : ''); },
+    kitchen:function(){ var o = '<rect width="800" height="500" fill="#FFF1D6"/>';
+      for(var x=0;x<800;x+=50) for(var y=120;y<300;y+=50) o += '<rect x="'+(x+2)+'" y="'+(y+2)+'" width="46" height="46" fill="'+(((x+y)/50)%2?"#FFE4B8":"#FFF8E8")+'"/>';
+      o += '<rect x="80" y="40" width="200" height="70" rx="10" fill="#9ED8C6"/><rect x="520" y="40" width="200" height="70" rx="10" fill="#9ED8C6"/><circle cx="180" cy="75" r="5" fill="#fff"/><circle cx="620" cy="75" r="5" fill="#fff"/>';
+      return o + '<rect y="330" width="800" height="170" fill="#D79A6A"/><rect y="320" width="800" height="22" fill="#B7774B"/>'; },
+    den:function(t){ var o = sky(t)+'<rect width="800" height="500" fill="#4A3426" opacity=".92"/>'+'<path d="M0 0 H800 V500 H0z M120 500 C120 160 680 160 680 500z" fill="#5E4230" fill-rule="evenodd"/>';
+      o += '<path d="M120 500 C120 160 680 160 680 500" fill="none" stroke="#7A5638" stroke-width="18"/>';
+      return o + '<ellipse cx="400" cy="470" rx="300" ry="40" fill="#C79A5E"/>'; },
+    town:function(t){ var o = sky(t)+hills(t,300); var hc = ["#FF9E7A","#7EC8F0","#FFD45A","#B79AE8","#FF8FB0"];
+      [[60,1],[200,1.2],[340,0.9],[480,1.1],[620,1],[740,1.2]].forEach(function(p,i){
+        o += '<g transform="translate('+p[0]+' 330) scale('+p[1]+')"><rect x="-40" y="-70" width="80" height="70" fill="'+hc[i%5]+'"/><path d="M-50 -70 L0 -115 L50 -70z" fill="#C2554A"/><rect x="-12" y="-36" width="24" height="36" rx="10" fill="#7B5A45"/><rect x="-32" y="-60" width="16" height="16" fill="'+(t==="night"?"#FFE38A":"#E8F7FF")+'"/><rect x="16" y="-60" width="16" height="16" fill="'+(t==="night"?"#FFE38A":"#E8F7FF")+'"/></g>'; });
+      return o + '<rect y="370" width="800" height="50" fill="#B9B3A8"/><path d="M0 395 H800" stroke="#fff" stroke-width="5" stroke-dasharray="30 24"/><rect y="420" width="800" height="80" fill="'+(t==="night"?"#1E4650":"#6CC55F")+'"/>'; },
+    clouds:function(t){ var o = sky(t);
+      [[120,380,1.6],[420,420,2],[700,390,1.5],[260,470,1.8],[600,480,1.7]].forEach(function(p){ o += cloud(p[0],p[1],p[2], t==="night"?"#8F95D6":"#fff"); });
+      return o; }
+  };
+
+  /* ---------- props ---------- */
+  function cloud(x,y,s,c){ return '<g transform="translate('+x+' '+y+') scale('+s+')"><path d="M-60 0 a24 24 0 0 1 20-34 a32 32 0 0 1 58-10 a26 26 0 0 1 44 22 a20 20 0 0 1-6 22z" fill="'+(c||"#fff")+'"/></g>'; }
+  function star5(r, c){ var p = []; for(var i=0;i<10;i++){ var a = Math.PI/5*i - Math.PI/2, rr = i%2 ? r*0.45 : r; p.push(n(Math.cos(a)*rr)+' '+n(Math.sin(a)*rr)); }
+    return '<path d="M'+p.join(' L')+'z" fill="'+(c||"#FFD84A")+'" stroke="#E5A70F" stroke-width="'+(r/8)+'" stroke-linejoin="round"/>'; }
+  function eye(x,y,r,o){ // o: mood
+    if(o==="sleepy") return '<path d="M'+(x-r)+' '+y+' q'+r+' '+r+' '+(2*r)+' 0" stroke="#2A2230" stroke-width="'+(r*0.55)+'" fill="none" stroke-linecap="round"/>';
+    if(o==="laugh") return '<path d="M'+(x-r)+' '+(y+r*0.4)+' q'+r+' '+(-1.6*r)+' '+(2*r)+' 0" stroke="#2A2230" stroke-width="'+(r*0.55)+'" fill="none" stroke-linecap="round"/>';
+    var rr = o==="wow" ? r*1.2 : r;
+    return '<g class="bk-eye"><ellipse cx="'+x+'" cy="'+y+'" rx="'+rr+'" ry="'+(rr*1.15)+'" fill="#2A2230"/><circle cx="'+n(x+rr*0.35)+'" cy="'+n(y-rr*0.4)+'" r="'+n(rr*0.38)+'" fill="#fff"/></g>';
+  }
+  function mouth(x,y,w,o){
+    if(o==="sad") return '<path d="M'+(x-w)+' '+(y+w*0.5)+' q'+w+' '+(-w)+' '+(2*w)+' 0" stroke="#2A2230" stroke-width="'+(w*0.35)+'" fill="none" stroke-linecap="round"/>';
+    if(o==="wow") return '<ellipse cx="'+x+'" cy="'+(y+w*0.2)+'" rx="'+(w*0.45)+'" ry="'+(w*0.6)+'" fill="#7A2B3A"/>';
+    if(o==="sleepy") return '<path d="M'+(x-w*0.5)+' '+y+' q'+(w*0.5)+' '+(w*0.4)+' '+w+' 0" stroke="#2A2230" stroke-width="'+(w*0.3)+'" fill="none" stroke-linecap="round"/>';
+    if(o==="laugh") return '<path d="M'+(x-w)+' '+(y-w*0.2)+' q'+w+' '+(w*1.6)+' '+(2*w)+' 0z" fill="#7A2B3A"/>';
+    return '<path d="M'+(x-w)+' '+y+' q'+w+' '+w+' '+(2*w)+' 0" stroke="#2A2230" stroke-width="'+(w*0.35)+'" fill="none" stroke-linecap="round"/>';
+  }
+  function cheeks(x1,x2,y,r){ return '<circle cx="'+x1+'" cy="'+y+'" r="'+r+'" fill="#FF8FA8" opacity=".55"/><circle cx="'+x2+'" cy="'+y+'" r="'+r+'" fill="#FF8FA8" opacity=".55"/>'; }
+
+  /* mammals share one round, big-head body; ears, snout and tail change */
+  var MAM = {
+    bunny:   {c:"#F4F0F6", d:"#D9CFE3", in:"#FFC2D4", ears:"long", tail:"puff"},
+    bear:    {c:"#B07A4E", d:"#8E5E3A", in:"#E9B98C", ears:"round", snout:"#E9C9A4", tail:"none"},
+    fox:     {c:"#F28A3C", d:"#D06A22", in:"#FFE3C9", ears:"pointy", snout:"#FFF1E2", tail:"fox"},
+    kitten:  {c:"#A7A9B8", d:"#85879A", in:"#FFC2D4", ears:"pointy", tail:"cat", stripes:true},
+    puppy:   {c:"#E8C79A", d:"#C79E6B", in:"#B07A4E", ears:"floppy", snout:"#FFF3E2", tail:"dog", spot:true},
+    mouse:   {c:"#C9C2D8", d:"#A79DBD", in:"#FFC2D4", ears:"big", tail:"mouse"},
+    hedgehog:{c:"#F2D6B3", d:"#8E6A4E", in:"#E9B98C", ears:"small", tail:"none", spikes:true},
+    elephant:{c:"#9FB4D6", d:"#7E94BC", in:"#F5B9CC", ears:"ele", tail:"thin", trunk:true},
+    sheep:   {c:"#FFFFFF", d:"#E3E3EC", in:"#5A4A5E", ears:"floppy", tail:"puff", wool:true, face:"#5A4A5E"}
+  };
+  function mammal(k, o){
+    var m = MAM[k], c = o.c||m.c, d = m.d, md = o.m||"happy", out = '';
+    // tail
+    if(m.tail==="puff") out += '<circle cx="-30" cy="-26" r="11" fill="#fff" stroke="'+d+'" stroke-width="2"/>';
+    if(m.tail==="fox") out += '<g class="bk-wag"><path d="M-22 -22 C-70 -30 -76 -76 -52 -84 C-50 -56 -36 -42 -16 -36z" fill="'+c+'"/><path d="M-52 -84 C-62 -74 -64 -64 -60 -56 C-52 -66 -50 -76 -52 -84z" fill="#fff"/></g>';
+    if(m.tail==="cat") out += '<path class="bk-wag" d="M-22 -18 C-60 -24 -54 -70 -40 -72" stroke="'+c+'" stroke-width="9" fill="none" stroke-linecap="round"/>';
+    if(m.tail==="dog") out += '<path class="bk-wag" d="M-22 -26 q-22 -8 -20 -32" stroke="'+c+'" stroke-width="9" fill="none" stroke-linecap="round"/>';
+    if(m.tail==="mouse") out += '<path class="bk-wag" d="M-22 -14 C-60 -10 -66 -40 -48 -48" stroke="'+m.in+'" stroke-width="4" fill="none" stroke-linecap="round"/>';
+    if(m.tail==="thin") out += '<path d="M-26 -24 q-12 4 -14 16" stroke="'+d+'" stroke-width="4" fill="none" stroke-linecap="round"/>';
+    if(m.spikes) out += '<path d="M-38 -10 l-16 -10 l12 -10 l-18 -14 l16 -6 l-14 -18 l18 -2 l-6 -20 l18 6 l0 -20 l16 12 l8 -18 l12 16 l14 -14 l6 20 l18 -6 l-4 20 l16 4 l-12 14 l12 12 l-12 8z" fill="'+d+'"/>';
+    // body + feet
+    out += '<ellipse cx="0" cy="-28" rx="'+(m.wool?34:28)+'" ry="'+(m.wool?28:26)+'" fill="'+c+'"'+(m.wool?' stroke="#E3E3EC" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"':'')+'/>';
+    out += '<ellipse cx="0" cy="-22" rx="16" ry="15" fill="'+(m.snout||"#fff")+'" opacity="'+(m.snout?".9":".45")+'"/>';
+    out += '<ellipse cx="-14" cy="-3" rx="13" ry="7" fill="'+(m.face||d)+'"/><ellipse cx="14" cy="-3" rx="13" ry="7" fill="'+(m.face||d)+'"/>';
+    // arms
+    var wave = o.wave ? ' class="bk-wave1"' : '';
+    out += '<ellipse cx="-24" cy="-34" rx="8" ry="13" fill="'+(m.face||d)+'" transform="rotate(25 -24 -34)"/>';
+    out += '<g'+wave+' style="transform-origin:22px -40px"><ellipse cx="24" cy="-34" rx="8" ry="13" fill="'+(m.face||d)+'" transform="rotate(-25 24 -34)"/></g>';
+    // head
+    var hx = 0, hy = -72, hr = 30;
+    var head = '';
+    if(m.ears==="long") head += '<g class="bk-ear"><ellipse cx="-13" cy="-110" rx="9" ry="28" fill="'+c+'" stroke="'+d+'" stroke-width="2"/><ellipse cx="-13" cy="-108" rx="4.5" ry="20" fill="'+m.in+'"/></g><g class="bk-ear d2"><ellipse cx="13" cy="-112" rx="9" ry="28" fill="'+c+'" stroke="'+d+'" stroke-width="2" transform="rotate(12 13 -90)"/><ellipse cx="13" cy="-110" rx="4.5" ry="20" fill="'+m.in+'" transform="rotate(12 13 -90)"/></g>';
+    if(m.ears==="round") head += '<circle cx="-24" cy="-96" r="11" fill="'+c+'"/><circle cx="24" cy="-96" r="11" fill="'+c+'"/><circle cx="-24" cy="-96" r="5.5" fill="'+m.in+'"/><circle cx="24" cy="-96" r="5.5" fill="'+m.in+'"/>';
+    if(m.ears==="small") head += '<circle cx="-20" cy="-96" r="7" fill="'+m.in+'"/><circle cx="20" cy="-96" r="7" fill="'+m.in+'"/>';
+    if(m.ears==="big") head += '<circle cx="-27" cy="-94" r="17" fill="'+c+'"/><circle cx="27" cy="-94" r="17" fill="'+c+'"/><circle cx="-27" cy="-94" r="10" fill="'+m.in+'"/><circle cx="27" cy="-94" r="10" fill="'+m.in+'"/>';
+    if(m.ears==="pointy") head += '<path d="M-28 -84 L-22 -116 L-4 -98z" fill="'+c+'"/><path d="M28 -84 L22 -116 L4 -98z" fill="'+c+'"/><path d="M-22 -90 L-20 -106 L-11 -97z" fill="'+m.in+'"/><path d="M22 -90 L20 -106 L11 -97z" fill="'+m.in+'"/>';
+    if(m.ears==="floppy") head += '<ellipse cx="-30" cy="-76" rx="10" ry="20" fill="'+(m.face||m.in)+'" transform="rotate(18 -30 -76)"/><ellipse cx="30" cy="-76" rx="10" ry="20" fill="'+(m.face||m.in)+'" transform="rotate(-18 30 -76)"/>';
+    if(m.ears==="ele") head += '<ellipse class="bk-ear" cx="-34" cy="-74" rx="22" ry="27" fill="'+c+'" stroke="'+d+'" stroke-width="2"/><ellipse cx="-34" cy="-74" rx="13" ry="17" fill="'+m.in+'"/><ellipse class="bk-ear d2" cx="34" cy="-74" rx="22" ry="27" fill="'+c+'" stroke="'+d+'" stroke-width="2"/><ellipse cx="34" cy="-74" rx="13" ry="17" fill="'+m.in+'"/>';
+    if(m.wool){ head += '<circle cx="0" cy="-100" r="12" fill="#fff"/><circle cx="-14" cy="-96" r="10" fill="#fff"/><circle cx="14" cy="-96" r="10" fill="#fff"/>'; }
+    head += '<circle cx="'+hx+'" cy="'+hy+'" r="'+hr+'" fill="'+(m.face && !m.wool ? m.face : (m.wool ? m.face : c))+'"/>';
+    if(m.wool) head += '<circle cx="0" cy="-100" r="13" fill="#fff"/><circle cx="-15" cy="-97" r="10" fill="#fff"/><circle cx="15" cy="-97" r="10" fill="#fff"/>';
+    if(m.stripes) head += '<path d="M-6 -101 v10 M0 -102 v12 M6 -101 v10" stroke="'+d+'" stroke-width="3" stroke-linecap="round"/>';
+    if(m.spot) head += '<ellipse cx="13" cy="-82" rx="10" ry="9" fill="'+m.d+'" opacity=".6"/>';
+    if(m.snout) head += '<ellipse cx="0" cy="-62" rx="14" ry="10" fill="'+m.snout+'"/>';
+    if(k==="fox") head += '<path d="M-30 -72 Q-14 -54 0 -60 Q14 -54 30 -72 Q20 -48 0 -46 Q-20 -48 -30 -72z" fill="#FFF1E2"/>';
+    var ec = m.face && k==="sheep" ? "#fff" : null;
+    var eyes = eye(-11,-76,4.2,md)+eye(11,-76,4.2,md);
+    if(ec) eyes = eyes.replace(/#2A2230/g, "#fff").replace(/fill="#fff"\/><\/g>/g,'fill="#5A4A5E"/></g>');
+    head += '<g class="bk-blink">'+eyes+'</g>';
+    if(!m.trunk) head += '<ellipse cx="0" cy="-66" rx="4" ry="3" fill="'+(k==="sheep"?"#FFC2D4":"#2A2230")+'"/>';
+    head += mouth(m.trunk?-14:0, m.trunk?-56:-60, m.trunk?4:5, md==="sleepy"?"sleepy":md) + (k==="sheep"?'':cheeks(-19,19,-63,5));
+    if(m.trunk) head += '<g class="bk-trunk"><path d="M0 -68 C-2 -46 6 -34 18 -34" stroke="'+d+'" stroke-width="15" fill="none" stroke-linecap="round"/><path d="M0 -68 C-2 -46 6 -34 18 -34" stroke="'+c+'" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M-3 -54 h7 M-1 -46 h7" stroke="'+d+'" stroke-width="2" stroke-linecap="round"/></g>';
+    if(o.hat) head += hat(o.hat);
+    out += '<g class="bk-head">'+head+'</g>';
+    return out;
+  }
+  function hat(h){
+    if(h==="party") return '<path d="M-10 -100 L4 -140 L18 -100z" fill="#FF6FA0"/><circle cx="4" cy="-142" r="5" fill="#FFD84A"/><path d="M-6 -110 l20 0" stroke="#FFD84A" stroke-width="3"/>';
+    if(h==="night") return '<path d="M-28 -90 C-20 -126 18 -130 34 -104 L46 -86 C30 -96 0 -100 -28 -90z" fill="#7C8BE0"/><circle cx="48" cy="-84" r="6" fill="#fff"/>';
+    if(h==="scarf") return '<path d="M-24 -48 q24 12 48 0 l2 9 q-26 14 -52 0z" fill="#E7466B"/><rect x="10" y="-44" width="9" height="22" rx="3" fill="#E7466B"/>';
+    if(h==="crown") return '<path d="M-16 -98 l4 -18 l8 10 l4 -14 l4 14 l8 -10 l4 18z" fill="#FFD84A" stroke="#E5A70F" stroke-width="2"/>';
+    if(h==="helmet") return '<circle cx="0" cy="-72" r="38" fill="#CFEFFF" opacity=".35" stroke="#fff" stroke-width="4"/>';
+    return '';
+  }
+  function frog(o){ var c = o.c||"#4DB35A", md = o.m||"happy", d = "#2F8A3C";
+    var out = '<ellipse cx="-20" cy="-4" rx="18" ry="8" fill="'+d+'"/><ellipse cx="20" cy="-4" rx="18" ry="8" fill="'+d+'"/>';
+    out += '<ellipse cx="0" cy="-30" rx="32" ry="28" fill="'+c+'"/><ellipse cx="0" cy="-24" rx="20" ry="17" fill="#CFF0B8"/>';
+    out += '<ellipse cx="-27" cy="-32" rx="8" ry="12" fill="'+d+'" transform="rotate(25 -27 -32)"/>';
+    out += '<g'+(o.wave?' class="bk-wave1"':'')+' style="transform-origin:24px -40px"><ellipse cx="27" cy="-32" rx="8" ry="12" fill="'+d+'" transform="rotate(-25 27 -32)"/></g>';
+    var h = '<ellipse cx="0" cy="-70" rx="40" ry="28" fill="'+c+'"/><circle cx="-20" cy="-92" r="15" fill="'+c+'"/><circle cx="20" cy="-92" r="15" fill="'+c+'"/>';
+    h += '<circle cx="-20" cy="-92" r="10" fill="#fff"/><circle cx="20" cy="-92" r="10" fill="#fff"/>';
+    h += '<g class="bk-blink">'+eye(-20,-92,5.5,md)+eye(20,-92,5.5,md)+'</g>';
+    h += mouth(0,-64,12,md==="sleepy"?"sleepy":md)+cheeks(-26,26,-64,6);
+    if(o.hat) h += hat(o.hat).replace(/-100|-98|-90/g, function(v){ return String(+v-12); });
+    return out + '<g class="bk-head">'+h+'</g>';
+  }
+  function owl(o){ var c = o.c||"#9A6A44", md = o.m||"happy";
+    var out = '<ellipse cx="0" cy="-46" rx="34" ry="44" fill="'+c+'"/><ellipse cx="0" cy="-34" rx="22" ry="28" fill="#F3DDB9"/>';
+    out += '<path d="M-12 -30 q4 4 8 0 M4 -30 q4 4 8 0 M-6 -18 q4 4 8 0" stroke="#C9A77A" stroke-width="2.5" fill="none"/>';
+    var fl = o.fly ? ' class="bk-flap"' : '';
+    out += '<g'+fl+' style="transform-origin:-30px -60px"><path d="M-30 -66 C-58 -50 -54 -20 -32 -12z" fill="#7A5134"/></g><g'+fl+' style="transform-origin:30px -60px"><path d="M30 -66 C58 -50 54 -20 32 -12z" fill="#7A5134"/></g>';
+    out += '<path d="M-14 -2 l-4 6 M-10 -2 v7 M10 -2 v7 M14 -2 l4 6" stroke="#E5A70F" stroke-width="4" stroke-linecap="round"/>';
+    var h = '<path d="M-30 -84 L-26 -108 L-12 -92z M30 -84 L26 -108 L12 -92z" fill="'+c+'"/>';
+    h += '<circle cx="-14" cy="-72" r="14" fill="#FFF6E2"/><circle cx="14" cy="-72" r="14" fill="#FFF6E2"/>';
+    h += '<g class="bk-blink">'+eye(-14,-72,6,md)+eye(14,-72,6,md)+'</g>';
+    h += '<path d="M-5 -62 L5 -62 L0 -52z" fill="#FFB22E"/>';
+    if(o.hat) h += hat(o.hat);
+    return out + '<g class="bk-head">'+h+'</g>';
+  }
+  function duck(o){ var c = o.c||"#FFD84A", md = o.m||"happy";
+    var out = '<path d="M-14 -2 h12 M4 -2 h12" stroke="#FF9E2E" stroke-width="6" stroke-linecap="round"/>';
+    out += '<ellipse cx="-4" cy="-30" rx="36" ry="26" fill="'+c+'"/><path d="M-40 -36 L-50 -50 L-30 -42z" fill="'+c+'"/>';
+    out += '<path class="bk-flap" style="transform-origin:-8px -40px" d="M-20 -40 C-6 -46 14 -40 16 -26 C2 -20 -14 -24 -20 -40z" fill="#F5C52E"/>';
+    var h = '<circle cx="14" cy="-70" r="24" fill="'+c+'"/><path d="M-2 -94 q6 -12 14 -4" stroke="'+c+'" stroke-width="5" fill="none" stroke-linecap="round"/>';
+    h += '<g class="bk-blink">'+eye(6,-76,4,md)+eye(24,-76,4,md)+'</g>';
+    h += '<path d="M6 -64 q14 -6 28 0 q-14 10 -28 0z" fill="#FF9E2E"/>' + cheeks(0,32,-62,4);
+    if(o.hat) h += hat(o.hat).replace('translate','translate');
+    return out + '<g class="bk-head">'+h+'</g>';
+  }
+  function turtle(o){ var c = o.c||"#5BBF7A", md = o.m||"happy";
+    var out = '<ellipse cx="-24" cy="-6" rx="10" ry="8" fill="#8BD39A"/><ellipse cx="22" cy="-6" rx="10" ry="8" fill="#8BD39A"/>';
+    out += '<path d="M-44 -14 C-44 -66 44 -66 44 -14z" fill="'+c+'"/><path d="M-44 -14 h88" stroke="#3E8E58" stroke-width="6" stroke-linecap="round"/>';
+    out += '<path d="M-14 -50 l14 -8 l14 8 v14 l-14 8 l-14 -8z" fill="#3E8E58" opacity=".55"/><circle cx="-30" cy="-30" r="6" fill="#3E8E58" opacity=".5"/><circle cx="30" cy="-30" r="6" fill="#3E8E58" opacity=".5"/>';
+    var h = '<ellipse cx="54" cy="-38" rx="20" ry="18" fill="#8BD39A"/><path d="M40 -26 q8 -8 0 -16" fill="#8BD39A"/>';
+    h += '<g class="bk-blink">'+eye(50,-42,3.6,md)+eye(62,-42,3.6,md)+'</g>'+mouth(57,-32,4,md)+cheeks(44,68,-34,3.5);
+    if(o.hat) h += '<g transform="translate(56 30) scale(.7)">'+hat(o.hat)+'</g>';
+    return out + '<g class="bk-head">'+h+'</g>';
+  }
+  function fish(o){ var c = o.c||"#FF9E3E"; return '<g class="bk-swim"><path d="M-30 -20 L-46 -32 L-46 -8z" fill="'+c+'"/><ellipse cx="0" cy="-20" rx="32" ry="20" fill="'+c+'"/><circle cx="14" cy="-24" r="4" fill="#2A2230"/><path d="M-6 -36 q8 -10 16 0" fill="'+c+'"/><path d="M20 -14 q4 2 8 0" stroke="#2A2230" stroke-width="2" fill="none"/></g>'; }
+
+  var PROP = {
+    sun:function(o){ return '<g class="bk-spin"><circle r="46" fill="#FFD84A" opacity=".35"/>'+[0,45,90,135,180,225,270,315].map(function(a){ return '<rect x="-4" y="-74" width="8" height="18" rx="4" fill="#FFC83A" transform="rotate('+a+')"/>'; }).join('')+'</g><circle r="40" fill="#FFD84A"/>'+(o.face?'<circle cx="-12" cy="-6" r="4" fill="#B9780A"/><circle cx="12" cy="-6" r="4" fill="#B9780A"/><path d="M-12 10 q12 10 24 0" stroke="#B9780A" stroke-width="4" fill="none" stroke-linecap="round"/>':''); },
+    moon:function(o){ var face = o.m ? '<g class="bk-blink">'+eye(-24,-4,4,o.m)+'</g>'+mouth(-20,12,5,o.m==="sleepy"?"sleepy":"happy")+'<circle cx="-30" cy="8" r="4" fill="#FFB0B0" opacity=".5"/>' : '';
+      return '<circle r="64" fill="#FFF3C4" opacity=".14"/><path d="M12 -42.3 A44 44 0 1 0 12 42.3 A50 50 0 0 1 12 -42.3z" fill="#FFF0B3"/>'+face; },
+    fullmoon:function(o){ return '<circle r="70" fill="#FFF3C4" opacity=".16"/><circle r="44" fill="#FFF0B3"/><circle cx="-14" cy="-10" r="7" fill="#F0DE98"/><circle cx="12" cy="14" r="5" fill="#F0DE98"/>'+(o.m?'<g class="bk-blink">'+eye(-14,-4,4.5,o.m)+eye(14,-4,4.5,o.m)+'</g>'+mouth(0,12,7,o.m==="sleepy"?"sleepy":"happy"):''); },
+    star:function(o){ return '<g class="bk-tw">'+star5(o.r||14, o.c)+'</g>'+(o.m?'<g transform="scale('+((o.r||14)/30)+')">'+eye(-6,-2,2.6,o.m)+eye(6,-2,2.6,o.m)+mouth(0,6,3,"happy")+'</g>':''); },
+    cloud:function(o){ return cloud(0,0,1,o.c||"#fff")+(o.m?'<g transform="translate(-4 -14)">'+eye(-10,0,3.4,o.m)+eye(10,0,3.4,o.m)+mouth(0,8,4,o.m==="sleepy"?"sleepy":"happy")+cheeks(-20,20,6,4)+'</g>':''); },
+    tree:function(o){ var c = o.c||"#4DB35A"; return '<rect x="-12" y="-110" width="24" height="110" rx="6" fill="#8A5A3B"/><path d="M-12 -70 l-26 -22 M12 -84 l24 -18" stroke="#8A5A3B" stroke-width="9" stroke-linecap="round"/><circle cx="0" cy="-150" r="62" fill="'+c+'"/><circle cx="-44" cy="-118" r="40" fill="'+c+'"/><circle cx="46" cy="-122" r="42" fill="'+c+'"/><circle cx="-16" cy="-176" r="30" fill="#fff" opacity=".12"/>'+(o.apples?'<circle cx="-30" cy="-140" r="9" fill="#E7466B"/><circle cx="30" cy="-160" r="9" fill="#E7466B"/><circle cx="10" cy="-110" r="9" fill="#E7466B"/><circle cx="50" cy="-118" r="9" fill="#E7466B"/>':''); },
+    pine:function(o){ var c = o.c||"#3F8F4A"; return '<rect x="-8" y="-30" width="16" height="30" fill="#8A5A3B"/><path d="M0 -150 L44 -28 H-44z" fill="'+c+'"/><path d="M0 -170 L32 -90 H-32z" fill="'+c+'"/>'+(o.snow?'<path d="M0 -170 L14 -134 Q0 -128 -14 -134z" fill="#fff"/><path d="M-30 -96 q30 10 60 0" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/>':''); },
+    flower:function(o){ var c = o.c||"#FF6FA0"; return '<path d="M0 0 V-40" stroke="#3E8E41" stroke-width="5"/><path d="M0 -18 q14 -10 18 0 q-10 8 -18 0" fill="#4DB35A"/><g class="bk-sway2" style="transform-origin:0 -48px">'+[0,72,144,216,288].map(function(a){ return '<ellipse cx="0" cy="-60" rx="8" ry="12" fill="'+c+'" transform="rotate('+a+' 0 -48)"/>'; }).join('')+'<circle cx="0" cy="-48" r="7" fill="#FFD84A"/></g>'; },
+    mushroom:function(o){ return '<path d="M-10 0 q-2 -26 2 -30 h16 q4 4 2 30z" fill="#FFF3E2"/><path d="M-34 -26 C-34 -70 34 -70 34 -26z" fill="'+(o.c||"#E7466B")+'"/><circle cx="-14" cy="-44" r="6" fill="#fff"/><circle cx="12" cy="-50" r="7" fill="#fff"/><circle cx="20" cy="-34" r="4" fill="#fff"/>'; },
+    balloon:function(o){ var c = o.c||"#E7466B", l = o.l||90; return '<path d="M0 30 C10 '+(30+l*0.4)+' -10 '+(30+l*0.7)+' 0 '+(30+l)+'" stroke="#6B5B6E" stroke-width="2" fill="none"/><path d="M-4 30 h8 l-4 -6z" fill="'+c+'"/><ellipse cx="0" cy="0" rx="26" ry="32" fill="'+c+'"/><ellipse cx="-9" cy="-12" rx="6" ry="10" fill="#fff" opacity=".45"/>'; },
+    kite:function(o){ var c = o.c||"#FF7F3F", l = o.l||200; return '<path d="M0 50 C-20 '+(50+l*0.3)+' 30 '+(50+l*0.6)+' 0 '+(50+l)+'" stroke="#6B5B6E" stroke-width="2" fill="none"/><path d="M0 -50 L36 0 L0 50 L-36 0z" fill="'+c+'"/><path d="M0 -50 L0 50 M-36 0 L36 0" stroke="#fff" stroke-width="3"/><path d="M0 50 q10 14 0 24 q-10 10 0 24" stroke="#3E9BDB" stroke-width="4" fill="none"/><path d="M-6 66 l12 6 M-6 86 l12 6" stroke="#FFD84A" stroke-width="5" stroke-linecap="round"/>'; },
+    house:function(o){ var c = o.c||"#FF9E7A"; return '<rect x="-70" y="-110" width="140" height="110" fill="'+c+'"/><path d="M-86 -110 L0 -180 L86 -110z" fill="#C2554A"/><rect x="-18" y="-60" width="36" height="60" rx="16" fill="#7B5A45"/><rect x="-56" y="-90" width="28" height="28" fill="'+(o.lit?"#FFE38A":"#E8F7FF")+'"/><rect x="28" y="-90" width="28" height="28" fill="'+(o.lit?"#FFE38A":"#E8F7FF")+'"/><rect x="40" y="-170" width="20" height="40" fill="#9A5148"/>'; },
+    bed:function(o){ var c = o.c||"#7C8BE0"; return '<rect x="-120" y="-80" width="16" height="80" rx="6" fill="#9A6A44"/><rect x="104" y="-60" width="16" height="60" rx="6" fill="#9A6A44"/><rect x="-120" y="-120" width="22" height="70" rx="10" fill="#B07A4E"/><rect x="-110" y="-54" width="226" height="30" rx="10" fill="#fff"/><ellipse cx="-80" cy="-62" rx="26" ry="14" fill="#fff"/>'; },
+    cover:function(o){ var c = o.c||"#7C8BE0"; return '<path d="M-56 -62 Q30 -74 110 -60 q10 0 10 10 v28 h-180 q-6 -20 4 -40z" fill="'+c+'"/><path d="M-56 -62 Q30 -74 110 -60 q10 0 10 10 v28 h-180 q-6 -20 4 -40z" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" opacity=".7"/><path d="M-58 -60 Q30 -72 112 -58" stroke="#fff" stroke-width="7" fill="none" opacity=".85" stroke-linecap="round"/>'; },
+    blanket:function(o){ var c = o.c||"#7C8BE0"; return '<path d="M-70 0 C-74 -40 -50 -56 0 -56 C50 -56 74 -40 70 0z" fill="'+c+'"/><path d="M-60 -20 h120 M-50 -40 h100" stroke="#fff" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" opacity=".7"/>'; },
+    lamp:function(o){ return '<circle cx="0" cy="-90" r="'+(o.on===false?0:60)+'" fill="#FFE38A" opacity=".25"/><rect x="-30" y="-14" width="60" height="14" rx="5" fill="#9A6A44"/><rect x="-4" y="-80" width="8" height="70" fill="#9A6A44"/><path d="M-30 -80 L-18 -120 H18 L30 -80z" fill="'+(o.on===false?"#C9B4F0":"#FFD27A")+'"/>'; },
+    lantern:function(){ return '<circle cx="0" cy="-30" r="44" fill="#FFE38A" opacity=".25" class="bk-glow"/><path d="M0 -70 v-12" stroke="#5A4A3A" stroke-width="3"/><rect x="-16" y="-62" width="32" height="8" rx="3" fill="#5A4A3A"/><rect x="-14" y="-54" width="28" height="44" rx="8" fill="#FFD84A"/><rect x="-16" y="-12" width="32" height="8" rx="3" fill="#5A4A3A"/>'; },
+    book:function(o){ var c = o.c||"#E7466B"; return '<path d="M-40 0 L-40 -50 Q-20 -58 0 -50 Q20 -58 40 -50 L40 0 Q20 -8 0 0 Q-20 -8 -40 0z" fill="#fff" stroke="'+c+'" stroke-width="5" stroke-linejoin="round"/><path d="M0 -50 V0" stroke="'+c+'" stroke-width="3"/><path d="M-30 -36 h20 M-30 -26 h18 M10 -36 h20 M10 -26 h18" stroke="#B5A9C2" stroke-width="3" stroke-linecap="round"/>'; },
+    cake:function(o){ return '<rect x="-60" y="-40" width="120" height="40" rx="8" fill="#F6C2D3"/><rect x="-50" y="-80" width="100" height="40" rx="8" fill="#FFF3E2"/><path d="M-50 -76 q12 12 25 0 q12 12 25 0 q12 12 25 0 q12 12 25 0" fill="#FF6FA0"/><path d="M-60 -36 q15 12 30 0 q15 12 30 0 q15 12 30 0 q15 12 30 0" fill="#fff" opacity=".8"/>'
+      + [-24,0,24].map(function(x){ return '<rect x="'+(x-3)+'" y="-104" width="6" height="22" fill="#7EC8F0"/>'+(o.lit===false?'':'<ellipse class="bk-flame" cx="'+x+'" cy="-110" rx="5" ry="8" fill="#FFB22E"/>'); }).join('')+'<circle cx="-30" cy="-60" r="5" fill="#E7466B"/><circle cx="30" cy="-60" r="5" fill="#E7466B"/><circle cx="0" cy="-58" r="5" fill="#8C5BD6"/>'; },
+    bowl:function(o){ return '<path d="M-40 -30 h80 q0 30 -40 30 q-40 0 -40 -30z" fill="'+(o.c||"#7EC8F0")+'"/><ellipse cx="0" cy="-30" rx="40" ry="8" fill="#FFF3E2"/>'+(o.spoon?'<path d="M10 -36 L40 -70" stroke="#B9780A" stroke-width="6" stroke-linecap="round"/>':''); },
+    egg:function(){ return '<ellipse cx="0" cy="-16" rx="12" ry="16" fill="#FFF8E8" stroke="#E9D6B3" stroke-width="2"/>'; },
+    berry:function(o){ return '<circle cx="0" cy="-10" r="10" fill="'+(o.c||"#8C5BD6")+'"/><circle cx="-3" cy="-13" r="3" fill="#fff" opacity=".5"/>'; },
+    apple:function(o){ return '<path d="M0 -36 q2 -10 8 -12" stroke="#6B4A33" stroke-width="3" fill="none"/><path d="M4 -42 q10 -4 12 4 q-8 2 -12 -4z" fill="#4DB35A"/><path d="M0 -34 C-22 -44 -30 -12 -14 -2 C-8 2 -4 0 0 -2 C4 0 8 2 14 -2 C30 -12 22 -44 0 -34z" fill="'+(o.c||"#E7466B")+'"/>'; },
+    shell:function(o){ return '<path d="M-20 0 L0 -30 L20 0 Q0 8 -20 0z" fill="'+(o.c||"#FFB3A0")+'"/><path d="M0 -30 L-10 0 M0 -30 L0 2 M0 -30 L10 0" stroke="#fff" stroke-width="2"/>'; },
+    boat:function(o){ var c = o.c||"#FF7F3F"; return '<path d="M-90 -30 H90 L66 10 H-66z" fill="'+c+'"/><path d="M-90 -30 H90" stroke="#fff" stroke-width="5"/><rect x="-3" y="-150" width="6" height="122" fill="#8A5A3B"/><path d="M6 -146 L76 -50 H6z" fill="#fff"/><path d="M-6 -126 L-56 -50 H-6z" fill="#FFE3C9"/>'+(o.star?'<g transform="translate(0 -160)">'+star5(12)+'</g>':''); },
+    rocket:function(o){ return '<g class="bk-flame2"><path d="M-14 0 L0 46 L14 0z" fill="#FFB22E"/><path d="M-8 0 L0 28 L8 0z" fill="#FFE38A"/></g><path d="M-30 -10 L-50 10 L-30 4z M30 -10 L50 10 L30 4z" fill="#E7466B"/><path d="M-30 4 L-30 -100 Q0 -160 30 -100 L30 4z" fill="#F4F0F6"/><path d="M-30 -100 Q0 -160 30 -100z" fill="#E7466B"/><circle cx="0" cy="-70" r="16" fill="#7EC8F0" stroke="#3E9BDB" stroke-width="5"/>'+(o.pal?'<circle cx="0" cy="-70" r="9" fill="'+o.pal+'"/><circle cx="-4" cy="-73" r="2" fill="#2A2230"/><circle cx="4" cy="-73" r="2" fill="#2A2230"/>':'')+'<rect x="-30" y="-24" width="60" height="10" fill="#3E9BDB"/>'; },
+    snowman:function(o){ return '<circle cx="0" cy="-34" r="36" fill="#fff" stroke="#DCE6F7" stroke-width="3"/><circle cx="0" cy="-96" r="26" fill="#fff" stroke="#DCE6F7" stroke-width="3"/><circle cx="-9" cy="-102" r="3.5" fill="#2A2230"/><circle cx="9" cy="-102" r="3.5" fill="#2A2230"/><path d="M0 -94 l20 4 l-20 4z" fill="#FF9E2E"/><path d="M-10 -84 q10 8 20 0" stroke="#2A2230" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="0" cy="-48" r="4" fill="#2A2230"/><circle cx="0" cy="-30" r="4" fill="#2A2230"/><path d="M-30 -60 l-30 -20 M30 -60 l30 -20" stroke="#8A5A3B" stroke-width="5" stroke-linecap="round"/><path d="M-22 -74 q22 10 44 0 l2 8 q-24 12 -48 0z" fill="#E7466B"/>'+(o.hat?'<rect x="-20" y="-150" width="40" height="30" fill="#2A2230"/><rect x="-28" y="-124" width="56" height="6" fill="#2A2230"/>':''); },
+    sled:function(o){ return '<path d="M-60 0 H60 q14 0 14 -14" stroke="#8A5A3B" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="-56" y="-22" width="110" height="14" rx="5" fill="'+(o.c||"#E7466B")+'"/><path d="M-40 -8 v8 M40 -8 v8" stroke="#8A5A3B" stroke-width="5"/>'; },
+    cup:function(o){ return '<path class="bk-steam" d="M-6 -50 q-6 -10 0 -18 q6 -8 0 -16 M8 -50 q-6 -10 0 -18" stroke="#fff" stroke-width="3" fill="none" opacity=".8" stroke-linecap="round"/><rect x="-18" y="-40" width="36" height="40" rx="8" fill="'+(o.c||"#FF8FB0")+'"/><path d="M18 -32 q14 0 14 12 q0 12 -14 12" stroke="'+(o.c||"#FF8FB0")+'" stroke-width="5" fill="none"/><ellipse cx="0" cy="-38" rx="15" ry="4" fill="#8A5A3B"/>'; },
+    puddle:function(){ return '<ellipse cx="0" cy="0" rx="110" ry="22" fill="#7FCDF2"/><ellipse cx="-20" cy="-4" rx="50" ry="8" fill="#fff" opacity=".4"/>'; },
+    splash:function(){ return '<g class="bk-pop">'+[[-40,-60],[-20,-90],[0,-110],[24,-86],[44,-56],[-56,-30],[60,-28]].map(function(p){ return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(6+Math.abs(p[0])%5)+'" fill="#7FCDF2"/>'; }).join('')+'</g>'; },
+    water:function(){ return '<path class="bk-spray" d="M0 0 C30 -80 120 -90 160 -40" stroke="#7FCDF2" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="14 10"/>'; },
+    rain:function(){ var o = ''; for(var i=0;i<30;i++){ o += '<path class="bk-rain" style="animation-delay:-'+((i*0.13)%1).toFixed(2)+'s" d="M'+((i*53)%800)+' '+((i*37)%300)+' l-6 18" stroke="#7FCDF2" stroke-width="3" stroke-linecap="round"/>'; } return o; },
+    rainbow:function(){ return ['#E7466B','#FF9E3E','#FFD84A','#4DB35A','#3E9BDB','#8C5BD6'].map(function(c,i){ return '<path d="M'+(-200+i*14)+' 0 A'+(200-i*14)+' '+(200-i*14)+' 0 0 1 '+(200-i*14)+' 0" stroke="'+c+'" stroke-width="14" fill="none"/>'; }).join(''); },
+    butterfly:function(o){ var c = o.c||"#FF6FA0"; return '<g class="bk-flutter"><ellipse cx="-12" cy="-8" rx="12" ry="14" fill="'+c+'"/><ellipse cx="12" cy="-8" rx="12" ry="14" fill="'+c+'"/><ellipse cx="-9" cy="10" rx="8" ry="9" fill="'+c+'" opacity=".8"/><ellipse cx="9" cy="10" rx="8" ry="9" fill="'+c+'" opacity=".8"/></g><rect x="-2.5" y="-14" width="5" height="30" rx="2.5" fill="#5A4A5E"/>'; },
+    firefly:function(){ return '<circle r="18" fill="#FFF27A" opacity=".25" class="bk-glow"/><circle r="5" fill="#FFF27A"/>'; },
+    fireflies:function(o){ var c = o.n||8, s = ''; for(var i=0;i<c;i++){ var x = (i*137)%700-350, y = -((i*71)%220); s += '<g class="bk-drift2" style="animation-delay:-'+(i*0.7).toFixed(1)+'s"><g transform="translate('+x+' '+y+')"><circle r="16" fill="#FFF27A" opacity=".22" class="bk-glow" style="animation-delay:-'+(i*0.4).toFixed(1)+'s"/><circle r="4.5" fill="#FFF27A"/></g></g>'; } return s; },
+    lily:function(o){ return '<ellipse cx="0" cy="0" rx="'+(o.w||60)+'" ry="'+((o.w||60)*0.32)+'" fill="#3E9B4F"/><path d="M0 0 L'+(o.w||60)*0.7+' -6" stroke="#5DBCE8" stroke-width="6"/>'+(o.flower?'<g transform="translate(-14 -6)"><ellipse cx="0" cy="-8" rx="7" ry="13" fill="#FFB3CF"/><ellipse cx="-9" cy="-4" rx="6" ry="11" fill="#FF8FB0" transform="rotate(-30)"/><ellipse cx="9" cy="-4" rx="6" ry="11" fill="#FF8FB0" transform="rotate(30)"/></g>':''); },
+    rock:function(o){ return '<path d="M-50 0 C-56 -30 -20 -50 10 -44 C40 -40 56 -20 50 0z" fill="'+(o.c||"#A79DBD")+'"/>'; },
+    island:function(){ return '<ellipse cx="0" cy="0" rx="130" ry="26" fill="#F7DFA4"/><path d="M10 -6 C14 -60 0 -100 -10 -130" stroke="#8A5A3B" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M-10 -130 q-50 -10 -70 20 q40 -20 70 -20 q-20 -40 -60 -40 q50 0 60 40 q20 -40 70 -30 q-50 0 -70 30 q50 0 70 40 q-40 -30 -70 -40z" fill="#4DB35A"/>'; },
+    fence:function(){ var o = ''; for(var x=-100;x<=100;x+=40) o += '<rect x="'+(x-8)+'" y="-60" width="16" height="60" rx="6" fill="#E9C79A"/>'; return o+'<rect x="-110" y="-46" width="220" height="9" fill="#E9C79A"/><rect x="-110" y="-22" width="220" height="9" fill="#E9C79A"/>'; },
+    seed:function(){ return '<ellipse cx="0" cy="-4" rx="5" ry="7" fill="#8A5A3B"/>'; },
+    sprout:function(){ return '<path d="M0 0 V-24" stroke="#3E8E41" stroke-width="4"/><path d="M0 -20 q-16 -12 -18 -2 q10 6 18 2z M0 -24 q14 -14 18 -4 q-10 8 -18 4z" fill="#4DB35A"/><ellipse cx="0" cy="0" rx="20" ry="6" fill="#8A5A3B"/>'; },
+    can:function(){ return '<rect x="-24" y="-40" width="48" height="40" rx="8" fill="#3E9BDB"/><path d="M24 -32 L50 -50" stroke="#3E9BDB" stroke-width="9" stroke-linecap="round"/><path d="M-24 -30 q-18 0 -18 14 q0 12 18 10" stroke="#3E9BDB" stroke-width="6" fill="none"/>'; },
+    heart:function(o){ return '<g class="bk-pop"><path d="M0 10 C-30 -10 -24 -36 -6 -30 C-2 -28 0 -24 0 -22 C0 -24 2 -28 6 -30 C24 -36 30 -10 0 10z" fill="'+(o.c||"#FF6FA0")+'"/></g>'; },
+    note:function(o){ return '<g class="bk-floatn"><path d="M0 0 V-34 l18 -6 v28" stroke="'+(o.c||"#8C5BD6")+'" stroke-width="4" fill="none" stroke-linejoin="round"/><ellipse cx="-5" cy="0" rx="7" ry="5.5" fill="'+(o.c||"#8C5BD6")+'"/><ellipse cx="13" cy="-12" rx="7" ry="5.5" fill="'+(o.c||"#8C5BD6")+'"/></g>'; },
+    zzz:function(){ return '<g class="bk-zzz"><text x="0" y="0" font-family="Grandstander,Comic Sans MS,sans-serif" font-weight="800" font-size="30" fill="#C9D2FF">z</text><text x="18" y="-24" font-family="Grandstander,Comic Sans MS,sans-serif" font-weight="800" font-size="24" fill="#C9D2FF">z</text><text x="32" y="-44" font-family="Grandstander,Comic Sans MS,sans-serif" font-weight="800" font-size="18" fill="#C9D2FF">z</text></g>'; },
+    sparkle:function(o){ return '<g class="bk-tw"><path d="M0 -16 L4 -4 L16 0 L4 4 L0 16 L-4 4 L-16 0 L-4 -4z" fill="'+(o.c||"#FFF27A")+'"/></g>'; },
+    confetti:function(){ var s = '', cs = ["#E7466B","#FFD84A","#3E9BDB","#4DB35A","#8C5BD6","#FF9E3E"]; for(var i=0;i<26;i++){ s += '<rect class="bk-fall" style="animation-delay:-'+((i*0.23)%2.4).toFixed(2)+'s" x="'+((i*61)%800)+'" y="'+((i*43)%200-40)+'" width="10" height="16" rx="3" fill="'+cs[i%6]+'" transform="rotate('+(i*37%90)+' '+((i*61)%800)+' '+((i*43)%200)+')"/>'; } return s; },
+    shapes:function(o){ return {circle:'<circle cx="0" cy="-30" r="30" fill="'+(o.c||"#FF9E3E")+'"/>', square:'<rect x="-30" y="-60" width="60" height="60" rx="6" fill="'+(o.c||"#3E9BDB")+'"/>', triangle:'<path d="M0 -64 L36 0 H-36z" fill="'+(o.c||"#4DB35A")+'"/>', starshape:'<g transform="translate(0 -32)">'+star5(34, o.c)+'</g>'}[o.k]||''; },
+    wheel:function(){ return '<circle r="30" fill="#2A2230"/><circle r="12" fill="#B9B3A8"/>'; },
+    bus:function(o){ return '<rect x="-110" y="-90" width="220" height="80" rx="18" fill="'+(o.c||"#FFD45A")+'"/><rect x="-96" y="-78" width="40" height="30" rx="6" fill="#CFEFFF"/><rect x="-46" y="-78" width="40" height="30" rx="6" fill="#CFEFFF"/><rect x="4" y="-78" width="40" height="30" rx="6" fill="#CFEFFF"/><rect x="58" y="-78" width="40" height="44" rx="6" fill="#CFEFFF"/><circle cx="-62" cy="-10" r="18" fill="#2A2230"/><circle cx="62" cy="-10" r="18" fill="#2A2230"/><circle cx="-62" cy="-10" r="7" fill="#B9B3A8"/><circle cx="62" cy="-10" r="7" fill="#B9B3A8"/>'; },
+    clock:function(){ return '<circle cx="0" cy="-30" r="30" fill="#fff" stroke="#9A6A44" stroke-width="6"/><path d="M0 -30 V-50 M0 -30 L14 -24" stroke="#2A2230" stroke-width="4" stroke-linecap="round"/>'; },
+    teddy:function(){ return '<circle cx="-14" cy="-56" r="7" fill="#B07A4E"/><circle cx="14" cy="-56" r="7" fill="#B07A4E"/><circle cx="0" cy="-44" r="17" fill="#B07A4E"/><ellipse cx="0" cy="-14" rx="16" ry="16" fill="#B07A4E"/><circle cx="-6" cy="-46" r="2.4" fill="#2A2230"/><circle cx="6" cy="-46" r="2.4" fill="#2A2230"/><ellipse cx="0" cy="-38" rx="6" ry="4.5" fill="#E9C9A4"/>'; },
+    toothbrush:function(){ return '<rect x="-4" y="-60" width="8" height="60" rx="4" fill="#3E9BDB"/><rect x="-6" y="-78" width="12" height="20" rx="3" fill="#fff" stroke="#3E9BDB" stroke-width="2"/>'; },
+    tub:function(){ return '<g class="bk-pop">'+[[-50,-90,12],[-10,-110,16],[30,-96,10],[60,-120,8]].map(function(b){ return '<circle cx="'+b[0]+'" cy="'+b[1]+'" r="'+b[2]+'" fill="#fff" opacity=".8" stroke="#BDE6FA" stroke-width="2"/>'; }).join('')+'</g><path d="M-110 -60 H110 V-20 Q110 0 80 0 H-80 Q-110 0 -110 -20z" fill="#FFFFFF" stroke="#BDE6FA" stroke-width="4"/><path d="M-100 -60 q20 -14 40 0 q20 -14 40 0 q20 -14 40 0 q20 -14 40 0 q20 -14 40 0" fill="#fff" stroke="#DDF2FB" stroke-width="3"/><rect x="-80" y="0" width="12" height="14" fill="#B9B3A8"/><rect x="68" y="0" width="12" height="14" fill="#B9B3A8"/>'; },
+    leaf:function(o){ return '<g class="bk-fall2"><path d="M0 0 C-14 -14 -10 -30 0 -36 C10 -30 14 -14 0 0z" fill="'+(o.c||"#FF9E3E")+'"/><path d="M0 0 V-32" stroke="#B9780A" stroke-width="2"/></g>'; },
+    pumpkin:function(){ return '<ellipse cx="-14" cy="-24" rx="18" ry="24" fill="#FF9E3E"/><ellipse cx="14" cy="-24" rx="18" ry="24" fill="#FF9E3E"/><ellipse cx="0" cy="-24" rx="16" ry="25" fill="#FFB25A"/><rect x="-3" y="-56" width="6" height="12" rx="2" fill="#6B8E3A"/>'; },
+    train:function(o){ var cs = ["#E7466B","#3E9BDB","#FFD45A"]; var s = '<rect x="20" y="-100" width="80" height="80" rx="10" fill="#E7466B"/><rect x="34" y="-90" width="40" height="30" rx="6" fill="#CFEFFF"/><rect x="100" y="-70" width="70" height="50" rx="8" fill="#E7466B"/><rect x="140" y="-100" width="18" height="30" fill="#2A2230"/><path d="M170 -20 l20 0 l-10 -20z" fill="#FFD84A"/>'; for(var i=0;i<2;i++) s += '<rect x="'+(-80-i*110)+'" y="-80" width="90" height="60" rx="10" fill="'+cs[i+1]+'"/><circle cx="'+(-60-i*110)+'" cy="-14" r="13" fill="#2A2230"/><circle cx="'+(-10-i*110)+'" cy="-14" r="13" fill="#2A2230"/>'; return s+'<circle cx="44" cy="-14" r="14" fill="#2A2230"/><circle cx="84" cy="-14" r="14" fill="#2A2230"/><circle cx="140" cy="-14" r="14" fill="#2A2230"/><g class="bk-steam"><circle cx="150" cy="-120" r="12" fill="#fff" opacity=".8"/><circle cx="166" cy="-144" r="9" fill="#fff" opacity=".6"/></g>'; },
+    planet:function(o){ return '<circle r="'+(o.r||34)+'" fill="'+(o.c||"#7EC8F0")+'"/><path d="M-'+(o.r||34)*0.7+' -6 q'+(o.r||34)*0.7+' -10 '+(o.r||34)*1.4+' 0" stroke="#fff" stroke-width="4" fill="none" opacity=".4"/>'; },
+    window:function(){ return ''; }
+  };
+
+  var CHAR = {frog:frog, owl:owl, duck:duck, turtle:turtle, fish:fish};
+  Object.keys(MAM).forEach(function(k){ CHAR[k] = function(o){ return mammal(k, o); }; });
+
+  function item(it, i){
+    var t = it[0], x = it[1], y = it[2], s = it[3]||1, o = it[4]||{};
+    var fn = CHAR[t] || PROP[t]; if(!fn) return '';
+    var inner = fn(o);
+    var tr = 'translate('+x+' '+y+') scale('+(o.f?-s:s)+' '+s+')'+(o.r?' rotate('+o.r+')':'');
+    var shadow = CHAR[t] && t!=="fish" && !o.ns ? '<ellipse cx="0" cy="2" rx="38" ry="7" fill="#000" opacity=".12"/>' : '';
+    var a = o.a ? ' bk-'+o.a : '';
+    var delay = ' style="animation-delay:-'+((i*0.37)%2).toFixed(2)+'s"';
+    return '<g transform="'+tr+'">'+shadow+'<g class="bk-it'+a+(CHAR[t]?' bk-char':'')+'"'+delay+'>'+inner+'</g></g>';
+  }
+  function scene(sp, label){
+
+    var bg = (BG[sp.bg]||BG.meadow)(sp.tod||"day");
+    var its = (sp.it||[]).map(item).join('');
+    return '<svg class="bk-svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" role="img"'+(label?' aria-label="'+String(label).replace(/"/g,'&quot;')+'"':' aria-hidden="true"')+'><g class="bk-kb">'+bg+its+'</g>'+(sp.tod==="night"?'<rect width="800" height="500" fill="#0B0F33" opacity=".08"/>':'')+'</svg>';
+  }
+  return {scene:scene, chars:Object.keys(CHAR), props:Object.keys(PROP), bgs:Object.keys(BG)};
+})();
+
+/* v47: Story Books. Original stories; every page is a picture (scene spec for BK_ART.scene) + words. */
+var BK_BOOKS = [
+/* ================= PICTURE BOOKS ================= */
+{id:"balloon", title:"Pip and the Lost Balloon", c:"#E7466B", pages:[
+ {bg:"pond", it:[["sun",680,90,1,{face:1}],["cloud",170,90,1,{a:"drift"}],["lily",250,430,1],["lily",560,450,1.2,{flower:1}],["frog",400,425,1.5,{a:"hop"}],["butterfly",600,230,1,{a:"fly"}]],
+  t:"One sunny morning, Pip the frog was hopping by the pond. Hop, hop, hop!"},
+ {bg:"meadow", it:[["sun",700,80,0.8],["mouse",250,440,1.5,{m:"sad"}],["balloon",470,170,1.2,{a:"float",l:60}],["frog",620,440,1.4,{m:"wow"}],["flower",90,460,1],["flower",730,470,0.9,{c:"#FFD84A"}]],
+  t:"Oh no! Little Mo the mouse let go of her red balloon. Up, up, up it floated!"},
+ {bg:"meadow", it:[["cloud",200,100,1.1,{a:"drift"}],["balloon",640,110,1,{a:"float",l:50}],["frog",280,440,1.4,{a:"hop"}],["bunny",470,445,1.4,{a:"hop"}],["flower",110,460,1,{c:"#8C5BD6"}]],
+  t:"Pip hopped after it. Bramble the bunny hopped too. Boing! Boing!"},
+ {bg:"forest", it:[["tree",560,440,1.5],["balloon",560,120,0.9,{a:"wiggle",l:40}],["frog",230,445,1.4,{m:"wow"}],["bunny",360,450,1.4,{m:"wow"}]],
+  t:"The balloon got stuck at the very top of a tall, tall tree. How can we reach it?"},
+ {bg:"forest", it:[["tree",560,440,1.5],["balloon",590,120,0.9,{l:40}],["owl",500,205,1,{fly:1,a:"fly"}],["frog",230,445,1.4,{wave:1}],["bunny",360,450,1.4,{m:"laugh"}]],
+  t:"Olive the owl flew up. Flap, flap, flap! She held the string very gently."},
+ {bg:"meadow", it:[["balloon",420,80,1,{l:40}],["owl",420,250,1.1,{fly:1,a:"fly"}],["frog",250,440,1.4,{m:"laugh",wave:1}],["bunny",600,445,1.4,{m:"laugh"}],["sparkle",330,180,1],["sparkle",520,140,1]],
+  t:"Down, down, down came Olive with the red balloon."},
+ {bg:"meadow", it:[["balloon",400,150,1.2,{a:"float",l:150}],["mouse",400,440,1.6,{m:"laugh",wave:1}],["frog",220,445,1.3],["bunny",590,445,1.3],["owl",720,440,1.1],["heart",300,220,1],["heart",510,200,0.8,{c:"#E7466B"}]],
+  t:"Mo gave a happy squeak. Thank you, friends! You found my balloon!"},
+ {bg:"pond", tod:"sunset", it:[["sun",640,250,1],["frog",240,425,1.3,{m:"laugh"}],["mouse",360,430,1.2,{m:"laugh"}],["bunny",480,430,1.3,{m:"laugh"}],["owl",600,425,1.1],["balloon",360,200,1,{l:110,a:"float"}]],
+  t:"Helping a friend made everyone smile. The End."}
+]},
+{id:"rainbow", title:"Bramble's Rainbow Garden", c:"#8C5BD6", pages:[
+ {bg:"garden", it:[["sun",690,90,1,{face:1}],["bunny",400,450,1.6,{wave:1,a:"bob"}],["seed",250,470,1.2],["seed",300,475,1.2],["seed",520,470,1.2]],
+  t:"Bramble the bunny had a little bag of seeds. Let's grow a garden!"},
+ {bg:"garden", it:[["sun",690,90,0.9],["bunny",260,450,1.4,{a:"bob"}],["seed",420,470,1.3],["seed",500,470,1.3],["seed",580,470,1.3],["seed",660,470,1.3]],
+  t:"Dig a hole. Drop a seed. Pat, pat, pat the soft brown dirt."},
+ {bg:"garden", it:[["cloud",250,100,1.3,{c:"#C9D6E8"}],["cloud",560,90,1.2,{c:"#C9D6E8"}],["rain",0,0,1],["bunny",400,450,1.5,{m:"laugh"}],["puddle",620,470,0.6]],
+  t:"Pitter patter, down came the rain. Drink up, little seeds!"},
+ {bg:"garden", it:[["sun",400,100,1.2,{face:1}],["sprout",220,470,1.4],["sprout",340,470,1.4],["sprout",460,470,1.4],["sprout",580,470,1.4],["bunny",700,450,1.2,{m:"wow"}]],
+  t:"Then the warm sun came out. Look! Tiny green sprouts!"},
+ {bg:"garden", it:[["sun",700,90,0.9],["flower",180,470,1.8,{c:"#E7466B"}],["flower",290,470,1.8,{c:"#FF9E3E"}],["flower",400,470,1.8,{c:"#FFD84A"}],["bunny",580,450,1.4,{m:"laugh"}]],
+  t:"The flowers grew and grew. A red one, an orange one, and a yellow one!"},
+ {bg:"garden", it:[["sun",700,90,0.9],["flower",180,470,1.8,{c:"#4DB35A"}],["flower",290,470,1.8,{c:"#3E9BDB"}],["flower",400,470,1.8,{c:"#8C5BD6"}],["bunny",580,450,1.4,{m:"wow"}],["butterfly",500,240,1,{a:"fly"}]],
+  t:"Then a green one, a blue one, and a purple one. So many colors!"},
+ {bg:"garden", it:[["rainbow",400,330,1.4],["flower",120,470,1.4,{c:"#E7466B"}],["flower",210,470,1.4,{c:"#FF9E3E"}],["flower",300,470,1.4,{c:"#FFD84A"}],["flower",500,470,1.4,{c:"#4DB35A"}],["flower",590,470,1.4,{c:"#3E9BDB"}],["flower",680,470,1.4,{c:"#8C5BD6"}],["bunny",400,460,1.3,{m:"laugh",a:"hop"}]],
+  t:"Up in the sky, a rainbow smiled down. Bramble's garden was a rainbow too!"},
+ {bg:"garden", tod:"sunset", it:[["rainbow",400,330,1.2],["bunny",300,450,1.3,{m:"laugh"}],["frog",450,450,1.2],["hedgehog",580,450,1.2],["butterfly",420,220,1,{a:"fly",c:"#FFD84A"}],["flower",150,470,1.3,{c:"#E7466B"}],["flower",700,470,1.3,{c:"#3E9BDB"}]],
+  t:"Bramble shared her flowers with all her friends. The End."}
+]},
+{id:"boat", title:"Daisy and Tilly Go Sailing", c:"#3E9BDB", pages:[
+ {bg:"beach", it:[["sun",690,90,1],["boat",420,400,1.2,{c:"#FF7F3F"}],["duck",230,450,1.4,{wave:1}],["turtle",620,455,1.2]],
+  t:"Daisy the duck and Tilly the turtle had a little orange boat."},
+ {bg:"sea", it:[["sun",690,90,0.9],["cloud",200,110,1,{a:"drift"}],["boat",400,410,1.4,{a:"rock"}],["duck",350,370,0.9,{ns:1}],["turtle",450,375,0.8,{ns:1}]],
+  t:"Off they sailed across the sparkly water. Splish, splash!"},
+ {bg:"sea", it:[["cloud",150,110,1.2,{a:"drift",m:"laugh"}],["boat",460,410,1.4,{a:"rock",r:-6}],["duck",410,370,0.9,{ns:1,m:"wow"}],["turtle",510,375,0.8,{ns:1,m:"wow"}]],
+  t:"Whoosh! The wind puffed and puffed. The boat went faster and faster!"},
+ {bg:"sea", it:[["sun",690,90,0.9],["fish",250,440,1.2,{a:"swim"}],["fish",360,470,0.9,{c:"#3E9BDB",a:"swim"}],["fish",600,450,1,{c:"#FFD84A",a:"swim"}],["boat",450,380,1.1,{a:"rock"}]],
+  t:"Little fish swam beside them. One, two, three fish said hello!"},
+ {bg:"sea", it:[["sun",690,90,0.9],["island",440,420,1.6],["boat",170,420,0.9,{a:"rock"}]],
+  t:"Look! A tiny island with one tall palm tree."},
+ {bg:"beach", it:[["sun",690,90,0.9],["shell",200,470,1.4],["shell",320,480,1.2,{c:"#FFD9A0"}],["shell",600,475,1.3,{c:"#C9B4F0"}],["duck",420,455,1.4,{m:"laugh"}],["turtle",560,460,1.1,{m:"laugh"}]],
+  t:"They found pretty shells. A pink one, a peach one, and a purple one."},
+ {bg:"sea", tod:"sunset", it:[["sun",400,300,1.2],["boat",420,410,1.3,{a:"rock"}],["duck",370,370,0.85,{ns:1}],["turtle",470,375,0.75,{ns:1}]],
+  t:"When the sun got low and orange, they sailed home again."},
+ {bg:"beach", tod:"sunset", it:[["sun",640,300,1],["duck",320,455,1.4,{m:"laugh"}],["turtle",470,460,1.2,{m:"laugh"}],["shell",400,480,1],["heart",400,320,1]],
+  t:"What a wonderful sailing day! The End."}
+]},
+{id:"cake", title:"Bo Bear's Birthday Cake", c:"#FF6FA0", pages:[
+ {bg:"kitchen", it:[["bear",400,460,1.7,{wave:1,a:"bob"}],["bowl",620,330,1.2,{spoon:1}]],
+  t:"Bo the bear wanted to bake a birthday cake for his mama."},
+ {bg:"kitchen", it:[["bear",250,460,1.5],["bowl",440,330,1.3,{spoon:1}],["egg",560,330,1.4],["egg",600,330,1.4],["egg",640,330,1.4]],
+  t:"First, crack three eggs into the bowl. Crack, crack, crack!"},
+ {bg:"kitchen", it:[["bear",250,460,1.5,{m:"laugh"}],["bowl",470,330,1.3,{spoon:1,a:"wiggle"}],["sparkle",470,240,1.2,{c:"#fff"}],["sparkle",530,260,0.8,{c:"#fff"}]],
+  t:"Then add the flour and stir, stir, stir!"},
+ {bg:"kitchen", it:[["bear",300,460,1.5,{m:"wow"}],["bowl",480,350,1.3,{r:-30}],["splash",480,330,1,{}],["puddle",500,470,0.6]],
+  t:"Oops! The bowl tipped over. What a mess!"},
+ {bg:"kitchen", it:[["bear",200,460,1.4,{m:"sad"}],["fox",380,460,1.4,{wave:1}],["puppy",540,460,1.4],["kitten",680,460,1.3]],
+  t:"Knock, knock! Bo's friends came to help."},
+ {bg:"kitchen", it:[["bear",200,460,1.4,{m:"laugh"}],["bowl",400,330,1.2,{spoon:1}],["berry",500,330,1.5],["berry",540,330,1.5,{c:"#E7466B"}],["berry",580,330,1.5,{c:"#3E9BDB"}],["fox",640,460,1.3,{m:"laugh"}]],
+  t:"Together they mixed a new cake, with berries on top!"},
+ {bg:"kitchen", it:[["cake",400,330,1.8],["bear",180,460,1.3,{m:"laugh",hat:"party"}],["fox",620,460,1.3,{hat:"party"}],["sparkle",300,170,1],["sparkle",520,160,1]],
+  t:"Ding! The cake was ready. Pink frosting and three candles!"},
+ {bg:"room", it:[["cake",400,420,1.3],["bear",230,460,1.9,{m:"laugh",c:"#9E6B42"}],["bear",560,460,1.3,{m:"laugh",hat:"party"}],["confetti",0,0,1],["balloon",100,180,1,{c:"#3E9BDB",a:"float"}],["balloon",720,170,1,{c:"#FFD84A",a:"float"}]],
+  t:"Happy birthday, Mama! Mama Bear gave Bo the biggest hug. The End."}
+]},
+{id:"snowday", title:"Kit's First Snow Day", c:"#7EC8F0", pages:[
+ {bg:"room", it:[["kitten",320,460,1.7,{m:"wow"}],["teddy",560,460,1.3]],
+  t:"Kit the kitten looked out the window. Everything was white!"},
+ {bg:"snow", it:[["kitten",400,440,1.6,{m:"laugh",hat:"scarf",a:"hop"}],["pine",150,420,1,{snow:1}],["pine",680,420,1.1,{snow:1}]],
+  t:"Snow! Kit put on her red scarf and ran outside. Crunch, crunch, crunch!"},
+ {bg:"snow", it:[["snowman",500,440,1.3],["kitten",270,450,1.4,{hat:"scarf",m:"laugh"}],["pine",700,420,0.9,{snow:1}]],
+  t:"She rolled one big snowball and one small snowball. A snowman!"},
+ {bg:"snow", it:[["snowman",500,440,1.3,{hat:1}],["kitten",270,450,1.4,{hat:"scarf",wave:1}],["puppy",680,450,1.3,{hat:"scarf"}]],
+  t:"Pepper the puppy brought a hat. Now the snowman looks very fancy!"},
+ {bg:"snow", it:[["sled",420,380,1.6,{r:12}],["kitten",380,355,1,{hat:"scarf",m:"laugh",ns:1}],["puppy",460,365,1,{hat:"scarf",m:"laugh",ns:1}],["pine",120,400,1,{snow:1}]],
+  t:"Wheee! Down the hill they went on the red sled!"},
+ {bg:"snow", it:[["kitten",300,450,1.5,{hat:"scarf",m:"laugh"}],["puppy",500,450,1.5,{hat:"scarf",m:"laugh"}],["sparkle",400,240,1.4,{c:"#fff"}],["sparkle",250,200,1,{c:"#fff"}],["sparkle",600,190,1,{c:"#fff"}]],
+  t:"They caught snowflakes on their tongues. Cold and tickly!"},
+ {bg:"room", tod:"day", it:[["cup",350,350,1.5],["cup",470,350,1.5,{c:"#7EC8F0"}],["kitten",230,460,1.4,{m:"laugh"}],["puppy",590,460,1.4,{m:"laugh"}]],
+  t:"Then they went inside for warm cocoa. Ahhh, cozy!"},
+ {bg:"snow", tod:"dusk", it:[["snowman",400,440,1.4,{hat:1}],["house",650,430,1,{lit:1}],["moon",120,90,0.8]],
+  t:"Goodnight, snowman! See you tomorrow. The End."}
+]},
+{id:"splash", title:"Ellie's Big Splash", c:"#3E9BDB", pages:[
+ {bg:"meadow", it:[["sun",400,90,1.4,{face:1}],["elephant",250,450,1.6,{m:"sad"}],["fox",500,450,1.3,{m:"sad"}],["bunny",650,450,1.3,{m:"sad"}]],
+  t:"It was a hot, hot day. Everyone felt sleepy and sticky."},
+ {bg:"pond", it:[["sun",680,90,1.1],["elephant",380,430,1.7,{m:"wow"}]],
+  t:"Ellie the elephant had an idea. She walked to the cool blue pond."},
+ {bg:"pond", it:[["sun",680,90,1.1],["elephant",380,430,1.7,{m:"laugh",a:"breathe"}],["sparkle",470,320,1,{c:"#fff"}]],
+  t:"Slurp! She filled her long trunk with water."},
+ {bg:"meadow", it:[["sun",680,90,1],["elephant",180,450,1.6,{m:"laugh"}],["water",230,330,1.1],["splash",500,420,1.3],["fox",500,450,1.3,{m:"laugh"}],["bunny",650,450,1.3,{m:"wow"}]],
+  t:"Whoosh! A big spray of water. Splash! Fox giggled."},
+ {bg:"meadow", it:[["sun",680,90,1],["rainbow",470,330,0.9],["elephant",180,450,1.6,{m:"laugh"}],["water",230,330,1.1],["bunny",560,450,1.3,{m:"laugh",a:"hop"}]],
+  t:"Splash! Bunny jumped up high. Look, a little rainbow in the water!"},
+ {bg:"meadow", it:[["puddle",400,470,1.6],["fox",280,450,1.3,{a:"hop",m:"laugh"}],["bunny",420,450,1.3,{a:"hop",m:"laugh"}],["duck",560,450,1.3,{a:"hop",m:"laugh"}],["splash",420,470,1.2]],
+  t:"Everyone jumped in the puddles. Splish, splash, splosh!"},
+ {bg:"meadow", it:[["sun",680,90,1],["elephant",400,450,1.7,{m:"laugh",a:"bob"}],["fox",200,450,1.2,{m:"laugh"}],["bunny",600,450,1.2,{m:"laugh"}],["heart",400,220,1.2]],
+  t:"Now everyone was cool and happy. Thank you, Ellie!"},
+ {bg:"pond", tod:"sunset", it:[["elephant",400,430,1.5,{m:"sleepy"}],["fox",230,440,1,{m:"sleepy"}],["bunny",570,440,1,{m:"sleepy"}]],
+  t:"Splashing is the best way to cool down. The End."}
+]},
+{id:"rocket", title:"Pip's Cardboard Rocket", c:"#E7466B", pages:[
+ {bg:"garden", it:[["sun",690,90,0.9],["rocket",450,450,1.3],["frog",250,450,1.5,{m:"laugh",wave:1}]],
+  t:"Pip built a rocket out of a big cardboard box. Let's fly to the moon!"},
+ {bg:"garden", it:[["rocket",400,450,1.3,{pal:"#4DB35A"}],["mouse",220,450,1.2,{m:"wow"}],["bunny",600,450,1.3,{m:"wow"}]],
+  t:"Five, four, three, two, one... Blast off!"},
+ {bg:"clouds", it:[["rocket",400,330,1.4,{pal:"#4DB35A",a:"zoom"}],["sparkle",300,120,1],["sparkle",520,100,1]],
+  t:"Zoom! Up through the fluffy white clouds."},
+ {bg:"space", it:[["rocket",400,340,1.3,{pal:"#4DB35A",a:"zoom",r:20}],["planet",650,140,1,{c:"#7EC8F0"}],["star",250,330,1,{r:16}],["star",620,380,1,{r:12}]],
+  t:"Past the twinkly stars and a big blue planet."},
+ {bg:"moonland", it:[["rocket",250,420,1.1,{pal:"#4DB35A"}],["frog",480,420,1.4,{hat:"helmet",a:"hop",m:"laugh"}],["planet",650,140,0.8,{c:"#7EC8F0"}]],
+  t:"Bump! They landed on the moon. Pip did big, bouncy moon hops!"},
+ {bg:"moonland", it:[["frog",340,420,1.4,{hat:"helmet",wave:1}],["star",520,240,1,{r:34,m:"happy",a:"float"}],["star",640,170,1,{r:20,m:"happy",a:"float"}]],
+  t:"A friendly star waved hello. Hello, star! You are so shiny!"},
+ {bg:"space", it:[["fullmoon",640,110,0.9],["planet",200,390,0.9,{c:"#7EC8F0"}],["rocket",420,320,1.2,{pal:"#4DB35A",a:"zoom",r:160}]],
+  t:"Pip's tummy rumbled. Time to go home for dinner!"},
+ {bg:"garden", tod:"dusk", it:[["rocket",560,450,1.1],["frog",320,450,1.4,{m:"laugh"}],["mouse",180,450,1,{m:"laugh"}],["moon",680,90,0.8,{m:"happy"}]],
+  t:"Back in the garden, Pip waved to the moon. See you again, moon! The End."}
+]},
+{id:"shapes", title:"Pepper's Shape Walk", c:"#FF9E3E", pages:[
+ {bg:"town", it:[["sun",690,80,0.8],["puppy",400,470,1.5,{wave:1,a:"bob"}]],
+  t:"Pepper the puppy went for a walk in town. Let's find shapes!"},
+ {bg:"town", it:[["sun",400,90,1.2,{face:1}],["puppy",250,470,1.4,{m:"wow"}],["shapes",560,470,1.2,{k:"circle"}]],
+  t:"The sun is a circle. A ball is a circle too. Round and round!"},
+ {bg:"town", it:[["puppy",200,470,1.4],["shapes",450,470,1.3,{k:"square"}],["shapes",600,470,1,{k:"square",c:"#8C5BD6"}]],
+  t:"Windows are squares. Blocks are squares too. Four sides each!"},
+ {bg:"town", it:[["puppy",200,470,1.4,{m:"laugh"}],["shapes",470,470,1.5,{k:"triangle"}],["shapes",620,470,1.1,{k:"triangle",c:"#FF6FA0"}]],
+  t:"Look up at the roofs. Triangles! Pointy, pointy, pointy."},
+ {bg:"town", it:[["bus",420,470,1.5],["puppy",130,470,1.1,{m:"wow"}]],
+  t:"Here comes the bus. Its wheels are circles. Its windows are squares!"},
+ {bg:"town", it:[["puppy",250,470,1.4],["kite",560,170,1,{l:130,a:"float",c:"#8C5BD6"}]],
+  t:"A kite in the sky is a diamond. Can you see it?"},
+ {bg:"town", tod:"night", it:[["moon",640,90,0.9],["star",200,80,1,{r:22}],["star",400,140,1,{r:16}],["puppy",350,470,1.4,{m:"wow"}]],
+  t:"At night, Pepper saw stars. Stars are shapes too!"},
+ {bg:"room", tod:"night", it:[["puppy",400,460,1.6,{m:"laugh"}],["shapes",200,460,0.8,{k:"circle"}],["shapes",600,460,0.8,{k:"triangle"}],["shapes",700,460,0.6,{k:"square"}]],
+  t:"Shapes are everywhere! What shapes can you find? The End."}
+]},
+{id:"hazel", title:"Hazel Finds a Friend", c:"#B07A4E", pages:[
+ {bg:"forest", it:[["hedgehog",400,450,1.5,{m:"sad"}],["mushroom",200,460,1.2],["leaf",600,250,1,{}]],
+  t:"Hazel the hedgehog was a little bit shy. She did not have a friend yet."},
+ {bg:"forest", it:[["tree",580,450,1.2,{apples:1}],["hedgehog",300,450,1.4,{m:"wow"}]],
+  t:"One day, Hazel found a big apple tree full of shiny red apples."},
+ {bg:"forest", it:[["tree",580,450,1.2,{apples:1}],["apple",420,470,1.4],["hedgehog",300,450,1.4,{m:"laugh"}]],
+  t:"Plop! A big red apple fell down. Yum!"},
+ {bg:"forest", it:[["apple",400,470,1.4],["hedgehog",260,450,1.4],["mouse",560,450,1.3,{m:"sad"}]],
+  t:"Then Hazel saw Mo the mouse. Mo looked hungry and a bit lonely too."},
+ {bg:"forest", it:[["apple",400,470,1.4],["hedgehog",280,450,1.4,{wave:1}],["mouse",530,450,1.3,{m:"wow"}]],
+  t:"Hazel took a deep breath. Would you like to share my apple?"},
+ {bg:"forest", it:[["apple",400,470,1],["hedgehog",280,450,1.4,{m:"laugh"}],["mouse",520,450,1.3,{m:"laugh"}],["heart",400,280,1]],
+  t:"Yes, please! said Mo. Crunch, munch, crunch. Sharing made it taste even better."},
+ {bg:"meadow", it:[["sun",690,90,0.9],["hedgehog",320,450,1.4,{m:"laugh",a:"hop"}],["mouse",480,450,1.3,{m:"laugh",a:"hop"}],["butterfly",400,220,1,{a:"fly"}]],
+  t:"They played tag and hide and seek all afternoon."},
+ {bg:"forest", tod:"sunset", it:[["hedgehog",330,450,1.4,{m:"laugh"}],["mouse",470,450,1.3,{m:"laugh"}],["heart",400,270,1.1],["mushroom",650,460,1]],
+  t:"Now Hazel had a best friend. Saying hello can be the start of something wonderful. The End."}
+]},
+{id:"kite", title:"Finn's Dancing Kite", c:"#FF7F3F", pages:[
+ {bg:"meadow", it:[["cloud",200,100,1,{a:"drift"}],["fox",400,450,1.6,{wave:1}],["kite",600,330,0.9,{l:60,r:-10}]],
+  t:"Finn the fox had a brand new kite. It was orange, just like him!"},
+ {bg:"meadow", it:[["cloud",200,100,1,{a:"drift",m:"laugh"}],["fox",300,450,1.4,{a:"hop",m:"laugh"}],["kite",560,230,1,{l:150,a:"float"}]],
+  t:"Whoooosh! The wind blew. Finn ran and ran, and the kite went up!"},
+ {bg:"meadow", it:[["kite",420,120,1,{l:280,a:"zoom"}],["fox",280,460,1.2,{m:"wow"}]],
+  t:"Up it went, higher than the trees. The kite danced a wiggly dance!"},
+ {bg:"sky", it:[["kite",400,250,1.4,{a:"wiggle"}],["cloud",180,140,1,{a:"drift"}],["cloud",620,380,1.2,{a:"drift"}],["owl",620,180,0.9,{fly:1,a:"fly"}]],
+  t:"Olive the owl flew by. What a beautiful kite!"},
+ {bg:"meadow", it:[["kite",600,150,1,{l:200,a:"float",r:30}],["fox",250,450,1.4,{m:"wow"}],["bunny",400,450,1.3,{m:"wow"}]],
+  t:"Then the wind got very quiet. Down, down, down floated the kite."},
+ {bg:"garden", it:[["kite",420,400,1,{r:70}],["flower",300,470,1.4],["flower",520,470,1.4,{c:"#FFD84A"}],["flower",600,470,1.3,{c:"#8C5BD6"}],["fox",160,450,1.3]],
+  t:"It landed softly in a field of flowers. Safe and sound!"},
+ {bg:"meadow", it:[["kite",550,180,1,{l:180,a:"float"}],["fox",300,450,1.3,{m:"laugh",a:"hop"}],["bunny",440,450,1.2,{m:"laugh",a:"hop"}],["cloud",180,100,1,{m:"laugh",a:"drift"}]],
+  t:"When the wind came back, Finn and Bramble flew the kite together."},
+ {bg:"meadow", tod:"sunset", it:[["kite",560,200,1,{l:160,a:"float"}],["fox",330,450,1.3,{m:"laugh"}],["bunny",460,450,1.2,{m:"laugh"}],["sun",650,330,0.9]],
+  t:"The kite danced until the sun went down. The End."}
+]},
+{id:"train", title:"The Choo-Choo Counting Train", c:"#E7466B", pages:[
+ {bg:"meadow", it:[["sun",690,90,0.9],["train",420,450,1.4]],
+  t:"Choo choo! Here comes the little red train. Who wants a ride?"},
+ {bg:"meadow", it:[["train",420,450,1.4],["frog",200,450,1.1,{wave:1}]],
+  t:"One green frog hops on. Hop! That makes one."},
+ {bg:"meadow", it:[["train",420,450,1.4],["frog",200,450,1.1],["bunny",640,450,1,{wave:1}],["bunny",720,450,1,{c:"#FFE3C9"}]],
+  t:"Two bunnies hop on. Boing, boing! One frog plus two bunnies makes three."},
+ {bg:"meadow", it:[["train",420,450,1.4],["duck",110,450,0.9],["duck",190,450,0.9,{c:"#FFE38A"}],["duck",680,450,0.9,{c:"#fff"}]],
+  t:"Three ducks waddle on. Quack, quack, quack! Now there are six friends."},
+ {bg:"forest", it:[["train",400,450,1.4,{a:"bob"}],["sparkle",620,160,1]],
+  t:"Chugga chugga, through the tall green forest."},
+ {bg:"snow", it:[["train",400,440,1.4,{a:"bob"}],["pine",120,420,0.9,{snow:1}],["pine",700,420,0.9,{snow:1}]],
+  t:"Chugga chugga, over the snowy hill. Brrr!"},
+ {bg:"beach", it:[["sun",690,90,0.9],["train",400,450,1.4]],
+  t:"Toot toot! The train stops at the beach. Everybody off!"},
+ {bg:"beach", tod:"sunset", it:[["frog",140,460,1.1,{m:"laugh"}],["bunny",250,460,1,{m:"laugh"}],["bunny",340,460,1,{c:"#FFE3C9",m:"laugh"}],["duck",440,460,0.9,{m:"laugh"}],["duck",520,460,0.9,{c:"#FFE38A",m:"laugh"}],["duck",600,460,0.9,{c:"#fff",m:"laugh"}],["sun",400,300,1]],
+  t:"One, two, three, four, five, six happy friends! The End."}
+]},
+/* ================= BEDTIME STORIES ================= */
+{id:"pond", night:1, title:"Goodnight, Little Pond", c:"#7C8BE0", pages:[
+ {bg:"pond", tod:"dusk", it:[["moon",660,100,0.9],["frog",400,425,1.5,{m:"happy"}],["lily",250,440,1],["lily",560,450,1.1,{flower:1}]],
+  t:"The sky turns soft and pink. Pip the frog sits by the quiet pond."},
+ {bg:"pond", tod:"night", it:[["moon",650,100,1,{m:"happy"}],["lily",400,440,1.4,{flower:1}],["frog",400,425,1.3,{m:"happy",a:"breathe"}]],
+  t:"Goodnight, lily pads, floating so still."},
+ {bg:"pond", tod:"night", it:[["moon",650,100,0.9],["fish",300,450,1,{c:"#FF9E3E"}],["fish",480,470,0.8,{c:"#FFD84A"}],["frog",640,430,1,{m:"sleepy"}]],
+  t:"Goodnight, little fish, swimming slow, slow, slow."},
+ {bg:"pond", tod:"night", it:[["moon",650,100,0.9],["fireflies",400,330,1,{n:9}],["frog",380,430,1.3,{m:"happy"}]],
+  t:"Goodnight, fireflies, with your tiny glowing lights."},
+ {bg:"pond", tod:"night", it:[["moon",650,100,0.9],["duck",420,440,1.2,{m:"sleepy",a:"breathe"}],["zzz",470,330,1]],
+  t:"Goodnight, Daisy duck, tucking her head in her feathers."},
+ {bg:"pond", tod:"night", it:[["fullmoon",400,130,1.3,{m:"sleepy"}],["frog",400,430,1.3,{m:"happy"}],["star",180,90,1,{r:10}],["star",620,70,1,{r:10}]],
+  t:"Goodnight, round moon, shining down so bright."},
+ {bg:"pond", tod:"night", it:[["moon",650,100,0.9],["lily",400,440,1.6],["frog",400,430,1.3,{m:"sleepy",a:"breathe"}],["blanket",400,440,0.7,{c:"#4DB35A",ns:1}]],
+  t:"Pip curls up on his lily pad. His eyes feel heavy."},
+ {bg:"pond", tod:"night", it:[["moon",650,100,0.9,{m:"sleepy"}],["lily",400,440,1.6],["frog",400,430,1.3,{m:"sleepy",a:"breathe"}],["zzz",450,320,1.2]],
+  t:"Goodnight, little pond. Goodnight, Pip. Sweet dreams."}
+]},
+{id:"moon", night:1, title:"The Sleepy Moon", c:"#FFF0B3", pages:[
+ {bg:"sky", tod:"night", it:[["fullmoon",400,220,1.8,{m:"happy"}]],
+  t:"High up in the sky lives a kind, round moon."},
+ {bg:"sky", tod:"night", it:[["fullmoon",400,220,1.8,{m:"sleepy"}],["star",180,120,1,{r:14}],["star",640,140,1,{r:14}]],
+  t:"Every night, the moon gives a big, slow yawn. Ahhhh."},
+ {bg:"clouds", tod:"night", it:[["fullmoon",400,140,1.2,{m:"happy"}],["cloud",230,300,1.3,{c:"#C9CDF5",m:"sleepy"}],["cloud",580,320,1.3,{c:"#C9CDF5",m:"sleepy"}]],
+  t:"The moon tucks in the fluffy clouds. Night night, clouds."},
+ {bg:"sky", tod:"night", it:[["fullmoon",400,220,1.4,{m:"happy"}],["star",150,140,1,{r:18,m:"sleepy",a:"float"}],["star",640,120,1,{r:18,m:"sleepy",a:"float"}],["star",300,380,1,{r:14,m:"sleepy"}],["star",540,400,1,{r:14,m:"sleepy"}]],
+  t:"The moon sings softly to the stars, and they blink, blink, blink."},
+ {bg:"meadow", tod:"night", it:[["fullmoon",620,110,1],["owl",250,440,1.3,{m:"happy"}],["bunny",430,445,1.2,{m:"sleepy"}]],
+  t:"Down below, the moon shines a gentle light on the sleepy meadow."},
+ {bg:"town", tod:"night", it:[["fullmoon",400,100,1,{m:"happy"}]],
+  t:"The moon peeks into every window. Is everyone ready for bed?"},
+ {bg:"room", tod:"night", it:[["bed",400,460,1.4,{c:"#7C8BE0"}],["bunny",320,402,0.8,{m:"sleepy",ns:1}],["teddy",420,404,0.8],["cover",400,460,1.4,{c:"#7C8BE0"}]],
+  t:"Yes! Little ones are snug in their beds, cozy and warm."},
+ {bg:"sky", tod:"night", it:[["fullmoon",400,220,1.8,{m:"sleepy"}],["zzz",500,140,1.4]],
+  t:"So the moon closes its eyes too, and keeps watch all night long. Goodnight."}
+]},
+{id:"owl", night:1, title:"Olive's Quiet Night Walk", c:"#9A6A44", pages:[
+ {bg:"forest", tod:"night", it:[["moon",660,90,0.9],["tree",400,450,1.3],["owl",400,240,1,{m:"happy"}]],
+  t:"When the forest goes to sleep, Olive the owl wakes up. Hoo, hoo."},
+ {bg:"forest", tod:"night", it:[["moon",660,90,0.9],["owl",400,280,1.2,{fly:1,a:"fly"}]],
+  t:"She spreads her soft wings and glides through the dark, quiet trees."},
+ {bg:"forest", tod:"night", it:[["moon",660,90,0.8],["bear",300,450,1.4,{m:"sleepy",a:"breathe"}],["bear",420,450,1.1,{m:"sleepy",a:"breathe"}],["owl",620,250,0.9,{fly:1,a:"fly"}],["zzz",360,300,1]],
+  t:"She sees the bears, sleeping in a cozy heap. Shh. Hoo, hoo."},
+ {bg:"meadow", tod:"night", it:[["moon",660,90,0.8],["bunny",280,450,1.2,{m:"sleepy",a:"breathe"}],["bunny",400,450,1,{m:"sleepy",a:"breathe",c:"#FFE3C9"}],["owl",600,250,0.9,{fly:1,a:"fly"}]],
+  t:"She sees the bunnies, snuggled up close with their ears tucked down."},
+ {bg:"meadow", tod:"night", it:[["moon",660,90,0.8],["leaf",300,200,1,{c:"#4DB35A"}],["leaf",480,160,1,{c:"#FF9E3E"}],["owl",400,440,1.2,{m:"happy"}]],
+  t:"The wind whispers through the leaves. Swish, swish, swish."},
+ {bg:"pond", tod:"night", it:[["fullmoon",400,120,1.1],["owl",400,425,1.2,{m:"happy"}],["fireflies",400,330,1,{n:6}]],
+  t:"She stops by the pond and looks at the moon shining in the water."},
+ {bg:"forest", tod:"night", it:[["moon",660,90,0.9],["tree",400,450,1.3],["owl",400,240,1,{m:"sleepy"}],["star",200,80,1,{r:10}]],
+  t:"Everyone is safe. Everyone is sleeping. Olive flies back to her tree."},
+ {bg:"forest", tod:"night", it:[["moon",660,90,0.9,{m:"sleepy"}],["tree",400,450,1.3],["owl",400,240,1,{m:"sleepy",a:"breathe"}],["zzz",440,140,1]],
+  t:"Hoo, hoo, she sings softly. Goodnight, forest. Goodnight, little one."}
+]},
+{id:"sheep", night:1, title:"Bramble Counts Sleepy Sheep", c:"#C9CDF5", pages:[
+ {bg:"room", tod:"night", it:[["bed",400,460,1.4,{c:"#FF9CB4"}],["bunny",320,402,0.8,{m:"happy",ns:1}],["cover",400,460,1.4,{c:"#FF9CB4"}]],
+  t:"Bramble the bunny was in bed, but her eyes were wide awake."},
+ {bg:"clouds", tod:"night", it:[["fullmoon",650,100,0.8],["sheep",400,370,1.4,{m:"happy",a:"hop"}]],
+  t:"Mama said, let's count sheep. Here comes one fluffy sheep. Hop!"},
+ {bg:"clouds", tod:"night", it:[["fullmoon",650,100,0.8],["sheep",300,370,1.2,{a:"hop"}],["sheep",500,370,1.2,{a:"hop"}]],
+  t:"Two fluffy sheep, jumping over the clouds. Hop, hop."},
+ {bg:"clouds", tod:"night", it:[["fullmoon",650,100,0.8],["sheep",220,370,1.1,{a:"hop"}],["sheep",400,370,1.1,{a:"hop"}],["sheep",580,370,1.1,{a:"hop"}]],
+  t:"Three fluffy sheep. Soft and slow. Hop, hop, hop."},
+ {bg:"clouds", tod:"night", it:[["fullmoon",680,100,0.7],["sheep",150,380,1,{m:"sleepy"}],["sheep",310,370,1,{a:"hop"}],["sheep",470,380,1,{m:"sleepy"}],["sheep",630,370,1,{a:"hop"}]],
+  t:"Four fluffy sheep. Their eyes are getting sleepy too."},
+ {bg:"clouds", tod:"night", it:[["sheep",120,380,0.9,{m:"sleepy"}],["sheep",260,380,0.9,{m:"sleepy"}],["sheep",400,380,0.9,{m:"sleepy"}],["sheep",540,380,0.9,{m:"sleepy"}],["sheep",680,380,0.9,{m:"sleepy"}],["zzz",420,270,1]],
+  t:"Five fluffy sheep, lying down on the soft clouds. Yawn."},
+ {bg:"room", tod:"night", it:[["bed",400,460,1.4,{c:"#FF9CB4"}],["bunny",320,402,0.8,{m:"sleepy",ns:1}],["cover",400,460,1.4,{c:"#FF9CB4"}],["zzz",380,280,1]],
+  t:"Bramble's eyes got heavy. One, two, three, four, five..."},
+ {bg:"room", tod:"night", it:[["bed",400,460,1.4,{c:"#FF9CB4"}],["bunny",320,402,0.8,{m:"sleepy",ns:1,a:"breathe"}],["cover",400,460,1.4,{c:"#FF9CB4"}],["zzz",380,280,1.2],["lamp",640,460,1,{on:false}]],
+  t:"And Bramble was fast asleep. Goodnight, sheep. Goodnight, Bramble."}
+]},
+{id:"starboat", night:1, title:"The Starlight Boat", c:"#2B4C92", pages:[
+ {bg:"beach", tod:"night", it:[["moon",660,90,0.9],["boat",420,420,1.2,{c:"#7C8BE0",star:1}],["turtle",220,460,1.1,{m:"happy"}]],
+  t:"On a calm, quiet night, Tilly the turtle found a little boat with a star on top."},
+ {bg:"sea", tod:"night", it:[["moon",660,90,0.9],["boat",400,410,1.3,{c:"#7C8BE0",star:1,a:"rock"}],["turtle",420,370,0.8,{ns:1,m:"happy"}]],
+  t:"She climbed in, and the boat began to drift. Rock, rock, rock."},
+ {bg:"sea", tod:"night", it:[["fullmoon",400,110,1],["boat",400,410,1.3,{c:"#7C8BE0",star:1,a:"rock"}],["turtle",420,370,0.8,{ns:1,m:"happy"}]],
+  t:"The moon made a shiny, silver path across the water."},
+ {bg:"sea", tod:"night", it:[["moon",660,90,0.8],["fish",240,460,1,{c:"#C9B4F0"}],["fish",560,470,0.9,{c:"#7EC8F0"}],["boat",400,400,1.1,{c:"#7C8BE0",star:1,a:"rock"}]],
+  t:"Sleepy fish swam slowly by, whispering goodnight."},
+ {bg:"sea", tod:"night", it:[["moon",660,90,0.8],["star",200,100,1,{r:22,m:"happy",a:"float"}],["star",420,60,1,{r:16,m:"happy",a:"float"}],["boat",400,410,1.1,{c:"#7C8BE0",star:1,a:"rock"}]],
+  t:"The stars leaned down to say hello. Twinkle, twinkle."},
+ {bg:"sea", tod:"night", it:[["moon",660,90,0.8],["boat",400,410,1.2,{c:"#7C8BE0",star:1,a:"rock"}],["turtle",420,370,0.8,{ns:1,m:"sleepy"}],["blanket",420,380,0.4,{c:"#C9B4F0"}]],
+  t:"Tilly pulled up her soft blanket. The waves sang a gentle song. Shhh, shhh."},
+ {bg:"sea", tod:"night", it:[["fullmoon",400,110,1,{m:"sleepy"}],["boat",400,410,1.2,{c:"#7C8BE0",star:1,a:"rock"}],["zzz",450,280,1]],
+  t:"The little boat floated on, all the way to Dreamland."},
+ {bg:"sky", tod:"night", it:[["moon",400,200,1.6,{m:"sleepy"}],["star",200,100,1,{r:12}],["star",600,120,1,{r:12}],["star",300,380,1,{r:10}],["star",520,400,1,{r:10}]],
+  t:"Sail gently, little one. Sweet dreams on the starlight sea."}
+]},
+{id:"bedtime", night:1, title:"Little Bear's Bedtime", c:"#B07A4E", pages:[
+ {bg:"room", tod:"dusk", it:[["bear",400,460,1.6,{m:"laugh"}],["teddy",600,460,1.2],["clock",180,330,1.1]],
+  t:"The sun went down. It was time for Bo the bear to get ready for bed."},
+ {bg:"room", tod:"night", it:[["bear",400,420,1,{m:"laugh",ns:1}],["tub",400,460,1.3]],
+  t:"First, a warm bubble bath. Splash, splash, bubbles everywhere!"},
+ {bg:"room", tod:"night", it:[["bear",400,460,1.6,{hat:"night",m:"happy"}]],
+  t:"Next, cozy pajamas and a soft sleepy hat."},
+ {bg:"room", tod:"night", it:[["bear",360,460,1.6,{hat:"night",m:"laugh"}],["toothbrush",470,380,1,{r:30}],["sparkle",440,300,1,{c:"#fff"}]],
+  t:"Brush, brush, brush his teeth until they sparkle."},
+ {bg:"room", tod:"night", it:[["bed",400,460,1.4,{c:"#7C8BE0"}],["bear",318,402,0.8,{hat:"night",ns:1}],["cover",400,460,1.4,{c:"#7C8BE0"}],["bear",560,460,1.5,{c:"#9E6B42"}],["book",480,330,1]],
+  t:"Then Mama reads a story, snuggled up in bed."},
+ {bg:"room", tod:"night", it:[["bed",400,460,1.4,{c:"#7C8BE0"}],["bear",318,402,0.8,{hat:"night",m:"sleepy",ns:1}],["cover",400,460,1.4,{c:"#7C8BE0"}],["bear",530,460,1.5,{c:"#9E6B42",m:"sleepy"}],["heart",420,280,1]],
+  t:"A big bear hug and a kiss on the nose. I love you, little bear."},
+ {bg:"room", tod:"night", it:[["bed",400,460,1.4,{c:"#7C8BE0"}],["bear",318,402,0.8,{hat:"night",m:"sleepy",ns:1}],["teddy",400,405,0.7],["cover",400,460,1.4,{c:"#7C8BE0"}],["lamp",640,460,1,{on:false}]],
+  t:"Click goes the lamp. The room is dark and calm and quiet."},
+ {bg:"room", tod:"night", it:[["bed",400,460,1.4,{c:"#7C8BE0"}],["bear",318,402,0.8,{hat:"night",m:"sleepy",ns:1,a:"breathe"}],["cover",400,460,1.4,{c:"#7C8BE0"}],["zzz",360,290,1.1],["lamp",640,460,1,{on:false}]],
+  t:"Goodnight, little bear. Goodnight, little you."}
+]},
+{id:"firefly", night:1, title:"The Firefly Lullaby", c:"#FFF27A", pages:[
+ {bg:"meadow", tod:"dusk", it:[["moon",640,100,0.8],["fox",400,450,1.4,{m:"happy"}]],
+  t:"In the meadow, as the sky grew dark, Finn the fox heard a tiny hum."},
+ {bg:"meadow", tod:"night", it:[["moon",640,100,0.8],["firefly",400,260,1.6,{a:"float"}],["fox",300,450,1.3,{m:"wow"}]],
+  t:"Blink! One little firefly turned on its light."},
+ {bg:"meadow", tod:"night", it:[["moon",640,100,0.8],["firefly",300,260,1.4,{a:"float"}],["firefly",480,220,1.4,{a:"float"}],["firefly",400,320,1.4,{a:"float"}],["fox",200,450,1.2,{m:"happy"}]],
+  t:"Blink, blink! Then two more fireflies, and they began to sing."},
+ {bg:"meadow", tod:"night", it:[["moon",640,100,0.8],["fireflies",400,330,1,{n:12}],["note",300,240,1,{c:"#FFF27A"}],["note",520,200,1,{c:"#FFF27A"}]],
+  t:"Hush now, hush now, close your eyes. The night is soft, the stars are wise."},
+ {bg:"meadow", tod:"night", it:[["moon",640,100,0.8],["fireflies",400,330,1,{n:8}],["bunny",300,450,1.1,{m:"sleepy"}],["hedgehog",460,450,1.1,{m:"sleepy"}]],
+  t:"The bunnies listened. The hedgehogs listened. Everyone felt calm."},
+ {bg:"meadow", tod:"night", it:[["moon",640,100,0.8],["fireflies",400,330,1,{n:14}],["fox",400,450,1.3,{m:"sleepy",a:"breathe"}]],
+  t:"The fireflies glowed like tiny lanterns, floating up and down."},
+ {bg:"meadow", tod:"night", it:[["moon",640,100,0.8,{m:"sleepy"}],["fireflies",400,330,1,{n:5}],["fox",400,450,1.3,{m:"sleepy",a:"breathe"}],["zzz",450,320,1]],
+  t:"Finn curled his fluffy tail around himself like a blanket."},
+ {bg:"meadow", tod:"night", it:[["moon",640,100,0.8,{m:"sleepy"}],["firefly",400,280,1.4,{a:"float"}],["fox",400,450,1.3,{m:"sleepy",a:"breathe"}],["zzz",450,320,1.2]],
+  t:"One last little light blinked goodnight. Hush now. Sleep tight."}
+]},
+{id:"snowden", night:1, title:"Snowy Night, Cozy Den", c:"#C9D2FF", pages:[
+ {bg:"snow", tod:"night", it:[["moon",660,90,0.8],["fox",400,440,1.5,{m:"happy",hat:"scarf"}],["pine",130,420,1,{snow:1}]],
+  t:"Snow was falling softly. Finn the fox was walking home."},
+ {bg:"snow", tod:"night", it:[["moon",660,90,0.8],["fox",250,440,1.3,{hat:"scarf"}],["pine",560,420,1.2,{snow:1}],["pine",680,420,1,{snow:1}]],
+  t:"His paws made little prints in the snow. Pat, pat, pat."},
+ {bg:"snow", tod:"night", it:[["moon",660,90,0.8],["lantern",560,330,1.4],["fox",330,440,1.4,{m:"happy",hat:"scarf"}]],
+  t:"There was his den, with a warm little light glowing inside."},
+ {bg:"den", tod:"night", it:[["lantern",620,300,1.3],["fox",400,460,1.5,{m:"happy"}],["cup",250,470,1.2]],
+  t:"Inside, it was warm and dry. Finn shook the snow off his fur. Shake, shake!"},
+ {bg:"den", tod:"night", it:[["lantern",620,300,1.3],["blanket",400,470,1.6,{c:"#E7466B"}],["fox",400,430,1.2,{m:"happy",ns:1}]],
+  t:"He fluffed up his soft leaf bed and pulled up his warm blanket."},
+ {bg:"den", tod:"night", it:[["lantern",620,300,1.3],["blanket",400,470,1.6,{c:"#E7466B"}],["fox",400,430,1.2,{m:"sleepy",ns:1}],["mouse",250,460,0.9,{m:"sleepy"}]],
+  t:"Mo the mouse came in from the cold too. There is room for you, said Finn."},
+ {bg:"snow", tod:"night", it:[["moon",400,110,1,{m:"sleepy"}],["pine",200,420,1,{snow:1}],["pine",600,420,1,{snow:1}]],
+  t:"Outside, the snow kept falling, quiet and white, covering the world like a blanket."},
+ {bg:"den", tod:"night", it:[["blanket",400,470,1.6,{c:"#E7466B"}],["fox",400,430,1.2,{m:"sleepy",ns:1,a:"breathe"}],["mouse",500,450,0.7,{m:"sleepy",ns:1}],["zzz",450,320,1.1]],
+  t:"Snug in the den, the friends fell fast asleep. Goodnight, snowy night."}
+]}
+];
+
+var BK_TIMES = {"balloon-0":[[0.21],[0.28],[0.44],[0.62],[0.96]],"balloon-1":[[0.22],[0.31],[0.69],[1.26],[1.46],[1.6],[1.96],[2.13],[2.53],[2.66],[2.82],[3.55],[3.92],[4.3]],"balloon-2":[[0.22],[0.37],[0.79],[1.28],[1.46],[1.57],[1.88],[2.05],[2.19],[2.28],[2.44],[2.62],[3.41],[4.16],[4.45],[4.61],[4.78]],"balloon-3":[[0.28],[0.38],[0.61],[0.93],[1.23],[1.8],[1.96],[2.2],[2.56],[3.23],[3.89]],"balloon-4":[[0.15],[0.21],[0.62],[0.87],[1.25],[1.4],[1.6],[2.0],[2.29],[2.44],[2.56],[3.01],[3.3],[4.28],[4.68],[4.85],[5.0],[5.28]],"balloon-5":[[0.28],[0.36],[0.58],[0.93],[1.2],[1.55],[2.22],[2.46],[3.0],[3.65],[3.86],[3.98],[4.38],[4.71]],"balloon-6":[[0.28],[0.46],[0.86],[1.18],[1.52],[1.97],[2.18],[2.3],[2.54]],"balloon-7":[[0.22],[0.27],[0.44],[0.53],[0.86],[1.45],[1.96],[2.21],[2.68],[2.84],[3.09],[3.27]],"balloon-8":[[0.27],[0.36],[0.46],[0.85],[1.09],[1.61],[2.58],[3.04]],"bedtime-0":[[0.31],[0.45],[1.0]],"bedtime-1":[[0.16],[0.25],[0.49],[0.73],[1.76],[2.14],[2.33],[2.59],[2.82],[3.05],[3.25],[3.58],[3.7],[3.95],[4.23],[4.45]],"bedtime-2":[[0.42],[0.86],[1.0],[1.42],[1.82],[2.96],[3.91],[4.49],[4.8]],"bedtime-3":[[0.31],[0.64],[1.43],[2.14],[2.32],[2.47],[2.99],[3.55]],"bedtime-4":[[0.23],[0.42],[0.95],[1.23],[1.44],[1.89],[2.31],[2.53]],"bedtime-5":[[0.15],[0.25],[0.58],[0.77],[0.91],[1.97],[2.42],[2.61],[2.8]],"bedtime-6":[[0.08],[0.16],[0.42],[0.73],[1.09],[1.45],[1.58],[1.76],[1.84],[2.0],[3.23],[4.05],[4.3],[4.48],[4.71]],"bedtime-7":[[0.23],[0.38],[0.84],[1.0],[1.93],[2.35],[2.7],[2.89],[3.3],[3.75],[4.3],[4.73]],"bedtime-8":[[0.23],[0.57],[0.82],[1.51],[2.79],[2.98]],"boat-0":[[0.35],[0.42],[0.56],[0.88],[1.12]],"boat-1":[[0.28],[0.34],[0.46],[0.76],[0.92],[1.14],[1.27],[1.72],[1.88],[1.97],[2.3],[2.72]],"boat-2":[[0.28],[0.35],[0.54],[0.94],[1.3],[1.43],[1.99],[2.67],[3.58]],"boat-3":[[0.15],[1.12],[1.65],[1.92],[2.28],[2.48],[3.04],[3.57],[3.79],[3.99],[4.42],[4.56]],"boat-4":[[0.21],[0.3],[0.61],[0.86],[1.25],[2.04],[2.72],[3.4],[3.66],[3.97],[4.23]],"boat-5":[[0.28],[0.64],[0.96],[1.33],[1.65],[1.9],[2.14],[2.46],[2.78]],"boat-6":[[0.14],[0.21],[0.5],[0.72],[1.48],[1.74],[2.08],[2.76],[2.85],[3.18],[3.56],[4.02],[4.15],[4.38]],"boat-7":[[0.07],[0.1],[0.24],[0.54],[0.8],[1.08],[1.26],[1.7],[1.81],[2.13],[2.37]],"boat-8":[[0.14],[0.2],[0.3],[0.85],[1.3],[1.84],[2.66]],"cake-0":[[0.14],[0.24],[0.68],[1.14]],"cake-1":[[0.22],[0.28],[0.46],[0.77],[1.09],[1.23],[1.4],[1.48],[1.9],[2.18],[2.3],[2.54]],"cake-2":[[0.28],[0.53],[0.84],[1.1],[1.41],[1.62],[1.74],[2.47],[2.94],[3.17]],"cake-3":[[0.21],[0.3],[0.5],[0.64],[1.1],[1.36],[1.82],[2.32]],"cake-4":[[0.35],[0.52],[0.69],[0.91],[1.18],[1.57],[1.8],[1.92]],"cake-5":[[0.14],[0.35],[0.96],[1.33],[1.71],[1.89],[2.05]],"cake-6":[[0.27],[0.37],[0.6],[0.84],[0.92],[1.12],[1.7],[1.82],[2.29],[2.5]],"cake-7":[[0.28],[0.5],[0.85],[1.08],[1.25],[1.71],[2.23],[2.86],[3.09],[3.43]],"cake-8":[[0.21],[0.28],[0.78],[1.3],[2.05],[2.29],[2.59],[2.82],[2.94],[3.44],[4.38],[4.94]],"firefly-0":[[0.08],[0.2],[1.0]],"firefly-1":[[0.17],[0.2],[0.33],[1.21],[1.32],[1.52],[1.8],[2.16],[2.96],[3.2],[3.39],[3.76],[4.0],[4.16],[4.55]],"firefly-2":[[0.38],[1.25],[1.77],[2.07],[2.69],[3.06],[3.23],[3.41]],"firefly-3":[[0.31],[0.53],[1.2],[2.05],[2.24],[2.53],[3.93],[4.04],[4.24],[4.58],[4.73]],"firefly-4":[[0.08],[0.45],[1.23],[1.61],[2.61],[2.95],[3.18],[3.84],[4.5],[4.79],[5.02],[5.93],[6.09],[6.59],[6.84]],"firefly-5":[[0.08],[0.14],[0.6],[1.34],[2.14],[2.78],[3.43],[4.78],[5.11]],"firefly-6":[[0.39],[0.47],[0.97],[1.4],[1.62],[1.99],[2.86],[3.24],[3.41],[3.62]],"firefly-7":[[0.23],[0.32],[0.68],[0.87],[1.27],[1.68],[1.98],[2.49],[2.68],[2.8]],"firefly-8":[[0.23],[0.36],[0.77],[1.05],[1.32],[1.69],[2.86],[3.61],[4.14],[5.33]],"hazel-0":[[0.35],[0.47],[0.84],[0.95]],"hazel-1":[[0.28],[0.36],[0.52],[1.0],[1.16],[1.23],[1.48],[1.7],[2.5],[2.86],[3.08],[3.23],[3.44],[3.55],[3.82]],"hazel-2":[[0.14],[0.24],[0.87],[1.24],[1.48],[1.58],[1.81],[2.14],[2.45],[2.67],[2.79],[3.16],[3.35]],"hazel-3":[[0.25],[0.68],[1.02],[1.24],[1.4],[1.66],[1.98],[2.54]],"hazel-4":[[0.21],[0.29],[0.62],[0.88],[1.08],[1.27],[1.92],[2.43],[2.7],[3.1],[3.32],[3.42],[3.66],[4.08]],"hazel-5":[[0.28],[0.35],[0.52],[0.61],[0.86],[1.67],[2.04],[2.19],[2.35],[2.44],[2.69],[2.87]],"hazel-6":[[0.28],[0.47],[1.04],[1.44],[1.79],[2.71],[3.26],[3.8],[4.66],[4.77],[4.93],[5.26],[5.59]],"hazel-7":[[0.21],[0.26],[0.5],[0.84],[1.01],[1.22],[1.34],[1.7],[2.06]],"hazel-8":[[0.14],[0.21],[0.52],[0.64],[0.7],[1.02],[1.82],[2.21],[2.52],[2.69],[2.82],[2.92],[3.15],[3.24],[3.67],[4.6],[5.54]],"kite-0":[[0.28],[0.46],[0.96]],"kite-1":[[0.14],[0.2],[0.42],[0.76],[0.92],[1.0],[1.26],[1.52],[2.27],[2.38],[2.62],[3.23],[3.39],[3.6]],"kite-2":[[0.15],[0.86],[1.09],[1.38],[2.34],[2.84],[3.26],[3.54],[3.94],[4.02],[4.18],[4.59],[4.85]],"kite-3":[[0.14],[0.19],[0.29],[0.91],[1.15],[1.32],[1.51],[2.06],[2.53],[2.77],[3.08],[3.16],[3.59]],"kite-4":[[0.21],[0.52],[0.72],[1.02],[1.39],[1.66],[1.96],[2.04],[2.5]],"kite-5":[[0.14],[0.2],[0.38],[0.7],[0.98],[1.45],[2.74],[3.62],[4.4],[4.77],[5.14],[5.28]],"kite-6":[[0.07],[0.14],[0.55],[0.99],[1.08],[1.17],[1.47],[1.59],[2.29],[2.82],[2.97]],"kite-7":[[0.14],[0.18],[0.29],[0.54],[0.86],[1.26],[1.54],[1.65],[2.11],[2.26],[2.38],[2.68]],"kite-8":[[0.07],[0.14],[0.46],[0.85],[1.14],[1.28],[1.54],[1.7],[2.53],[2.9]],"moon-0":[[0.08],[0.2],[1.15]],"moon-1":[[0.23],[0.33],[0.51],[0.66],[0.89],[1.42],[1.82],[2.04],[2.8],[3.29]],"moon-2":[[0.23],[0.32],[1.05],[1.27],[1.68],[2.05],[2.3],[3.16],[4.09],[6.03]],"moon-3":[[0.08],[0.16],[0.55],[0.88],[1.02],[1.16],[1.64],[2.92],[3.5],[4.04]],"moon-4":[[0.08],[0.2],[0.7],[1.09],[1.7],[1.84],[2.01],[3.23],[3.4],[3.61],[4.61],[5.61]],"moon-5":[[0.15],[0.26],[1.2],[1.35],[1.69],[2.05],[2.17],[2.68],[2.97],[3.11],[3.25],[3.7]],"moon-6":[[0.16],[0.25],[0.61],[1.05],[1.33],[1.71],[2.61],[3.31],[3.68],[3.95],[4.18]],"moon-7":[[0.53],[0.87],[1.8],[2.11],[2.25],[2.58],[2.68],[3.0],[3.82],[4.2],[4.36]],"moon-8":[[0.17],[0.23],[0.44],[0.81],[1.32],[1.53],[1.91],[2.45],[3.06],[3.44],[3.93],[4.32],[4.65],[5.96]],"owl-0":[[0.38],[0.62],[1.06],[1.45]],"owl-1":[[0.2],[0.3],[0.45],[1.07],[1.39],[1.53],[2.51],[2.86],[3.11],[3.51],[3.91],[4.64],[5.36]],"owl-2":[[0.24],[0.33],[0.77],[0.98],[1.38],[2.02],[2.42],[3.02],[3.23],[3.44],[4.0],[4.55]],"owl-3":[[0.24],[0.35],[0.66],[0.85],[2.06],[2.61],[2.89],[3.11],[3.45],[4.27],[6.14],[6.73]],"owl-4":[[0.31],[0.42],[0.66],[0.82],[1.88],[2.33],[2.55],[3.11],[3.59],[3.91],[4.33],[4.73]],"owl-5":[[0.08],[0.18],[0.61],[1.12],[1.39],[1.55],[2.76],[4.15],[5.73]],"owl-6":[[0.15],[0.24],[0.61],[0.77],[1.02],[1.59],[2.03],[2.24],[2.41],[2.62],[2.95],[3.3],[3.41],[3.62]],"owl-7":[[0.44],[0.61],[0.82],[1.41],[2.61],[2.79],[3.62],[4.97],[5.35],[5.67],[5.77],[5.98]],"owl-8":[[0.08],[0.57],[1.45],[1.77],[2.08],[2.89],[4.45],[5.05],[6.34],[6.52]],"pond-0":[[0.24],[0.66],[0.91]],"pond-1":[[0.08],[0.2],[0.62],[1.07],[1.41],[1.64],[2.25],[3.02],[3.18],[3.6],[3.91],[4.11],[4.26],[4.73]],"pond-2":[[0.23],[0.59],[0.95],[2.06],[2.67],[2.99]],"pond-3":[[0.31],[0.67],[1.0],[1.88],[2.45],[3.25],[3.98]],"pond-4":[[0.24],[0.62],[1.64],[2.42],[2.73],[3.16],[3.7]],"pond-5":[[0.15],[0.58],[0.8],[1.59],[1.95],[2.13],[2.3],[2.41],[2.61]],"pond-6":[[0.23],[0.59],[0.91],[1.84],[2.35],[2.73],[2.97]],"pond-7":[[0.15],[0.24],[0.61],[0.79],[0.95],[1.14],[1.48],[2.39],[2.8],[3.13],[3.36]],"pond-8":[[0.15],[0.47],[0.67],[2.0],[2.89],[3.39],[4.53]],"rainbow-0":[[0.28],[0.87],[1.44]],"rainbow-1":[[0.21],[0.34],[0.47],[0.84],[1.0],[1.07],[1.34],[1.55],[1.69],[2.51],[2.83],[3.0],[3.1]],"rainbow-2":[[0.14],[0.2],[0.3],[0.8],[1.48],[1.6],[2.18],[3.1],[3.52],[3.8],[3.98],[4.29],[4.62]],"rainbow-3":[[0.32],[0.46],[0.94],[1.26],[1.54],[1.7],[2.45],[2.8],[3.05],[3.2]],"rainbow-4":[[0.21],[0.3],[0.53],[0.8],[1.09],[1.32],[1.65],[2.5],[2.76],[3.02]],"rainbow-5":[[0.07],[0.14],[0.64],[1.0],[1.2],[1.92],[2.28],[2.48],[3.23],[3.35],[3.82],[4.5],[4.6],[4.7],[5.12]],"rainbow-6":[[0.07],[0.12],[0.21],[0.54],[1.16],[1.57],[1.84],[2.68],[3.08],[3.18],[3.58],[4.35],[4.67],[4.88]],"rainbow-7":[[0.07],[0.13],[0.26],[0.42],[0.92],[1.01],[1.43],[1.9],[2.83],[3.58],[3.98],[4.2],[4.3],[4.82]],"rainbow-8":[[0.21],[0.37],[0.66],[0.78],[1.23],[1.42],[1.66],[1.89],[2.5],[3.12]],"rocket-0":[[0.22],[0.38],[0.94]],"rocket-1":[[0.14],[0.2],[0.44],[0.54],[0.94],[1.15],[1.24],[1.34],[1.57],[2.14],[2.9],[3.08],[3.25],[3.41],[3.6]],"rocket-2":[[0.48],[1.14],[2.16],[3.28],[4.4],[5.25],[5.66]],"rocket-3":[[0.55],[0.85],[1.14],[1.3],[1.42],[1.81],[2.15]],"rocket-4":[[0.21],[0.26],[0.37],[0.89],[1.5],[1.96],[2.1],[2.46],[2.79]],"rocket-5":[[0.07],[0.53],[1.1],[1.52],[1.7],[1.84],[2.86],[3.32],[3.52],[3.88],[4.37],[4.64]],"rocket-6":[[0.15],[0.2],[0.64],[1.01],[1.35],[1.85],[2.56],[2.9],[3.22],[3.44],[3.85]],"rocket-7":[[0.14],[0.28],[0.6],[1.12],[1.79],[1.87],[1.97],[2.18],[2.29]],"rocket-8":[[0.14],[0.19],[0.26],[0.38],[0.94],[1.17],[1.47],[1.56],[1.74],[2.5],[2.82],[2.93],[3.34],[3.98],[5.0]],"shapes-0":[[0.27],[0.47],[0.86]],"shapes-1":[[0.21],[0.28],[0.47],[0.83],[1.02],[1.24],[1.34],[1.65],[1.84],[2.42],[3.1],[3.28]],"shapes-2":[[0.15],[0.26],[0.64],[0.84],[0.96],[1.98],[2.24],[2.61],[2.76],[2.85],[3.22],[3.73],[4.44],[4.63]],"shapes-3":[[0.34],[0.42],[0.54],[1.17],[1.94],[2.05],[2.46],[2.85],[3.41],[3.74]],"shapes-4":[[0.14],[0.19],[0.29],[0.42],[0.55],[1.12],[2.42],[2.92],[3.33]],"shapes-5":[[0.14],[0.23],[0.58],[0.76],[1.3],[1.9],[2.28],[2.49],[3.47],[3.75],[4.32],[4.63]],"shapes-6":[[0.07],[0.14],[0.45],[0.58],[0.74],[1.09],[1.28],[1.42],[2.02],[2.34],[2.46],[2.69]],"shapes-7":[[0.14],[0.23],[0.74],[0.94],[1.23],[2.18],[2.52],[2.67],[2.96]],"shapes-8":[[0.33],[0.44],[0.62],[1.41],[1.95],[2.2],[2.36],[2.54],[3.32],[4.74]],"sheep-0":[[0.31],[0.53],[1.08],[1.62]],"sheep-1":[[0.24],[0.48],[0.61],[0.95],[1.15],[1.36],[2.2],[2.32],[2.55],[3.04],[3.6],[3.89]],"sheep-2":[[0.31],[0.44],[1.0],[1.7],[2.08],[2.78],[3.8],[4.34],[4.88],[5.35],[6.02]],"sheep-3":[[0.39],[0.56],[1.26],[1.81],[2.45],[2.84],[3.0],[3.89],[5.05]],"sheep-4":[[0.53],[0.74],[1.45],[2.33],[3.66],[3.85],[4.73],[6.48],[7.48]],"sheep-5":[[0.38],[0.53],[1.09],[2.24],[2.78],[3.05],[3.22],[3.51],[3.93]],"sheep-6":[[0.46],[0.62],[1.17],[2.06],[2.44],[2.76],[2.84],[3.0],[3.47],[4.55]],"sheep-7":[[0.24],[0.6],[0.89],[1.15],[1.91],[3.41],[5.11],[6.64],[8.02]],"sheep-8":[[0.15],[0.24],[0.77],[1.0],[1.44],[2.22],[3.54],[4.22],[4.78]],"snowday-0":[[0.21],[0.37],[0.69],[0.96]],"snowday-1":[[0.21],[0.26],[0.37],[0.67],[0.92],[1.06],[1.19],[2.08],[2.54],[2.79]],"snowday-2":[[0.48],[0.84],[1.48],[1.63],[1.72],[1.88],[2.07],[2.42],[2.54],[2.79],[3.78],[4.46],[5.1]],"snowday-3":[[0.14],[0.21],[0.54],[0.78],[1.04],[1.7],[2.04],[2.23],[2.62],[3.66],[3.92]],"snowday-4":[[0.34],[0.44],[0.61],[0.92],[1.2],[1.3],[1.95],[2.18],[2.32],[2.85],[3.2],[3.6]],"snowday-5":[[0.22],[1.06],[1.46],[1.58],[1.87],[2.06],[2.37],[2.5],[2.62],[2.9]],"snowday-6":[[0.15],[0.18],[0.38],[0.99],[1.07],[1.26],[2.02],[2.26],[2.37]],"snowday-7":[[0.15],[0.19],[0.35],[0.54],[0.92],[1.09],[1.37],[2.27],[2.75]],"snowday-8":[[0.15],[0.51],[1.46],[1.78],[1.89],[2.7],[3.72]],"snowden-0":[[0.38],[0.61],[1.42],[2.57]],"snowden-1":[[0.23],[0.34],[0.59],[1.0],[1.84],[2.66],[2.82],[3.14],[3.33],[3.78]],"snowden-2":[[0.08],[0.18],[0.67],[0.86],[1.16],[1.58],[1.66],[1.84],[3.01],[3.82],[4.45]],"snowden-3":[[0.24],[0.32],[0.5],[0.75],[1.67],[1.91],[2.09],[2.49],[2.79],[3.15],[3.64]],"snowden-4":[[0.45],[0.67],[0.8],[1.05],[1.3],[1.5],[2.51],[2.95],[3.2],[3.35],[3.68],[3.86],[4.09],[4.84],[5.32]],"snowden-5":[[0.16],[0.21],[0.61],[0.77],[0.98],[1.33],[1.66],[2.11],[2.49],[2.79],[2.95],[3.15],[3.43]],"snowden-6":[[0.24],[0.32],[0.53],[0.96],[1.24],[1.4],[1.57],[1.75],[2.32],[3.52],[4.15],[4.33],[4.59],[4.77],[5.05],[5.36]],"snowden-7":[[0.38],[0.57],[0.69],[0.98],[1.34],[2.53],[2.95],[3.17],[4.05],[4.5],[4.7],[5.04],[5.23],[5.35]],"snowden-8":[[0.24],[0.49],[0.57],[0.75],[1.57],[1.7],[2.24],[2.55],[2.99],[4.27],[5.26],[5.5]],"splash-0":[[0.35],[0.56],[0.89]],"splash-1":[[0.15],[0.2],[0.36],[0.48],[0.84],[1.06],[1.53],[2.29],[2.57],[3.16],[3.35]],"splash-2":[[0.21],[0.28],[0.45],[0.92],[1.09],[1.3],[2.23],[2.59],[2.83],[2.92],[3.09],[3.34],[3.71]],"splash-3":[[0.22],[0.68],[0.83],[1.1],[1.33],[1.57],[1.87],[2.07]],"splash-4":[[0.07],[0.72],[0.86],[1.08],[1.31],[1.43],[2.26],[2.99],[3.23]],"splash-5":[[0.48],[0.73],[1.25],[1.57],[1.76],[2.32],[3.32],[3.39],[3.66],[4.13],[4.26],[4.39]],"splash-6":[[0.34],[0.45],[0.75],[0.82],[0.93],[1.52],[2.65],[3.09]],"splash-7":[[0.14],[0.2],[0.62],[0.85],[1.06],[1.19],[1.96],[2.18],[2.36]],"splash-8":[[0.22],[0.59],[0.68],[0.86],[1.16],[1.31],[1.41],[1.68],[2.5],[2.88]],"starboat-0":[[0.15],[0.29],[1.11]],"starboat-1":[[0.08],[0.18],[0.35],[0.79],[1.14],[1.77],[2.11],[2.23],[2.61],[2.95],[3.04],[3.35],[3.67],[3.86],[3.98],[4.33],[4.55]],"starboat-2":[[0.24],[0.33],[0.85],[1.32],[1.75],[1.87],[2.17],[2.61],[2.8],[3.55],[5.64],[6.4]],"starboat-3":[[0.15],[0.27],[0.67],[0.91],[1.08],[1.6],[2.0],[2.42],[2.77],[2.97]],"starboat-4":[[0.31],[0.55],[0.97],[1.43],[1.97],[2.68],[3.24]],"starboat-5":[[0.08],[0.18],[0.67],[0.96],[1.24],[1.43],[1.71],[2.39],[3.33]],"starboat-6":[[0.08],[0.31],[0.61],[0.75],[0.91],[1.33],[2.07],[2.61],[2.98],[3.32],[3.42],[3.84],[5.42],[6.82]],"starboat-7":[[0.16],[0.21],[0.45],[0.88],[1.36],[1.86],[2.59],[2.77],[2.94],[3.08]],"starboat-8":[[0.23],[0.34],[0.84],[1.09],[1.95],[2.44],[2.94],[3.02],[3.16],[3.82]],"train-0":[[0.15],[0.21],[0.79],[1.28]],"train-1":[[0.15],[0.32],[0.96],[1.33],[1.62],[1.71],[1.96],[2.17],[3.04],[3.32],[3.62],[3.76]],"train-2":[[0.15],[0.21],[0.54],[0.86],[1.2],[1.86],[2.82],[2.92],[3.2]],"train-3":[[0.15],[0.24],[0.62],[0.91],[1.44],[2.11],[2.72],[3.52],[3.89],[4.14],[4.36],[4.87],[5.27]],"train-4":[[0.21],[0.29],[0.6],[1.04],[1.73],[2.29],[2.67],[3.18],[3.63],[3.78],[3.92],[4.21]],"train-5":[[0.07],[0.35],[0.75],[1.0],[1.18],[1.49],[1.84]],"train-6":[[0.25],[0.48],[0.93],[1.16],[1.36],[1.81],[2.24]],"train-7":[[0.07],[0.27],[0.82],[0.93],[1.27],[1.63],[1.7],[1.83],[2.56],[2.94]],"train-8":[[0.35],[0.62],[1.16],[1.73],[2.24],[2.8],[3.11],[3.5],[4.62],[5.2]]};
+/* ---------- v47: Story Books: library page (#books) + slide show reader ---------- */
+(function(){
+  var FREE = 3, BASE = "books/";
+  var TIM = typeof BK_TIMES!=="undefined" ? BK_TIMES : {};
+  var READ_KEY = "ffk-books-read";
+  function q(s, r){ return (r||document).querySelector(s); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function readSet(){ try{ return JSON.parse(localStorage.getItem(READ_KEY)||"{}")||{}; }catch(e){ return {}; } }
+  function markRead(id){ var r = readSet(); r[id] = 1; try{ localStorage.setItem(READ_KEY, JSON.stringify(r)); }catch(e){} }
+  function shelf(night){ return BK_BOOKS.filter(function(b){ return !!b.night === !!night; }); }
+  function isFree(b){ return shelf(b.night).indexOf(b) < FREE; }
+  function canRead(b){ return isFree(b) || (typeof unlocked==="function" && unlocked()); }
+  function byId(id){ for(var i=0;i<BK_BOOKS.length;i++) if(BK_BOOKS[i].id===id) return BK_BOOKS[i]; return null; }
+
+  /* ---------- library ---------- */
+  var tab = "all";
+  function card(b){
+    var lock = !canRead(b), rd = readSet()[b.id];
+    var badge = lock ? '<span class="badge lock">🔒 Plan</span>' : (isFree(b) && !(typeof unlocked==="function" && unlocked()) ? '<span class="badge free">Free</span>' : '');
+    return '<button type="button" class="bk-card'+(lock?' locked':'')+'" data-book="'+b.id+'" aria-label="'+esc(b.title)+(lock?' (needs a plan)':'')+'">'
+      + '<span class="cv">'+BK_ART.scene(b.pages[0])+'<span class="cvt">'+esc(b.title)+'</span>'+badge+(rd?'<span class="badge done">Read ✓</span>':'')+'</span>'
+      + '<span class="meta"><span class="pg">📖 '+b.pages.length+' pictures</span><span>'+(b.night?'🌙 Bedtime':'☀️ Story')+'</span></span></button>';
+  }
+  function renderBooks(){
+    var root = q("#bkShelves"); if(!root) return;
+    var h = '';
+    if(tab!=="night") h += '<section class="bk-shelf"><h2 class="h2big">☀️ Picture story books</h2><p class="shsub">Funny, happy adventures with lots of pictures. Pip reads every page out loud.</p><div class="bk-grid">'+shelf(false).map(card).join('')+'</div></section>';
+    if(tab!=="day") h += '<section class="bk-shelf night"><h2 class="h2big">🌙 Bedtime stories</h2><p class="shsub">Calm, sleepy stories with soft music, a slow slide show and a quiet voice. Perfect for lights out.</p><div class="bk-grid">'+shelf(true).map(card).join('')+'</div></section>';
+    root.innerHTML = h;
+    var hero = q("#bkHeroArt"); if(hero && !hero.firstChild) hero.innerHTML = BK_ART.scene({bg:"meadow", tod:"dusk", it:[["moon",660,90,0.8,{m:"happy"}],["book",400,330,2.2,{c:"#FF7F3F"}],["frog",240,440,1.4,{wave:1,a:"bob"}],["bunny",560,445,1.3,{m:"laugh"}],["owl",680,440,1,{}],["star",130,80,1,{r:14}],["star",420,60,1,{r:10}]]});
+    document.querySelectorAll("#bkTabs button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.tab===tab ? "true" : "false"); });
+  }
+  document.addEventListener("click", function(e){
+    var t = e.target.closest && e.target.closest("[data-book]"); if(t){ e.preventDefault(); openBook(t.dataset.book); return; }
+    var tb = e.target.closest && e.target.closest("#bkTabs button"); if(tb){ tab = tb.dataset.tab; renderBooks(); }
+  });
+
+  /* ---------- lullaby (original music-box tune, WebAudio) ---------- */
+  var LB = {ctx:null, g:null, on:true, timer:null, step:0};
+  try{ LB.on = localStorage.getItem("ffk-lullaby")!=="0"; }catch(e){}
+  var MEL = [76,79,81,79, 76,74,72,74, 76,76,74,72, 74,null,null,null, 72,74,76,79, 81,79,76,74, 72,74,76,74, 72,null,null,null];
+  var BASS = [48,55,57,53];
+  function lbNote(m, t, vel, dur){ var c = LB.ctx, o = c.createOscillator(), o2 = c.createOscillator(), g = c.createGain();
+    var f = 440*Math.pow(2,(m-69)/12); o.type = "sine"; o.frequency.value = f; o2.type = "triangle"; o2.frequency.value = f*2;
+    var g2 = c.createGain(); g2.gain.value = 0.18; o2.connect(g2); g2.connect(g);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vel, t+0.02); g.gain.exponentialRampToValueAtTime(0.0001, t+dur);
+    o.connect(g); g.connect(LB.g); o.start(t); o2.start(t); o.stop(t+dur+0.05); o2.stop(t+dur+0.05); }
+  function lbTick(){ if(!LB.ctx) return; var c = LB.ctx, beat = 60/66/2, now = c.currentTime;
+    while(LB.next < now + 0.6){ var i = LB.step % MEL.length; if(MEL[i]!=null) lbNote(MEL[i], LB.next, 0.5, 1.6); if(i%8===0) lbNote(BASS[(i/8)%4], LB.next, 0.35, 3.2); LB.next += beat; LB.step++; } }
+  function lbStart(){ if(!LB.on) return; try{ if(!LB.ctx){ var AC = window.AudioContext||window.webkitAudioContext; LB.ctx = new AC(); LB.g = LB.ctx.createGain(); LB.g.gain.value = 0.0001; LB.g.connect(LB.ctx.destination); }
+      if(LB.ctx.state==="suspended") LB.ctx.resume(); LB.g.gain.cancelScheduledValues(LB.ctx.currentTime); LB.g.gain.setTargetAtTime(0.07, LB.ctx.currentTime, 1.2);
+      if(!LB.timer){ LB.next = LB.ctx.currentTime + 0.2; LB.timer = setInterval(lbTick, 200); } }catch(e){} }
+  function lbStop(){ if(LB.timer){ clearInterval(LB.timer); LB.timer = null; } if(LB.ctx && LB.g){ try{ LB.g.gain.setTargetAtTime(0.0001, LB.ctx.currentTime, 0.3); }catch(e){} } }
+  function lbDuck(on){ if(LB.ctx && LB.g && LB.timer){ try{ LB.g.gain.setTargetAtTime(on ? 0.03 : 0.07, LB.ctx.currentTime, 0.4); }catch(e){} } }
+
+  /* ---------- reader ---------- */
+  var R = {b:null, i:0, auto:true, voice:true, audio:null, raf:0, timer:0, dimT:0, tts:null};
+  try{ R.auto = localStorage.getItem("ffk-books-auto")!=="0"; }catch(e){}
+  var ICON = {
+    x:'<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>',
+    prev:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    next:'<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    play:'<svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z" fill="currentColor"/></svg>',
+    pause:'<svg viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>',
+    vol:'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8.5a5 5 0 010 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+    mute:'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+    music:'<svg viewBox="0 0 24 24"><path d="M9 17V6l10-2v11" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linejoin="round"/><circle cx="7" cy="17" r="2.6" fill="currentColor"/><circle cx="17" cy="15" r="2.6" fill="currentColor"/></svg>',
+    again:'<svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 1 0 2-5" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M4 4v5h5" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+  };
+  function el(){
+    var r = q("#bkReader"); if(r) return r;
+    r = document.createElement("div"); r.id = "bkReader"; r.className = "bkr"; r.hidden = true; r.setAttribute("role","dialog"); r.setAttribute("aria-modal","true"); r.setAttribute("aria-label","Story book");
+    r.innerHTML = '<div class="bkr-top"><button type="button" class="bkr-btn" data-r="close" aria-label="Close the book">'+ICON.x+'</button><div class="tt" id="bkrTitle"></div>'
+      + '<button type="button" class="bkr-btn" data-r="auto" aria-pressed="true">'+ICON.play+'<span class="lb">Read to me</span></button>'
+      + '<button type="button" class="bkr-btn" data-r="voice" aria-pressed="true" aria-label="Voice on or off">'+ICON.vol+'</button>'
+      + '<button type="button" class="bkr-btn" data-r="music" aria-pressed="true" aria-label="Lullaby music on or off">'+ICON.music+'</button></div>'
+      + '<div class="bkr-stage"><div class="bkr-pages" id="bkrPages"></div><button type="button" class="bkr-nav prev" data-r="prev" aria-label="Back a page">'+ICON.prev+'</button><button type="button" class="bkr-nav next" data-r="next" aria-label="Next page">'+ICON.next+'</button>'
+      + '<p class="bkr-text" id="bkrText" aria-live="polite"></p></div>'
+      + '<div class="bkr-foot"><button type="button" class="bkr-btn" data-r="again">'+ICON.again+'<span class="lb">Hear again</span></button><div class="bkr-dots" id="bkrDots"></div></div><div class="bkr-dim" id="bkrDim"></div>';
+    document.body.appendChild(r);
+    r.addEventListener("click", function(e){
+      var b = e.target.closest("[data-r]");
+      if(b){ var a = b.dataset.r; wake();
+        if(a==="close") closeBook(); else if(a==="next") go(R.i+1, true); else if(a==="prev") go(R.i-1, true);
+        else if(a==="again") speak(); else if(a==="auto"){ R.auto = !R.auto; try{ localStorage.setItem("ffk-books-auto", R.auto?"1":"0"); }catch(x){} syncBtns(); if(R.auto) speak(); else clearTimeout(R.timer); }
+        else if(a==="voice"){ R.voice = !R.voice; syncBtns(); if(!R.voice) stopVoice(); else speak(); }
+        else if(a==="music"){ LB.on = !LB.on; try{ localStorage.setItem("ffk-lullaby", LB.on?"1":"0"); }catch(x){} syncBtns(); if(LB.on) lbStart(); else lbStop(); }
+        else if(a==="dot") go(+b.dataset.i, true);
+        else if(a==="reread"){ go(0, true); }
+        return; }
+      var c = e.target.closest(".bk-char"); if(c){ c.classList.remove("bk-tapped"); void c.getBoundingClientRect(); c.classList.add("bk-tapped"); wake(); }
+    });
+    var sx = null, sy = 0;
+    r.addEventListener("pointerdown", function(e){ if(e.target.closest("button")) return; sx = e.clientX; sy = e.clientY; });
+    r.addEventListener("pointerup", function(e){ if(sx==null) return; var dx = e.clientX - sx, dy = e.clientY - sy; sx = null; if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)){ wake(); go(R.i + (dx < 0 ? 1 : -1), true); } });
+    document.addEventListener("keydown", function(e){ if(r.hidden) return; if(e.key==="Escape") closeBook(); else if(e.key==="ArrowRight") go(R.i+1, true); else if(e.key==="ArrowLeft") go(R.i-1, true); });
+    return r;
+  }
+  function syncBtns(){ var r = el();
+    var a = q('[data-r="auto"]', r); a.setAttribute("aria-pressed", R.auto?"true":"false"); a.innerHTML = (R.auto?ICON.pause:ICON.play)+'<span class="lb">'+(R.auto?'Reading to me':'Read to me')+'</span>';
+    var v = q('[data-r="voice"]', r); v.setAttribute("aria-pressed", R.voice?"true":"false"); v.innerHTML = R.voice?ICON.vol:ICON.mute;
+    var m = q('[data-r="music"]', r); m.hidden = !(R.b && R.b.night); m.setAttribute("aria-pressed", LB.on?"true":"false");
+  }
+  function pageCount(){ return R.b.pages.length + 1; } // 0 = cover
+  function pageSpec(i){ return i===0 ? R.b.pages[0] : R.b.pages[i-1]; }
+  function pageText(i){ return i===0 ? R.b.title : R.b.pages[i-1].t; }
+  function openBook(id){
+    var b = byId(id); if(!b) return;
+    if(!canRead(b)){ var t = q("#pwTitle"), x = q("#pwText"); if(t) t.textContent = "This story needs a grown-up"; if(x) x.textContent = "The first 3 picture books and the first 3 bedtime stories are free. Pick a plan to read all "+BK_BOOKS.length+" story books."; if(typeof showModal==="function") showModal("paywall"); return; }
+    try{ speechSynthesis.cancel(); }catch(e){} try{ if(typeof vStop==="function") vStop(); }catch(e){}
+    var r = el(); R.b = b; R.i = -1; R.voice = typeof voiceOn==="undefined" ? true : !!voiceOn;
+    r.classList.toggle("night", !!b.night); r.hidden = false; document.documentElement.style.overflow = "hidden";
+    q("#bkrTitle").textContent = (b.night ? "🌙 " : "📖 ") + b.title;
+    q("#bkrPages").innerHTML = "";
+    var d = ''; for(var i=0;i<pageCount();i++) d += '<button type="button" data-r="dot" data-i="'+i+'" aria-label="Page '+i+'"></button>'; q("#bkrDots").innerHTML = d;
+    syncBtns(); if(b.night) lbStart();
+    go(0, false);
+    var c = q('[data-r="close"]', r); try{ c.focus({preventScroll:true}); }catch(e){}
+  }
+  function closeBook(){ var r = q("#bkReader"); if(!r || r.hidden) return; stopVoice(); clearTimeout(R.timer); clearTimeout(R.dimT); lbStop(); r.hidden = true; q("#bkrDim").style.opacity = 0; var e = q(".bkr-end"); if(e) e.remove(); document.documentElement.style.overflow = ""; R.b = null; renderBooks(); }
+  function go(i, user){
+    if(!R.b) return; var n = pageCount();
+    if(i >= n){ showEnd(); return; } if(i < 0) return;
+    var back = i < R.i, wrap = q("#bkrPages");
+    stopVoice(); clearTimeout(R.timer); var e = q(".bkr-end"); if(e) e.remove();
+    Array.prototype.forEach.call(wrap.querySelectorAll(".bkr-pg"), function(p){ if(p.classList.contains("on")){ p.classList.remove("on"); p.classList.add("out"); if(back) p.classList.add("back"); setTimeout(function(){ p.remove(); }, 1500); } });
+    var pg = document.createElement("div"); pg.className = "bkr-pg k"+(1+i%3)+(back?" back":"");
+    var sp = pageSpec(i);
+    pg.innerHTML = BK_ART.scene(sp, pageText(i));
+    if(i===0) pg.insertAdjacentHTML("beforeend", '<div style="position:absolute;left:0;right:0;top:8%;text-align:center;padding:0 6%"><span style="display:inline-block;font-family:Grandstander,\'Comic Sans MS\',sans-serif;font-weight:900;font-size:clamp(26px,5vw,58px);line-height:1.05;color:#fff;background:'+(R.b.c||"#FF7F3F")+';padding:.25em .6em;border-radius:24px;box-shadow:0 8px 0 rgba(0,0,0,.18);text-shadow:0 3px 0 rgba(0,0,0,.2);transform:rotate(-2deg)">'+esc(R.b.title)+'</span></div>');
+    wrap.appendChild(pg); void pg.offsetWidth; pg.classList.add("on");
+    R.i = i;
+    var words = pageText(i).split(/\s+/);
+    q("#bkrText").innerHTML = words.map(function(w, k){ return '<span class="w" data-k="'+k+'">'+esc(w)+'</span>'; }).join(' ');
+    Array.prototype.forEach.call(document.querySelectorAll("#bkrDots button"), function(d, k){ d.classList.toggle("on", k===i); });
+    q('[data-r="prev"]').disabled = i===0;
+    if(R.auto || user || i===0) speak(); else if(R.auto) schedule();
+  }
+  function stopVoice(){ if(R.audio){ try{ R.audio.pause(); }catch(e){} R.audio.onended = null; R.audio = null; } cancelAnimationFrame(R.raf); try{ speechSynthesis.cancel(); }catch(e){} lbDuck(false); hl(-1); }
+  function hl(k){ Array.prototype.forEach.call(document.querySelectorAll("#bkrText .w"), function(w, j){ w.classList.toggle("on", j===k); }); }
+  function schedule(){ clearTimeout(R.timer); if(!R.auto || !R.b) return; var night = R.b.night;
+    R.timer = setTimeout(function(){ if(R.auto && R.b) go(R.i+1, false); }, night ? 2600 : 1400); }
+  function readWait(){ return Math.max(3500, pageText(R.i).split(/\s+/).length * (R.b.night ? 520 : 420)); }
+  function speak(){
+    stopVoice(); clearTimeout(R.timer); if(!R.b) return;
+    if(!R.voice){ if(R.auto) R.timer = setTimeout(function(){ if(R.auto && R.b) go(R.i+1, false); }, readWait()); return; }
+    var key = R.b.id+"-"+R.i, tm = TIM[key], a;
+    var done = function(){ hl(-1); lbDuck(false); if(R.audio===a) R.audio = null; schedule(); };
+    if(tm){
+      try{ a = new Audio(BASE+key+".mp3"); }catch(e){ a = null; }
+      if(a){ R.audio = a; lbDuck(true);
+        a.onended = done;
+        a.onerror = function(){ if(R.audio===a){ R.audio = null; device(); } };
+        var step = function(){ if(R.audio!==a) return; var t = a.currentTime, k = -1; for(var j=0;j<tm.length;j++){ if(tm[j][0]!=null && tm[j][0] <= t+0.05) k = j; } hl(k); R.raf = requestAnimationFrame(step); };
+        var p = a.play(); if(p && p.catch) p.catch(function(){ if(R.audio===a){ R.audio = null; device(); } });
+        R.raf = requestAnimationFrame(step); return; }
+    }
+    device();
+  }
+  function device(){ // fallback: the phone's own voice
+    try{ var u = new SpeechSynthesisUtterance(pageText(R.i)); u.rate = R.b.night ? 0.8 : 0.95; u.pitch = 1.05;
+      u.onboundary = function(ev){ if(ev.name && ev.name!=="word") return; var before = pageText(R.i).slice(0, ev.charIndex).split(/\s+/).filter(Boolean).length; hl(before); };
+      u.onend = function(){ hl(-1); lbDuck(false); schedule(); };
+      lbDuck(true); speechSynthesis.speak(u); R.tts = u;
+    }catch(e){ if(R.auto) R.timer = setTimeout(function(){ if(R.auto && R.b) go(R.i+1, false); }, readWait()); }
+  }
+  function showEnd(){
+    stopVoice(); clearTimeout(R.timer); var b = R.b; markRead(b.id);
+    var others = shelf(b.night).filter(function(x){ return x!==b; }).sort(function(x, y){ return (canRead(y)?1:0) - (canRead(x)?1:0); }).slice(0, 3);
+    var w = el(); var e = q(".bkr-end", w); if(e) e.remove();
+    w.insertAdjacentHTML("beforeend", '<div class="bkr-end">'+(b.night ? '' : BK_ART.scene({bg:"sky", it:[["confetti",0,0,1]]}).replace('class="bk-svg"','class="bk-svg" style="position:absolute;inset:0;z-index:-1;opacity:.9"'))
+      + '<h3>'+(b.night ? 'Goodnight! 🌙' : 'The End! 🎉')+'</h3><div class="row"><button type="button" class="bkr-btn" data-r="reread">'+ICON.again+' Read it again</button><button type="button" class="bkr-btn" data-r="close">Back to the books</button></div>'
+      + '<div class="next">'+others.map(card).join('')+'</div></div>');
+    var line = b.night ? "Goodnight, sleep tight. Sweet dreams!" : "The End! Great reading! Want another story?";
+    if(R.voice){ try{ if(typeof say==="function" && !b.night) say(line); else { var u = new SpeechSynthesisUtterance(line); u.rate = 0.85; speechSynthesis.speak(u); } }catch(x){} }
+    if(b.night){ clearTimeout(R.dimT); R.dimT = setTimeout(function(){ var d = q("#bkrDim"); if(d && R.b) d.style.opacity = .55; }, 25000); }
+  }
+  function wake(){ var d = q("#bkrDim"); if(d) d.style.opacity = 0; if(R.b && R.b.night && q(".bkr-end")){ clearTimeout(R.dimT); R.dimT = setTimeout(function(){ var d2 = q("#bkrDim"); if(d2 && R.b) d2.style.opacity = .55; }, 25000); } }
+
+  /* ---------- routing ---------- */
+  if(typeof NAV_OF!=="undefined") NAV_OF.books = "books";
+  if(typeof VIEW_TITLES!=="undefined") VIEW_TITLES.books = "Story books and bedtime stories for kids";
+  if(typeof TIME_VIEWS!=="undefined" && TIME_VIEWS.indexOf("books")<0) TIME_VIEWS.push("books");
+  function bkRoute(){ var h = (location.hash||"").replace("#",""); if(h!=="books" && h.indexOf("book-")!==0) closeBook();
+    if(h==="books") setTimeout(renderBooks, 0);
+    if(h.indexOf("book-")===0){ var id = h.slice(5); setTimeout(function(){ try{ history.replaceState(null, "", "#books"); }catch(e){} if(typeof route==="function") route(); renderBooks(); openBook(id); }, 0); } }
+  window.addEventListener("hashchange", bkRoute);
+  window.FFK_BOOKS = {open:openBook, close:closeBook, render:renderBooks};
+  bkRoute();
+})();
+
+document.addEventListener("click", function(e){ var a = e.target.closest && e.target.closest("[data-bktab]"); if(a){ setTimeout(function(){ var b = document.querySelector('#bkTabs button[data-tab="'+a.dataset.bktab+'"]'); if(b) b.click(); }, 30); } });
 window.addEventListener("hashchange", route);
 
 syncAccount(); renderCards(); renderChip(); drawMute(); drawVoice(); drawNames(); fillScene(); fillHero(); renderPalRow(); fillCounts(); vInit(); drawSaveButtons(); route();
