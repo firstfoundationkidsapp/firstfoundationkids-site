@@ -2018,6 +2018,9 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
 @media (min-width:901px) and (max-width:1180px){#planChip{display:none}}
 .clgrown{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;background:var(--card);border-radius:var(--r-md);padding:14px 18px;box-shadow:var(--shadow);border:3px solid #FFD66B}
 .clgrown b{display:block;font-size:18px}.clgrown span{color:var(--ink-soft);font-size:15px}
+.clplanhead{margin:48px 0 0;font-size:clamp(28px,4vw,40px)}
+.plans.clsplans{grid-template-columns:repeat(2,minmax(0,1fr));max-width:820px}
+@media (max-width:620px){.plans.clsplans{grid-template-columns:1fr}}
 .clplans{margin-top:18px;background:var(--card);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);display:grid;gap:14px;border:3px solid #FFD66B}
 .clplans h3{margin:0 0 4px}.clplans.warn{border-color:#FF9A3D}.clplans p{margin:0}
 .clplanrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -2786,7 +2789,23 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
           <a class="btn btn-soft" href="#subscribe" data-plan="family">Choose Family</a>
         </div>
       </div>
-      <div class="classplans"><div class="min-w0"><h3>For teachers and classrooms</h3><p>Give homework with kid logins. <b>Classroom 15:</b> $249.99 a year, up to 15 students. <b>Classroom 30:</b> $349.99 a year, up to 30 students. All prices in US dollars.</p></div><a class="btn btn-go" href="#teach">Set up a classroom</a></div>
+      <h2 class="clplanhead" id="teacher-plans">For teachers and schools</h2>
+      <p class="lead" style="margin-top:6px">Give homework with kid logins. Kids see only their homework, and you see who finished. Prices in US dollars.</p>
+      <div class="plans clsplans">
+        <div class="plan">
+          <h3>Classroom 15</h3>
+          <div class="price">$249.99 <small>/ year</small></div>
+          <ul><li>Up to 15 students</li><li>Every world and all 30 levels for homework</li><li>Kid usernames, passwords and printable login cards</li><li>See who finished and their stars</li></ul>
+          <a class="btn btn-soft" href="#teach">Sign up for Classroom 15</a>
+        </div>
+        <div class="plan pop">
+          <span class="flag">Most students</span>
+          <h3>Classroom 30</h3>
+          <div class="price">$349.99 <small>/ year</small></div>
+          <ul><li>Up to 30 students</li><li>Everything in Classroom 15</li></ul>
+          <a class="btn btn-go" href="#teach">Sign up for Classroom 30</a>
+        </div>
+      </div>
       <div class="faq">
         <details><summary>What do we get without paying?</summary><p>Levels 1 to 3 of every age group in all <span data-count="worlds">38</span> worlds, plus Magic Paint, the Fruit &amp; Veggie Book and 3 Color Book pictures, with no account. Levels 4 to 30 and the rest of the Color Book unlock when you subscribe.</p></details>
         <details><summary>Which ages is FirstFoundationkids for?</summary><p>Ages 2 to 7. Rounds get harder as your child answers correctly, so older kids stay challenged.</p></details>
