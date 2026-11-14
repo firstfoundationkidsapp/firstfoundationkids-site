@@ -1889,6 +1889,28 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
   #area .choices.ps > .choice,#area .choices.ps > .choice .ps-d i,.vd,.vt-banner{animation:none!important}
 }
 
+/* ---------- v49: featured games on the home page ---------- */
+.feat{margin:8px 0 30px}
+.feat .fthead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:6px 20px;margin-bottom:14px}
+.feat .fthead p.lead{max-width:520px;margin:0;font-size:16px;color:var(--ink-soft)}
+.ftgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.ftcard{position:relative;display:flex;flex-direction:column;min-width:0;border-radius:var(--r-lg,28px);padding:14px 14px 16px;background:var(--gbg);border:3px solid var(--gc);box-shadow:0 7px 0 var(--gc);text-decoration:none;color:var(--ink);transition:transform .18s ease,box-shadow .18s ease}
+.ftcard:hover,.ftcard:focus-visible{transform:translateY(-5px) rotate(-1deg);box-shadow:0 12px 0 var(--gc)}
+.ftcard:active{transform:translateY(3px);box-shadow:0 3px 0 var(--gc)}
+.ftcard .ftart{position:relative;display:block;aspect-ratio:5/4;border-radius:20px;background:rgba(255,255,255,.7);overflow:hidden}
+.ftcard .ftart svg{position:absolute;inset:6%;width:88%;height:88%;animation:ftbob 2.6s ease-in-out infinite}
+.ftcard:nth-child(2) .ftart svg{animation-delay:-.5s}.ftcard:nth-child(3) .ftart svg{animation-delay:-1s}.ftcard:nth-child(4) .ftart svg{animation-delay:-1.5s}.ftcard:nth-child(5) .ftart svg{animation-delay:-2s}
+.ftcard .ftbadge{position:absolute;top:8px;left:8px;z-index:1;background:#fff;color:var(--gc);font-weight:800;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.ftcard h3{font-size:24px;line-height:1.1;margin:12px 0 2px;color:var(--gc)}
+.ftcard .ftskill{font-size:15px;margin:0 0 4px;min-height:2.6em}
+.ftcard .ftage{font-size:13px;font-weight:700;color:var(--ink-soft);margin:0 0 12px}
+.ftcard .ftgo{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:999px;background:var(--gc);color:#fff;font-weight:800;font-size:17px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.ftcard .ftgo svg{width:16px;height:16px;fill:#fff}
+.feat .ftfine{margin:12px 0 0;font-size:14px;color:var(--ink-soft)}
+@keyframes ftbob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+@media (prefers-reduced-motion:reduce){.ftcard .ftart svg{animation:none}.ftcard{transition:none}}
+@media (max-width:1100px){.ftgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){.ftgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:4px 2px 14px;margin:0 -2px}.ftcard{flex:0 0 68%;scroll-snap-align:start}.ftcard h3{font-size:22px}}
 /* ---------- v42: favorite subjects on the home page ---------- */
 .favs{margin:6px 0 26px}
 .favs .fhead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:6px 20px;margin-bottom:14px}
@@ -1919,120 +1941,6 @@ svg.sparkly{filter:drop-shadow(0 0 8px rgba(255,200,40,.85))}
 @media (max-width:980px){.favgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.favgrid{gap:10px}.fav{padding:10px 10px 12px;border-radius:22px}.fav .fart{border-radius:14px}.fav h3{font-size:22px;margin-top:8px}.fav .fsub{display:none}.fav .fgo{padding:8px 12px;font-size:14px;min-height:44px;margin-bottom:10px;align-self:stretch}.fav .fchips{gap:6px}.fav .fchips a{font-size:12px;min-height:36px;padding-right:8px;gap:4px;max-width:100%}.fav .fchips a .ic{width:26px;height:26px}}
 
-/* ---------- v45: classrooms (teacher homework, kid login) ---------- */
-.clcard{background:var(--card);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow);margin-top:20px}
-.clnote h2{margin:0 0 8px}
-.clsmall{font-size:14px;color:var(--ink-soft);margin:0}
-.clspin{display:inline-block;width:16px;height:16px;border-radius:50%;border:3px solid currentColor;border-right-color:transparent;vertical-align:-3px;margin-right:6px;animation:clspin .8s linear infinite}
-@keyframes clspin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.clspin{animation:none}}
-.cltabs{display:flex;gap:6px;flex-wrap:wrap;background:var(--pond);border-radius:999px;padding:5px}
-.cltabs button{flex:1 1 auto;border:0;background:transparent;font:inherit;font-weight:700;font-size:15px;color:var(--ink);padding:9px 14px;border-radius:999px;cursor:pointer;min-height:44px}
-.cltabs button[aria-selected="true"]{background:var(--card);box-shadow:0 2px 0 var(--line)}
-.cltabs.big{border-radius:var(--r-md)}
-.clcheck{display:flex!important;grid-template-columns:none!important;align-items:flex-start;gap:10px!important;font-weight:500!important}
-.clcheck input{width:22px!important;height:22px;flex:none;margin-top:1px;padding:0!important}
-.clhow ol{padding-left:22px;display:grid;gap:10px;margin:12px 0 14px}
-.tbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--card);border-radius:var(--r-md);padding:14px 18px;box-shadow:var(--shadow);margin-top:20px}
-.tbar b{display:block;font-size:18px}.tbar span{color:var(--ink-soft);font-size:14px}
-.tbarr{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.linkbtn{border:0;background:none;font:inherit;font-weight:700;font-size:14px;color:var(--fink,#2E7FB8);cursor:pointer;padding:6px 4px;text-decoration:underline}
-.cldanger{color:#C2305A!important}
-.clchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.clchips button{border:3px solid var(--line);background:var(--card);border-radius:var(--r-md);padding:10px 16px;font:inherit;text-align:left;cursor:pointer;color:var(--ink);min-height:48px}
-.clchips button b{display:block;font-size:16px}.clchips button span{font-size:13px;color:var(--ink-soft)}
-.clchips button[aria-selected="true"]{border-color:var(--tang);box-shadow:0 4px 0 var(--tang-dark)}
-.clchips .clnew{border-style:dashed;font-weight:700;color:var(--tang-dark)}
-#tNew{margin-top:16px}
-.clform h3,.formcard h3{margin:0}
-.clgrid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.clgrid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.clpanel{margin-top:18px;display:grid;gap:16px}
-.cltab{display:grid;gap:16px}
-.clwho{border:0;padding:0;margin:0;display:grid;gap:8px}.clwho legend{font-weight:600;font-size:15px;margin-bottom:6px}
-.clkidpick{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 14px;background:var(--pond);border-radius:14px}
-.clh3{margin:6px 0 0}
-.clh3row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.aslist,.kidrows{display:grid;gap:10px}
-.ascard{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--card);border-radius:var(--r-md);padding:12px 14px;box-shadow:var(--shadow)}
-.ascard .ic,.hwcard .ic{display:block;width:64px;height:52px;border-radius:12px;overflow:hidden}
-.ascard .ic svg,.hwcard .ic svg{width:100%;height:100%;display:block}
-.ascard b{display:block}.ascard span{display:block;font-size:14px;color:var(--ink-soft)}
-.asr{display:grid;justify-items:end;gap:2px}.asfin{font-size:14px;color:var(--ink-soft)}.asfin b{color:var(--ink);font-size:16px}
-.kidrow{display:grid;grid-template-columns:minmax(90px,160px) minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--card);border-radius:var(--r-md);padding:12px 16px;box-shadow:var(--shadow)}
-.kidcred{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:15px;color:var(--ink-soft)}
-.kidcred code{font-size:17px;font-weight:700;color:var(--ink);background:var(--pond);padding:1px 8px;border-radius:8px}
-.progwrap{overflow-x:auto;background:var(--card);border-radius:var(--r-md);box-shadow:var(--shadow)}
-.progtab{border-collapse:collapse;width:100%;min-width:420px;font-size:15px}
-.progtab th,.progtab td{padding:10px 12px;border-bottom:2px solid var(--line);text-align:center;vertical-align:middle}
-.progtab thead th{font-size:14px;vertical-align:bottom}.progtab thead small{display:block;font-weight:500;color:var(--ink-soft);font-size:12px}
-.progtab th[scope=row]{text-align:left;white-space:nowrap}
-.progtab td b{display:block}.progtab td small{font-size:12px;color:var(--ink-soft)}
-.progtab td.full{background:#DFF5DA}.progtab td.part{background:#FFF4CC}.progtab td.na{color:var(--ink-soft)}
-.clacct{margin-top:28px}.clacct summary{cursor:pointer;font-weight:700;padding:10px 0}
-.clacct .formcard{margin-top:12px;max-width:520px}
-/* kids */
-.kidlogin{display:grid;grid-template-columns:auto minmax(0,460px);gap:24px;align-items:center;justify-content:center;margin-top:24px}
-.kidpip svg{width:170px;height:150px;display:block}
-.kidlogin h2{margin:0;font-size:clamp(24px,4vw,32px)}
-.kidlogin input{font-size:22px!important;padding:14px 16px!important}
-.kidgo{font-size:22px;min-height:60px}
-.kidtop{display:flex;gap:14px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin-top:12px}
-.kidtop h2{margin:4px 0 0;font-size:clamp(26px,4.5vw,40px)}
-.hwlist{display:grid;gap:14px;margin-top:18px}
-.hwsub{margin:30px 0 0}
-.hwcard{display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--card);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--shadow)}
-.hwcard .ic{width:90px;height:72px}
-.hwcard h3{margin:0;font-size:22px}
-.hwmeta{margin:2px 0 0;color:var(--ink-soft);font-size:15px}.hwmeta .late{color:#C2305A;font-weight:700}
-.hwnote{margin:6px 0 0;font-style:italic}
-.hwlvs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.hwlv{min-width:44px;height:44px;border-radius:12px;background:var(--pond);color:var(--ink);font-weight:800;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;font-size:16px;line-height:1}
-.hwlv i{font-style:normal;font-size:11px;font-weight:700;margin-top:2px;color:#9A6A00}
-.hwlv.done{background:#FFE7A3}.hwlv.lock{opacity:.45}
-.hwgo{display:grid;justify-items:center;gap:6px;text-align:center}
-.hwdone{font-weight:800;color:#2F8A3C;font-size:18px}
-.hwcard.fin{opacity:.9}
-body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-kidmode footer{display:none!important}
-#classPrint{display:none}
-@media (max-width:760px){
-  .clgrid2,.clgrid3{grid-template-columns:1fr}
-  .kidlogin{grid-template-columns:1fr;justify-items:center}.kidlogin .formcard{width:100%}
-  .kidpip svg{width:120px;height:104px}
-  .hwcard{grid-template-columns:64px minmax(0,1fr)}.hwcard .ic{width:64px;height:52px}.hwgo{grid-column:1 / -1;grid-auto-flow:column;justify-content:space-between;align-items:center}
-  .kidrow{grid-template-columns:1fr}
-  .ascard{grid-template-columns:52px minmax(0,1fr)}.ascard .ic{width:52px;height:42px}.asr{grid-column:1 / -1;grid-auto-flow:column;justify-content:space-between;align-items:center}
-}
-@media print{
-  body.ffk-cards{background:#fff!important}
-  body.ffk-cards::before{display:none!important}
-  body.ffk-cards > *:not(#classPrint){display:none!important}
-  body.ffk-cards #classPrint{display:block!important}
-  .pcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .pcard{border:2px dashed #173B40;border-radius:14px;padding:14px 16px;break-inside:avoid;font-family:var(--body);color:#173B40}
-  .pcard p{margin:4px 0;font-size:14px}.pcard code{font-size:18px;font-weight:800}
-  .pchead{display:flex;align-items:center;gap:8px}.pchead svg{width:34px;height:30px}.pchead b{font-size:16px}.pchead b span{color:#E8742C}
-  .pcname{font-size:24px!important;font-weight:800}.pcclass{color:#555;font-size:12px!important}
-}
-@media (min-width:901px){nav.links{gap:0}nav.links a{padding:8px 5px}}
-@media (min-width:901px) and (max-width:1180px){#planChip{display:none}}
-.clplans{margin-top:18px;background:var(--card);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);display:grid;gap:14px;border:3px solid #FFD66B}
-.clplans h3{margin:0 0 4px}.clplans.warn{border-color:#FF9A3D}.clplans p{margin:0}
-.clplanrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.clplan{display:grid;gap:6px;justify-items:start;background:var(--pond);border-radius:var(--r-md);padding:14px 16px}
-.clplan b{font-size:18px}.clprice{font-family:var(--display);font-weight:900;font-size:28px}.clprice small{font-size:14px;font-weight:600;color:var(--ink-soft)}
-.classplans{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;background:var(--card);border-radius:var(--r-lg);padding:20px 24px;box-shadow:var(--shadow)}
-.classplans h3{margin:0 0 4px}.classplans p{margin:0;color:var(--ink-soft)}
-@media (max-width:620px){.clplanrow{grid-template-columns:1fr}}
-.clsteps{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px}
-.clsteps li{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink-soft);font-size:15px}
-.clsteps li span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--pond);color:var(--ink);font-size:14px}
-.clsteps li.now{color:var(--ink)}.clsteps li.now span{background:var(--tang);color:#fff}
-.clsteps li.done span{background:#3FA34D;color:#fff}
-.clgrp{margin:4px 0 -4px;font-size:16px}
-.clplanrow.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.clplan.clbest{box-shadow:inset 0 0 0 3px #FFD66B}
-@media (max-width:760px){.clplanrow.c3{grid-template-columns:1fr}}
 /* ---------- v46: Grade 4 and the three new worlds ---------- */
 .g46field{text-align:center}
 .g46eq{font-family:var(--display);font-weight:900;font-size:clamp(34px,8vw,64px);color:var(--ink);display:inline-flex;align-items:center;gap:.3em;flex-wrap:wrap;justify-content:center;line-height:1.1}
@@ -2218,7 +2126,6 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
     <nav class="links" aria-label="Main">
       <a href="#lessons" data-nav="lessons">Learn</a>
       <a href="#school" data-nav="school">School</a>
-      <a href="#kids" data-nav="kids" id="hwLink">Homework</a>
       <a href="#studio" data-nav="studio">Studio</a>
       <a href="#parents" data-nav="parents">Parents</a>
       <a href="#pricing" data-nav="pricing">Plans</a>
@@ -2266,6 +2173,16 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
       <span><svg aria-hidden="true"><use href="#ok"/></svg>Separate progress for each child</span>
     </div>
 
+
+    <!-- v49: featured games -->
+    <section class="feat" aria-labelledby="featTitle">
+      <div class="fthead">
+        <div><p class="eyebrow">Featured games</p><h2 class="h2big" id="featTitle">Fun games to try first</h2></div>
+        <p class="lead">Five fun games to start with. Tap a card and Pip starts right away.</p>
+      </div>
+      <div class="ftgrid" id="featGrid"></div>
+      <p class="ftfine">Levels 1 to 3 of every game are free, no sign-up needed.</p>
+    </section>
 
     <!-- v42: favorite subjects -->
     <section class="favs" aria-labelledby="favsTitle">
@@ -2784,7 +2701,6 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
           <a class="btn btn-soft" href="#subscribe" data-plan="family">Choose Family</a>
         </div>
       </div>
-      <div class="classplans"><div class="min-w0"><h3>For teachers and classrooms</h3><p>Give homework with kid logins. <b>Classroom 15:</b> $249.99 a year, up to 15 students. <b>Classroom 30:</b> $349.99 a year, up to 30 students. All prices in US dollars.</p></div><a class="btn btn-go" href="#teach">Set up a classroom</a></div>
       <div class="faq">
         <details><summary>What do we get without paying?</summary><p>Levels 1 to 3 of every age group in all <span data-count="worlds">38</span> worlds, plus Magic Paint, the Fruit &amp; Veggie Book and 3 Color Book pictures, with no account. Levels 4 to 30 and the rest of the Color Book unlock when you subscribe.</p></details>
         <details><summary>Which ages is FirstFoundationkids for?</summary><p>Ages 2 to 7. Rounds get harder as your child answers correctly, so older kids stay challenged.</p></details>
@@ -3112,26 +3028,6 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
   </section>
 </div>
 
-<!-- ================= v45: CLASSROOM (teachers and parents) ================= -->
-<div class="view" id="v-teach">
-  <section class="band" style="padding-top:36px">
-    <div class="wrap">
-      <p class="eyebrow">For teachers and parents</p>
-      <h1 style="font-size:clamp(34px,5.5vw,56px);margin-top:6px">Give kids homework</h1>
-      <p class="lead" style="margin-top:10px">Make a class, give each kid a simple login, and pick the games and levels they should practice. When kids log in, they see only their homework, and you see who finished.</p>
-      <div id="teachBody"></div>
-    </div>
-  </section>
-</div>
-
-<!-- ================= v45: KID LOGIN + MY HOMEWORK ================= -->
-<div class="view" id="v-kids">
-  <section class="band" style="padding-top:30px">
-    <div class="wrap">
-      <div id="kidsBody"></div>
-    </div>
-  </section>
-</div>
 </main>
 
 <footer>
@@ -3143,7 +3039,7 @@ body.ffk-kidmode nav.links a:not(#hwLink),body.ffk-kidmode #planChip,body.ffk-ki
         <p><a href="mailto:firstfoundationkidsapp@gmail.com">firstfoundationkidsapp@gmail.com</a></p>
       </div>
       <div><h4>Play</h4><ul><li><a href="#lessons">All worlds</a></li><li><a href="#school">Pip's Pond School</a></li><li><a href="#studio">Studio</a></li><li><a href="#food">Fruit &amp; Veggie Book</a></li><li><a href="#path">Pip's Path</a></li><li><a href="#printables">Printables</a></li><li><a href="#prizes">My prizes</a></li></ul></div>
-      <div><h4>Parents</h4><ul><li><a href="#parents">Progress and screen time</a></li><li><a href="#pricing">Plans</a></li><li><a href="#account">My account</a></li><li><a href="#teach">Teachers: give homework</a></li><li><a href="#kids">Kid login</a></li><li><a href="#faq">Questions</a></li></ul></div>
+      <div><h4>Parents</h4><ul><li><a href="#parents">Progress and screen time</a></li><li><a href="#pricing">Plans</a></li><li><a href="#account">My account</a></li><li><a href="#faq">Questions</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="#about">About us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
       <div><h4>Learn more</h4><ul><li><a href="/learning-games/">All learning games</a></li><li><a href="/school/">School practice</a></li><li><a href="/blog/">Parent guides</a></li><li><a href="/plans/">Plans and prices</a></li><li><a href="/faq/">All questions</a></li></ul></div><div><h4>Legal</h4><ul><li><a href="#terms">Terms of Use</a></li><li><a href="#privacy">Privacy Policy</a></li></ul></div>
     </div>
@@ -10063,6 +9959,35 @@ renderWorld = function(arg){
   fillFavs();
   window.addEventListener("hashchange", fillFavs);
 })();
+/* ---------- v49: featured games on the home page (Story Time, Farm Chorus, Snack Sums, Shadow Match, Smoothie Bar) ---------- */
+(function(){
+  var FEAT = ["storytime","animals","sums","shadow","smoothie"];
+  var SAY = {storytime:"Story time!", animals:"Let's sing with the farm animals!", sums:"Let's add some snacks!", shadow:"Can you match the shadows?", smoothie:"Let's make a smoothie!"};
+  function drawFeat(){
+    var box = document.getElementById("featGrid"); if(!box) return;
+    var b = S.band||2;
+    if(box.dataset.band===String(b)) return;
+    box.innerHTML = FEAT.map(function(id){
+      var g = gameById(id); if(!g) return "";
+      return '<a class="ftcard" href="#world-'+id+'-'+b+'" data-w="'+id+'" data-fsay="'+(SAY[id]||g.name)+'" style="--gbg:'+g.bg+';--gc:'+g.color+'">'+
+        '<span class="ftart" aria-hidden="true"><span class="ftbadge">Featured</span>'+(g.art||"")+'</span>'+
+        '<h3>'+g.name+'</h3><p class="ftskill">'+g.skill+'</p><p class="ftage">Ages '+g.age+'</p>'+
+        '<span class="ftgo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Play</span></a>';
+    }).join("");
+    box.dataset.band = String(b);
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest(".ftcard[data-fsay]");
+    if(a && typeof say==="function"){ try{ say(a.dataset.fsay); }catch(_){} }
+  }, true);
+  /* classrooms were taken out: forget old homework logins and send old links home */
+  try{ localStorage.removeItem("ffk-kid"); localStorage.removeItem("ffk-teach"); }catch(_){}
+  document.body.classList.remove("ffk-kidmode");
+  function oldLinks(){ var h = (location.hash||"").replace("#",""); if(h==="teach" || h==="kids"){ try{ history.replaceState(null, "", location.pathname+location.search+"#home"); }catch(_){} if(typeof route==="function") route(); } }
+  oldLinks();
+  window.addEventListener("hashchange", function(){ oldLinks(); drawFeat(); });
+  drawFeat();
+})();
 
 /* ---------- v43: printables, Pip's Path and clearer subjects ---------- */
 (function(){
@@ -10319,392 +10244,6 @@ renderWorld = function(arg){
     if(h==="path") setTimeout(renderPath, 0); else if(h==="printables") setTimeout(renderPrintables, 0); else if(h==="" || h==="home") setTimeout(favLinks, 0); }
   window.addEventListener("hashchange", v43route);
   favLinks(); v43route();
-})();
-/* ---------- v45: classrooms: teachers and parents give homework, kids log in to see only their homework ----------
-   Server: /api/class (Cloudflare Pages Function + D1 database "DB"). The Claude preview has no server, so the two pages
-   explain that classrooms work on the live site. #teach = grown-ups, #kids = kid login and "My homework". */
-(function(){
-  var CL_LIVE = PAY_LIVE || /^(localhost|127\.0\.0\.1)$/.test(location.hostname) || /[?&]classtest=1/.test(location.search);
-  var CL_SITE = "www.firstfoundationkids.com";
-  var CL_BAND_TX = {1:"Ages 2–3 (preschool)", 2:"Ages 4–5 (pre-K and kindergarten)", 3:"Grade 1 (ages 6–7)", 4:"Grade 2", 5:"Grade 3", 6:"Grade 4"};
-  var CL_BAND_SHORT = {1:"Ages 2–3", 2:"Ages 4–5", 3:"Grade 1", 4:"Grade 2", 5:"Grade 3", 6:"Grade 4"};
-  function clBands(){ var out = []; for(var b=1;b<=BANDS.length && b<=6;b++) out.push(b); return out; }
-  function lsGet(k){ try{ return JSON.parse(localStorage.getItem(k)||"null"); }catch(e){ return null; } }
-  function lsSet(k, v){ try{ if(v==null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
-  function api(body, tok){
-    var h = {"content-type":"application/json"}; if(tok) h.authorization = "Bearer "+tok;
-    return fetch("/api/class", {method:"POST", headers:h, body:JSON.stringify(body)}).then(function(r){
-      return r.json().catch(function(){ return {error:"The classroom server didn't answer. Please try again."}; }).then(function(d){ d = d || {}; d._status = r.status; return d; });
-    }, function(){ return {error:"No internet connection. Please try again.", _status:0}; });
-  }
-  function dueTx(d){ if(!d) return ""; var p = d.split("-"), t = new Date(+p[0], +p[1]-1, +p[2]); return t.toLocaleDateString(undefined, {weekday:"short", month:"short", day:"numeric"}); }
-  function overdue(d){ if(!d) return false; var p = d.split("-"); return new Date(+p[0], +p[1]-1, +p[2], 23, 59).getTime() < Date.now(); }
-  function lvRange(a){ return a.from===a.to ? "Level "+a.from : "Levels "+a.from+"–"+a.to; }
-  function gameArt(id){ var g = gameById(id); return g ? '<span class="ic" style="background:'+g.bg+'">'+g.art+'</span>' : '<span class="ic"></span>'; }
-  function gameName(id){ var g = gameById(id); return g ? g.name : id; }
-  var mk = function(tag, cls, html){ var e = document.createElement(tag); if(cls) e.className = cls; if(html!=null) e.innerHTML = html; return e; };
-  var BUSY = '<span class="clspin" aria-hidden="true"></span>';
-  function busy(btn, on, txt){ if(!btn) return; if(on){ btn.dataset.tx = btn.innerHTML; btn.disabled = true; btn.innerHTML = BUSY+(txt||"Please wait..."); } else { btn.disabled = false; if(btn.dataset.tx) btn.innerHTML = btn.dataset.tx; } }
-
-  /* ================= kids: log in, see only your homework ================= */
-  var KID = {on:false, token:null, user:null, name:"", data:null, cur:null};
-  (function(){ var k = lsGet("ffk-kid"); if(k && k.token && k.user){ KID.on = true; KID.token = k.token; KID.user = k.user; KID.name = k.name||""; KID.data = k.data||null; } })();
-  function kidSave(){ lsSet("ffk-kid", KID.on ? {token:KID.token, user:KID.user, name:KID.name, data:KID.data} : null); }
-  function kidMode(){ document.body.classList.toggle("ffk-kidmode", KID.on); var hl = $("#hwLink"); if(hl) hl.textContent = KID.on ? "My homework" : "Homework"; }
-  var _curPid45 = curPid;
-  curPid = function(){ return KID.on ? "kid:"+KID.user : _curPid45(); };
-  function kidAsg(){ return KID.data && Array.isArray(KID.data.assignments) ? KID.data.assignments : []; }
-  function kidCap(){ return KID.data && KID.data.pro ? LEVELS : (KID.data && KID.data.freeTo) || FREE_LEVELS; }
-  function kidAllowed(id, band, l){ var cap = kidCap(); return kidAsg().some(function(a){ return a.game===id && a.band===band && l>=a.from && l<=Math.min(a.to, cap); }); }
-  function kidStars(id, band, l){ var k = lvKey(id, band, l), p = KID.data && KID.data.progress ? KID.data.progress[k] : null, s = S.lv[k]; return p==null && s==null ? null : Math.max(p==null ? 0 : p, s==null ? 0 : s); }
-  function asgDone(a){ var cap = Math.min(a.to, kidCap()), n = 0, tot = cap - a.from + 1; for(var l=a.from;l<=cap;l++) if(kidStars(a.game, a.band, l)!=null) n++; return {n:n, tot:Math.max(0, tot), next:(function(){ for(var l=a.from;l<=cap;l++) if(kidStars(a.game, a.band, l)==null) return l; return a.from; })()}; }
-  function kidNext(id, band, after){
-    var list = kidAsg(), cap = kidCap();
-    for(var i=0;i<list.length;i++){ var a = list[i]; if(a.game===id && a.band===band && after+1>=a.from && after+1<=Math.min(a.to, cap)) return "#play-"+id+"-"+band+"-"+(after+1); }
-    for(var j=0;j<list.length;j++){ var d = asgDone(list[j]); if(d.n<d.tot) return "#play-"+list[j].game+"-"+list[j].band+"-"+d.next; }
-    return "#kids";
-  }
-  function kidRefresh(then){
-    if(!KID.on) return;
-    api({action:"kidme"}, KID.token).then(function(d){
-      if(d._status===401){ kidLogout(true); toast("Please log in again."); return; }
-      if(d.error){ if(then) then(d.error); return; }
-      KID.data = d; KID.name = d.kid.name; kidSave(); useProfile(); if(S.band!==d.cls.band){ S.band = d.cls.band; save(); }
-      if(then) then();
-    });
-  }
-  function kidLogout(quiet){
-    if(KID.token) api({action:"logout"}, KID.token);
-    KID.on = false; KID.token = null; KID.user = null; KID.name = ""; KID.data = null; kidSave(); kidMode(); syncAccount();
-    if(!quiet) toast("Logged out. See you next time!");
-    if(curView==="kids") renderKids();
-  }
-  function renderKids(){
-    var box = $("#kidsBody"); if(!box) return;
-    kidMode();
-    if(!CL_LIVE){
-      box.innerHTML = '<div class="clcard clnote"><h2>Homework works on the real website</h2><p>Kids log in at <b>'+CL_SITE+'/#kids</b> with the username and password their teacher or grown-up made for them. This preview has no server, so logins are switched off here.</p><a class="btn btn-soft btn-sm" href="#teach">For teachers and parents</a></div>';
-      return;
-    }
-    if(!KID.on){
-      box.innerHTML = '<div class="kidlogin"><div class="kidpip" aria-hidden="true"><svg><use href="#pip"/></svg></div>'+
-        '<form class="formcard" id="kidForm" novalidate><h2>Hi! Log in to see your homework</h2>'+
-        '<label for="kUser">My username<input id="kUser" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="mia27"></label>'+
-        '<label for="kPass">My password<input id="kPass" type="password" autocomplete="current-password" autocapitalize="none" placeholder="frog12"></label>'+
-        '<p class="err" id="kErr" hidden></p><button class="btn btn-go kidgo" type="submit">Let\'s go!</button></form></div>'+
-        '<p class="clsmall" style="text-align:center;margin-top:18px">Grown-up? <a href="#teach">Make a class and give homework</a></p>';
-      $("#kidForm").addEventListener("submit", function(e){
-        e.preventDefault(); var er = $("#kErr"), bt = $(".kidgo", this), u = $("#kUser").value.trim(), p = $("#kPass").value.trim();
-        if(!u || !p){ er.textContent = "Type your username and your password."; er.hidden = false; return; }
-        busy(bt, true, "Opening..."); er.hidden = true;
-        api({action:"kidlogin", user:u, password:p}).then(function(d){
-          if(!d.token){ busy(bt, false); er.textContent = d.error || "That didn't work. Try again!"; er.hidden = false; $("#kPass").value = ""; return; }
-          KID.on = true; KID.token = d.token; KID.user = u.toLowerCase().replace(/[^a-z0-9]/g,""); kidSave();
-          kidRefresh(function(err){ busy(bt, false); kidMode(); renderKids(); if(!err){ sfx.fanfare && sfx.fanfare(); say("Hi "+KID.name+"! Here is your homework."); } else toast(err); });
-        });
-      });
-      return;
-    }
-    var d = KID.data;
-    if(!d){ box.innerHTML = '<div class="clcard">'+BUSY+' Loading your homework...</div>'; kidRefresh(function(err){ if(err) box.innerHTML = '<div class="clcard"><p class="err">'+esc(err)+'</p><button class="btn btn-soft btn-sm" id="kRetry">Try again</button> <button class="btn btn-soft btn-sm" id="kOut">Log out</button></div>', $("#kRetry") && $("#kRetry").addEventListener("click", renderKids), $("#kOut") && $("#kOut").addEventListener("click", function(){ kidLogout(); }); else renderKids(); }); return; }
-    var list = kidAsg(), todo = list.filter(function(a){ var x = asgDone(a); return x.n<x.tot; }), done = list.filter(function(a){ var x = asgDone(a); return x.n>=x.tot; });
-    var card = function(a){
-      var x = asgDone(a), cap = Math.min(a.to, kidCap()), lv = "";
-      for(var l=a.from;l<=a.to;l++){ var st = kidStars(a.game, a.band, l), lock = l>cap;
-        lv += lock ? '<span class="hwlv lock" title="Ask your teacher">'+l+'</span>' : '<a class="hwlv'+(st!=null ? ' done' : '')+'" href="#play-'+a.game+'-'+a.band+'-'+l+'" aria-label="Level '+l+(st!=null ? ', '+st+' stars' : '')+'">'+l+(st!=null ? '<i>'+st+'★</i>' : '')+'</a>'; }
-      var fin = x.tot>0 && x.n>=x.tot;
-      return '<article class="hwcard'+(fin ? ' fin' : '')+'">'+gameArt(a.game)+'<div class="min-w0"><h3>'+esc(gameName(a.game))+'</h3><p class="hwmeta">'+CL_BAND_SHORT[a.band]+' · '+lvRange(a)+(a.due ? ' · <span class="'+(overdue(a.due) && !fin ? 'late' : '')+'">Due '+dueTx(a.due)+'</span>' : '')+'</p>'+
-        (a.note ? '<p class="hwnote">“'+esc(a.note)+'”</p>' : '')+'<div class="hwlvs">'+lv+'</div></div>'+
-        '<div class="hwgo">'+(fin ? '<span class="hwdone">Done! ⭐</span><a class="btn btn-soft btn-sm" href="#play-'+a.game+'-'+a.band+'-'+a.from+'">Play again</a>' : x.tot<=0 ? '<span class="clsmall">Ask your teacher to unlock these levels.</span>' : '<a class="btn btn-go" href="#play-'+a.game+'-'+a.band+'-'+x.next+'">'+(x.n ? 'Keep going' : 'Start')+'</a><span class="clsmall">'+x.n+' of '+x.tot+' done</span>')+'</div></article>';
-    };
-    box.innerHTML = '<div class="kidtop"><div class="min-w0"><p class="eyebrow">'+esc(d.cls.name)+(d.cls.teacher ? ' · '+esc(d.cls.teacher) : '')+'</p><h2>Hi '+esc(KID.name)+'! '+(todo.length ? 'Here is your homework.' : list.length ? 'All your homework is done!' : 'No homework yet.')+'</h2></div><button class="btn btn-soft btn-sm" id="kidOut" type="button">Log out</button></div>'+
-      (list.length ? '' : '<div class="clcard"><p>Your teacher hasn\'t given any homework yet. Check again later!</p></div>')+
-      (todo.length ? '<div class="hwlist">'+todo.map(card).join("")+'</div>' : '')+
-      (done.length ? '<h3 class="hwsub">Finished</h3><div class="hwlist">'+done.map(card).join("")+'</div>' : '');
-    $("#kidOut").addEventListener("click", function(){ kidLogout(); });
-  }
-
-  /* kid mode: only the homework page and homework levels open */
-  var _startGame45 = startGame;
-  startGame = function(id, band, level){
-    if(KID.on){
-      var g = gameById(id), b = Math.max(1, Math.min(g ? bandN(g) : 1, band||1)), l = Math.max(1, Math.min(LEVELS, level||1));
-      if(!kidAllowed(id, b, l)){ KID.cur = null; G = null; history.replaceState(null, "", "#kids"); route(); toast("That one isn't in your homework."); return; }
-      KID.cur = {id:id, band:b};
-    } else KID.cur = null;
-    return _startGame45(id, band, level);
-  };
-  var _levelOpen45 = levelOpen;
-  levelOpen = function(l){ if(KID.on && KID.cur) return kidAllowed(KID.cur.id, KID.cur.band, l); return _levelOpen45(l); };
-  var _drawGameNav45 = drawGameNav;
-  drawGameNav = function(){
-    _drawGameNav45();
-    if(!KID.on || !G) return; var pv = $("#lvPrev"), nx = $("#lvNext"); if(!pv) return;
-    var lp = G.level-1, ln = G.level+1, okp = lp>=1 && kidAllowed(G.id, G.band, lp), okn = ln<=LEVELS && kidAllowed(G.id, G.band, ln);
-    pv.setAttribute("href", okp ? "#play-"+G.id+"-"+G.band+"-"+lp : "#kids"); $("#lvPrevTx").textContent = okp ? "Level "+lp : "My homework";
-    nx.setAttribute("href", okn ? "#play-"+G.id+"-"+G.band+"-"+ln : kidNext(G.id, G.band, G.level)); $("#lvNextTx").textContent = okn ? "Level "+ln : "Next homework";
-  };
-  var _finish45 = finishGame;
-  finishGame = function(){
-    var g = G ? {id:G.id, band:G.band, level:G.level, stars:G.results.filter(function(x){ return x===true; }).length} : null;
-    var r = _finish45.apply(this, arguments);
-    if(KID.on && g){
-      var key = lvKey(g.id, g.band, g.level);
-      if(KID.data){ KID.data.progress = KID.data.progress || {}; KID.data.progress[key] = Math.max(KID.data.progress[key]||0, g.stars); kidSave(); }
-      api({action:"kidstars", key:key, stars:g.stars}, KID.token).then(function(d){ if(d._status===401) toast("Log in again so your teacher can see your stars."); });
-      var nx = kidNext(g.id, g.band, g.level), b = $("#board .finish .btn-go");
-      if(b){ b.setAttribute("href", nx); b.textContent = nx==="#kids" ? "Back to my homework" : /-1$/.test(nx) && nx.indexOf("#play-"+g.id+"-")<0 ? "Next homework" : "Next level"; }
-      $$("#board .finish .teaser, #board .finish .hopline").forEach(function(x){ x.remove(); });
-    }
-    return r;
-  };
-
-  /* ================= grown-ups: classes, kid logins, homework ================= */
-  var T = {token:(lsGet("ffk-teach")||{}).token || null, data:null, cls:null, prog:{}, fresh:{}, tab:"homework", loading:false};
-  function tSave(){ lsSet("ffk-teach", T.token ? {token:T.token} : null); }
-  function tLoad(then){
-    T.loading = true;
-    api({action:"me"}, T.token).then(function(d){
-      T.loading = false;
-      if(d._status===401){ T.token = null; tSave(); T.data = null; renderTeach(); return; }
-      if(d.error){ $("#teachBody").innerHTML = '<div class="clcard"><p class="err">'+esc(d.error)+'</p><button class="btn btn-soft btn-sm" id="tRetry">Try again</button></div>'; $("#tRetry").addEventListener("click", function(){ tLoad(); }); return; }
-      T.data = d;
-      var cp = new URLSearchParams(location.search).get("classpaid");
-      if(cp){ try{ history.replaceState(null, "", location.pathname+"#teach"); }catch(e){}
-        api({action:"classpaid", session:cp}, T.token).then(function(r){ if(r.teacher){ T.data.teacher = r.teacher; renderTeach(); if(typeof confetti==="function") confetti(); toast("Thank you! Your plan is active. Now add your kids and their logins."); } else toast(r.error || "We couldn't confirm the payment. Refresh in a minute, or email us."); }); }
-      if(!T.cls || !d.classes.some(function(c){ return c.id===T.cls; })) T.cls = d.classes.length ? d.classes[0].id : null;
-      renderTeach(); if(T.cls) tProg(); if(then) then();
-    });
-  }
-  function tClass(){ if(!T.data) return null; for(var i=0;i<T.data.classes.length;i++) if(T.data.classes[i].id===T.cls) return T.data.classes[i]; return null; }
-  function tPut(cls){ if(!T.data || !cls) return; var i = T.data.classes.map(function(c){ return c.id; }).indexOf(cls.id); if(i>=0) T.data.classes[i] = cls; else T.data.classes.push(cls); T.cls = cls.id; }
-  function tProg(){ var c = tClass(); if(!c) return; api({action:"progress", classId:c.id}, T.token).then(function(d){ if(d.progress){ T.prog[c.id] = d.progress; if(curView==="teach" && T.cls===c.id) drawClass(); } }); }
-  function tErr(d, fallback){ if(d && d._status===401){ T.token = null; tSave(); T.data = null; renderTeach(); toast("Please sign in again."); return true; } toast((d && d.error) || fallback || "That didn't work. Please try again."); return false; }
-  var CL_PLANS = [
-    {id:"monthly", n:"Monthly", price:"$9.99", per:"month", seats:1, g:"home"},
-    {id:"yearly", n:"Yearly", price:"$79.99", per:"year", seats:1, g:"home"},
-    {id:"family", n:"Family", price:"$99.99", per:"year", seats:4, g:"home", best:true},
-    {id:"classroom15", n:"Classroom 15", price:"$249.99", per:"year", seats:15, g:"school"},
-    {id:"classroom30", n:"Classroom 30", price:"$349.99", per:"year", seats:30, g:"school", best:true}];
-  var CL_PLAN_NAME = {classroom15:"Classroom 15", classroom30:"Classroom 30", family:"Family", yearly:"Yearly", monthly:"Monthly", "free-pass":"Free pass"};
-  function kidWord(n){ return n+' kid'+(n===1?'':'s'); }
-  function proNote(){
-    var t = T.data.teacher, p = t.plan, nm = p && CL_PLAN_NAME[p.name] ? CL_PLAN_NAME[p.name] : "Plan";
-    if(t.planActive) return '<span class="pill '+(t.pro ? 'ok' : 'warn')+'">'+esc(nm)+' · '+t.kids+' of '+(t.seats>999 ? 'unlimited' : t.seats)+' kids</span>'+(p && p.billing ? ' <button class="linkbtn" type="button" id="tBill">Manage plan</button>' : '');
-    return '<span class="pill warn">No plan yet</span>';
-  }
-  function steps(n){
-    var L = ["Make your account", "Pick a plan and pay", "Add kids and give homework"];
-    return '<ol class="clsteps">'+L.map(function(x, i){ return '<li class="'+(i+1<n ? 'done' : i+1===n ? 'now' : '')+'"><span>'+(i+1<n ? '✓' : i+1)+'</span>'+x+'</li>'; }).join("")+'</ol>';
-  }
-  function planCard(pl){
-    return '<div class="clplan'+(pl.best ? ' clbest' : '')+'"><b>'+pl.n+'</b><span class="clprice">'+pl.price+'<small> / '+pl.per+'</small></span><span>'+(pl.g==="home" ? kidWord(pl.seats) : 'Up to '+pl.seats+' students')+'</span><button class="btn btn-go btn-sm" type="button" data-buy="'+pl.id+'">Choose '+pl.n+'</button></div>';
-  }
-  function payPage(){
-    var t = T.data.teacher, a = me(), canLink = a && a.stripe && a.stripe.token && hasAccess(a);
-    var grp = function(g){ return CL_PLANS.filter(function(pl){ return pl.g===g; }).map(planCard).join(""); };
-    return steps(2)+'<div class="clplans"><div class="min-w0"><h3>Pick a plan for your kids</h3><p class="clsmall">After you pay, you come right back here to make a username and password for each kid. Every plan opens all 30 levels in every world. Prices in US dollars. Cancel any time.</p></div>'+
-      '<h4 class="clgrp">For parents at home</h4><div class="clplanrow c3">'+grp("home")+'</div>'+
-      '<h4 class="clgrp">For teachers and schools</h4><div class="clplanrow">'+grp("school")+'</div>'+
-      (canLink ? '<p class="clsmall">Already paid on this device? <button class="linkbtn" type="button" id="tLink">Use my '+esc(PLANS[a.plan] ? PLANS[a.plan].name : "")+' plan</button> ('+(a.plan==="family" ? "up to 4 kids" : "1 kid")+').</p>' : '')+'</div>';
-  }
-  function planBox(){
-    var t = T.data.teacher;
-    if(t.planActive && !t.pro) return '<div class="clplans warn"><p><b>Your plan covers '+kidWord(t.seats)+', and you have '+t.kids+'.</b> Levels 4 to 30 are paused until you remove some kids'+(t.seats<30 ? ' or switch to a bigger plan' : '')+'.</p>'+(t.seats<30 && t.plan && t.plan.billing ? '<button class="btn btn-go btn-sm" type="button" id="tBill2">Switch plan</button>' : '')+'</div>';
-    return "";
-  }
-  function tPlanBtns(box){
-    $$("[data-buy]", box).forEach(function(bt){ bt.addEventListener("click", function(){ busy(bt, true, "Opening checkout...");
-      api({action:"buyclass", plan:bt.dataset.buy}, T.token).then(function(d){ if(d.url){ location.href = d.url; return; } busy(bt, false); tErr(d, "Checkout didn't open. Please try again."); }); }); });
-    ["#tBill", "#tBill2"].forEach(function(sel){ var bb = $(sel); if(bb) bb.addEventListener("click", function(){ busy(bb, true, "Opening...");
-      api({action:"billing"}, T.token).then(function(d){ if(d.url){ location.href = d.url; return; } busy(bb, false); tErr(d, "Couldn't open billing. Please try again."); }); }); });
-    var lk = $("#tLink", box); if(lk && !lk.dataset.on){ lk.dataset.on = "1"; lk.addEventListener("click", function(){ var a = me(); busy(lk, true, "Linking...");
-      api({action:"linkplan", customer:a.stripe.customer, token:a.stripe.token}, T.token).then(function(d){ busy(lk, false); if(d.teacher){ T.data.teacher = d.teacher; renderTeach(); toast(d.teacher.planActive ? "Plan linked. Now add your kids." : "That plan isn't active right now."); } else tErr(d); }); }); }
-  }
-  function renderTeach(){
-    var box = $("#teachBody"); if(!box) return;
-    if(!CL_LIVE){
-      box.innerHTML = '<div class="clcard clnote"><h2>Classrooms work on the real website</h2><p>Open <b>'+CL_SITE+'/#teach</b> to make a class, create kid logins and give homework. This preview has no server, so classroom accounts are switched off here.</p></div>'+howHTML();
-      return;
-    }
-    if(!T.token){
-      box.innerHTML = '<div class="acct"><form class="formcard" id="tForm" novalidate><div class="cltabs" role="tablist"><button type="button" role="tab" data-tm="up" aria-selected="true">Make an account</button><button type="button" role="tab" data-tm="in" aria-selected="false">Sign in</button></div>'+
-        '<p class="clsmall" id="tWho">For parents and teachers. Your kids get their own simple logins after you pick a plan.</p><label for="tName" id="tNameL">Your name (kids will see it)<input id="tName" autocomplete="name" placeholder="Mom, Dad or Ms. Lee"></label>'+
-        '<label for="tEmail">Email<input id="tEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>'+
-        '<label for="tPass">Password<input id="tPass" type="password" autocomplete="new-password" placeholder="At least 8 characters"></label>'+
-        '<label class="clcheck" id="tAgreeL"><input type="checkbox" id="tAgree"> <span>I am a grown-up (teacher, parent or caregiver) and I agree to the <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</span></label>'+
-        '<p class="err" id="tErr" hidden></p><button class="btn btn-go" type="submit" id="tGo">Next: pick a plan</button><p class="clsmall" id="tInNote" hidden>This is the parent and teacher account made on this Homework page. It is separate from <a href="#account">My account</a> on this device.</p></form>'+howHTML(true)+'</div>';
-      var mode = "up", f = $("#tForm");
-      var setMode = function(m){ mode = m; $$("[data-tm]", f).forEach(function(b){ b.setAttribute("aria-selected", String(b.dataset.tm===m)); }); $("#tNameL").hidden = m!=="up"; $("#tAgreeL").hidden = m!=="up"; $("#tGo").textContent = m==="up" ? "Next: pick a plan" : "Sign in"; $("#tWho").hidden = m!=="up"; $("#tInNote").hidden = m==="up"; $("#tPass").setAttribute("autocomplete", m==="up" ? "new-password" : "current-password"); $("#tErr").hidden = true; };
-      f.addEventListener("click", function(e){ var b = e.target.closest("[data-tm]"); if(b) setMode(b.dataset.tm); });
-      f.addEventListener("submit", function(e){
-        e.preventDefault(); var er = $("#tErr"), bt = $("#tGo");
-        if(mode==="up" && !$("#tAgree").checked){ er.textContent = "Please tick the box to agree first."; er.hidden = false; return; }
-        busy(bt, true); er.hidden = true;
-        api({action:mode==="up" ? "signup" : "login", name:$("#tName").value, email:$("#tEmail").value, password:$("#tPass").value}).then(function(d){
-          busy(bt, false);
-          if(!d.token){ er.textContent = d.error || "That didn't work. Please try again."; er.hidden = false; return; }
-          T.token = d.token; tSave(); box.innerHTML = '<div class="clcard">'+BUSY+' Opening your classroom...</div>'; tLoad(function(){ if(mode==="up") toast("Account made. Now pick a plan."); });
-        });
-      });
-      return;
-    }
-    if(!T.data){ box.innerHTML = '<div class="clcard">'+BUSY+' Opening your classroom...</div>'; if(!T.loading) tLoad(); return; }
-    var t = T.data.teacher, cs = T.data.classes;
-    if(!t.planActive){
-      box.innerHTML = '<div class="tbar"><div class="min-w0"><b>'+esc(t.name)+'</b><span>'+esc(t.email)+'</span></div><div class="tbarr">'+proNote()+'<button class="btn btn-soft btn-sm" type="button" id="tOut">Sign out</button></div></div>'+payPage();
-      $("#tOut").addEventListener("click", function(){ api({action:"logout"}, T.token); T.token = null; T.data = null; T.prog = {}; T.fresh = {}; tSave(); renderTeach(); toast("Signed out."); });
-      tPlanBtns(box); return;
-    }
-    box.innerHTML = '<div class="tbar"><div class="min-w0"><b>'+esc(t.name)+'</b><span>'+esc(t.email)+'</span></div><div class="tbarr">'+proNote()+'<button class="btn btn-soft btn-sm" type="button" id="tOut">Sign out</button></div></div>'+
-      '<div class="clchips" role="tablist" aria-label="Your classes">'+cs.map(function(c){ return '<button type="button" role="tab" data-cls="'+c.id+'" aria-selected="'+(c.id===T.cls)+'"><b>'+esc(c.name)+'</b><span>'+CL_BAND_SHORT[c.band]+' · '+c.kids.length+' kid'+(c.kids.length===1?'':'s')+'</span></button>'; }).join("")+
-      '<button type="button" class="clnew" id="tNewBtn">+ New class</button></div>'+planBox()+'<div id="tNew" hidden></div><div id="tClass"></div>'+
-      '<details class="clacct"><summary>Account settings</summary><form class="formcard" id="tPw" novalidate><h3>Change password</h3><label>Current password<input type="password" id="tPwOld" autocomplete="current-password"></label><label>New password<input type="password" id="tPwNew" autocomplete="new-password" placeholder="At least 8 characters"></label><button class="btn btn-soft btn-sm" type="submit">Change password</button></form>'+
-      '<form class="formcard" id="tDel" novalidate><h3>Delete classroom account</h3><p class="clsmall">This deletes your account, every class, every kid login and all homework and stars. It can\'t be undone.</p><label>Type your password<input type="password" id="tDelPw" autocomplete="current-password"></label><button class="btn btn-soft btn-sm cldanger" type="submit">Delete everything</button></form></details>';
-    $("#tOut").addEventListener("click", function(){ api({action:"logout"}, T.token); T.token = null; T.data = null; T.prog = {}; T.fresh = {}; tSave(); renderTeach(); toast("Signed out."); });
-    tPlanBtns(box);
-    var ul = $("#tUnlink"); if(ul) ul.addEventListener("click", function(){ if(!confirmTwice(ul, "Tap again to unlink")) return; api({action:"unlinkplan"}, T.token).then(function(d){ if(d.teacher){ T.data.teacher = d.teacher; renderTeach(); } else tErr(d); }); });
-    $$("[data-cls]", box).forEach(function(b){ b.addEventListener("click", function(){ T.cls = b.dataset.cls; renderTeach(); tProg(); }); });
-    $("#tNewBtn").addEventListener("click", function(){ drawNewClass(); });
-    $("#tPw").addEventListener("submit", function(e){ e.preventDefault(); api({action:"password", old:$("#tPwOld").value, password:$("#tPwNew").value}, T.token).then(function(d){ if(d.ok){ toast("Password changed."); $("#tPwOld").value = $("#tPwNew").value = ""; } else tErr(d); }); });
-    $("#tDel").addEventListener("submit", function(e){ e.preventDefault(); var bt = $("button", this); if(!confirmTwice(bt, "Tap again: delete everything")) return;
-      api({action:"deleteaccount", password:$("#tDelPw").value}, T.token).then(function(d){ if(d.ok){ T.token = null; T.data = null; tSave(); renderTeach(); toast("Your classroom account is deleted."); } else tErr(d); }); });
-    if(!cs.length) drawNewClass(true); else drawClass();
-  }
-  function confirmTwice(btn, msg){ if(btn.dataset.sure==="1") return true; btn.dataset.sure = "1"; btn.dataset.tx0 = btn.textContent; btn.textContent = msg; setTimeout(function(){ if(btn.isConnected){ btn.dataset.sure = ""; btn.textContent = btn.dataset.tx0; } }, 4000); return false; }
-  function bandSelect(id, sel){ return '<select id="'+id+'">'+clBands().map(function(b){ return '<option value="'+b+'"'+(b===sel ? ' selected' : '')+'>'+CL_BAND_TX[b]+'</option>'; }).join("")+'</select>'; }
-  function drawNewClass(first){
-    var nb = $("#tNew"); nb.hidden = false;
-    nb.innerHTML = '<form class="formcard clform" id="tNewF" novalidate><h3>'+(first ? 'Make your first class' : 'New class')+'</h3><p class="clsmall">A class can be a school class, or your own kids at home.</p>'+
-      '<div class="clgrid2"><label>Class name<input id="tCN" maxlength="50" placeholder="Room 12 or The Lee kids"></label><label>Grade or age group'+bandSelect("tCB", 3)+'</label></div>'+
-      '<div class="row"><button class="btn btn-go btn-sm" type="submit">Make class</button>'+(first ? '' : '<button class="btn btn-soft btn-sm" type="button" id="tNewX">Cancel</button>')+'</div></form>';
-    var x = $("#tNewX"); if(x) x.addEventListener("click", function(){ nb.hidden = true; nb.innerHTML = ""; });
-    $("#tNewF").addEventListener("submit", function(e){ e.preventDefault(); var bt = $("button[type=submit]", this); busy(bt, true);
-      api({action:"addclass", name:$("#tCN").value, band:+$("#tCB").value}, T.token).then(function(d){ busy(bt, false); if(d.cls){ tPut(d.cls); T.tab = "kids"; renderTeach(); toast("Class made. Now add your kids."); } else tErr(d); }); });
-    try{ $("#tCN").focus({preventScroll:true}); }catch(e){}
-  }
-  function gameOptions(band, sel){
-    var groups = {}, order = [];
-    GAMES.forEach(function(g){ if(bandN(g)<band) return; var k = g.area || "More"; if(!groups[k]){ groups[k] = []; order.push(k); } groups[k].push(g); });
-    return order.map(function(k){ return '<optgroup label="'+esc(k)+'">'+groups[k].map(function(g){ return '<option value="'+g.id+'"'+(g.id===sel ? ' selected' : '')+'>'+esc(g.name)+' · '+esc(g.skill)+'</option>'; }).join("")+'</optgroup>'; }).join("");
-  }
-  function lvOptions(sel, pro){ var h = ""; for(var l=1;l<=LEVELS;l++) h += '<option value="'+l+'"'+(l===sel ? ' selected' : '')+(l>FREE_LEVELS && !pro ? ' disabled' : '')+'>'+l+(l>FREE_LEVELS && !pro ? ' 🔒' : '')+'</option>'; return h; }
-  function kidDone(c, user, a){ var p = (T.prog[c.id]||{})[user] || {}, n = 0, st = 0; for(var l=a.from;l<=a.to;l++){ var v = p[lvKey(a.game, a.band, l)]; if(v){ n++; st += v[0]; } } return {n:n, tot:a.to-a.from+1, st:st}; }
-  function forKids(c, a){ return a.kids ? c.kids.filter(function(k){ return a.kids.indexOf(k.user)>=0; }) : c.kids; }
-  function drawClass(){
-    var c = tClass(), box = $("#tClass"); if(!box) return; if(!c){ box.innerHTML = ""; return; }
-    var pro = T.data.teacher.pro, tabs = [["homework","Homework"],["kids","Kid logins ("+c.kids.length+")"],["progress","Progress"],["class","Class settings"]];
-    var h = '<div class="clpanel"><div class="cltabs big" role="tablist">'+tabs.map(function(t){ return '<button type="button" role="tab" data-tab="'+t[0]+'" aria-selected="'+(T.tab===t[0])+'">'+t[1]+'</button>'; }).join("")+'</div><div class="cltab">';
-    if(T.tab==="homework"){
-      var defG = (GAMES.filter(function(g){ return bandN(g)>=c.band && G23_IDS.indexOf(g.id)>=0; })[0] || GAMES.filter(function(g){ return bandN(g)>=c.band; })[0] || GAMES[0]).id;
-      h += '<form class="formcard clform" id="aF" novalidate><h3>Give homework</h3>'+
-        '<div class="clgrid2"><label>Grade or age group'+bandSelect("aB", c.band)+'</label><label>Game<select id="aG">'+gameOptions(c.band, defG)+'</select></label></div>'+
-        '<div class="clgrid3"><label>From level<select id="aFrom">'+lvOptions(1, pro)+'</select></label><label>To level<select id="aTo">'+lvOptions(3, pro)+'</select></label><label>Due date (optional)<input type="date" id="aDue"></label></div>'+
-        (pro ? '' : '<p class="clsmall">Levels 4 to 30 open again when your kids fit your plan.</p>')+
-        '<label>Note for the kids (optional)<input id="aNote" maxlength="200" placeholder="Try to get 3 stars on each level!"></label>'+
-        '<fieldset class="clwho"><legend>Who gets it?</legend><label class="clcheck"><input type="radio" name="aW" value="all" checked> <span>Everyone in '+esc(c.name)+'</span></label>'+(c.kids.length ? '<label class="clcheck"><input type="radio" name="aW" value="some"> <span>Only some kids</span></label><div class="clkidpick" id="aKids" hidden>'+c.kids.map(function(k){ return '<label class="clcheck"><input type="checkbox" value="'+esc(k.user)+'"> <span>'+esc(k.name)+'</span></label>'; }).join("")+'</div>' : '')+'</fieldset>'+
-        '<p class="err" id="aErr" hidden></p><button class="btn btn-go" type="submit">Give homework</button></form>';
-      h += '<h3 class="clh3">Homework for '+esc(c.name)+'</h3>'+(c.assignments.length ? '<div class="aslist">'+c.assignments.map(function(a){
-        var ks = forKids(c, a), fin = ks.filter(function(k){ var d = kidDone(c, k.user, a); return d.n>=d.tot; }).length;
-        return '<article class="ascard">'+gameArt(a.game)+'<div class="min-w0"><b>'+esc(gameName(a.game))+'</b><span>'+CL_BAND_SHORT[a.band]+' · '+lvRange(a)+(a.due ? ' · Due '+dueTx(a.due) : '')+'</span><span>'+(a.kids ? ks.map(function(k){ return esc(k.name); }).join(", ") : 'Everyone')+(a.note ? ' · “'+esc(a.note)+'”' : '')+'</span></div><div class="asr"><span class="asfin"><b>'+fin+' / '+ks.length+'</b> finished</span><button type="button" class="linkbtn" data-unassign="'+a.id+'">Remove</button></div></article>';
-      }).join("")+'</div>' : '<p class="clsmall">No homework yet. Pick a game above and tap Give homework.</p>');
-    }
-    if(T.tab==="kids"){
-      h += '<form class="formcard clform" id="kF" novalidate><h3>Add kids</h3><p class="clsmall">Type one first name on each line. We make a username and an easy password for each kid. Only use first names or nicknames.</p>'+
-        '<label>Kids\' names<textarea id="kNames" placeholder="Mia&#10;Leo&#10;Ava"></textarea></label><p class="err" id="kErr2" hidden></p><button class="btn btn-go btn-sm" type="submit">Make logins</button></form>';
-      var fresh = c.kids.filter(function(k){ return T.fresh[k.user]; });
-      h += '<div class="clh3row"><h3 class="clh3">Kid logins</h3><div class="row">'+(fresh.length ? '<button type="button" class="btn btn-go btn-sm" id="kPrint">Print login cards ('+fresh.length+')</button>' : '')+(c.kids.length ? '<button type="button" class="btn btn-soft btn-sm" id="kAllNew">New passwords for everyone</button>' : '')+'</div></div>'+
-        '<p class="clsmall">Kids log in at <b>'+CL_SITE+'/#kids</b> (or tap Homework at the top of the site). For safety we never show saved passwords again; write them down or print the cards now, or make a new one any time.</p>'+
-        (c.kids.length ? '<div class="kidrows">'+c.kids.map(function(k){ var pw = T.fresh[k.user];
-          return '<div class="kidrow"><b>'+esc(k.name)+'</b><span class="kidcred"><span>Username <code>'+esc(k.user)+'</code></span><span>Password '+(pw ? '<code>'+esc(pw)+'</code>' : '<i>hidden</i>')+'</span></span><span class="row"><button type="button" class="linkbtn" data-newpw="'+esc(k.user)+'">New password</button><button type="button" class="linkbtn cldanger" data-delkid="'+esc(k.user)+'">Remove</button></span></div>'; }).join("")+'</div>' : '<p class="clsmall">No kids yet.</p>');
-    }
-    if(T.tab==="progress"){
-      var asg = c.assignments.slice().reverse();
-      if(!c.kids.length || !asg.length) h += '<p class="clsmall">Progress shows here once you have kids and homework.</p>';
-      else {
-        h += '<div class="clh3row"><h3 class="clh3">Who has finished what</h3><button type="button" class="btn btn-soft btn-sm" id="pRe">Refresh</button></div><div class="progwrap"><table class="progtab"><thead><tr><th scope="col">Kid</th>'+asg.map(function(a){ return '<th scope="col"><span>'+esc(gameName(a.game))+'</span><small>'+CL_BAND_SHORT[a.band]+' · '+lvRange(a)+'</small></th>'; }).join("")+'</tr></thead><tbody>'+
-          c.kids.map(function(k){ return '<tr><th scope="row">'+esc(k.name)+'</th>'+asg.map(function(a){ if(a.kids && a.kids.indexOf(k.user)<0) return '<td class="na">–</td>'; var d = kidDone(c, k.user, a), cl = d.n>=d.tot ? "full" : d.n ? "part" : "none";
-            return '<td class="'+cl+'"><b>'+d.n+'/'+d.tot+'</b>'+(d.n ? '<small>'+(d.st/d.n).toFixed(1)+' ★ avg</small>' : '')+'</td>'; }).join("")+'</tr>'; }).join("")+'</tbody></table></div><p class="clsmall">Levels played out of levels given, and the average stars (out of 5) on the levels they played.</p>';
-      }
-    }
-    if(T.tab==="class"){
-      h += '<form class="formcard clform" id="cF" novalidate><h3>Class settings</h3><div class="clgrid2"><label>Class name<input id="cN" maxlength="50" value="'+esc(c.name)+'"></label><label>Grade or age group'+bandSelect("cB", c.band)+'</label></div><button class="btn btn-go btn-sm" type="submit">Save</button></form>'+
-        '<div class="formcard"><h3>Delete this class</h3><p class="clsmall">Deletes the class, its kid logins, homework and stars.</p><button type="button" class="btn btn-soft btn-sm cldanger" id="cDel">Delete '+esc(c.name)+'</button></div>';
-    }
-    h += '</div></div>';
-    box.innerHTML = h;
-    $$("[data-tab]", box).forEach(function(b){ b.addEventListener("click", function(){ T.tab = b.dataset.tab; drawClass(); if(T.tab==="progress" || T.tab==="homework") tProg(); }); });
-    var aF = $("#aF");
-    if(aF){
-      var fix = function(){ var f = +$("#aFrom").value, t = +$("#aTo").value; if(t<f) $("#aTo").value = f; };
-      $("#aB").addEventListener("change", function(){ var b = +this.value, cur = $("#aG").value, g = gameById(cur); $("#aG").innerHTML = gameOptions(b, g && bandN(g)>=b ? cur : null); });
-      $("#aFrom").addEventListener("change", fix); $("#aTo").addEventListener("change", function(){ var f = +$("#aFrom").value; if(+this.value<f) $("#aFrom").value = this.value; });
-      $$("input[name=aW]", aF).forEach(function(r){ r.addEventListener("change", function(){ var k = $("#aKids"); if(k) k.hidden = r.value!=="some" || !r.checked; }); });
-      aF.addEventListener("submit", function(e){
-        e.preventDefault(); var er = $("#aErr"), bt = $("button[type=submit]", aF), some = $("input[name=aW][value=some]", aF), kids = null;
-        if(some && some.checked){ kids = $$("#aKids input:checked").map(function(x){ return x.value; }); if(!kids.length){ er.textContent = "Tick at least one kid."; er.hidden = false; return; } }
-        busy(bt, true); er.hidden = true;
-        api({action:"assign", classId:c.id, game:$("#aG").value, band:+$("#aB").value, from:+$("#aFrom").value, to:+$("#aTo").value, due:$("#aDue").value, note:$("#aNote").value, kids:kids}, T.token).then(function(d){
-          busy(bt, false); if(d.cls){ tPut(d.cls); drawClass(); toast("Homework given! Kids see it when they log in."); } else if(d._status===401) tErr(d); else { er.textContent = d.error || "That didn't work."; er.hidden = false; }
-        });
-      });
-    }
-    $$("[data-unassign]", box).forEach(function(b){ b.addEventListener("click", function(){ if(!confirmTwice(b, "Tap again to remove")) return; api({action:"unassign", id:b.dataset.unassign}, T.token).then(function(d){ if(d.cls){ tPut(d.cls); drawClass(); } else tErr(d); }); }); });
-    var kF = $("#kF");
-    if(kF) kF.addEventListener("submit", function(e){
-      e.preventDefault(); var er = $("#kErr2"), bt = $("button", kF), names = $("#kNames").value.split(/\n|,/).map(function(s){ return s.trim(); }).filter(Boolean);
-      if(!names.length){ er.textContent = "Type at least one name."; er.hidden = false; return; }
-      busy(bt, true, "Making logins..."); er.hidden = true;
-      api({action:"addkids", classId:c.id, kids:names.map(function(n){ return {name:n}; })}, T.token).then(function(d){
-        busy(bt, false); if(!d.made){ if(d._status===401) tErr(d); else { er.textContent = d.error || "That didn't work."; er.hidden = false; } return; }
-        d.made.forEach(function(k){ T.fresh[k.user] = k.password; }); tPut(d.cls); drawClass(); toast(d.made.length+" login"+(d.made.length===1?"":"s")+" made. Print the cards now!"); renderChipsOnly();
-      });
-    });
-    $$("[data-newpw]", box).forEach(function(b){ b.addEventListener("click", function(){ api({action:"resetkid", user:b.dataset.newpw}, T.token).then(function(d){ if(d.password){ T.fresh[d.user] = d.password; drawClass(); toast("New password for "+d.name+": "+d.password); } else tErr(d); }); }); });
-    $$("[data-delkid]", box).forEach(function(b){ b.addEventListener("click", function(){ if(!confirmTwice(b, "Tap again to remove")) return; api({action:"delkid", user:b.dataset.delkid}, T.token).then(function(d){ if(d.ok) tLoad(); else tErr(d); }); }); });
-    var all = $("#kAllNew"); if(all) all.addEventListener("click", function(){ if(!confirmTwice(all, "Tap again: new passwords for all")) return; busy(all, true, "Making passwords...");
-      var users = c.kids.map(function(k){ return k.user; }), i = 0;
-      (function next(){ if(i>=users.length){ busy(all, false); drawClass(); toast("New passwords made. Print the cards now!"); return; } api({action:"resetkid", user:users[i++]}, T.token).then(function(d){ if(d.password) T.fresh[d.user] = d.password; next(); }); })(); });
-    var pr = $("#kPrint"); if(pr) pr.addEventListener("click", function(){ printCards(c); });
-    var pRe = $("#pRe"); if(pRe) pRe.addEventListener("click", tProg);
-    var cF = $("#cF"); if(cF) cF.addEventListener("submit", function(e){ e.preventDefault(); api({action:"editclass", classId:c.id, name:$("#cN").value, band:+$("#cB").value}, T.token).then(function(d){ if(d.cls){ tPut(d.cls); renderTeach(); toast("Saved."); } else tErr(d); }); });
-    var cD = $("#cDel"); if(cD) cD.addEventListener("click", function(){ if(!confirmTwice(cD, "Tap again to delete the class")) return; api({action:"delclass", classId:c.id}, T.token).then(function(d){ if(d.ok){ T.cls = null; T.tab = "homework"; tLoad(); toast("Class deleted."); } else tErr(d); }); });
-  }
-  function renderChipsOnly(){ var c = tClass(); if(!c) return; var b = $('[data-cls="'+c.id+'"] span'); if(b) b.textContent = CL_BAND_SHORT[c.band]+' · '+c.kids.length+' kid'+(c.kids.length===1?'':'s'); }
-  function printCards(c){
-    var kids = c.kids.filter(function(k){ return T.fresh[k.user]; });
-    var pa = $("#classPrint"); if(!pa){ pa = mk("div"); pa.id = "classPrint"; document.body.appendChild(pa); }
-    pa.innerHTML = '<div class="pcards">'+kids.map(function(k){ return '<div class="pcard"><div class="pchead"><svg aria-hidden="true"><use href="#pip"/></svg><b>FirstFoundation<span>kids</span></b></div><p class="pcname">'+esc(k.name)+'</p><p>Go to <b>'+CL_SITE+'/#kids</b></p><p>Username: <code>'+esc(k.user)+'</code></p><p>Password: <code>'+esc(T.fresh[k.user])+'</code></p><p class="pcclass">'+esc(c.name)+'</p></div>'; }).join("")+'</div>';
-    document.body.classList.add("ffk-cards");
-    setTimeout(function(){ try{ window.print(); }catch(e){} setTimeout(function(){ document.body.classList.remove("ffk-cards"); }, 800); }, 80);
-  }
-  window.addEventListener("afterprint", function(){ document.body.classList.remove("ffk-cards"); });
-  function howHTML(side){
-    return '<div class="acard clhow"><h2>'+(side ? 'How homework works' : 'How it works')+'</h2><ol>'+
-      '<li><b>Make your account and pick a plan.</b> Parents pick Monthly, Yearly or Family. Teachers pick Classroom 15 or 30.</li><li><b>Make a class</b> for your school class or your own kids, and pick the grade.</li>'+
-      '<li><b>Make kid logins.</b> Type first names and we make a username and an easy password for each kid. Print the login cards.</li>'+
-      '<li><b>Give homework:</b> pick a game, the levels and a due date, for everyone or just some kids.</li>'+
-      '<li><b>Kids log in</b> on any phone, tablet or computer and see only their homework. You see who finished and their stars.</li></ol>'+
-      '<p class="clsmall"><b>Plans (US dollars):</b> Monthly $9.99 a month or Yearly $79.99 a year for 1 kid, Family $99.99 a year for 4 kids, Classroom 15 $249.99 a year, Classroom 30 $349.99 a year. Every plan opens all 30 levels. Kids never need an email address.</p></div>';
-  }
-
-  /* ---------- routing ---------- */
-  NAV_OF.teach = "kids"; NAV_OF.kids = "kids";
-  VIEW_TITLES.teach = "Classroom homework for teachers and parents";
-  VIEW_TITLES.kids = "Kid login: my homework";
-  var KID_OK = {kids:1, play:1, terms:1, privacy:1};
-  var _route45 = route;
-  route = function(){
-    var h = (location.hash||"").replace("#","") || "home", v = h.indexOf("play-")===0 ? "play" : h;
-    if(KID.on && !KID_OK[v]){ try{ history.replaceState(null, "", "#kids"); }catch(e){} }
-    _route45();
-    var h2 = (location.hash||"").replace("#","") || "home";
-    if(h2==="kids") renderKids(); else if(h2==="teach") renderTeach();
-    if(KID.on){ var bl = $("#backLink"); if(bl){ bl.setAttribute("href", "#kids"); bl.setAttribute("aria-label", "Back to my homework"); } }
-  };
-  kidMode();
-  if(KID.on) useProfile();
-  if(KID.on && KID.data) setTimeout(function(){ kidRefresh(function(){ if(curView==="kids") renderKids(); }); }, 400);
 })();
 window.addEventListener("hashchange", route);
 
