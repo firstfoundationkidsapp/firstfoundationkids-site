@@ -5407,7 +5407,7 @@ refreshCheckout = function(){
    so in app mode the Stripe checkout and billing links are switched off. sessionStorage only: the app shares
    Chrome's storage with the phone's browser, and the website in Chrome must keep Stripe. */
 var APP_MODE = (function(){
-  var on = /[?&]source=android/.test(location.search) || /^android-app:\/\/com\.firstfoundationkids\.app/.test(document.referrer || "");
+  var on = /[?&]source=android/.test(location.search) || /^android-app:\/\/(com\.firstfoundationkids\.app|firstfoundationkids\.com)/.test(document.referrer || "");
   try{ if(on) sessionStorage.setItem("ffk:app", "android"); else on = sessionStorage.getItem("ffk:app") === "android"; }catch(e){}
   return on;
 })();
