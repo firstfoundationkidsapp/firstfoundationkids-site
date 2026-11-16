@@ -1,5 +1,5 @@
 {
-  "packageId": "com.firstfoundationkids.app",
+  "packageId": "firstfoundationkids.com",
   "host": "www.firstfoundationkids.com",
   "name": "FirstFoundationkids: Learn & Play",
   "launcherName": "FFkids",
@@ -20,7 +20,7 @@
     "path": "./upload-key.jks",
     "alias": "upload"
   },
-  "appVersionCode": 2,
+  "appVersionCode": 3,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://www.firstfoundationkids.com/site.webmanifest",
