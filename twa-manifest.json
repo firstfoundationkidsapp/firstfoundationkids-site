@@ -20,14 +20,14 @@
     "path": "./upload-key.jks",
     "alias": "upload"
   },
-  "appVersionCode": 3,
+  "appVersionCode": 4,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://www.firstfoundationkids.com/site.webmanifest",
   "fallbackType": "customtabs",
   "features": {
     "playBilling": {
-      "enabled": true
+      "enabled": false
     }
   },
   "alphaDependencies": {
