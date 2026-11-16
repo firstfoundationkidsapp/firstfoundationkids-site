@@ -20,7 +20,7 @@
     "path": "./upload-key.jks",
     "alias": "upload"
   },
-  "appVersionCode": 1,
+  "appVersionCode": 2,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://www.firstfoundationkids.com/site.webmanifest",
@@ -37,7 +37,7 @@
   "isChromeOSOnly": false,
   "isMetaQuest": false,
   "fullScopeUrl": "https://www.firstfoundationkids.com/",
-  "minSdkVersion": 21,
+  "minSdkVersion": 24,
   "orientation": "default",
   "fingerprints": [],
   "additionalTrustedOrigins": [
