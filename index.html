@@ -6190,7 +6190,7 @@ function renderAccount(){
         ACCTS[em] = {name:"Owner", email:em, salt:OWNER.salt, hash:OWNER.hash, plan:"family", status:"active", owner:true, since:now, renews:now + 100*365*86400000, agreed:{version:"1.0", at:now}, kids:kid, active:(old && old.active) || kid[0].id};
         SESSION = em; saveAccts(); syncAccount(); renderChip(); renderCards(); toast("Owner access is on. Every world, level and prize is unlocked."); renderAccount(); return;
       }
-      if(!acc || (await hashPw(pw, acc.salt)) !== acc.hash){ er.textContent = "That email and password don't match an account on this device. Check them and try again."; er.hidden = false; $("#lPass").value = ""; return; }
+      if(!acc || (await hashPw(pw, acc.salt)) !== acc.hash){ er.textContent = "That email and password don't match an account on this device. Check them and try again, or tap Forgot your password. If you paid on another phone or computer, Forgot your password brings your plan here."; er.hidden = false; $("#lPass").value = ""; return; }
       SESSION = em; saveAccts(); syncAccount(); renderChip(); renderCards(); toast("Signed in. Welcome back, "+acc.name+"!"); renderAccount();
     });
     return;
@@ -6352,32 +6352,87 @@ function pwExtras(){
     });
     return;
   }
+  /* v57: forgot password by email. Paid accounts get a one-time link by email, which also brings the plan to a new
+     phone or computer. A free account saved on this device can still be reset here with the grown-up check. */
   if(!a){
-    var lf = $("#loginForm"); if(!lf || $("#pwForgot")) return;
+    var lf = $("#loginForm"); if(!lf) return;
+    if(RESET_T){ fpLinkForm(lf); return; }
+    if($("#pwForgot")) return;
     var l = document.createElement("p"); l.style.cssText = "font-size:15px;text-align:center"; l.innerHTML = '<a href="#account" id="pwForgot">Forgot your password?</a>';
     lf.appendChild(l);
-    $("#pwForgot").addEventListener("click", function(e){
-      e.preventDefault(); var x = 4+Math.floor(Math.random()*6), y = 3+Math.floor(Math.random()*7);
-      lf.innerHTML = '<h2 style="font-size:22px">Reset your password</h2><p style="font-size:15px;color:var(--ink-soft)">Your account is saved on this device. A grown-up can set a new password here. Your plan and your children\'s progress stay the same.</p>'+
-        '<label for="fpEmail">Email<input id="fpEmail" type="email" autocomplete="email" placeholder="sam@example.com"></label>'+
-        '<label for="fpGate"><span>Grown-up check: what is <b>'+x+' × '+y+'</b>?</span><input id="fpGate" inputmode="numeric" autocomplete="off" placeholder="Type the answer"></label>'+
-        '<label for="fpNew">New password<input id="fpNew" type="password" autocomplete="new-password" placeholder="At least 8 characters"></label>'+
-        '<label for="fpNew2">New password again<input id="fpNew2" type="password" autocomplete="new-password" placeholder="Type it again"></label>'+
-        '<p class="err" id="fpErr" hidden></p><button class="btn btn-go" type="submit">Save and sign in</button><p style="font-size:15px;text-align:center"><a href="#account" id="fpBack">Back to sign in</a></p>';
-      $("#fpBack").addEventListener("click", function(ev){ ev.preventDefault(); renderAccount(); });
-      lf.addEventListener("submit", async function(ev){
-        ev.preventDefault(); ev.stopImmediatePropagation();
-        var em = $("#fpEmail").value.trim().toLowerCase(), acc = ACCTS[em], er = $("#fpErr"), n1 = $("#fpNew").value, msg = "";
-        if(parseInt($("#fpGate").value,10) !== x*y) msg = "The grown-up check answer isn't right.";
-        else if(!acc || acc.owner) msg = "There's no account with that email on this device. If you paid on another phone or computer, use that one, or email us at firstfoundationkidsapp@gmail.com and we'll help.";
-        else if(n1.length < 8) msg = "Use at least 8 characters for the new password.";
-        else if(n1 !== $("#fpNew2").value) msg = "The two new passwords don't match.";
-        if(msg){ er.textContent = msg; er.hidden = false; return; }
-        acc.salt = newSalt(); acc.hash = await hashPw(n1, acc.salt); SESSION = em; saveAccts(); syncAccount(); renderChip(); renderCards();
-        toast("New password saved. Welcome back, "+acc.name+"!"); renderAccount();
-      }, true);
-    });
+    $("#pwForgot").addEventListener("click", function(e){ e.preventDefault(); fpAsk(lf, ($("#lEmail") || {}).value || ""); });
   }
+}
+var RESET_T = null;
+(function(){ try{ var q = new URLSearchParams(location.search), t = q.get("reset"); if(!t) return;
+  RESET_T = t; SESSION = null; saveAccts();
+  history.replaceState(null, "", location.pathname + "#account");
+  setTimeout(function(){ try{ syncAccount(); renderChip(); renderCards(); }catch(e){} if(location.hash !== "#account") location.hash = "#account"; else renderAccount(); }, 0);
+}catch(e){} })();
+function fpMsg(lf, html){ lf.innerHTML = '<h2 style="font-size:22px">Check your email</h2>'+html+'<p style="font-size:15px;text-align:center"><a href="#account" id="fpBack">Back to sign in</a></p>'; $("#fpBack").addEventListener("click", function(ev){ ev.preventDefault(); renderAccount(); }); }
+function fpAsk(lf, em0){
+  lf.innerHTML = '<h2 style="font-size:22px">Forgot your password?</h2><p style="font-size:15px;color:var(--ink-soft)">Type the email you used for your plan. We\'ll email you a link to choose a new password. It also brings your plan to this phone or computer. Your children\'s games stay the same.</p>'+
+    '<label for="fpEmail">Email<input id="fpEmail" type="email" autocomplete="email" placeholder="sam@example.com" value="'+esc(em0)+'"></label>'+
+    '<p class="err" id="fpErr" hidden></p><button class="btn btn-go" type="submit" id="fpSend">Email me a reset link</button><p style="font-size:15px;text-align:center"><a href="#account" id="fpBack">Back to sign in</a></p>';
+  $("#fpBack").addEventListener("click", function(ev){ ev.preventDefault(); renderAccount(); });
+  lf.addEventListener("submit", function(ev){
+    ev.preventDefault(); ev.stopImmediatePropagation();
+    var em = $("#fpEmail").value.trim().toLowerCase(), acc = ACCTS[em], er = $("#fpErr"), btn = $("#fpSend");
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ er.textContent = "Type the email you used for your account."; er.hidden = false; return; }
+    if(acc && acc.owner){ er.textContent = "The owner account can't be reset here."; er.hidden = false; return; }
+    var local = acc && !(acc.stripe && acc.stripe.customer); /* free account saved only on this device */
+    if(local || !PAY_LIVE){ if(acc) fpLocal(lf, em); else { er.textContent = "There's no account with that email on this device. Email us at firstfoundationkidsapp@gmail.com and we'll help."; er.hidden = false; } return; }
+    btn.disabled = true; btn.textContent = "Sending...";
+    payPost("/api/reset", {action:"send", email:em}).then(function(d){
+      btn.disabled = false; btn.textContent = "Email me a reset link";
+      if(d && d.ok && d.mail){ fpMsg(lf, '<p style="font-size:16px">If <b>'+esc(em)+'</b> has a plan with us, we just sent it a reset link. Open it on this phone or computer. It works once and ends in 1 hour.</p><p style="font-size:15px;color:var(--ink-soft)">Nothing there? Look in Spam or Promotions, or wait a minute and ask again. Still stuck? Email firstfoundationkidsapp@gmail.com from that address and we\'ll help.</p>'); return; }
+      if(d && d.ok && !d.mail){ if(acc){ fpLocal(lf, em); return; } fpMsg(lf, '<p style="font-size:16px">Email <b>firstfoundationkidsapp@gmail.com</b> from <b>'+esc(em)+'</b> and we\'ll help you get back in. Your plan is safe.</p>'); return; }
+      er.textContent = (d && d.error) || "That didn't work. Please try again."; er.hidden = false;
+    });
+  }, true);
+}
+function fpLocal(lf, em){
+  var x = 4+Math.floor(Math.random()*6), y = 3+Math.floor(Math.random()*7);
+  lf.innerHTML = '<h2 style="font-size:22px">Reset your password</h2><p style="font-size:15px;color:var(--ink-soft)">Your account <b>'+esc(em)+'</b> is saved on this device. A grown-up can set a new password here. Your plan and your children\'s progress stay the same.</p>'+
+    '<label for="fpGate"><span>Grown-up check: what is <b>'+x+' × '+y+'</b>?</span><input id="fpGate" inputmode="numeric" autocomplete="off" placeholder="Type the answer"></label>'+
+    '<label for="fpNew">New password<input id="fpNew" type="password" autocomplete="new-password" placeholder="At least 8 characters"></label>'+
+    '<label for="fpNew2">New password again<input id="fpNew2" type="password" autocomplete="new-password" placeholder="Type it again"></label>'+
+    '<p class="err" id="fpErr" hidden></p><button class="btn btn-go" type="submit">Save and sign in</button><p style="font-size:15px;text-align:center"><a href="#account" id="fpBack">Back to sign in</a></p>';
+  $("#fpBack").addEventListener("click", function(ev){ ev.preventDefault(); renderAccount(); });
+  lf.addEventListener("submit", async function(ev){
+    ev.preventDefault(); ev.stopImmediatePropagation();
+    var acc = ACCTS[em], er = $("#fpErr"), n1 = $("#fpNew").value, msg = "";
+    if(parseInt($("#fpGate").value,10) !== x*y) msg = "The grown-up check answer isn't right.";
+    else if(n1.length < 8) msg = "Use at least 8 characters for the new password.";
+    else if(n1 !== $("#fpNew2").value) msg = "The two new passwords don't match.";
+    if(msg){ er.textContent = msg; er.hidden = false; return; }
+    acc.salt = newSalt(); acc.hash = await hashPw(n1, acc.salt); SESSION = em; saveAccts(); syncAccount(); renderChip(); renderCards();
+    toast("New password saved. Welcome back, "+acc.name+"!"); renderAccount();
+  }, true);
+}
+function fpLinkForm(lf){
+  $("#acctTitle").textContent = "Choose a new password";
+  lf.innerHTML = '<h2 style="font-size:22px">Choose a new password</h2><p style="font-size:15px;color:var(--ink-soft)">Your plan and your children\'s games stay the same.</p>'+
+    '<label for="fpNew">New password<input id="fpNew" type="password" autocomplete="new-password" placeholder="At least 8 characters"></label>'+
+    '<label for="fpNew2">New password again<input id="fpNew2" type="password" autocomplete="new-password" placeholder="Type it again"></label>'+
+    '<p class="err" id="fpErr" hidden></p><button class="btn btn-go" type="submit" id="fpSave">Save and sign in</button><p style="font-size:15px;text-align:center"><a href="#account" id="fpBack">Back to sign in</a></p>';
+  $("#fpBack").addEventListener("click", function(ev){ ev.preventDefault(); RESET_T = null; renderAccount(); });
+  lf.addEventListener("submit", function(ev){
+    ev.preventDefault(); ev.stopImmediatePropagation();
+    var er = $("#fpErr"), n1 = $("#fpNew").value, btn = $("#fpSave"), msg = "";
+    if(n1.length < 8) msg = "Use at least 8 characters for the new password.";
+    else if(n1 !== $("#fpNew2").value) msg = "The two new passwords don't match.";
+    if(msg){ er.textContent = msg; er.hidden = false; return; }
+    btn.disabled = true; btn.textContent = "Saving...";
+    payPost("/api/reset", {action:"confirm", t:RESET_T}).then(async function(d){
+      if(!d || d.error || !d.email){ btn.disabled = false; btn.textContent = "Save and sign in"; er.innerHTML = esc((d && d.error) || "That didn't work. Please try again.")+' <a href="#account" id="fpAgain">Get a new link</a>'; er.hidden = false;
+        $("#fpAgain").addEventListener("click", function(e2){ e2.preventDefault(); RESET_T = null; renderAccount(); setTimeout(function(){ var f = $("#loginForm"); if(f) fpAsk(f, ""); }, 0); }); return; }
+      RESET_T = null;
+      payApply(d, false);
+      var acc = ACCTS[d.email]; acc.salt = newSalt(); acc.hash = await hashPw(n1, acc.salt); SESSION = d.email; saveAccts(); syncAccount(); renderChip(); renderCards();
+      toast("New password saved. Welcome back"+(acc.name && acc.name!=="Grown-up" ? ", "+acc.name : "")+"!"); renderAccount();
+    });
+  }, true);
 }
 var renderAccount0 = renderAccount;
 renderAccount = function(){
