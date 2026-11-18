@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="FirstFoundationkids">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="FirstFoundationkids: learning games for ages 2 to 7">
-<meta property="og:description" content="65 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Level 1 of every age group is free, with no ads and no sign-up.">
+<meta property="og:description" content="69 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Level 1 of every age group is free, with no ads and no sign-up.">
 <meta property="og:url" content="https://www.firstfoundationkids.com/">
 <meta property="og:image" content="https://www.firstfoundationkids.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
 <meta property="og:image:alt" content="Pip the frog and the FirstFoundationkids name: learning games for ages 2 to 7">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FirstFoundationkids: learning games for ages 2 to 7">
-<meta name="twitter:description" content="65 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Level 1 of every age group is free.">
+<meta name="twitter:description" content="69 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Level 1 of every age group is free.">
 <meta name="twitter:image" content="https://www.firstfoundationkids.com/og-image.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800;900&family=Lexend:wght@400;500;600;700&display=swap">
@@ -2786,6 +2786,57 @@ html.xmas .t3box.dbox{background:radial-gradient(70% 60% at 50% 30%,#FFF6F2 0%,#
 .dshoes i::before{left:0}.dshoes i::after{right:0}
 .dword{letter-spacing:.06em}
 .dgems b{font-size:.8em}
+/* v56: Animal World Tour */
+.a56box{min-height:300px}
+.a56box.a56-safari{background:linear-gradient(#FFE9B8,#FFF6DF)}
+.a56box.a56-jungle{background:linear-gradient(#CDEFC2,#EEF9E8)}
+.a56box.a56-ocean{background:linear-gradient(#CBEBFF,#EEF8FF)}
+.a56box.a56-farm{background:linear-gradient(#D9F2CB,#F2FBEC)}
+.a56flat{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;min-height:300px;padding:10px}
+.a56card{display:inline-flex;align-items:center;justify-content:center;width:96px;height:96px}
+.a56card img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(23,59,64,.18))}
+.a56card.big{width:190px;height:190px}.a56card.xs{width:64px;height:64px}
+.a56emo{font-size:70px;line-height:1;font-style:normal;filter:drop-shadow(0 5px 5px rgba(23,59,64,.18))}
+.a56card.big .a56emo{font-size:140px}.a56card.xs .a56emo{font-size:46px}
+.a56row .choice{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 6px 6px}
+.a56nm{font:800 16px/1.1 var(--display,var(--body,system-ui));color:var(--ink,#173B40)}
+.a56big .a56card{width:110px;height:110px}.a56big .a56emo{font-size:84px}
+.a56hide{font-size:80px;letter-spacing:-.1em}
+.a56word{display:block;width:100%;text-align:center;font:900 44px/1 var(--display,system-ui);letter-spacing:.18em;color:var(--ink,#173B40)}
+
+/* while the 3D animals carry the answers, hide the pictures and names on the buttons */
+.a56ov .choice{background:transparent!important;border-color:transparent!important;box-shadow:none!important}
+.a56ov .choice .a56card,.a56ov .choice .a56nm{opacity:0}
+.a56ov .choice.right{outline:5px solid #4DB35A;outline-offset:-5px;border-radius:24px}
+@media (max-width:600px){.a56box,.a56flat{min-height:230px}.a56card{width:74px;height:74px}.a56emo{font-size:54px}.a56card.big{width:150px;height:150px}.a56card.big .a56emo{font-size:110px}.a56big .a56card{width:84px;height:84px}.a56big .a56emo{font-size:62px}.a56nm{font-size:14px}}
+/* home page row */
+.a56home{margin:0 0 22px}
+.a56home-h{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;margin:0 0 12px}
+.a56home-h h2{margin:0;font-size:clamp(22px,2.6vw,30px);color:var(--ink,#173B40)}
+.a56home-h p{margin:0;color:var(--ink-soft,#4b6b70);font-size:15px;flex-basis:100%}
+.a56home-badge{background:#FF8A2A;color:#fff;font:900 13px/1 var(--body,system-ui);letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px;box-shadow:0 3px 0 rgba(23,59,64,.18)}
+.a56home-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.a56g{display:flex;flex-direction:column;text-decoration:none;color:var(--ink,#173B40);background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 0 0 4px var(--bg),0 14px 26px -14px rgba(23,59,64,.35);transition:transform .2s}
+.a56g:hover,.a56g:focus-visible{transform:translateY(-4px) rotate(-1deg)}
+.a56g:focus-visible{outline:4px solid var(--c);outline-offset:3px}
+.a56g-art{position:relative;display:block;aspect-ratio:4/3;background:radial-gradient(circle at 50% 40%,#fff,var(--bg) 70%)}
+.a56g-art img{position:absolute;bottom:6%;height:84%;width:56%;object-fit:contain;animation:a56b 3s ease-in-out infinite;animation-delay:calc(var(--i)*-.7s)}
+.a56g-art img.a{left:2%}.a56g-art img.b{right:2%;animation-delay:calc(var(--i)*-.7s - 1.4s)}
+.a56g-art i{position:absolute;right:10px;top:10px;font:900 13px/1 var(--body,system-ui);font-style:normal;color:#fff;background:var(--c);padding:5px 8px;border-radius:10px}
+.a56g b{font:800 19px/1.15 var(--display,var(--body,system-ui));padding:10px 14px 0;color:var(--c)}
+.a56g small{padding:2px 14px 14px;color:var(--ink-soft,#4b6b70);font-size:14px}
+@keyframes a56b{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media (max-width:760px){.a56home-row{grid-template-columns:repeat(2,1fr);gap:12px}.a56g b{font-size:16px}.a56g small{font-size:13px}}
+@media (prefers-reduced-motion:reduce){.a56g-art img{animation:none}}
+html.xmas .a56home-badge{background:#2FA84F}
+html.xmas .a56g{box-shadow:0 0 0 4px #fff,0 0 0 8px #E0303F,0 16px 28px -14px rgba(120,10,30,.45)}
+html.xmas .a56g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16px 28px -14px rgba(120,10,30,.45)}
+.a56box{position:relative}
+.a56flat.a56pin{position:absolute;right:10px;top:10px;min-height:0;padding:6px;z-index:2;background:rgba(255,255,255,.85);border-radius:22px;box-shadow:0 6px 14px -6px rgba(23,59,64,.35)}
+.a56flat.a56pin .a56card.big{width:120px;height:120px}.a56flat.a56pin .a56card.big .a56emo{font-size:88px}
+.a56flat.a56pin .a56word{font-size:26px}
+.a56box.a56on .a56pin .a56word{display:block}
+@media (max-width:600px){.a56flat.a56pin .a56card.big{width:84px;height:84px}.a56flat.a56pin .a56card.big .a56emo{font-size:62px}}
 </style>
 </head>
 <body>
@@ -3439,7 +3490,7 @@ html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16
       <p class="eyebrow">Questions</p>
       <h2 class="h2big">Parents often ask</h2>
       <div class="faq" style="margin-top:20px">
-        <details><summary>What is free?</summary><p>Level 1 of every age group in all 65 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
+        <details><summary>What is free?</summary><p>Level 1 of every age group in all 69 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
         <details><summary>Does my child need to read?</summary><p>No. Pip reads every question and answer out loud, and kids answer by tapping or by saying the answer. You can switch the voice off at any time.</p></details>
         <details><summary>Does it help with school?</summary><p>Yes, that is what Pip's Pond School is for. Its short lessons practice skills commonly taught in kindergarten through fourth grade: listening to and reading short stories, sight words, handwriting, math word problems, telling time and early science. It is extra practice for home and does not replace your child's teacher or school.</p></details>
         <details><summary>Is there a free trial?</summary><p>No trial. Instead, the first level of every age group stays free, so you can try before you pay.</p></details>
@@ -4034,13 +4085,13 @@ html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16
       <p class="lead" style="margin-top:10px">Can't find your answer? Email <a href="mailto:firstfoundationkidsapp@gmail.com">firstfoundationkidsapp@gmail.com</a>.</p>
       <div id="faqAll">
       <div class="faqcat"><h2>Getting started</h2><div class="faq">
-        <details><summary>What is FirstFoundationkids?</summary><p>An early-learning website for children ages 2 to 7. It has 65 game worlds, Pip's Pond School for kindergarten through fourth grade practice, a Fruit &amp; Veggie Book, and a Studio for painting, coloring and first computer skills. Pip the frog reads every question aloud.</p></details>
+        <details><summary>What is FirstFoundationkids?</summary><p>An early-learning website for children ages 2 to 7. It has 69 game worlds, Pip's Pond School for kindergarten through fourth grade practice, a Fruit &amp; Veggie Book, and a Studio for painting, coloring and first computer skills. Pip the frog reads every question aloud.</p></details>
         <details><summary>Which ages is it for?</summary><p>Ages 2 to 7, in three groups: Tadpoles (2–3), Froglets (4–5) and Jumpers (6–7). Each group gets its own version of every world, with 30 levels that get a little harder each time.</p></details>
         <details><summary>Does my child need to read?</summary><p>No. Pip reads every question and answer out loud, and kids answer by tapping or by saying the answer. You can switch the voice off at any time.</p></details>
         <details><summary>Which devices work?</summary><p>Any up-to-date web browser on a computer, tablet or phone. The mouse and keyboard worlds work best on a laptop or desktop, but tapping works too.</p></details>
       </div></div>
       <div class="faqcat"><h2>Plans and billing</h2><div class="faq">
-        <details><summary>What is free?</summary><p>Level 1 of every age group in all 65 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
+        <details><summary>What is free?</summary><p>Level 1 of every age group in all 69 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
         <details><summary>How much does a plan cost?</summary><p>Monthly is $9.99 a month. Yearly is $79.99 a year, which works out to about $6.67 a month. Family is $99.99 a year for up to 4 child profiles.</p></details>
         <details><summary>Is there a free trial?</summary><p>No trial. Instead, the first level of every age group stays free, so you can try before you pay.</p></details>
         <details><summary>How do I cancel?</summary><p>From My account, any time. Your plan stays open until the end of the period you paid for.</p></details>
@@ -15556,6 +15607,386 @@ if(typeof AGE_TXT!=="undefined") AGE_TXT.t3dress = ["Pick the red dress, find th
 if(typeof MUSIC_OF!=="undefined") MUSIC_OF.t3dress = "art";
 function warm(){ if(/^#(world|play)-t3(dress|tea|words)/.test(location.hash)) T3.load().then(function(){}, function(){}); }
 window.addEventListener("hashchange", warm); setTimeout(warm, 0);
+})();
+
+/* ---------- v56: Animal World Tour: 3D find-the-animal games (Safari Seek, Jungle Peekaboo, Ocean and Ice, Farm, Forest and Outback). 24 Meshy 3D animals + 90 more animals from every continent ---------- */
+(function(){
+if(typeof T3==="undefined" && !(window.__v53 && window.__v53.T3)) return;
+var T3x = (typeof T3!=="undefined") ? T3 : window.__v53.T3;
+var BASE = "meshy/animals/";
+function cap(s){ s = String(s); return s.charAt(0).toUpperCase()+s.slice(1); }
+function ask(q, small, spoken){ setPrompt(esc(q), small ? esc(small) : ""); say(best([q].concat(spoken || []))); }
+/* say it in the recorded guy voice: the full line if it is recorded, else a shorter line that is */
+function best(c){ try{ if(typeof vOn==="function" && vOn()) for(var i=0;i<c.length;i++) if(vPlan(vSegs(c[i]))) return c[i]; }catch(e){} return c[0]; }
+function kOf(c, lo, hi){ return c.t<.34 ? lo : c.t<.67 ? Math.min(hi, lo+1) : hi; }
+function fresh(key, list){ return scFresh("v56"+key, list); }
+function others(t, pool, k, bad){ return shuffle(pool.filter(function(x){ return x!==t && (!bad || !bad(x)); })).slice(0, k-1); }
+function A(n){ return /^[aeiou]/.test(n) ? "an "+n : "a "+n; }
+
+/* ===== every animal: world, where in the world, home, kind, legs, size; 3D ones have a Meshy model ===== */
+/* w: safari | jungle | ocean | farm.  c: continents.  h: home.  g: kind.  s: size 1-12.  e: picture for the animals with no 3D model */
+var AN = {}, CONT = ["Africa","Asia","Australia","Europe","North America","South America","Antarctica"];
+function add(list, w){ list.forEach(function(r){ var o = {n:r[0], e:r[1], c:r[2].split(","), h:r[3], g:r[4], legs:r[5], s:r[6], w:w, d3:r[1]==="3d"}; if(r[7]) o.fact = r[7]; AN[o.n] = o; }); }
+var AF = "Africa", AS = "Asia", AU = "Australia", EU = "Europe", NA = "North America", SA = "South America", AN0 = "Antarctica";
+add([
+  ["lion","3d",AF,"grassland","mammal",4,6,"Which animal has a big fluffy mane?"],
+  ["elephant","3d",AF+","+AS,"grassland","mammal",4,10,"Which animal has a long trunk?"],
+  ["giraffe","3d",AF,"grassland","mammal",4,9,"Which animal has a very long neck?"],
+  ["zebra","3d",AF,"grassland","mammal",4,7,"Which animal has black and white stripes?"],
+  ["hippo","3d",AF,"river","mammal",4,9,"Which animal sits in the river all day?"],
+  ["rhino","3d",AF+","+AS,"grassland","mammal",4,9,"Which animal has a horn on its nose?"],
+  ["leopard","🐆",AF+","+AS,"grassland","mammal",4,6],
+  ["gorilla","🦍",AF,"jungle","mammal",2,7],
+  ["flamingo","🦩",AF+","+SA,"lake","bird",2,4],
+  ["camel","🐪",AF+","+AS,"desert","mammal",4,8],
+  ["crocodile","🐊",AF+","+AU,"river","reptile",4,7],
+  ["scorpion","🦂",AF,"desert","bug",8,1],
+  ["lizard","🦎",AF+","+AU,"desert","reptile",4,1],
+  ["ant","🐜",AF+","+EU+","+NA,"grassland","bug",6,1]
+], "safari");
+add([
+  ["monkey","3d",AS+","+AF+","+SA,"jungle","mammal",4,4,"Which animal swings from trees?"],
+  ["tiger","3d",AS,"jungle","mammal",4,6,"Which animal has orange fur and black stripes?"],
+  ["panda","3d",AS,"forest","mammal",4,5,"Which animal loves to eat bamboo?"],
+  ["sloth","3d",SA,"jungle","mammal",4,3,"Which animal moves very slowly?"],
+  ["toucan","3d",SA,"jungle","bird",2,2,"Which bird has a giant colorful beak?"],
+  ["frog","3d",SA+","+AS+","+EU+","+NA+","+AU+","+AF,"pond","amphibian",4,1,"Which animal says ribbit?"],
+  ["parrot","🦜",SA+","+AU+","+AF,"jungle","bird",2,2],
+  ["orangutan","🦧",AS,"jungle","mammal",4,6],
+  ["snake","🐍",AS+","+SA+","+AF+","+AU,"jungle","reptile",0,3],
+  ["peacock","🦚",AS,"forest","bird",2,3],
+  ["butterfly","🦋",SA+","+AS+","+EU+","+NA,"jungle","bug",6,1],
+  ["llama","🦙",SA,"mountains","mammal",4,6],
+  ["bat","🦇",SA+","+AS+","+EU+","+NA+","+AF+","+AU,"cave","mammal",2,1],
+  ["water buffalo","🐃",AS,"river","mammal",4,8]
+], "jungle");
+add([
+  ["penguin","3d",AN0+","+SA+","+AF+","+AU,"snow","bird",2,3,"Which bird cannot fly but swims very well?"],
+  ["polar bear","3d",NA+","+EU+","+AS,"snow","mammal",4,8,"Which bear has thick white fur?"],
+  ["dolphin","3d","Africa,Asia,Australia,Europe,North America,South America","sea","mammal",0,6,"Which animal clicks and jumps over the waves?"],
+  ["whale","3d","Africa,Asia,Australia,Europe,North America,South America,Antarctica","sea","mammal",0,12,"Which animal is the biggest in the sea?"],
+  ["turtle","3d","Africa,Asia,Australia,North America,South America","sea","reptile",4,3,"Which animal has a shell on its back?"],
+  ["octopus","3d","Africa,Asia,Australia,Europe,North America,South America","sea","mollusk",8,3,"Which animal has eight arms?"],
+  ["shark","🦈","Africa,Asia,Australia,Europe,North America,South America","sea","fish",0,8],
+  ["seal","🦭",AN0+","+NA+","+EU,"snow","mammal",0,5],
+  ["crab","🦀","Asia,Australia,Europe,North America,Africa","beach","crustacean",10,1],
+  ["lobster","🦞",NA+","+EU,"sea","crustacean",10,2],
+  ["shrimp","🦐","Asia,Europe,North America","sea","crustacean",10,1],
+  ["squid","🦑","Asia,Europe,North America,Antarctica","sea","mollusk",10,4],
+  ["tropical fish","🐠","Australia,Asia,Africa","sea","fish",0,1],
+  ["pufferfish","🐡","Asia,Australia","sea","fish",0,1],
+  ["otter","🦦",NA+","+EU+","+AS,"river","mammal",4,2],
+  ["swan","🦢",EU+","+AU+","+NA,"lake","bird",2,3]
+], "ocean");
+add([
+  ["cow","3d",EU+","+NA+","+AS+","+AU,"farm","mammal",4,7,"Which animal gives us milk?"],
+  ["pig","3d",EU+","+NA+","+AS,"farm","mammal",4,4,"Which animal has a curly tail and a pink snout?"],
+  ["bear","3d",NA+","+EU+","+AS,"forest","mammal",4,7,"Which animal sleeps all winter long?"],
+  ["fox","3d",EU+","+NA+","+AS,"forest","mammal",4,3,"Which animal has a big bushy tail with a white tip?"],
+  ["kangaroo","3d",AU,"outback","mammal",2,6,"Which animal hops and carries a baby in a pouch?"],
+  ["koala","3d",AU,"outback","mammal",4,2,"Which animal sleeps in eucalyptus trees?"],
+  ["sheep","🐑",EU+","+AU+","+NA,"farm","mammal",4,4],
+  ["horse","🐎",EU+","+NA+","+AS,"farm","mammal",4,7],
+  ["chicken","🐔",EU+","+NA+","+AS,"farm","bird",2,2],
+  ["duck","🦆",EU+","+NA+","+AS,"pond","bird",2,2],
+  ["goat","🐐",EU+","+AS+","+AF,"farm","mammal",4,4],
+  ["rabbit","🐇",EU+","+NA,"farm","mammal",4,1],
+  ["turkey","🦃",NA,"farm","bird",2,3],
+  ["wolf","🐺",NA+","+EU+","+AS,"forest","mammal",4,5],
+  ["deer","🦌",NA+","+EU+","+AS,"forest","mammal",4,6],
+  ["owl","🦉",NA+","+EU+","+AS+","+AF,"forest","bird",2,2],
+  ["raccoon","🦝",NA,"forest","mammal",4,2],
+  ["squirrel","🐿️",NA+","+EU,"forest","mammal",4,1],
+  ["hedgehog","🦔",EU,"forest","mammal",4,1],
+  ["beaver","🦫",NA+","+EU,"river","mammal",4,3],
+  ["skunk","🦨",NA,"forest","mammal",4,2],
+  ["bison","🦬",NA,"grassland","mammal",4,9],
+  ["eagle","🦅",NA+","+EU+","+AS,"mountains","bird",2,3],
+  ["bee","🐝",EU+","+NA+","+AS+","+AF+","+AU+","+SA,"farm","bug",6,1],
+  ["ladybug","🐞",EU+","+NA+","+AS,"farm","bug",6,1],
+  ["snail","🐌",EU+","+NA,"farm","mollusk",0,1],
+  ["mouse","🐁",EU+","+NA+","+AS+","+AF+","+AU+","+SA,"farm","mammal",4,1],
+  ["badger","🦡",EU,"forest","mammal",4,2],
+  ["dog","🐕",EU+","+NA+","+AS+","+AF+","+AU+","+SA,"farm","mammal",4,3],
+  ["cat","🐈",EU+","+NA+","+AS+","+AF+","+AU+","+SA,"farm","mammal",4,2]
+], "farm");
+var ALL = Object.keys(AN), D3 = ALL.filter(function(n){ return AN[n].d3; });
+var WORLD = {
+  safari:{id:"wsafari", name:"Safari Seek", place:"the African safari", cont:"Africa", hello:"Welcome to the safari!", heroes:["lion","elephant","giraffe","zebra","hippo","rhino"]},
+  jungle:{id:"wjungle", name:"Jungle Peekaboo", place:"the jungle", cont:"Asia and South America", hello:"Welcome to the jungle!", heroes:["monkey","tiger","panda","sloth","toucan","frog"]},
+  ocean:{id:"wocean", name:"Ocean and Ice", place:"the ocean", cont:"the oceans and the poles", hello:"Welcome to the ocean!", heroes:["penguin","polar bear","dolphin","whale","turtle","octopus"]},
+  farm:{id:"wfarm", name:"Farm, Forest and Outback", place:"the farm", cont:"Europe, North America and Australia", hello:"Welcome to the farm!", heroes:["cow","pig","bear","fox","kangaroo","koala"]}
+};
+function inWorld(w){ return ALL.filter(function(n){ return AN[n].w===w; }); }
+function file(n){ return n.replace(/ /g, ""); }
+function img(n){ return BASE+file(n)+".webp"; }
+
+/* ===== animal pictures (3D animals use their Meshy picture, the rest a big friendly picture) ===== */
+function cardHTML(n, cls){ var a = AN[n];
+  return '<span class="a56card'+(cls ? " "+cls : "")+'">'+(a.d3 ? '<img alt="" draggable="false" decoding="async" src="'+img(n)+'">' : '<b class="a56emo" aria-hidden="true">'+a.e+'</b>')+'</span>'; }
+function sayName(n){ return n==="rabbit" ? "rabbit|bunny" : n==="dog" ? "dog|puppy|doggy" : n==="cat" ? "cat|kitty" : n==="tropical fish" ? "tropical fish|fish" : n; }
+function picRow(area, names, t, cls){
+  choiceRow(area, names.map(function(v){ return {html:cardHTML(v)+'<span class="a56nm">'+esc(cap(v))+'</span>', label:v, say:sayName(v), ok:v===t}; }));
+  var r = area.lastChild; r.classList.add("cz-toy", "a56row"); if(cls) r.classList.add(cls); return r; }
+function wordRow(area, words, t){ choiceRow(area, shuffle(words).map(function(v){ return {html:'<span class="wordopt">'+esc(cap(v))+'</span>', label:v, say:v, ok:v===t}; }), true); var r = area.lastChild; r.classList.add("cz-toy"); return r; }
+function numRow(area, n, k, lo, hi){ var o = [n], g = 0; while(o.length<k && g++<99){ var v = n + pick([-2,-1,1,2,3]); if(v>=lo && v<=hi && o.indexOf(v)<0) o.push(v); } numChoices(area, n, o); var r = area.lastChild; r.classList.add("cz-toy"); return r; }
+
+/* ===== the 3D animals: load once, then copy for each round ===== */
+var GL = {}, GLL = null, GURL = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js";
+function TT(){ return T3x.T(); }
+function gltf(){ var T = TT(); if(T.GLTFLoader) return Promise.resolve();
+  if(!GLL) GLL = new Promise(function(res, rej){ var old = document.querySelector('script[src="'+GURL+'"]'), done = function(){ T.GLTFLoader ? res() : rej(); };
+    if(old){ old.addEventListener("load", done); old.addEventListener("error", function(){ GLL = null; rej(); }); setTimeout(function(){ if(T.GLTFLoader) res(); }, 60); return; }
+    var s = document.createElement("script"); s.src = GURL; s.async = true; s.onload = done; s.onerror = function(){ GLL = null; rej(); }; document.head.appendChild(s); });
+  return GLL; }
+function getA(n){
+  if(!GL[n]) GL[n] = T3x.load().then(gltf).then(function(){ return new Promise(function(res, rej){ var T = TT();
+    new T.GLTFLoader().load(BASE+file(n)+".glb", function(g){ var m = g.scene;
+      m.traverse(function(o){ if(o.isMesh){ o.castShadow = true; o.receiveShadow = false; if(o.geometry) o.geometry.userData.keep = 1; [].concat(o.material).forEach(function(mt){ mt.userData.keep = 1; if(mt.map){ mt.map.encoding = T.sRGBEncoding; mt.map.anisotropy = 4; } mt.roughness = Math.max(.55, mt.roughness||.6); mt.metalness = 0; }); } });
+      /* stand it on the ground, centred, about 2 units tall */
+      var b = new T.Box3().setFromObject(m), s = b.getSize(new T.Vector3()), k = 2/Math.max(s.y, s.x*.62, s.z*.62, .01); m.scale.multiplyScalar(k);
+      b.setFromObject(m); var c = b.getCenter(new T.Vector3()); m.position.x -= c.x; m.position.z -= c.z; m.position.y -= b.min.y;
+      var w = new T.Group(); w.add(m); res(w); }, undefined, function(){ GL[n] = null; rej(); }); }); });
+  return GL[n]; }
+function inst(n, h){ return getA(n).then(function(src){ var g = src.clone(true), T = TT(); g.userData = {}; var hh = (h || 2.3)*(AN[n].s>=9 ? 1.18 : AN[n].s<=2 ? .82 : 1); g.scale.setScalar(hh/2); g.userData.an = n; return g; }); }
+function warmWorld(w){ if(!T3x.gl()) return; WORLD[w].heroes.forEach(function(n){ getA(n).catch(function(){}); }); }
+
+/* ===== the habitats: a round clay island for each world ===== */
+var LOOK = {
+  safari:{top:0xE7C766, side:0xC8954C, sky:"#FFE9B8"},
+  jungle:{top:0x5DB65A, side:0x7A5232, sky:"#D3F2C8"},
+  ocean:{top:0x4FB3E8, side:0x2F86C2, sky:"#D7F0FF"},
+  farm:{top:0x8CCF5E, side:0x8C5A3C, sky:"#E2F6D6"}
+};
+function island(sc, w, r){ var T = TT(), L = LOOK[w], g = T3x.grp(); r = r || 7.2;
+  var base = T3x.M(new T.CylinderGeometry(r, r*.92, .9, 56), T3x.mat(L.side, {r:.8}), 0, -.46, 0); base.castShadow = false; g.add(base);
+  var top = T3x.M(new T.CylinderGeometry(r+.06, r+.06, .12, 56), T3x.mat(L.top, {r:w==="ocean" ? .25 : .85, op:w==="ocean" ? .92 : 1}), 0, -.04, 0); top.castShadow = false; g.add(top);
+  sc.add(g); return g; }
+function tree(g, x, z, k, kind){ var T = TT(), t = T3x.grp(); k = k || 1;
+  if(kind==="acacia"){ t.add(T3x.M(new T.CylinderGeometry(.12, .2, 2.2, 10), T3x.mat(0x7E5634, {r:.8}), 0, 1.1, 0)); var c = T3x.M(T3x.S(), T3x.mat(0x6DA544, {r:.8}), 0, 2.35, 0, 1.6, .38, 1.1); t.add(c); }
+  else if(kind==="palm"){ t.add(T3x.M(new T.CylinderGeometry(.14, .22, 2.6, 10), T3x.mat(0x8C6239, {r:.8}), 0, 1.3, 0)); for(var i=0;i<6;i++){ var l = T3x.M(T3x.S(), T3x.mat(i%2 ? 0x3E9B47 : 0x4DB35A, {r:.7}), Math.cos(i/6*Math.PI*2)*.8, 2.55, Math.sin(i/6*Math.PI*2)*.8, .95, .14, .38); l.rotation.y = -i/6*Math.PI*2; l.rotation.z = -.35; t.add(l); } }
+  else if(kind==="pine"){ t.add(T3x.M(new T.CylinderGeometry(.14, .18, .8, 10), T3x.mat(0x7E5634, {r:.8}), 0, .4, 0)); [0, 1, 2].forEach(function(j){ t.add(T3x.M(new T.ConeGeometry(1.05-j*.25, 1.1, 18), T3x.mat(0x2E7D3A, {r:.8}), 0, 1.1+j*.62, 0)); }); }
+  else if(kind==="ice"){ var ic = T3x.M(new T.ConeGeometry(.9, 1.8, 6), T3x.mat(0xEAF7FF, {r:.25}), 0, .9, 0); t.add(ic); t.add(T3x.M(new T.ConeGeometry(.55, 1.1, 6), T3x.mat(0xC9E8FA, {r:.25}), .7, .55, .3)); }
+  else { t.add(T3x.M(new T.CylinderGeometry(.16, .22, 1.6, 10), T3x.mat(0x7E5634, {r:.8}), 0, .8, 0)); t.add(T3x.M(T3x.S(), T3x.mat(0x4DB35A, {r:.8}), 0, 2.0, 0, .95)); t.add(T3x.M(T3x.S(), T3x.mat(0x5DBE62, {r:.8}), .55, 1.75, .2, .62)); }
+  t.position.set(x, 0, z); t.scale.setScalar(k); g.add(t); return t; }
+function bush(g, x, z, k, col){ var b = T3x.grp(), m = T3x.mat(col || 0x4DB35A, {r:.8}); b.add(T3x.M(T3x.S(), m, 0, .55, 0, .9, .7, .7)); b.add(T3x.M(T3x.S(), m, -.6, .4, .1, .6, .5, .5)); b.add(T3x.M(T3x.S(), m, .6, .42, .05, .62, .5, .5)); b.position.set(x, 0, z); b.scale.setScalar(k||1); g.add(b); return b; }
+function rock(g, x, z, k, col){ var r = T3x.M(T3x.S(), T3x.mat(col || 0xB9AFA2, {r:.9}), x, .25*(k||1), z, .7*(k||1), .45*(k||1), .55*(k||1)); g.add(r); return r; }
+function floe(g, x, z, k){ var T = TT(), f = T3x.M(new T.CylinderGeometry(1.3*(k||1), 1.45*(k||1), .32, 7), T3x.mat(0xF4FBFF, {r:.3}), x, .1, z); f.castShadow = false; g.add(f); return f; }
+function decor(g, w){
+  if(w==="safari"){ tree(g, -5.2, -3.2, 1.25, "acacia"); tree(g, 5.4, -3.6, 1.0, "acacia"); rock(g, 4.6, 1.8, 1.1); bush(g, -5.4, 1.2, .7, 0x9BB54A); }
+  else if(w==="jungle"){ tree(g, -5.3, -3.0, 1.2, "palm"); tree(g, 5.2, -3.4, 1.1, "palm"); tree(g, 0, -5.4, 1.3, "round"); bush(g, -5.6, 1.4, .8, 0x3E9B47); bush(g, 5.4, 1.2, .7, 0x3E9B47); }
+  else if(w==="ocean"){ tree(g, -5.3, -3.2, 1.1, "ice"); tree(g, 5.4, -3.4, .9, "ice"); }
+  else { tree(g, -5.4, -3.0, 1.1, "round"); tree(g, 5.4, -3.6, 1.0, "pine"); fence(g); }
+  if(document.documentElement.classList.contains("xmas") && w!=="ocean"){ /* a little present under the tree */ var T = TT(), p = T3x.M(new T.BoxGeometry(.6, .5, .6), T3x.mat(0xE0303F, {r:.5}), -4.4, .25, -2.2); g.add(p); g.add(T3x.M(new T.BoxGeometry(.64, .1, .14), T3x.mat(0xFFFFFF, {r:.5}), -4.4, .5, -2.2)); }
+}
+function fence(g){ var T = TT(), m = T3x.mat(0xF2E3C6, {r:.8}); for(var i=0;i<6;i++) g.add(T3x.M(new T.BoxGeometry(.16, .9, .16), m, -3.6+i*1.45, .45, -4.6)); [.35, .7].forEach(function(y){ g.add(T3x.M(new T.BoxGeometry(7.6, .12, .08), m, 0, y, -4.6)); }); }
+/* water animals float and dip, flyers bob higher */
+var SWIM = {dolphin:1, whale:1, turtle:1, octopus:1};
+function idleA(m, t, i, amp){ T3x.idle(m, t, i, amp==null ? .9 : amp); var n = m.userData.an; if(SWIM[n]){ m.rotation.z = Math.sin(t*1.6 + i)*.08; } }
+function aim(cam, w, opt){ var d = (w*.5)/Math.tan(cam.fov*Math.PI/360)/cam.aspect + 2.0; d = Math.max(d, opt.minD || 7.2); cam.position.set(0, 1.9 + d*.17, d); cam.lookAt(0, opt.lookY || 1.15, 0); }
+/* a scene: animals in a row on the island (or one turning animal) */
+function rowBuild(w, names, opt){ opt = opt || {};
+  return function(models){ return function(sc, cam){ var T = TT(), g = island(sc, w), items = [], n = models.length, gap = opt.gap || (n>3 ? 2.35 : 2.8);
+    decor(g, w);
+    models.forEach(function(m, i){ m.position.set((i-(n-1)/2)*gap, (SWIM[m.userData.an] && w==="ocean") ? -.15 : 0, (i%2 ? -.35 : .15)*(n>3 ? 1 : 0)); m.rotation.y = opt.turn ? 0 : (i-(n-1)/2)*-.12;
+      if(w==="ocean" && !SWIM[m.userData.an]) floe(g, m.position.x, m.position.z, .75);
+      sc.add(m); items.push(m); });
+    var wd = Math.max(n*gap, opt.minW || 6.2), asp = cam.aspect; aim(cam, wd, opt);
+    return {items:items, tick:function(t){ if(cam.aspect!==asp){ asp = cam.aspect; aim(cam, wd, opt); } items.forEach(function(m, i){ if(opt.turn){ T3x.idle(m, t, i, .8); m.rotation.y = t*.7; } else idleA(m, t, i); }); }};
+  }; }; }
+/* peekaboo: bushes in a row, one animal peeks up behind one of them */
+function peekBuild(w, name, spots, at){
+  return function(models){ return function(sc, cam){ var g = island(sc, w), items = [], m = models[0], gap = 2.9; decor(g, w);
+    var covers = [];
+    for(var i=0;i<spots;i++){ var x = (i-(spots-1)/2)*gap, cv = w==="ocean" ? floe(g, x, .6, .9) : bush(g, x, .7, 1.25, w==="safari" ? 0x9BB54A : 0x4DB35A); if(w==="ocean"){ var ib = tree(g, x, .7, .75, "ice"); cv = ib; } covers.push(cv); }
+    var x0 = (at-(spots-1)/2)*gap; m.position.set(x0, 0, -.35); sc.add(m); items.push(m);
+    var wd = spots*gap, asp = cam.aspect, opt = {minD:7.4, lookY:1.0}; aim(cam, wd, opt);
+    return {items:items, tick:function(t){ if(cam.aspect!==asp){ asp = cam.aspect; aim(cam, wd, opt); } var up = .5 + .5*Math.sin(t*2.2); if(m.userData.act){ T3x.idle(m, t, 0, .6); return; } m.position.y = -1.9 + Math.pow(up, .6)*2.3; m.rotation.y = Math.sin(t*1.3)*.35; }};
+  }; }; }
+/* counting: a little herd */
+function herdBuild(w, list){
+  return function(models){ return function(sc, cam){ var g = island(sc, w), items = [], n = models.length, cols = Math.min(4, n), rows = Math.ceil(n/cols); decor(g, w);
+    models.forEach(function(m, i){ var r = Math.floor(i/cols), ci = i%cols, inRow = r===rows-1 ? n - r*cols : cols; m.scale.multiplyScalar(.78); m.position.set((ci-(inRow-1)/2)*2.0 + (r%2 ? .5 : 0), (SWIM[m.userData.an] && w==="ocean") ? -.12 : 0, -r*2.2 + (rows-1)*1.0); m.rotation.y = (Math.random()-.5)*.7;
+      if(w==="ocean" && !SWIM[m.userData.an]) floe(g, m.position.x, m.position.z, .6); sc.add(m); items.push(m); });
+    var asp = cam.aspect, wd = cols*2.0 + .8, fitc = function(){ var d = Math.max(6.6, (wd*.5)/Math.tan(cam.fov*Math.PI/360)/cam.aspect + 2.2); cam.position.set(0, 2.6 + rows*1.1, d); cam.lookAt(0, .8, -(rows-1)*.4); }; fitc();
+    return {items:items, tick:function(t){ if(cam.aspect!==asp){ asp = cam.aspect; fitc(); } items.forEach(function(m, i){ idleA(m, t, i, .6); }); }};
+  }; }; }
+
+/* ===== the stage: a 3D island in the field; pictures first, 3D as soon as it has loaded ===== */
+function stage(area, w, flat){ var f = textField(area, ""); f.classList.add("t3field", "a56field"); var b = el("div", "t3box a56box a56-"+w); b.innerHTML = '<div class="a56flat">'+(flat||"")+'</div>'; f.appendChild(b); return b; }
+function go3D(box, names, build, row){
+  if(!T3x.gl()) return;
+  var me = G, rd = G && G.round;
+  Promise.all(names.map(function(n){ return inst(n); })).then(function(models){
+    if(!box.isConnected || G!==me || (G && G.round!==rd)) return;
+    if(T3x.live(box, build(models))){ var fp = box.querySelector(".a56flat"); if(fp){ if(box.classList.contains("a56keep")) fp.classList.add("a56pin"); else fp.remove(); } box.classList.add("a56on"); if(row) overlay(box, row, T3x.LV.items); }
+  }, function(){});
+}
+/* tappable 3D animals: the answer buttons ride on top of the animals */
+function overlay(box, row, items){
+  var T = TT(), cam = T3x.LV.cam, v = new T.Vector3(), btns = $$(".choice", row);
+  row.classList.add("t3ov", "a56ov"); box.appendChild(row);
+  var place = function(){ if(!row.isConnected || T3x.LV.cam!==cam) return; var cv = T3x.LV.cv, ox = cv.offsetLeft || 0, w = cv.clientWidth || box.clientWidth, h = cv.clientHeight || box.clientHeight;
+    items.forEach(function(m, i){ var b = btns[i]; if(!b) return; var bb = m.userData.bb || (m.userData.bb = new T.Box3().setFromObject(m)), c = bb.getCenter(new T.Vector3()), s = bb.getSize(new T.Vector3());
+      v.copy(c).project(cam); var x = (v.x*.5+.5)*w, y = (-v.y*.5+.5)*h; var top = new T.Vector3(c.x, bb.max.y, c.z).project(cam), bot = new T.Vector3(c.x, bb.min.y, c.z).project(cam);
+      var ph = Math.max(64, Math.abs(top.y-bot.y)*.5*h*1.05), pw = Math.max(64, Math.min(w/items.length - 6, ph*Math.max(.8, s.x/Math.max(s.y, .1))));
+      b.style.left = (ox+x-pw/2)+"px"; b.style.top = (y-ph/2)+"px"; b.style.width = pw+"px"; b.style.height = ph+"px"; });
+    requestAnimationFrame(place); };
+  requestAnimationFrame(place);
+  $$(".choice", row).forEach(function(b, i){ b.addEventListener("click", function(){ setTimeout(function(){ if(b.classList.contains("right")) T3x.react(i, true); else if(b.classList.contains("wrong")) T3x.react(i, false); }, 0); }); });
+}
+/* answers under a one-animal scene: a right answer makes the animal jump */
+/* one animal on the stage: 3D if it has a model, otherwise a 3D friend from this world holds up its picture */
+function oneAnimal(box, w, t){ if(AN[t].d3){ go3D(box, [t], rowBuild(w, [t], {turn:1, minW:3.6, minD:5.6, lookY:1.25}), null); return; }
+  box.classList.add("a56keep"); var h = pick(WORLD[w].heroes); go3D(box, [h], rowBuild(w, [h], {minW:5.4, minD:6.4, lookY:1.2}), null); }
+function hookAll(row){ $$(".choice", row).forEach(function(b){ b.addEventListener("click", function(){ setTimeout(function(){ if(b.classList.contains("right")) T3x.react(0, true); else if(b.classList.contains("wrong")) T3x.react(0, false); }, 0); }); }); }
+
+/* ===== the rounds ===== */
+/* FIND: tap the right 3D animal */
+function findRound(area, c, w, pool, k){
+  var t = fresh(w+"f"+c.a, pool), set = shuffle([t].concat(others(t, pool, k)));
+  ask("Find the "+t+"!", "Tap the "+t+".", ["Find the, "+t+"!"]);
+  var box = stage(area, w), row = picRow(area, set, t);
+  go3D(box, set, rowBuild(w, set), row); return row; }
+/* WHAT: one animal turns around; pick its name */
+function whatRound(area, c, w, pool, k, words){
+  var t = fresh(w+"w"+c.a, pool.filter(function(n){ return AN[n].d3; })), opts = [t].concat(others(t, words ? ALL.filter(function(n){ return AN[n].w===w || AN[n].d3; }) : pool, k));
+  ask("What is this animal?", "Look at it turn around.");
+  var box = stage(area, w, cardHTML(t, "big")), row = words ? wordRow(area, opts, t) : picRow(area, shuffle(opts), t);
+  hookAll(row); go3D(box, [t], rowBuild(w, [t], {turn:1, minW:3.6, minD:5.6, lookY:1.25}), null); return row; }
+/* PEEK: who is hiding behind the bushes? */
+function peekRound(area, c, w, pool, k){
+  var t = fresh(w+"p"+c.a, pool), spots = 3, at = rand(0, spots-1), set = shuffle([t].concat(others(t, pool, k)));
+  ask("Who is peeking out?", "Peekaboo! Watch who pops up.");
+  var box = stage(area, w, '<b class="a56hide">🌿🌿🌿</b>'), row = picRow(area, set, t);
+  hookAll(row); go3D(box, [t], peekBuild(w, t, spots, at), null); return row; }
+/* COUNT: how many of one animal */
+function countRound(area, c, w, pool, k){
+  var t = fresh(w+"c"+c.a, pool), max = c.a===1 ? (c.t<.5 ? 3 : 4) : c.a===2 ? 6 : 8, n = rand(c.a===1 ? 1 : 2, max), extra = c.a===1 ? 0 : rand(1, 2), o = others(t, pool, 2)[0];
+  var list = []; for(var i=0;i<n;i++) list.push(t); for(var j=0;j<extra;j++) list.push(o); list = shuffle(list);
+  var pl = t==="sheep" || t==="fish" ? t : t==="octopus" ? "octopuses" : t==="fox" ? "foxes" : t+"s";
+  ask("How many "+pl+"?", extra ? "Count only the "+pl+"." : "Count them all.", ["How many animals?"]);
+  var box = stage(area, w, list.map(function(n){ return cardHTML(n, "xs"); }).join("")), row = numRow(area, n, k, 1, max+2);
+  go3D(box, list, herdBuild(w, list), null); return row; }
+/* HOME: who lives in the sea / on the farm (heroes from all four worlds) */
+var HOME_Q = {grassland:"Who lives on the grassland?", jungle:"Who lives in the jungle?", sea:"Who lives in the sea?", snow:"Who lives in the snow and ice?", farm:"Who lives on the farm?", forest:"Who lives in the forest?", pond:"Who lives in the pond?", outback:"Who lives in the Australian outback?", river:"Who lives in the river?"};
+function homeRound(area, c, w, k){
+  var homes = {}; WORLD[w].heroes.forEach(function(n){ if(HOME_Q[AN[n].h]) homes[AN[n].h] = 1; }); var h = fresh(w+"h", Object.keys(homes));
+  var right = WORLD[w].heroes.filter(function(n){ return AN[n].h===h; }), t = pick(right), bad = D3.filter(function(n){ return AN[n].h!==h && AN[n].w!==w; });
+  var set = shuffle([t].concat(shuffle(bad).slice(0, k-1)));
+  ask(HOME_Q[h], "Pick the animal that lives there.");
+  var box = stage(area, w), row = picRow(area, set, t);
+  go3D(box, set, rowBuild(w, set), row); return row; }
+/* ATLAS: find one of the many more animals from this part of the world (picture cards) */
+function atlasRound(area, c, w, k){
+  var pool = inWorld(w).filter(function(n){ return !AN[n].d3; }), t = fresh(w+"a"+c.a, pool), set = shuffle([t].concat(others(t, pool, k)));
+  var host = pick(WORLD[w].heroes);
+  ask("Find the "+t+"!", "Tap the "+t+".", ["Find the, "+t+"!"]);
+  var box = stage(area, w, cardHTML(host, "big")), row = picRow(area, set, t, "a56big");
+  go3D(box, [host], rowBuild(w, [host], {minW:3.6, minD:5.8, lookY:1.25}), null); hookAll(row); return row; }
+/* WHERE: which continent */
+function contRound(area, c, w, k){
+  var pool = inWorld(w).filter(function(n){ return AN[n].c.length<=2; }), t = fresh(w+"k", pool), a = AN[t], right = pick(a.c);
+  var opts = [right].concat(shuffle(CONT.filter(function(x){ return a.c.indexOf(x)<0; })).slice(0, k-1));
+  ask("Where does "+A(t)+" live?", "Pick a part of the world.", ["Where does this animal live?"]);
+  var box = stage(area, w, cardHTML(t, "big"));
+  oneAnimal(box, w, t);
+  var row = wordRow(area, opts, right); row.classList.add("a56cont"); hookAll(row); return row; }
+/* KIND: mammal, bird, reptile ... */
+var KIND_HINT = {mammal:"Mammals have fur or hair and drink milk.", bird:"Birds have feathers and lay eggs.", reptile:"Reptiles have dry scales.", amphibian:"Amphibians start life in water.", fish:"Fish breathe with gills."};
+function kindRound(area, c, w, k){
+  var pool = inWorld(w).filter(function(n){ return KIND_HINT[AN[n].g]; }), t = fresh(w+"g", pool), g = AN[t].g;
+  var opts = [g].concat(others(g, Object.keys(KIND_HINT), k));
+  ask("What kind of animal is "+A(t)+"?", KIND_HINT[g], ["What kind of animal is this?"]);
+  var box = stage(area, w, cardHTML(t, "big")); oneAnimal(box, w, t);
+  var row = wordRow(area, opts, g); hookAll(row); return row; }
+/* FACT: which animal has a long trunk? */
+function factRound(area, c, w, k){
+  var pool = WORLD[w].heroes.filter(function(n){ return AN[n].fact; }), t = fresh(w+"q", pool), set = shuffle([t].concat(others(t, D3, k)));
+  ask(AN[t].fact, "Think about what makes each animal special.");
+  var box = stage(area, w), row = picRow(area, set, t); go3D(box, set, rowBuild(w, set), row); return row; }
+/* BIG: which is biggest / smallest */
+function sizeRound(area, c, w, k){
+  var pool = D3.slice(), set = [], g = 0; while(set.length<k && g++<200){ var n = pick(pool); if(set.every(function(x){ return x!==n && Math.abs(AN[x].s-AN[n].s)>=2; })) set.push(n); }
+  var big = Math.random()<.6, sorted = set.slice().sort(function(a, b){ return AN[a].s - AN[b].s; }), t = big ? sorted[sorted.length-1] : sorted[0];
+  ask(big ? "Which animal is the biggest in real life?" : "Which animal is the smallest in real life?", "Think about the real animals, not the pictures.");
+  var row = picRow(area, set, t); var box = stage(area, w); area.insertBefore(box.parentNode, row);
+  go3D(box, set, rowBuild(w, set), row); return row; }
+/* SPELL: which letter is missing */
+function spellRound(area, c, w, k){
+  var pool = inWorld(w).filter(function(n){ return /^[a-z]{3,8}$/.test(n); }), t = fresh(w+"s", pool), i = rand(0, t.length-1), L = t.charAt(i).toUpperCase();
+  var opts = [L].concat(others(L, "ABCDEFGHIJKLMNOPRSTUWZ".split(""), k)), shown = t.toUpperCase().split(""); shown[i] = "_";
+  ask("Which letter is missing from "+t+"?", shown.join(" "), ["Which letter is missing?"]);
+  var box = stage(area, w, cardHTML(t, "big")+'<b class="a56word">'+shown.join("")+'</b>'); oneAnimal(box, w, t);
+  choiceRow(area, shuffle(opts).map(function(v){ return {html:'<span class="wordopt">'+v+'</span>', label:v, say:(typeof LETTER_SAY!=="undefined" && LETTER_SAY[v]) || v.toLowerCase(), ok:v===L}; }), true);
+  var row = area.lastChild; row.classList.add("cz-toy"); hookAll(row); return row; }
+
+function engine(w){ return function(area, c){
+  var H = WORLD[w].heroes, k;
+  if(c.a===1){ var m1 = scModes(c, ["find","find","peek","count","find","peek"]); k = kOf(c, 2, 3);
+    var p1 = c.t<.3 ? H.slice(0, 4) : H;
+    if(m1==="peek") return peekRound(area, c, w, p1, k);
+    if(m1==="count") return countRound(area, c, w, p1, k);
+    return findRound(area, c, w, p1, k); }
+  if(c.a===2){ var m2 = scModes(c, ["find","what","atlas","home","count","atlas","peek"]); k = kOf(c, 3, 4);
+    if(m2==="what") return whatRound(area, c, w, H, k, false);
+    if(m2==="atlas") return atlasRound(area, c, w, k);
+    if(m2==="home") return homeRound(area, c, w, Math.min(3, k));
+    if(m2==="count") return countRound(area, c, w, H, 3);
+    if(m2==="peek") return peekRound(area, c, w, H, k);
+    return findRound(area, c, w, H, k); }
+  var m3 = scModes(c, ["fact","cont","kind","size","atlas","spell","count","what"]); k = kOf(c, 3, 4);
+  if(m3==="cont") return contRound(area, c, w, k);
+  if(m3==="kind") return kindRound(area, c, w, k);
+  if(m3==="size") return sizeRound(area, c, w, Math.min(4, k));
+  if(m3==="atlas") return atlasRound(area, c, w, 4);
+  if(m3==="spell") return spellRound(area, c, w, k);
+  if(m3==="count") return countRound(area, c, w, H, 3);
+  if(m3==="what") return whatRound(area, c, w, inWorld(w), 4, true);
+  return factRound(area, c, w, k);
+}; }
+Object.keys(WORLD).forEach(function(w){ ENGINES[WORLD[w].id] = engine(w); });
+
+/* ===== the four worlds ===== */
+function art(w){ var H = WORLD[w].heroes; return '<svg viewBox="0 0 150 120"><image href="'+img(H[0])+'" x="2" y="14" width="78" height="100"/><image href="'+img(H[1])+'" x="62" y="8" width="86" height="108"/></svg>'; }
+var NEWG = [
+  {id:"wsafari", name:"Safari Seek", skill:"Animals of Africa", area:"Nature", age:"2–7", bg:"#FFF0C9", color:"#C7811B",
+   about:"Goes on a 3D safari in Africa: find the lion, the giraffe and the zebra, peek in the bushes, count elephants and learn where each animal lives.", art:art("safari")},
+  {id:"wjungle", name:"Jungle Peekaboo", skill:"Animals of the rainforest", area:"Nature", age:"2–7", bg:"#DDF5D3", color:"#2E8B45",
+   about:"Explores the 3D jungles of Asia and South America: a tiger, a panda, a sleepy sloth, a toucan and lots of jungle friends hiding in the leaves.", art:art("jungle")},
+  {id:"wocean", name:"Ocean and Ice", skill:"Sea and polar animals", area:"Nature", age:"2–7", bg:"#DCF1FF", color:"#2479B8",
+   about:"Dives into a 3D ocean and slides onto the ice: dolphins, a whale, a sea turtle, an octopus, penguins and a polar bear.", art:art("ocean")},
+  {id:"wfarm", name:"Farm, Forest and Outback", skill:"Farm, forest and Australian animals", area:"Nature", age:"2–7", bg:"#E5F6D8", color:"#4E8F2E",
+   about:"Visits a 3D farm, a forest and the Australian outback: a cow, a pig, a bear cub, a fox, a kangaroo and a koala, plus 25 more animals.", art:art("farm")}
+];
+NEWG.forEach(function(g){ GAMES.push(g); });
+AGE_TXT.wsafari = ["Find the lion, the zebra and the giraffe","Count elephants, peekaboo and more safari animals","Where animals live, kinds of animals and fun facts"];
+AGE_TXT.wjungle = ["Find the monkey, the tiger and the panda","Who is hiding in the leaves? More jungle friends","Continents, kinds of animals and jungle facts"];
+AGE_TXT.wocean = ["Find the penguin, the whale and the dolphin","Count penguins and meet more sea animals","Sea and polar facts, continents and spelling"];
+AGE_TXT.wfarm = ["Find the cow, the pig and the kangaroo","Who lives on the farm? Count the piglets","Australia and forest facts, kinds of animals"];
+if(typeof MUSIC_OF!=="undefined"){ MUSIC_OF.wsafari = "nature"; MUSIC_OF.wjungle = "nature"; MUSIC_OF.wocean = "pond"; MUSIC_OF.wfarm = "nature"; ["wsafari","wjungle","wocean","wfarm"].forEach(function(id){ if(typeof MUSIC_OF.zoo!=="undefined") MUSIC_OF[id] = id==="wocean" ? (MUSIC_OF.t3bath || MUSIC_OF.zoo) : MUSIC_OF.zoo; }); }
+/* the friend's hello stays, but the "pop the right balloon" kind of play line does not fit: here you tap the 3D animals */
+var PLAYL = ["Pop the right balloon!","Pop the right bubble!","Open the right present!","Pick the right train car!","Tap the right boat!","Tap the right cloud!","Peekaboo! Tap a bush to look behind it!","Launch the right rocket!","Catch the right fish!","Put the right one in the basket!","Tap it when it pops up!","Catch the right one as it falls!"];
+var BASE_INTRO = introLine;
+introLine = function(){ var l = BASE_INTRO(); if(!G || !/^w(safari|jungle|ocean|farm)$/.test(G.id) || !l) return l;
+  PLAYL.forEach(function(p){ l = l.split(" "+p).join("").split(p).join(""); }); l = l.replace(/^\s*Ooh!\s*$/, "").trim(); return l; };
+/* start loading 3D and the animals as soon as one of these worlds is opened */
+function warm(){ var m = /^#(?:world|play)-w(safari|jungle|ocean|farm)\b/.exec(location.hash); if(m && T3x.gl()) T3x.load().then(function(){ warmWorld(m[1]); }, function(){}); }
+window.addEventListener("hashchange", warm); setTimeout(warm, 0);
+
+/* ===== home page: "Animal World Tour" row of big 3D animal cards, right under the 3D island ===== */
+function homeRow(){
+  var have = document.querySelector(".a56home"), nw0 = document.querySelector("#v-home .v54new");
+  if(have){ if(nw0 && have.nextElementSibling!==nw0) nw0.parentNode.insertBefore(have, nw0); return; }
+  var nw = document.querySelector("#v-home .v54new"), isl = document.querySelector("#v-home .v54") || document.querySelector("#v-home .ef-hi"), at = nw || (isl && isl.nextSibling), par = nw ? nw.parentNode : isl && isl.parentNode;
+  if(!par) return;
+  var sec = document.createElement("section"); sec.className = "a56home"; sec.setAttribute("aria-labelledby", "a56homeT");
+  sec.innerHTML = '<div class="a56home-h"><span class="a56home-badge">New</span><h2 id="a56homeT">Animal World Tour 3D</h2><p>Find '+ALL.length+' animals from every continent: 3D lions, pandas, whales and kangaroos.</p></div><div class="a56home-row">'+
+    NEWG.map(function(g, i){ var w = g.id.slice(1), H = WORLD[w].heroes; return '<a class="a56g" href="#world-'+g.id+'-1" data-hsay="'+esc(g.name)+'" style="--bg:'+g.bg+';--c:'+g.color+';--i:'+i+'"><span class="a56g-art"><img class="a" src="'+img(H[0])+'" alt="" decoding="async" loading="lazy"><img class="b" src="'+img(H[2])+'" alt="" decoding="async" loading="lazy"><i>3D</i></span><b>'+esc(g.name)+'</b><small>'+esc(g.skill)+'</small></a>'; }).join("")+'</div>';
+  par.insertBefore(sec, at);
+}
+setTimeout(homeRow, 0); setTimeout(homeRow, 600); setTimeout(homeRow, 2000);
+window.__v56 = {AN:AN, WORLD:WORLD, getA:getA, ALL:ALL};
 })();
 
 window.addEventListener("hashchange", route);
