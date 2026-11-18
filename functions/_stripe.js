@@ -17,6 +17,10 @@ const DESCS = {
   classroom15: "Homework with all 30 levels in every learning world for up to 15 students. Billed once a year.",
   classroom30: "Homework with all 30 levels in every learning world for up to 30 students. Billed once a year.",
 };
+// v55 Black Friday sale: 30% off the first payment on every plan, Fri 27 Nov 2026 00:00 to Sun 29 Nov 2026 23:59
+// Toronto time (EST = UTC-5). Turns on and off by itself; the coupon also stops working in Stripe at the end.
+export const SALE = { id: "ffk-blackfriday-2026", pct: 30, start: Date.UTC(2026, 10, 27, 5), end: Date.UTC(2026, 10, 30, 5), name: "Black Friday 30% off" };
+export function saleOn(now = Date.now()) { return now >= SALE.start && now < SALE.end; }
 const CODE_KEY = "ffk:7Hq2wP9z:codes:v1"; // same key the page uses for discount codes
 const CB32 = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
