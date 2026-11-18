@@ -2725,6 +2725,11 @@ html.xmas .t3box.t3room{background:linear-gradient(180deg,#FFE3E0 0%,#FFF3EE 60%
 .t3w{font-size:26px;vertical-align:middle}
 @media (prefers-reduced-motion: reduce){.t3row .t3pic img{animation:none}}
 .t3field .t3box{border-radius:var(--r-md,24px);box-shadow:inset 0 -4px 0 rgba(23,59,64,.08),0 6px 18px -8px rgba(23,59,64,.25)}
+/* Meshy friend in the corner of the stage */
+.t3box.t3hasf .t3cv{left:auto !important;right:0;width:80% !important}
+.t3friend{position:absolute;left:0;bottom:0;width:24% !important;height:96% !important;pointer-events:none;z-index:1;opacity:0;transform:translateY(12px);transition:opacity .35s,transform .35s}
+.t3friend.on{opacity:1;transform:none}
+@media (max-width:520px){.t3box.t3hasf .t3cv{width:76% !important}.t3friend{width:27% !important}}
 </style>
 <style>/* live site: stop tilted 3D cards from making phones scroll sideways */html,body{overflow-x:clip}</style>
 </head>
@@ -14412,11 +14417,11 @@ function live(box, build){
     LV.sc = sc; LV.cam = cam; LV.t0 = performance.now();
     var api = build(sc, cam) || {}; LV.tick = api.tick || null; LV.items = api.items || [];
     if(document.documentElement.classList.contains("xmas")) snow(sc);
-    box.appendChild(LV.cv); box.classList.add("t3on");
-    var size = function(){ var w = box.clientWidth || 320, h = box.clientHeight || 200; LV.r.setPixelRatio(Math.min(window.devicePixelRatio||1, 2)); LV.r.setSize(w, h, false); cam.aspect = w/h; cam.updateProjectionMatrix(); };
+    box.appendChild(LV.cv); box.classList.add("t3on"); friendIn(box);
+    var size = function(){ var w = LV.cv.clientWidth || box.clientWidth || 320, h = LV.cv.clientHeight || box.clientHeight || 200; LV.r.setPixelRatio(Math.min(window.devicePixelRatio||1, 2)); LV.r.setSize(w, h, false); cam.aspect = w/h; cam.updateProjectionMatrix(); };
     size(); var still = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches), mySc = sc;
     var loop = function(now){ if(LV.sc!==mySc) return; if(!LV.cv.isConnected){ stopLive(); return; }
-      if(LV.cv.width!==Math.round((box.clientWidth||320)*Math.min(window.devicePixelRatio||1, 2))) size();
+      if(LV.cv.width!==Math.round((LV.cv.clientWidth||box.clientWidth||320)*Math.min(window.devicePixelRatio||1, 2))) size();
       var t = (now - LV.t0)/1000; if(LV.tick) LV.tick(still ? 0 : t, t); fxStep(t); LV.r.render(sc, cam); LV.raf = requestAnimationFrame(loop); };
     LV.raf = requestAnimationFrame(loop);
     return true;
@@ -14435,14 +14440,55 @@ function confetti(at, n){ if(!LV.sc) return; var g = grp(); g.position.copy(at);
   LV.sc.add(g); LV.fx.push({o:g, t:(performance.now()-LV.t0)/1000, d:1.1}); }
 /* one of the live items reacts: jump + spin for a right answer, a little shake for a wrong one */
 var ACT = [];
-function react(i, ok){ var it = LV.items[i]; if(!it) return; var t = (performance.now()-LV.t0)/1000; it.userData.act = {ok:ok, t:t};
+function react(i, ok){ friendAct(ok ? "cheer" : "oops"); var it = LV.items[i]; if(!it) return; var t = (performance.now()-LV.t0)/1000; it.userData.act = {ok:ok, t:t};
   if(ok){ var p = new T.Vector3(); it.getWorldPosition(p); p.y += 1.6; confetti(p); } }
 /* the standard idle bounce, with the jump/shake reactions mixed in */
 function idle(o, t, i, amp){ var a = o.userData.act, base = o.userData.base || (o.userData.base = {y:o.position.y, ry:o.rotation.y, s:o.scale.x}); amp = amp==null ? 1 : amp;
   var y = base.y + Math.abs(Math.sin(t*2.4 + i*1.3))*.16*amp, ry = base.ry + Math.sin(t*.9 + i)*.18*amp, sq = 1 + Math.sin(t*4.8 + i*2.6)*.02*amp;
   if(a){ var k = (t - a.t); if(a.ok && k<1.3){ y += Math.sin(Math.min(1, k/0.6)*Math.PI)*1.3; ry += Math.min(1, k/0.6)*Math.PI*2; } else if(!a.ok && k<.5){ ry += Math.sin(k*40)*.25*(1-k/.5); } else if(k>=1.3 || !a.ok) o.userData.act = null; }
   o.position.y = y; o.rotation.y = ry; o.scale.set(base.s*(2-sq), base.s*sq, base.s*(2-sq)); }
-return {load:load, ready:function(){ return !!T; }, gl:gl, pic:pic, live:live, stop:stopLive, react:react, idle:idle, confetti:confetti, fit:fit,
+/* ===== Meshy friends (Pip, a girl and a boy): rigged 3D characters in a corner of the stage who wave and cheer ===== */
+var FURL = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js", FBASE = "meshy/", FR = {}, FL = null, FW = {r:null, cv:null, sc:null, cam:null, cur:null, raf:0, last:0, act:null};
+var FRIENDS = ["pip", "girl", "boy"];
+function loader(){ if(T.GLTFLoader) return Promise.resolve(); if(!FL) FL = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ T.GLTFLoader ? res() : rej(); }; s.onerror = function(){ FL = null; rej(); }; document.head.appendChild(s); }); return FL; }
+function friendGet(n){ if(!FR[n]) FR[n] = loader().then(function(){ return new Promise(function(res, rej){ new T.GLTFLoader().load(FBASE+n+".glb", function(gl){
+    var m = gl.scene; m.traverse(function(o){ if(o.isMesh){ o.castShadow = true; o.frustumCulled = false; if(o.geometry) o.geometry.userData.keep = 1; [].concat(o.material).forEach(function(x){ x.userData.keep = 1; }); } });
+    var mix = new T.AnimationMixer(m), A = {}, clip = function(k){ return T.AnimationClip.findByName(gl.animations, k); }, cut = function(k, a, z){ var c = clip(k); return c ? T.AnimationUtils.subclip(c, k+"_"+a, Math.round(a*30), Math.round(z*30), 30) : null; };
+    /* only the parts of the long clips where the friend faces the children */
+    var rest = cut("idle", 0, .55), wv = cut("wave", 0, 3.4), ch = cut("jump", 0, 2.4);
+    if(rest){ A.idle = mix.clipAction(rest); A.idle.setLoop(T.LoopPingPong, Infinity); A.idle.play(); }
+    if(wv) A.wave = mix.clipAction(wv); if(ch) A.cheer = mix.clipAction(ch); res({m:m, mix:mix, A:A, n:n}); }, null, function(){ delete FR[n]; rej(); }); }); });
+  return FR[n]; }
+function friendFor(){ try{ if(typeof G!=="undefined" && G) return FRIENDS[((G.level||1)-1 + (G.band||1)) % FRIENDS.length]; }catch(e){} return "pip"; }
+function friendIn(box){
+  if(window.__noFriends) return;
+  var want = friendFor();
+  if(!FW.r){ try{ FW.r = new T.WebGLRenderer({antialias:true, alpha:true, powerPreference:"low-power"}); }catch(e){ window.__noFriends = 1; return; }
+    FW.r.outputEncoding = T.sRGBEncoding; FW.r.shadowMap.enabled = true; FW.r.shadowMap.type = T.PCFSoftShadowMap; FW.cv = FW.r.domElement; FW.cv.className = "t3friend"; FW.cv.setAttribute("aria-hidden", "true");
+    FW.sc = new T.Scene(); lights(FW.sc, true); var g = new T.Mesh(new T.CircleGeometry(3, 32), new T.ShadowMaterial({opacity:.2})); g.rotation.x = -Math.PI/2; g.receiveShadow = true; FW.sc.add(g);
+    FW.cam = new T.PerspectiveCamera(30, .6, .1, 50); }
+  box.classList.add("t3hasf"); box.appendChild(FW.cv);
+  friendGet(want).then(function(f){ if(!FW.cv.isConnected) return; if(FW.cur!==f){ if(FW.cur) FW.sc.remove(FW.cur.m); FW.cur = f; var h = f.n==="pip" ? .9 : 1.0; f.m.scale.setScalar(1); f.m.position.set(0, 0, 0); f.m.rotation.y = .3; FW.sc.add(f.m); FW.h = h; }
+    FW.cv.classList.add("on"); if(typeof G!=="undefined" && G && G.round===0) friendAct("wave"); friendLoop(); }, function(){});
+}
+function friendSize(){ var w = FW.cv.clientWidth || 120, h = FW.cv.clientHeight || 200; FW.r.setPixelRatio(Math.min(window.devicePixelRatio||1, 2)); FW.r.setSize(w, h, false); FW.cam.aspect = w/h; FW.cam.updateProjectionMatrix();
+  var H = FW.h || 1, d = (H*.62)/Math.tan(FW.cam.fov*Math.PI/360); d = Math.max(d, (H*.42)/Math.tan(FW.cam.fov*Math.PI/360)/FW.cam.aspect); FW.cam.position.set(0, H*.62, d*1.08); FW.cam.lookAt(0, H*.5, 0); }
+function friendLoop(){ if(FW.raf) return; FW.last = performance.now(); var still = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var tick = function(now){ if(!FW.cv || !FW.cv.isConnected || !FW.cur){ FW.raf = 0; return; }
+    if(FW.cv.width!==Math.round((FW.cv.clientWidth||120)*Math.min(window.devicePixelRatio||1, 2)) || FW.sizedH!==FW.cv.clientHeight){ FW.sizedH = FW.cv.clientHeight; friendSize(); }
+    var dt = Math.min(.1, (now - FW.last)/1000); FW.last = now; if(!still) FW.cur.mix.update(dt);
+    var a = FW.act; if(a && now > a.end){ friendBack(); }
+    FW.r.render(FW.sc, FW.cam); FW.raf = requestAnimationFrame(tick); };
+  FW.raf = requestAnimationFrame(tick); }
+/* play a slice of a long clip, then go back to idle */
+function friendAct(k){ var f = FW.cur; if(!f || !FW.cv || !FW.cv.isConnected) return; if(k==="oops"){ k = null; }
+  if(!k){ return; } var A = f.A, act = A[k] || A.jump; if(!act) return;
+  Object.keys(A).forEach(function(x){ if(x!=="idle" && A[x]!==act) A[x].fadeOut(.2); });
+  act.reset(); act.setLoop(T.LoopOnce, 1); act.clampWhenFinished = true; act.fadeIn(.2).play(); if(A.idle) A.idle.fadeOut(.2);
+  FW.act = {a:act, end:performance.now() + (k==="wave" ? 3300 : 2350)}; }
+function friendBack(){ var f = FW.cur, a = FW.act; FW.act = null; if(!f || !a) return; a.a.fadeOut(.35); if(f.A.idle){ f.A.idle.reset().fadeIn(.35).play(); } }
+
+return {friendAct:friendAct, load:load, ready:function(){ return !!T; }, gl:gl, pic:pic, live:live, stop:stopLive, react:react, idle:idle, confetti:confetti, fit:fit,
   SHAPES:SHAPES, TOYS:TOYS, balloon:balloon, tub:tub, bubbles:bubbles, mat:mat, grp:grp, M:M, S:S, face:face, COL:COL, T:function(){ return T; }, LV:LV};
 })();
 /* ---------- v53: 3D toddler games (Shape Buddies, Rainbow Toy Box, Bubble Bath Ducks, Balloon Pop Party): real 3D clay toys you tap ---------- */
@@ -14512,11 +14558,11 @@ function rowScene(objs, opt){ opt = opt || {};
 function overlay(box, row, items){
   var T = T3.T(), cam = T3.LV.cam, v = new T.Vector3(), btns = $$(".choice", row);
   row.classList.add("t3ov"); box.appendChild(row);
-  var place = function(){ if(!row.isConnected || T3.LV.cam!==cam) return; var w = box.clientWidth, h = box.clientHeight;
+  var place = function(){ if(!row.isConnected || T3.LV.cam!==cam) return; var cv = T3.LV.cv, ox = cv.offsetLeft || 0, w = cv.clientWidth || box.clientWidth, h = cv.clientHeight || box.clientHeight;
     items.forEach(function(m, i){ var b = btns[i]; if(!b) return; var bb = m.userData.bb || (m.userData.bb = new T.Box3().setFromObject(m)), c = bb.getCenter(new T.Vector3()), s = bb.getSize(new T.Vector3());
       v.copy(c).project(cam); var x = (v.x*.5+.5)*w, y = (-v.y*.5+.5)*h; var top = new T.Vector3(c.x, bb.max.y, c.z).project(cam), bot = new T.Vector3(c.x, bb.min.y, c.z).project(cam);
       var ph = Math.max(60, Math.abs(top.y-bot.y)*.5*h*1.1), pw = Math.max(60, Math.min(w/items.length - 6, ph*Math.max(.9, s.x/Math.max(s.y, .1))));
-      b.style.left = (x-pw/2)+"px"; b.style.top = (y-ph/2)+"px"; b.style.width = pw+"px"; b.style.height = ph+"px"; });
+      b.style.left = (ox+x-pw/2)+"px"; b.style.top = (y-ph/2)+"px"; b.style.width = pw+"px"; b.style.height = ph+"px"; });
     requestAnimationFrame(place); };
   requestAnimationFrame(place);
 }
