@@ -2950,6 +2950,109 @@ nav.links a .ni{margin-right:4px}
 @media (max-width:360px){header.top .logo{font-size:18px}}
 </style>
 
+<style>
+/* ---------- v54: 3D home: Pip's Toy Island ---------- */
+.v54{position:relative;margin:4px 0 18px;border-radius:34px;padding:14px 16px 0;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 105%,#E9FFF0 0,#E9FFF0 30%,rgba(233,255,240,0) 60%),linear-gradient(180deg,#9EDCFF 0%,#C9ECFF 45%,#E8F8FF 100%);
+  box-shadow:0 8px 0 rgba(23,59,64,.12),0 22px 40px -18px rgba(23,59,64,.45),inset 0 3px 0 rgba(255,255,255,.6)}
+.v54.v54x{background:radial-gradient(120% 90% at 50% 105%,#FFFFFF 0,#F4FBFF 30%,rgba(244,251,255,0) 60%),linear-gradient(180deg,#7FB6E8 0%,#B5D9F5 45%,#EAF6FF 100%)}
+.v54 .ef-hi{position:relative;z-index:3;margin:0}
+.v54on .v54 .ef-hi .pipwave{display:none}
+.v54on .v54 .ef-hi .ef-bub:before{display:none}
+.v54-box{position:relative;height:clamp(300px,36vw,450px);margin:0 -16px;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.v54-cv{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;outline:0;opacity:0;transition:opacity .6s}
+.v54ready .v54-cv{opacity:1}
+.v54-ph{position:absolute;pointer-events:none;left:50%;bottom:14%;width:min(78%,640px);aspect-ratio:3.4/1;transform:translateX(-50%);transition:opacity .6s}
+.v54-ph i{position:absolute;inset:0;border-radius:50%;background:radial-gradient(closest-side,#9BE08A,#86D66F 70%,#6CBF5A);box-shadow:0 30px 0 -6px #C98A57;animation:v54ph 3s ease-in-out infinite}
+.v54ready .v54-ph{opacity:0}
+@keyframes v54ph{50%{transform:translateY(-8px)}}
+.v54-tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.v54-tag{position:absolute;left:0;top:0;white-space:nowrap;font:800 14px/1 var(--body,system-ui);color:#fff;background:var(--c,#4DB35A);padding:6px 11px;border-radius:999px;
+  box-shadow:0 3px 0 rgba(23,59,64,.22);opacity:0;transition:opacity .3s;will-change:transform}
+.v54-tag.hov{box-shadow:0 0 0 3px #fff,0 4px 0 rgba(23,59,64,.25)}
+.v54-hint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:2;background:rgba(255,255,255,.92);color:var(--ink,#173B40);font:800 15px var(--body,system-ui);
+  padding:8px 16px;border-radius:999px;box-shadow:var(--clay-sm,0 4px 10px rgba(0,0,0,.12));white-space:nowrap;transition:opacity .5s;pointer-events:none;opacity:0}
+.v54ready .v54-hint{opacity:1;animation:v54hint 2.4s ease-in-out infinite}
+.v54-hint.gone{opacity:0!important;animation:none}
+@keyframes v54hint{50%{transform:translateX(-50%) translateY(-4px)}}
+.v54fail{background:none;box-shadow:none;padding:0;border-radius:0}
+.v54fail .v54-box{display:none}
+@media (max-width:760px){
+  .v54{border-radius:26px;padding:10px 10px 0;margin-top:0}
+  .v54 .ef-hi{flex-wrap:wrap;gap:8px}
+  .v54 .ef-hi .ef-bub{padding:10px 14px}
+  .v54 .ef-hi .ef-find{width:100%;justify-content:center;min-height:46px}
+  .v54-box{height:300px;margin:0 -10px}
+  .v54-tag{font-size:12px;padding:5px 9px}
+  .v54-hint{font-size:13px;bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){.v54-ph i,.v54ready .v54-hint{animation:none}}
+/* v54b: smaller "What do you want to do today?", one-row header, voice button floats bottom-right on bigger screens */
+.v54 .ef-hi h2{font-size:clamp(20px,2.3vw,28px)}
+.v54 .ef-hi p{font-size:14px}
+.v54 .ef-hi .ef-bub{flex:0 1 auto;padding:10px 18px}
+@media (min-width:761px){
+  .v54dock{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:60}
+  .v54dock .vtoggle{width:56px;height:56px;padding:0;justify-content:center;border:0;background:#fff;box-shadow:0 5px 0 rgba(23,59,64,.16),0 12px 24px -10px rgba(23,59,64,.45);order:0;margin:0}
+  .v54dock .vtoggle svg{width:24px;height:24px}
+  .v54dock .vtoggle #voiceLabel{display:none}
+  .v54dock .vtoggle[aria-pressed="false"]{background:#E3F4F1;color:var(--ink-soft,#5b7479)}
+  .v54dock .vtoggle:hover{transform:translateY(-2px)}
+  html body header.top .wrap{flex-wrap:nowrap}
+  html body header.top nav.links{flex:1 1 auto;min-width:0;justify-content:flex-end}
+  html body header.top .xmasbtn{position:relative;right:auto;top:auto}
+}
+@media (min-width:761px) and (max-width:1180px){
+  html body header.top nav.links a{font-size:15px;padding:8px 3px}
+  html body header.top .logo{font-size:18px}
+  html body header.top .logo svg{width:30px;height:27px}
+}
+@media (min-width:761px){
+  html body header.top #planChip{display:none}
+  html body header.top nav.links{flex-wrap:nowrap;white-space:nowrap}
+}
+@media (max-width:1500px){html body header.top nav.links a .ni{display:none}}
+/* v54c: new 3D games row */
+.v54new{margin:0 0 20px}
+.v54new-h{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;margin:0 0 12px}
+.v54new-h h2{margin:0;font-size:clamp(22px,2.6vw,30px);color:var(--ink,#173B40)}
+.v54new-h p{margin:0;color:var(--ink-soft,#4b6b70);font-size:15px;flex-basis:100%}
+.v54new-badge{background:#FF5A5F;color:#fff;font:900 13px/1 var(--body,system-ui);letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px;box-shadow:0 3px 0 rgba(23,59,64,.18)}
+.v54new-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.v54g{display:flex;flex-direction:column;text-decoration:none;color:var(--ink,#173B40);background:#fff;border-radius:26px;overflow:hidden;
+  box-shadow:0 7px 0 rgba(23,59,64,.12),0 16px 28px -14px rgba(23,59,64,.4);transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.v54g:hover,.v54g:focus-visible{transform:translateY(-4px) rotate(-1deg)}
+.v54g:focus-visible{outline:4px solid var(--c);outline-offset:3px}
+.v54g-art{position:relative;display:block;aspect-ratio:4/3;background:radial-gradient(circle at 50% 40%,#fff,var(--bg) 70%)}
+.v54g-art img{position:absolute;inset:6% 8%;width:84%;height:88%;object-fit:contain;animation:v54gb 3s ease-in-out infinite;animation-delay:calc(var(--i)*-.7s)}
+.v54g-art i{position:absolute;right:10px;top:10px;font:900 13px/1 var(--body,system-ui);font-style:normal;color:#fff;background:var(--c);padding:5px 8px;border-radius:10px}
+.v54g b{font:800 19px/1.15 var(--display,var(--body,system-ui));padding:10px 14px 0;color:var(--c)}
+.v54g small{padding:2px 14px 14px;color:var(--ink-soft,#4b6b70);font-size:14px}
+@keyframes v54gb{50%{transform:translateY(-6px) scale(1.03)}}
+@media (max-width:760px){.v54new-row{grid-template-columns:repeat(2,1fr);gap:12px}.v54g b{font-size:16px}.v54g small{font-size:13px}}
+@media (prefers-reduced-motion:reduce){.v54g-art img{animation:none}}
+
+/* v54d: Christmas on = red and white */
+html.xmas.v54on body{background:#FFF7F7}
+html.xmas .v54.v54x{background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 18px,rgba(255,255,255,0) 18px 36px),linear-gradient(180deg,#B3122B 0%,#D7263D 55%,#F25C6E 100%);
+  box-shadow:0 0 0 6px #fff,0 0 0 12px #D7263D,0 22px 40px -14px rgba(120,10,30,.55);margin-top:14px}
+html.xmas .v54.v54x:before{content:"";position:absolute;left:0;right:0;top:0;height:26px;z-index:2;pointer-events:none;
+  background:radial-gradient(circle at 18px 6px,#FFD54A 0 6px,transparent 7px) 0 0/72px 26px,radial-gradient(circle at 54px 14px,#2FA84F 0 6px,transparent 7px) 0 0/72px 26px,radial-gradient(circle at 36px 10px,#fff 0 5px,transparent 6px) 0 0/72px 26px}
+html.xmas .v54.v54x .v54-hint{background:#fff;color:#B3122B}
+html.xmas .ef-tile{--c:#E0303F!important;--cd:#A30F25!important;position:relative}
+html.xmas .ef-tile:nth-child(even){--c:#F4F4F4!important;--cd:#E3E3E3!important;color:#B3122B!important}
+html.xmas .ef-tile:after{content:"";position:absolute;left:-2px;right:-2px;top:-2px;height:16px;z-index:3;pointer-events:none;
+  background:radial-gradient(circle at 12px 0,#fff 0 11px,transparent 12px) 0 0/24px 16px;filter:drop-shadow(0 2px 1px rgba(120,10,30,.25))}
+html.xmas .ef-tile:nth-child(even):after{background:radial-gradient(circle at 12px 0,#E0303F 0 11px,transparent 12px) 0 0/24px 16px}
+html.xmas .v54new-badge{background:#2FA84F}
+html.xmas .v54g{box-shadow:0 0 0 4px #fff,0 0 0 8px #E0303F,0 16px 28px -14px rgba(120,10,30,.45)}
+html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16px 28px -14px rgba(120,10,30,.45)}
+.v54snow{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden}
+.v54snow i{position:absolute;top:-30px;font-style:normal;color:#fff;text-shadow:0 0 2px rgba(150,20,40,.55),0 0 6px rgba(150,20,40,.25);animation:v54fall linear infinite,v54sway ease-in-out infinite alternate;will-change:transform}
+@keyframes v54fall{to{top:105%}}
+@keyframes v54sway{from{transform:translateX(-14px) rotate(0)}to{transform:translateX(14px) rotate(160deg)}}
+</style>
+
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#home" aria-label="FirstFoundationkids home"><svg aria-hidden="true"><use href="#pip"/></svg><span>FirstFoundation<b>kids</b></span></a>
@@ -15162,6 +15265,363 @@ function v24party(f){
   new MutationObserver(function(ms){ ms.forEach(function(m){ Array.prototype.forEach.call(m.addedNodes, function(n){ if(n.classList && n.classList.contains("finish")) setTimeout(function(){ v24party(n); }, 120); }); }); }).observe(b, {childList:true});
 })();
 setTimeout(v24home, 400);
+})();
+</script>
+
+<script>
+/* ---------- v54: 3D home: Pip's Toy Island (three.js r128 via the v53 toy library). Pip stands in his pond, 8 toys float round the island,
+   each toy is a door to the matching big button below (same speech, same link). Lazy, pauses off screen, no WebGL = the old 2D header. ---------- */
+(function(){
+var home = document.getElementById("v-home"), ef = home && home.querySelector(".ef"), hi = ef && ef.querySelector(".ef-hi");
+if(!hi || !window.__v53 || !window.__v53.T3 || document.querySelector(".v54")) return;
+var T3 = window.__v53.T3;
+if(!T3.gl()) return;
+var mm = function(q){ try{ return window.matchMedia && matchMedia(q).matches; }catch(e){ return false; } };
+var reduce = mm("(prefers-reduced-motion: reduce)"), fine = mm("(hover:hover) and (pointer:fine)");
+var lite = mm("(pointer:coarse)") || (navigator.deviceMemory && navigator.deviceMemory <= 4) || innerWidth < 760;
+
+/* ----- the stage: the "What do you want to do?" row sits on top, the 3D island under it ----- */
+var st = document.createElement("div"); st.className = "v54";
+st.innerHTML = '<div class="v54-box" aria-hidden="true"><div class="v54-ph"><i></i></div><div class="v54-tags"></div><span class="v54-hint">Tap a toy! Spin the island!</span></div>';
+ef.insertBefore(st, hi); st.insertBefore(hi, st.firstChild);
+var box = st.querySelector(".v54-box"), tagBox = st.querySelector(".v54-tags"), hint = st.querySelector(".v54-hint");
+document.documentElement.classList.add("v54on");
+function fail(){ document.documentElement.classList.remove("v54on"); st.classList.add("v54fail"); }
+
+var TILE = function(c){ return ef.querySelector(".ef-tile."+c); };
+var DOORS = [
+  {c:"t-games",  col:0x5CC167, make:"block"},
+  {c:"t-story",  col:0xFF9150, make:"book"},
+  {c:"t-night",  col:0x4A5BB8, make:"moon"},
+  {c:"t-color",  col:0xF0628A, make:"crayons"},
+  {c:"t-math",   col:0x4FA9E6, make:"balloon"},
+  {c:"t-music",  col:0xA06BE0, make:"drum"},
+  {c:"t-school", col:0xF5B82E, make:"school"},
+  {c:"t-path",   col:0x2FB5A5, make:"star"}
+].filter(function(d){ return TILE(d.c); });
+
+var T, R, sc, cam, island, pip, doors = [], fx = [], hitList = [], ray, ptr, t0 = 0, raf = 0, running = false, seen = false, spin = 0, spinV = 0, drag = null, lastTap = 0, hover = null, built = false, snowPts = null;
+
+function go(){
+  if(built) return; built = true;
+  T3.load().then(function(three){ T = three; try{ build(); }catch(e){ if(window.console) console.warn("v54", e); fail(); } }, fail);
+}
+/* start after the page is up, and only once the stage is near the screen */
+var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function(es){ es.forEach(function(en){ seen = en.isIntersecting; if(seen){ go(); wake(); } }); }, {rootMargin:"120px"}) : null;
+var kick = function(){ if(io) io.observe(st); else { seen = true; go(); } };
+if(document.readyState === "complete") setTimeout(kick, 60); else window.addEventListener("load", function(){ setTimeout(kick, 60); });
+
+/* ----- little makers ----- */
+var M, S, mat, grp;
+function blob(){ var c = document.createElement("canvas"); c.width = c.height = 64; var x = c.getContext("2d"), g = x.createRadialGradient(32, 32, 2, 32, 32, 31);
+  g.addColorStop(0, "rgba(23,59,64,.42)"); g.addColorStop(1, "rgba(23,59,64,0)"); x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+  var m = new T.MeshBasicMaterial({map:new T.CanvasTexture(c), transparent:true, depthWrite:false}); return function(r){ var s = new T.Mesh(new T.PlaneGeometry(r*2, r*2), m); s.rotation.x = -Math.PI/2; s.renderOrder = 1; return s; }; }
+var shadow;
+function crescent(){ var s = new T.Shape(), d = .45, r = .85, a0 = 57.8*Math.PI/180, a1 = 84.4*Math.PI/180;
+  s.absarc(0, 0, 1, a0, Math.PI*2 - a0, false); s.absarc(d, 0, r, -a1, a1 - Math.PI*2, true); return s; }
+function sleepyFace(g, x, y, z, s){ var d = mat(0x173B40, {r:.3}); [-1, 1].forEach(function(k){ var e = new T.Mesh(new T.TorusGeometry(.09*s, .022*s, 6, 14, Math.PI), d); e.position.set(x + k*.17*s, y, z); g.add(e); });
+  var sm = new T.Mesh(new T.TorusGeometry(.08*s, .02*s, 6, 14, Math.PI), d); sm.rotation.z = Math.PI; sm.position.set(x, y - .17*s, z); g.add(sm);
+  [-1, 1].forEach(function(k){ g.add(M(S(), mat(0xFF8FA8, {r:.6}), x + k*.3*s, y - .12*s, z - .02, .07*s, .045*s, .02*s)); }); }
+var MAKE = {
+  block: function(){ var g = grp(), a = T3.TOYS.block(0xFF7F3F); a.scale.setScalar(.62); a.position.set(-.45, 0, 0); g.add(a);
+    var b = T3.TOYS.block(0x3E9BDB); b.scale.setScalar(.48); b.position.set(.62, 0, .15); b.rotation.y = .5; g.add(b);
+    var c = T3.TOYS.block(0xFFCF3A); c.scale.setScalar(.42); c.position.set(.05, 1.05, 0); c.rotation.y = -.2; g.add(c); return g; },
+  book: function(){ var g = grp(), cv = mat(0xE0601F, {r:.5}), pg = mat(0xFFFBF2, {r:.75}), ln = mat(0xF5B88E, {r:.8});
+    [-1, 1].forEach(function(k){ var h = grp(); h.add(M(new T.BoxGeometry(1.15, .08, 1.5), cv, k*.58, 0, 0));
+      h.add(M(new T.BoxGeometry(1.05, .14, 1.4), pg, k*.55, .1, 0)); for(var i=0;i<3;i++) h.add(M(new T.BoxGeometry(.6 - (i===1 ? .15 : 0), .02, .07), ln, k*.55, .18, -.35 + i*.3));
+      h.rotation.z = -k*.22; g.add(h); });
+    g.position.y = .55; var o = grp(); o.add(g); o.rotation.x = .5;
+    var p = makePip(.38); p.position.set(0, .85, -.25); o.add(p); o.userData.mini = p; return o; },
+  moon: function(){ var g = grp(), m = M(new T.ExtrudeGeometry(crescent(), {depth:.38, bevelEnabled:true, bevelThickness:.12, bevelSize:.1, bevelSegments:4, curveSegments:24}), mat(0xFFE58A, {r:.4, e:.12}), 0, 0, 0);
+    m.geometry.center(); m.position.set(0, 1.05, 0); g.add(m); sleepyFace(g, -.42, 1.12, .34, 1);
+    var st = M(new T.ExtrudeGeometry(starShape(), {depth:.12, bevelEnabled:true, bevelThickness:.05, bevelSize:.05, bevelSegments:2}), mat(0xFFF3B0, {r:.4, e:.3}), .7, 1.7, 0, .22); g.add(st); g.userData.tw = st;
+    var zz = grp(); [0, 1].forEach(function(i){ var z = M(new T.BoxGeometry(.24, .05, .05), mat(0x8E9BEF), .55 + i*.3, 1.0 + i*.3, .2); z.scale.setScalar(1 - i*.25); zz.add(z); }); g.add(zz); return g; },
+  crayons: function(){ var g = grp(); [[0xF0628A, -.38, .22], [0x9B5BD6, .05, -.05], [0xFFCF3A, .45, -.25]].forEach(function(c, i){
+      var k = grp(), m = mat(c[0], {r:.45}); k.add(M(new T.CylinderGeometry(.22, .22, 1.5, 8), m, 0, .75, 0)); k.add(M(new T.ConeGeometry(.22, .45, 8), m, 0, 1.72, 0));
+      k.add(M(new T.CylinderGeometry(.225, .225, .5, 8), mat(0xffffff, {r:.6}), 0, .7, 0)); k.position.set(c[1], 0, i*.12); k.rotation.z = c[2]; g.add(k); });
+    var sp = grp(); [0xF0628A, 0x3E9BDB, 0x4DB35A].forEach(function(c, i){ sp.add(M(S(), mat(c, {r:.3}), -.9 + i*.2, .08, .7 - i*.15, .16, .05, .16)); }); g.add(sp); return g; },
+  balloon: function(){ var g = grp(); [[0x4FA9E6, "1", -.55, 0], [0xFF7F3F, "2", .55, .25], [0x4DB35A, "3", 0, .55]].forEach(function(b){
+      var o = T3.balloon(b[0], b[1]); o.scale.setScalar(.55); o.position.set(b[2], .55 + b[3], -b[3]*.4); g.add(o); }); return g; },
+  drum: function(){ var g = T3.TOYS.drum(0xE8434F); g.scale.setScalar(.72); var o = grp(); o.add(g);
+    var n = M(new T.ExtrudeGeometry(note(), {depth:.12, bevelEnabled:true, bevelThickness:.04, bevelSize:.04, bevelSegments:2}), mat(0x9B5BD6, {r:.4}), .75, 1.65, 0, .55); o.add(n); o.userData.tw = n; return o; },
+  school: function(){ var g = grp(), wl = mat(0xFF8A70, {r:.55}), rf = mat(0x3E5BB8, {r:.5});
+    g.add(M(rbox(1.7, 1.15, 1.25, .12), wl, 0, .6, 0));
+    var tri = new T.Shape(); tri.moveTo(-1.05, 0); tri.lineTo(1.05, 0); tri.lineTo(0, .8); tri.closePath();
+    var roof = M(new T.ExtrudeGeometry(tri, {depth:1.3, bevelEnabled:true, bevelThickness:.06, bevelSize:.06, bevelSegments:2}), rf, 0, 1.18, -.65); g.add(roof);
+    g.add(M(rbox(.42, .62, .1, .06), mat(0x9A6237, {r:.6}), 0, .32, .64)); [-1, 1].forEach(function(k){ g.add(M(rbox(.34, .32, .08, .05), mat(0xBFE7FF, {r:.15}), k*.55, .78, .64)); });
+    var ck = M(new T.CylinderGeometry(.18, .18, .06, 24), mat(0xffffff), 0, 1.45, .72); ck.rotation.x = Math.PI/2; g.add(ck);
+    g.add(M(new T.CylinderGeometry(.025, .025, .9, 8), mat(0x6B7A80), .7, 2.0, 0)); var fl = M(new T.BoxGeometry(.4, .25, .03), mat(0x4DB35A, {r:.5}), .9, 2.3, 0); g.add(fl); g.userData.flag = fl; return g; },
+  star: function(){ var g = T3.SHAPES.star(0xFFCF3A); g.scale.setScalar(.72); var o = grp(); o.add(g);
+    var path = grp(); for(var i=0;i<4;i++){ path.add(M(new T.CylinderGeometry(.16, .16, .05, 16), mat(0xFFF3B0, {r:.5}), -.9 + i*.6, .03, .55 - Math.sin(i)*.25)); } o.add(path); return o; }
+};
+function starShape(){ var s = new T.Shape(); for(var i=0;i<10;i++){ var a = Math.PI/2 + i*Math.PI/5, r = i%2 ? .42 : 1; if(i) s.lineTo(Math.cos(a)*r, Math.sin(a)*r); else s.moveTo(Math.cos(a)*r, Math.sin(a)*r); } s.closePath(); return s; }
+function note(){ var s = new T.Shape(); s.absellipse(0, 0, .45, .34, 0, Math.PI*2, false, -.4); var st = new T.Shape(); return [s, (function(){ var p = new T.Shape(); p.moveTo(.32, .05); p.lineTo(.46, .05); p.lineTo(.46, 1.5); p.lineTo(.95, 1.2); p.lineTo(.95, 1.45); p.lineTo(.32, 1.8); p.closePath(); return p; })()]; }
+function rbox(w, h, d, r){ var s = new T.Shape(), x = -w/2 + r, y = -h/2 + r, W = w - 2*r, H = h - 2*r, q = Math.min(.01, r);
+  s.moveTo(x, y); s.lineTo(x + W, y); s.lineTo(x + W, y + H); s.lineTo(x, y + H); s.closePath();
+  var g = new T.ExtrudeGeometry(s, {depth:d - 2*r, bevelEnabled:true, bevelThickness:r, bevelSize:r, bevelSegments:4}); g.center(); return g; }
+
+/* ----- Pip, in clay ----- */
+function makePip(sc0){ var g = grp(), gr = mat(0x4DB35A, {r:.45}), dk = mat(0x2F8A3C, {r:.5}), wh = mat(0xffffff, {r:.2}), ink = mat(0x173B40, {r:.25}), body = grp();
+  body.add(M(S(), gr, 0, 1.0, 0, 1.25, .95, 1.05));
+  body.add(M(S(), mat(0xCFF0B5, {r:.6}), 0, .82, .55, .82, .58, .5));
+  var eyes = [];
+  [-1, 1].forEach(function(k){ var e = grp(); e.position.set(k*.52, 1.82, .22); e.add(M(S(), gr, 0, 0, 0, .42));
+    var w = M(S(), wh, 0, .04, .26, .32, .32, .2); e.add(w); var p = M(S(), ink, 0, .02, .42, .16, .17, .07); e.add(p); var sh = M(S(), wh, .06, .1, .48, .05, .05, .03); e.add(sh);
+    e.userData = {w:w, p:p, sh:sh}; body.add(e); eyes.push(e); });
+  var sm = new T.Mesh(new T.TorusGeometry(.34, .055, 10, 26, Math.PI), ink); sm.position.set(0, 1.22, 1.0); sm.rotation.z = Math.PI; sm.rotation.x = -.25; body.add(sm);
+  [-1, 1].forEach(function(k){ body.add(M(S(), mat(0xFF8FA8, {r:.6}), k*.8, 1.06, .74, .17, .11, .06)); });
+  var arms = [-1, 1].map(function(k){ var a = grp(); a.position.set(k*1.12, 1.15, .25); a.add(M(S(), gr, k*.12, -.28, 0, .2, .38, .2)); body.add(a); return a; });
+  [-1, 1].forEach(function(k){ body.add(M(S(), dk, k*.6, .12, .38, .46, .18, .52)); });
+  var crown = grp(), gd = mat(0xFFC83A, {r:.3, m:.35});
+  crown.add(M(new T.CylinderGeometry(.3, .3, .16, 20), gd, 0, 0, 0)); [-1, 0, 1].forEach(function(k){ crown.add(M(new T.ConeGeometry(.09, .22, 10), gd, k*.2, .18, 0)); });
+  crown.position.set(0, 1.98, -.05); body.add(crown);
+  var hat = grp(), red = mat(0xE8434F, {r:.6}), fur = mat(0xffffff, {r:.9});
+  hat.add(M(new T.ConeGeometry(.42, .8, 24), red, 0, .42, 0)); hat.add(M(new T.TorusGeometry(.42, .1, 10, 28), fur, 0, .02, 0)); hat.children[1].rotation.x = Math.PI/2; hat.add(M(S(), fur, .1, .85, 0, .13));
+  hat.position.set(0, 1.95, -.05); hat.rotation.z = -.25; hat.visible = false; body.add(hat);
+  g.add(body); g.scale.setScalar(sc0 || 1); g.userData = {body:body, eyes:eyes, arms:arms, crown:crown, hat:hat, act:null}; return g; }
+
+/* ----- Christmas tree for the island when the tree button is on ----- */
+function xtree(){ var g = grp(), gr = mat(0x2F8A3C, {r:.6});
+  [[1.0, 1.1, .7], [.8, .95, 1.35], [.55, .8, 1.9]].forEach(function(l){ g.add(M(new T.ConeGeometry(l[0], l[1], 20), gr, 0, l[2], 0)); });
+  g.add(M(new T.CylinderGeometry(.14, .16, .4, 10), mat(0x9A6237), 0, .2, 0));
+  var cols = [0xE8434F, 0xFFCF3A, 0x3E8EE8, 0xFF8FC1]; for(var i=0;i<12;i++){ var a = i*2.4, y = .55 + (i%6)*.27, r = 1.0 - (y - .4)*.42; g.add(M(S(), mat(cols[i%4], {r:.2, m:.3, e:.15}), Math.cos(a)*r*.9, y, Math.sin(a)*r*.9, .09)); }
+  var st = M(new T.ExtrudeGeometry(starShape(), {depth:.08, bevelEnabled:true, bevelThickness:.04, bevelSize:.04, bevelSegments:2}), mat(0xFFD54A, {r:.3, e:.45}), 0, 2.55, 0, .26); g.add(st); g.userData.tw = st; return g; }
+
+function build(){
+  M = T3.M; mat = T3.mat; grp = T3.grp; shadow = blob();
+  var bigS = T3.S(), lowS = new T.SphereGeometry(1, lite ? 18 : 22, lite ? 12 : 16); S = function(){ return lowS; };
+  R = new T.WebGLRenderer({antialias:true, alpha:true, powerPreference:"low-power"});
+  R.outputEncoding = T.sRGBEncoding; R.setClearColor(0x000000, 0);
+  var cv = R.domElement; cv.className = "v54-cv"; box.insertBefore(cv, box.firstChild);
+  sc = new T.Scene(); cam = new T.PerspectiveCamera(30, 2, .1, 120);
+  sc.add(new T.HemisphereLight(0xFFFFFF, 0x9CC9C0, .78));
+  var sun = new T.DirectionalLight(0xFFF3D6, .82); sun.position.set(4, 9, 7); sc.add(sun);
+  var fill = new T.DirectionalLight(0xCFE8FF, .25); fill.position.set(-6, 3, -4); sc.add(fill);
+
+  /* the island */
+  island = grp(); sc.add(island);
+  var top = new T.LatheGeometry([[0, .38], [5.6, .38], [5.95, .3], [6.12, .1], [6.05, -.15], [5.7, -.32]].map(function(p){ return new T.Vector2(p[0], p[1]); }), 72);
+  island.add(M(top, mat(0x86D66F, {r:.75}), 0, 0, 0)); var lawn = M(new T.CircleGeometry(5.62, 72), mat(0x86D66F, {r:.75}), 0, .381, 0); lawn.rotation.x = -Math.PI/2; island.add(lawn);
+  var dirt = new T.LatheGeometry([[5.7, -.32], [5.2, -.85], [4.2, -1.5], [2.8, -2.25], [1.2, -2.95], [.2, -3.25], [0, -3.3]].map(function(p){ return new T.Vector2(p[0], p[1]); }), 48);
+  island.add(M(dirt, mat(0xC98A57, {r:.85}), 0, 0, 0));
+  var band = new T.LatheGeometry([[5.3, -.75], [5.0, -1.0], [4.4, -1.35]].map(function(p){ return new T.Vector2(p[0], p[1]); }), 48); island.add(M(band, mat(0xA86E42, {r:.9}), 0, 0, 0));
+  /* pond in the middle with a lily pad for Pip */
+  island.add(M(new T.CylinderGeometry(1.85, 1.85, .06, 48), mat(0x5BC3D9, {r:.15, m:.05}), 0, .39, 0));
+  island.add(M(new T.TorusGeometry(1.9, .14, 10, 48), mat(0xA9A39A, {r:.8}), 0, .42, 0)); island.children[island.children.length-1].rotation.x = Math.PI/2;
+  var pad = M(new T.CylinderGeometry(1.0, 1.05, .1, 40, 1, false, .3, Math.PI*2 - .6), mat(0x3FA650, {r:.6}), 0, .47, 0); pad.rotation.y = Math.PI*.5; sc.add(pad);
+  /* flowers and pebbles */
+  var fc = [0xFF8FC1, 0xFFCF3A, 0xFFFFFF, 0xC6A8F2, 0xFF7F3F];
+  for(var i=0;i<(lite ? 10 : 14);i++){ var a = i*2.399 + .3, r = 2.5 + (i*.37 % 1)*3.0, f = grp(); f.position.set(Math.cos(a)*r, .38, Math.sin(a)*r);
+    if(i%3===2){ f.add(M(S(), mat(0xBFC7C9, {r:.8}), 0, .05, 0, .2, .12, .16)); }
+    else { f.add(M(new T.CylinderGeometry(.025, .025, .3, 5), mat(0x2F8A3C), 0, .15, 0)); f.add(M(S(), mat(fc[i%5], {r:.5}), 0, .32, 0, .13, .09, .13)); f.add(M(S(), mat(0xFFE070), 0, .37, 0, .055)); }
+    island.add(f); }
+  /* two round trees at the back */
+  [[-4.9, -1.6, .9], [4.7, -2.0, .8]].forEach(function(p){ var t = grp(); t.add(M(new T.CylinderGeometry(.13, .18, 1.0, 10), mat(0x9A6237, {r:.8}), 0, .5, 0));
+    t.add(M(S(), mat(0x4DB35A, {r:.7}), 0, 1.4, 0, .75)); t.add(M(S(), mat(0x5CC167, {r:.7}), .35, 1.75, .2, .5)); t.add(M(S(), mat(0x5CC167, {r:.7}), -.35, 1.65, .1, .45));
+    t.position.set(p[0], .38, p[1]); t.scale.setScalar(p[2]); island.add(t); t.userData.tree = 1; });
+
+  /* the 8 toy doors */
+  var n = DOORS.length;
+  DOORS.forEach(function(d, i){
+    var a = (i + .5)/n*Math.PI*2 + Math.PI/2, g = grp(); g.position.set(Math.cos(a)*4.35, .38, Math.sin(a)*3.7);
+    var ped = M(new T.CylinderGeometry(.82, .92, .32, 36), mat(d.col, {r:.45}), 0, .16, 0); g.add(ped);
+    g.add(M(new T.CylinderGeometry(.84, .84, .06, 36), mat(0xffffff, {r:.5, op:.55}), 0, .34, 0));
+    var toy = MAKE[d.make](); toy.position.y = .36; toy.scale.multiplyScalar(.9); var hold = grp(); hold.add(toy); g.add(hold);
+    var hit = new T.Mesh(new T.SphereGeometry(1.15, 10, 8), new T.MeshBasicMaterial({visible:false})); hit.position.y = 1.0; hit.scale.set(1, 1.15, 1); hit.userData.door = i; g.add(hit); hitList.push(hit);
+    var tile = TILE(d.c), lab = (tile.querySelector("b") || tile).textContent.trim();
+    var tag = document.createElement("span"); tag.className = "v54-tag"; tag.textContent = lab; tag.style.setProperty("--c", "#" + d.col.toString(16).padStart(6, "0")); tagBox.appendChild(tag);
+    island.add(g); doors.push({g:g, hold:hold, toy:toy, d:d, tile:tile, tag:tag, a:a, act:null, hov:0});
+  });
+
+  /* Pip in the middle (does not turn with the island, he always faces you) */
+  pip = makePip(1.25); pip.position.set(0, .5, .1); sc.add(pip);
+  var ps = shadow(1.25); ps.position.set(0, .53, .2); sc.add(ps); pip.userData.sh = ps;
+  var tree = xtree(); tree.position.set(0, .38, -1.25); tree.scale.setScalar(1.05); tree.visible = false; sc.add(tree); pip.userData.tree = tree;
+
+  /* sky things */
+  var sky = grp(); sc.add(sky);
+  var cm = mat(0xffffff, {r:.95}); [[-8.5, 5.4, -6, 1.1], [7.8, 6.2, -8, 1.4], [0, 7.6, -14, 1.6], [10.5, 3.2, -4, .8]].forEach(function(c, i){
+    var g = grp(); [[0, 0, 1], [.95, .15, .75], [-.95, .1, .72], [.3, .55, .7], [-.4, .45, .6]].forEach(function(p){ g.add(M(S(), cm, p[0], p[1], 0, p[2], p[2]*.85, p[2]*.8)); });
+    g.position.set(c[0], c[1], c[2]); g.scale.setScalar(c[3]); g.userData.cloud = {x:c[0], s:.25 + i*.07}; sky.add(g); });
+  var sunB = M(S(), new T.MeshBasicMaterial({color:new T.Color(0xFFD54A).convertSRGBToLinear()}), -10, 8.5, -16, 1.5); sky.add(sunB);
+  var balloons = [];
+  [[0xFF8FC1, -9, 0], [0xFFCF3A, 9.5, 2.5], [0x9B5BD6, -7, 5]].forEach(function(b, i){ var o = T3.balloon(b[0], ""); o.scale.setScalar(.55); o.position.set(b[1], -2 + b[2], -3 - i); o.userData.bl = {x:b[1], y0:b[2], v:.45 + i*.12}; sky.add(o); balloons.push(o); });
+  var bflies = [0, 1].map(function(i){ var g = grp(), wm = mat(i ? 0xFF8FC1 : 0xFFB13B, {r:.5}); [-1, 1].forEach(function(k){ var w = grp(), m = M(S(), wm, k*.22, 0, 0, .24, .03, .18); w.add(m); w.userData.k = k; g.add(w); });
+    g.add(M(S(), mat(0x173B40), 0, 0, 0, .05, .05, .16)); g.scale.setScalar(1.1); sc.add(g); return g; });
+
+  /* snow when Christmas is on */
+  var sg = new T.BufferGeometry(), sn = lite ? 90 : 180, sp = new Float32Array(sn*3); for(i=0;i<sn;i++){ sp[i*3] = (Math.random()*2-1)*12; sp[i*3+1] = Math.random()*10 - 1; sp[i*3+2] = (Math.random()*2-1)*7; }
+  sg.setAttribute("position", new T.BufferAttribute(sp, 3)); snowPts = new T.Points(sg, new T.PointsMaterial({color:0xffffff, size:.14, transparent:true, opacity:.95})); snowPts.visible = false; sc.add(snowPts);
+
+  ray = new T.Raycaster(); ptr = new T.Vector2(); var look = {x:0, y:0};
+  /* Christmas bits on the island: snow on the grass, presents, candy canes */
+  var xg = grp(); xg.visible = false; island.add(xg);
+  var snowLawn = M(new T.CircleGeometry(5.66, 72), mat(0xFAFDFF, {r:.9}), 0, .386, 0); snowLawn.rotation.x = -Math.PI/2; xg.add(snowLawn);
+  var rimSnow = M(new T.TorusGeometry(5.85, .16, 8, 72), mat(0xFFFFFF, {r:.9}), 0, .33, 0); rimSnow.rotation.x = Math.PI/2; xg.add(rimSnow);
+  [[0xE0303F, 0xFFFFFF, 1.6, 1.0], [0x2FA84F, 0xFFD54A, -1.3, 2.5], [0xFFFFFF, 0xE0303F, 2.9, -.4], [0xE0303F, 0xFFD54A, -3.0, -.9], [0x3E8EE8, 0xFFFFFF, .4, -2.6]].forEach(function(b, i){
+    var g = grp(), sz = .5 + (i%2)*.15; g.add(M(new T.BoxGeometry(sz, sz, sz), mat(b[0], {r:.5}), 0, sz/2, 0)); g.add(M(new T.BoxGeometry(sz + .02, sz + .02, .1), mat(b[1], {r:.4}), 0, sz/2, 0)); g.add(M(new T.BoxGeometry(.1, sz + .02, sz + .02), mat(b[1], {r:.4}), 0, sz/2, 0));
+    [-1, 1].forEach(function(k){ var bw = M(new T.TorusGeometry(.1, .04, 6, 12), mat(b[1], {r:.4}), k*.09, sz + .06, 0); bw.rotation.y = Math.PI/2; g.add(bw); });
+    g.position.set(b[2], .38, b[3]); g.rotation.y = i; xg.add(g); });
+  [[-1.0, 2.2], [1.1, -2.3], [3.4, 1.0]].forEach(function(c, i){ var g = grp(), red = mat(0xE0303F, {r:.4}), wh = mat(0xFFFFFF, {r:.4});
+    for(var j=0;j<6;j++) g.add(M(new T.CylinderGeometry(.07, .07, .16, 10), j%2 ? wh : red, 0, .08 + j*.16, 0));
+    var hk = M(new T.TorusGeometry(.18, .07, 8, 16, Math.PI), red, .18, 1.0, 0); g.add(hk); g.position.set(c[0], .38, c[1]); g.rotation.y = i*1.3; xg.add(g); });
+  function xmas(){ var on = document.documentElement.classList.contains("xmas"); xg.visible = on; pip.userData.crown.visible = !on; pip.userData.hat.visible = on; tree.visible = on; snowPts.visible = on; st.classList.toggle("v54x", on); }
+  xmas(); new MutationObserver(xmas).observe(document.documentElement, {attributes:true, attributeFilter:["class"]});
+
+  /* sizes: fit the whole island in any box (wide desktop or tall phone) */
+  function size(){ var w = box.clientWidth || 340, h = box.clientHeight || 260, pr = Math.min(window.devicePixelRatio || 1, lite ? 1.35 : 2);
+    R.setPixelRatio(pr); R.setSize(w, h, false); cam.aspect = w/h;
+    var vf = cam.fov*Math.PI/360, hf = Math.atan(Math.tan(vf)*cam.aspect), dW = (cam.aspect < 1.6 ? 5.5 : 6.9)/Math.tan(hf), dH = 4.6/Math.tan(vf), d = Math.max(dW, dH);
+    cam.position.set(0, d*.6, d*.8); cam.lookAt(0, w/h < 1.2 ? .1 : .3, 0); cam.updateProjectionMatrix(); paint(); }
+  if("ResizeObserver" in window) new ResizeObserver(size).observe(box); else window.addEventListener("resize", size);
+
+  /* pointer: hover, tap a toy or Pip, drag to spin */
+  function pick(e){ var r = cv.getBoundingClientRect(); ptr.set((e.clientX - r.left)/r.width*2 - 1, -(e.clientY - r.top)/r.height*2 + 1); ray.setFromCamera(ptr, cam);
+    var hs = ray.intersectObjects(hitList.concat([pip], kidHits), true); if(!hs.length) return null; var o = hs[0].object;
+    if(o.userData.door != null) return {door:o.userData.door}; if(o.userData.kid != null) return {kid:o.userData.kid}; while(o && o !== pip) o = o.parent; return o === pip ? {pip:1} : null; }
+  cv.addEventListener("pointerdown", function(e){ drag = {x:e.clientX, y:e.clientY, s:spin, moved:false, t:performance.now()}; });
+  window.addEventListener("pointermove", function(e){
+    var r = cv.getBoundingClientRect(); look.x = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width/2))/(r.width/2))); look.y = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height*.45))/(r.height/2)));
+    if(drag){ var dx = e.clientX - drag.x; if(Math.abs(dx) > 8) drag.moved = true; if(drag.moved){ var ns = drag.s + dx*.012; spinV = (ns - spin)*.6; spin = ns; wake(); } return; }
+    if(fine && e.target === cv){ var p = pick(e); hover = p ? p : null; cv.style.cursor = p ? "pointer" : "grab"; if(p) wake(); }
+  }, {passive:true});
+  var greeted = false;
+  window.addEventListener("pointerup", function(e){ var dg = drag; drag = null; if(!dg || e.target !== cv) return; var p = dg.moved ? null : pick(e);
+    if(!greeted && !(p && p.door != null)){ greeted = true; p = {pip:1}; } else if(p && p.pip) greeted = true; tap(p); });
+  cv.addEventListener("pointerleave", function(){ hover = null; });
+  function now(){ return (performance.now() - t0)/1000; }
+  function tap(p){ if(!p) return; var t = now();
+    if(p.kid != null){ var kk = kidList[p.kid]; kidPlay(kk, "dance", 4.2); burst(new T.Vector3(kk.o.position.x, 2.8, kk.o.position.z), 18); wake(); return; }
+    if(p.pip){ pip.userData.act = {k:"jump", t:t}; burst(new T.Vector3(0, 3, .3), 22); var pw = hi.querySelector(".pipwave"); if(pw) pw.dispatchEvent(new MouseEvent("click", {bubbles:true})); wake(); return; }
+    if(t - lastTap < .9) return; lastTap = t; var d = doors[p.door]; d.act = {t:t};
+    var w = new T.Vector3(); d.hold.getWorldPosition(w); w.y += 1.6; burst(w, 26);
+    pip.userData.act = {k:"cheer", t:t, x:w.x}; kidList.forEach(function(k){ kidPlay(k, "cheer", 2.6); }); hint.classList.add("gone"); wake();
+    setTimeout(function(){ d.tile.dispatchEvent(new MouseEvent("click", {bubbles:true, cancelable:true, view:window})); }, reduce ? 150 : 720); }
+  /* keyboard: the tiles below already work; the stage itself is decoration for screen readers */
+
+  /* confetti */
+  var CF = [0xFFC83A, 0xFF7F3F, 0x4DB35A, 0x3E9BDB, 0xFF8FC1, 0x9B5BD6], cfg = new T.BoxGeometry(.16, .16, .05);
+  function burst(at, k){ var g = grp(); g.position.copy(at); for(var i=0;i<k;i++){ var b = new T.Mesh(cfg, mat(CF[i%6], {r:.4})); b.userData.v = new T.Vector3(Math.random()*2-1, Math.random()*1.4 + .6, Math.random()*2-1); g.add(b); }
+    sc.add(g); fx.push({o:g, t:now(), d:1.1}); }
+
+  /* the animation */
+  var lastT = 0;
+  function frame(t){
+    var dt = Math.min(.05, t - lastT); lastT = t; var m = reduce ? 0 : 1;
+    if(!drag){ spin += (spinV + .09*m)*dt*(reduce ? 0 : 1); spinV *= Math.pow(.04, dt); if(reduce) spin += spinV*dt; }
+    island.rotation.y = spin; island.position.y = Math.sin(t*.8)*.12*m;
+    pad.position.y = .47 + island.position.y; pad.rotation.y = Math.PI*.5 + Math.sin(t*.5)*.08*m;
+    doors.forEach(function(d, i){ var a = d.act, k = a ? t - a.t : 9, hv = hover && hover.door === i ? 1 : 0; d.hov += (hv - d.hov)*Math.min(1, dt*10);
+      var y = Math.abs(Math.sin(t*2.1 + i*1.1))*.18*m, ry = -spin + Math.sin(t*.9 + i)*.2*m, s = 1 + d.hov*.15;
+      if(k < 1.2){ var q = Math.min(1, k/.65); y += Math.sin(q*Math.PI)*1.4; ry += q*Math.PI*2; s += Math.sin(Math.min(1, k/1.2)*Math.PI)*.2; } else d.act = null;
+      d.hold.position.y = y; d.hold.rotation.y = ry; d.hold.scale.setScalar(s);
+      if(d.toy.userData.tw) d.toy.userData.tw.rotation.z = Math.sin(t*2 + i)*.35*m;
+      if(d.toy.userData.mini) d.toy.userData.mini.position.y = .85 + Math.abs(Math.sin(t*3))*.15*m;
+      if(d.toy.userData.flag) d.toy.userData.flag.rotation.y = Math.sin(t*4)*.3*m;
+    });
+    /* Pip: breathe, blink, look at your finger, wave, hop */
+    var u = pip.userData, b = u.body, a = u.act, ak = a ? t - a.t : 9, py = .5 + island.position.y, prz = 0, pry = look.x*.35, wav = Math.sin(t*1.1) > .55 ? 1 : 0;
+    b.scale.set(1 + Math.sin(t*2.2)*.02*m, 1 - Math.sin(t*2.2)*.02*m, 1);
+    var hop = (t % 4.6); if(hop < .55 && m) py += Math.sin(hop/.55*Math.PI)*.45;
+    if(a && a.k === "jump" && ak < 1.2){ var q = Math.min(1, ak/.7); py += Math.sin(q*Math.PI)*1.8; pry += q*Math.PI*2; wav = 1; }
+    else if(a && a.k === "cheer" && ak < 1.1){ py += Math.sin(Math.min(1, ak/.5)*Math.PI)*.9; pry = Math.atan2(a.x, 6)*.9; wav = 1; }
+    else if(a && ak >= 1.2) u.act = null;
+    pip.position.y = py; pip.rotation.y += (pry - pip.rotation.y)*Math.min(1, dt*6); pip.rotation.z = prz;
+    u.sh.scale.setScalar(1 - (py - .5)*.25); u.sh.position.y = .53 + island.position.y;
+    u.arms[1].rotation.z = wav ? 2.3 + Math.sin(t*12)*.45 : .15 + Math.sin(t*2)*.08; u.arms[0].rotation.z = a && ak < 1.1 ? -2.3 - Math.sin(t*12)*.45 : -.15 - Math.sin(t*2)*.08;
+    var bl = (t % 3.7) < .13 ? .12 : 1; u.eyes.forEach(function(e){ e.userData.w.scale.y = .32*bl; e.userData.p.scale.y = .17*bl; e.userData.sh.visible = bl > .5;
+      e.userData.p.position.x = look.x*.07; e.userData.p.position.y = .02 - look.y*.05; });
+    if(u.tree.visible){ u.tree.position.y = .38 + island.position.y; if(u.tree.userData.tw) u.tree.userData.tw.rotation.y = t*1.5; }
+    /* sky */
+    sky.children.forEach(function(o){ if(o.userData.cloud){ var c = o.userData.cloud; o.position.x = c.x + Math.sin(t*c.s*.3)*1.5*m; }
+      if(o.userData.bl){ var L = o.userData.bl; o.position.y = -3 + ((L.y0 + t*L.v*m) % 13); o.position.x = L.x + Math.sin(t*.7 + L.x)*.5*m; o.rotation.z = Math.sin(t + L.x)*.1*m; } });
+    bflies.forEach(function(g, i){ var ph = t*.45*m + i*3.1; g.position.set(Math.cos(ph)*(5.2 - i) , 2.4 + Math.sin(ph*2.3)*.6 + i*.6, Math.sin(ph)*3.4 + 1);
+      g.rotation.y = -ph + (i ? Math.PI : 0); g.children.forEach(function(w){ if(w.userData.k) w.rotation.z = w.userData.k*Math.sin(t*18)*.9*m; }); });
+    if(snowPts.visible){ var pa = snowPts.geometry.attributes.position; for(var j=0;j<pa.count;j++){ var yy = pa.getY(j) - .9*dt*m; if(yy < -2) yy = 9; pa.setY(j, yy); } pa.needsUpdate = true; }
+    kidList.forEach(function(k, i){ if(m) k.mixer.update(dt); k.o.position.y = .38 + island.position.y; var g = Math.min(1, (t - k.t0)/.6); k.o.scale.setScalar(k.s*(g < 1 ? Math.max(.001, Math.sin(g*Math.PI*.5)) : 1));
+      k.sh.position.y = .4 + island.position.y; if(k.until && t > k.until){ k.until = 0; kidPlay(k, "idle"); }
+      if(!k.until && m && t > k.nextWave){ kidPlay(k, "wave", 2.6); k.nextWave = t + 9 + Math.random()*8; } });
+    fx = fx.filter(function(f){ var k = (t - f.t)/f.d; if(k >= 1){ sc.remove(f.o); return false; }
+      f.o.children.forEach(function(c){ var v = c.userData.v; c.position.set(v.x*k*3, v.y*k*3 - 4*k*k, v.z*k*3); c.rotation.x += .2; c.rotation.y += .15; }); return true; });
+    R.render(sc, cam); tags();
+  }
+  /* name tags follow the toys; the ones at the back fade */
+  var V = new T.Vector3();
+  function tags(){ var w = box.clientWidth, h = box.clientHeight; doors.forEach(function(d){ d.g.getWorldPosition(V); var z = V.z; V.y += .02; V.project(cam);
+      var x = (V.x*.5 + .5)*w, y = (-V.y*.5 + .5)*h; d.tag.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px) translate(-50%,0)";
+      var o = z < -1.2 ? 0 : z < .4 ? .6 : 1; d.tag.style.opacity = o; d.tag.classList.toggle("hov", d.hov > .5); }); }
+  function paint(){ if(!sc) return; frame(running ? lastT : now()); }
+  function loop(){ raf = 0; if(!should()){ running = false; return; } running = true; var tn = now(); if(!lite || tn - lastT > .03 || fx.length) frame(tn); if(!reduce || fx.length || drag) raf = requestAnimationFrame(loop); else running = false; }
+  function should(){ return seen && !document.hidden && st.offsetParent !== null; }
+  wake = function(){ if(!raf && sc) raf = requestAnimationFrame(loop); };
+  document.addEventListener("visibilitychange", wake); window.addEventListener("hashchange", function(){ setTimeout(wake, 60); });
+  window.__v54 = {R:function(){ return R; }, tap:function(i){ tap({door:i}); }};
+  /* the shared toy library uses very round spheres; small things on the island don't need that many triangles */
+  sc.traverse(function(o){ if(o.geometry === bigS) o.geometry = lowS; });
+  t0 = performance.now(); size(); st.classList.add("v54ready"); wake(); setTimeout(kids, lite ? 1800 : 600);
+}
+var wake = function(){};
+
+/* ----- the Meshy boy and girl (rigged GLB) join Pip once the island is up; skipped on data-saver or 2G phones ----- */
+var kidList = [], kidHits = [], GLURL = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js";
+function kidPlay(k, name, secs){ if(!k) return; var a = k.acts[name] || k.acts.idle, tn = (performance.now() - t0)/1000; if(!a) return;
+  if(a !== k.cur){ a.reset(); a.setEffectiveWeight(1); a.play(); if(k.cur) k.cur.crossFadeTo(a, .35, false); k.cur = a; }
+  k.until = secs ? tn + secs : 0; }
+function kids(){
+  var c = navigator.connection || {}; if(c.saveData || /(^|-)2g/.test(c.effectiveType || "")) return;
+  var base = window.V54_GLB_BASE || "meshy/";
+  new Promise(function(res, rej){ if(T.GLTFLoader) return res(); var s0 = document.createElement("script"); s0.src = GLURL; s0.async = true; s0.onload = res; s0.onerror = rej; document.head.appendChild(s0); }).then(function(){
+    if(!T.GLTFLoader) return; var L = new T.GLTFLoader();
+    [["girl", -2.55, 1.75, .5, 2.45], ["boy", 2.55, 1.75, -.5, 2.5]].forEach(function(d, i){
+      L.load(base + d[0] + ".glb", function(gl){ var o = gl.scene; o.traverse(function(n){ if(n.isMesh){ n.frustumCulled = false; n.castShadow = false; } });
+        o.position.set(d[1], .38, d[2]); o.rotation.y = d[3]; o.scale.setScalar(.001); sc.add(o);
+        var sh = shadow(.75); sh.position.set(d[1], .4, d[2]); sc.add(sh);
+        var hit = new T.Mesh(new T.CylinderGeometry(.6, .6, 2.2, 10), new T.MeshBasicMaterial({visible:false})); hit.position.set(d[1], 1.6, d[2]); hit.userData.kid = kidList.length; sc.add(hit); kidHits.push(hit);
+        var mx = new T.AnimationMixer(o), acts = {};
+        ["idle", "wave", "jump", "dance", "cheer"].forEach(function(n){ var cl = T.AnimationClip.findByName(gl.animations, n); if(cl) acts[n] = mx.clipAction(cl); });
+        var tn = (performance.now() - t0)/1000, k = {o:o, sh:sh, mixer:mx, acts:acts, cur:null, s:d[4], t0:reduce ? -9 : tn, until:0, nextWave:tn + 3 + i*5};
+        kidList.push(k); kidPlay(k, "idle"); mx.update(.01); wake();
+      }, undefined, function(){});
+    });
+  }, function(){});
+}
+
+/* v54b: on bigger screens the voice button leaves the top bar and floats in the bottom-right corner (owner: it made the bar look bad) */
+(function(){ var vb = document.getElementById("voiceBtn"); if(!vb || !window.matchMedia) return; var home0 = vb.parentNode, next0 = vb.nextSibling, dock = document.createElement("div"); dock.className = "v54dock";
+  var q = matchMedia("(min-width:761px)");
+  function place(){ if(q.matches){ if(vb.parentNode !== dock){ dock.appendChild(vb); document.body.appendChild(dock); } vb.setAttribute("aria-label", vb.getAttribute("aria-pressed")==="false" ? "Voice off" : "Voice on"); }
+    else if(vb.parentNode === dock){ home0.insertBefore(vb, next0 && next0.parentNode === home0 ? next0 : null); if(dock.parentNode) dock.parentNode.removeChild(dock); } }
+  /* anything else other code puts next to the voice button (the search button) goes back into the top bar */
+  new MutationObserver(function(){ Array.prototype.slice.call(dock.children).forEach(function(c){ if(c !== vb) home0.insertBefore(c, next0 && next0.parentNode === home0 ? next0 : null); }); }).observe(dock, {childList:true});
+  place(); if(q.addEventListener) q.addEventListener("change", place); else if(q.addListener) q.addListener(place);
+  new MutationObserver(place).observe(vb, {attributes:true, attributeFilter:["aria-pressed"]}); })();
+})();
+
+/* ---------- v54c: the new 3D games up front (owner 2026-11-18: "make all these games in the front"), right under the island ---------- */
+(function(){
+  var C = window.__T3COVER, at = document.querySelector("#v-home .v54") || document.querySelector("#v-home .ef-hi");
+  if(!C || !at || document.querySelector(".v54new")) return;
+  var G = [["t3shape", "Shape Buddies", "Shapes", "#E4F6D9", "#3F8F4A"], ["t3pop", "Balloon Pop Party", "Colors, letters, numbers", "#F1E6FF", "#8A4FD0"],
+           ["t3bath", "Bubble Bath Ducks", "Counting", "#DDF3FB", "#2B8FC7"], ["t3toys", "Rainbow Toy Box", "Colors with toys", "#FFF1D6", "#E5850F"]].filter(function(g){ return C[g[0]]; });
+  if(!G.length) return;
+  var sec = document.createElement("section"); sec.className = "v54new"; sec.setAttribute("aria-labelledby", "v54newT");
+  sec.innerHTML = '<div class="v54new-h"><span class="v54new-badge">New</span><h2 id="v54newT">New 3D games</h2><p>Tap real 3D toys, pop balloons and count bath ducks.</p></div><div class="v54new-row">' +
+    G.map(function(g, i){ return '<a class="v54g" href="#world-' + g[0] + '-2" style="--bg:' + g[3] + ';--c:' + g[4] + ';--i:' + i + '"><span class="v54g-art"><img src="' + C[g[0]] + '" alt="" decoding="async"><i>3D</i></span><b>' + g[1] + '</b><small>' + g[2] + '</small></a>'; }).join("") + '</div>';
+  at.parentNode.insertBefore(sec, at.nextSibling);
+})();
+
+/* ---------- v54d: Christmas on = red and white home page with falling snowflakes (owner 2026-11-18) ---------- */
+(function(){
+  var root = document.documentElement, layer = null;
+  var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function flakes(on){
+    if(on && !layer && !still){ layer = document.createElement("div"); layer.className = "v54snow"; layer.setAttribute("aria-hidden", "true");
+      var n = innerWidth < 760 ? 16 : 30, h = "";
+      for(var i=0;i<n;i++){ var x = (i*37 + 11) % 100, sz = 12 + (i*7 % 16), d = 7 + (i*13 % 9), dl = -((i*29) % 14); h += '<i style="left:' + x + '%;font-size:' + sz + 'px;animation-duration:' + d + 's,' + (d/2.2).toFixed(1) + 's;animation-delay:' + dl + 's,' + dl + 's">❄</i>'; }
+      layer.innerHTML = h; document.body.appendChild(layer); }
+    if(!on && layer){ layer.parentNode.removeChild(layer); layer = null; } }
+  function sync(){ flakes(root.classList.contains("xmas")); }
+  sync(); new MutationObserver(sync).observe(root, {attributes:true, attributeFilter:["class"]});
 })();
 </script>
 
