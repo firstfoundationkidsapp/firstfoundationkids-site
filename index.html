@@ -15917,6 +15917,94 @@ function v24party(f){
   new MutationObserver(function(ms){ ms.forEach(function(m){ Array.prototype.forEach.call(m.addedNodes, function(n){ if(n.classList && n.classList.contains("finish")) setTimeout(function(){ v24party(n); }, 120); }); }); }).observe(b, {childList:true});
 })();
 setTimeout(v24home, 400);
+
+/* ---------- v55: Black Friday sale, 30% off every plan (owner 2026-11-18) ----------
+   On by itself from Fri 27 Nov 2026 00:00 to Sun 29 Nov 2026 23:59 Toronto time, then off by itself.
+   The server (/api/checkout) puts the same 30% Stripe coupon on the first payment during those dates, so the
+   discount is real even if this page is old. A code with a bigger discount wins; gift codes are not changed.
+   Hidden in the Android app (no purchases there). ?saletest=1 shows the look on a preview only (not the live site). */
+var SALE = {pct:30, start:Date.UTC(2026,10,27,5,0,0), end:Date.UTC(2026,10,30,5,0,0), name:"Black Friday"};
+var SALE_SERVER = null; /* true/false once /api/sale answers on the live site */
+function saleOn(){
+  if(typeof APP_MODE!=="undefined" && APP_MODE) return false;
+  if(SALE_SERVER!==null) return SALE_SERVER;
+  if(!PAY_LIVE && /[?&]saletest=1/.test(location.search)) return true;
+  var t = Date.now(); return t>=SALE.start && t<SALE.end;
+}
+(function(){
+  var st = document.createElement("style");
+  st.textContent =
+    ".bfbar{display:none;position:relative;z-index:51;background:linear-gradient(90deg,#111 0%,#2a1a00 50%,#111 100%);color:#fff;text-align:center;padding:10px 16px;font-weight:700;font-size:16px;line-height:1.35;border-bottom:3px solid #f5b301}" +
+    "html.bf-on .bfbar.show{display:block}" +
+    ".bfbar a{color:#ffd54a;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}" +
+    ".bfbar .bftag{display:inline-block;background:#f5b301;color:#111;border-radius:999px;padding:2px 10px;margin-right:8px;font-size:14px;letter-spacing:.04em;text-transform:uppercase}" +
+    ".bfbar .bfspark{display:inline-block;margin-right:4px;animation:bfspin 2.4s ease-in-out infinite}" +
+    "@keyframes bfspin{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.25) rotate(20deg)}}" +
+    "@media (prefers-reduced-motion: reduce){.bfbar .bfspark{animation:none}}" +
+    ".bfprice{display:none;margin-top:4px;font-weight:700;color:#b3261e;font-size:17px}" +
+    "html.bf-on .bfprice{display:block}" +
+    "html.bf-on .plan .price.bf-was{text-decoration:line-through;opacity:.55;font-size:.8em}" +
+    ".bfflag{display:none;position:absolute;top:-14px;left:14px;background:#111;color:#ffd54a;border:2px solid #f5b301;border-radius:999px;padding:3px 12px;font-weight:800;font-size:13px;z-index:2}" +
+    "html.bf-on .bfflag{display:inline-block}" +
+    "html.bf-on .plan{position:relative}" +
+    "html.bf-on .plan.pop .flag{display:none}";
+  document.head.appendChild(st);
+  var bar = document.createElement("div");
+  bar.className = "bfbar"; bar.setAttribute("role", "region"); bar.setAttribute("aria-label", "Black Friday sale");
+  bar.innerHTML = '<span class="bftag">Black Friday</span><span class="bfspark" aria-hidden="true">✨</span>30% off every plan, this weekend only. Ends Sunday at midnight (Eastern). <a href="#pricing">See the deals</a>';
+  var hd = document.querySelector("header.top"); if(hd) hd.parentNode.insertBefore(bar, hd);
+  /* plan cards: show the sale price under the normal one */
+  var per = {monthly:"for your first month", yearly:"for your first year", family:"for your first year"};
+  $$("#v-pricing .plan").forEach(function(card){
+    var a = $("[data-plan]", card), k = a && a.dataset.plan, pr = $(".price", card); if(!k || !pr || !PRICE_OF[k]) return;
+    var p = document.createElement("div"); p.className = "bfprice"; p.textContent = money(PRICE_OF[k]*(1-SALE.pct/100))+" "+per[k]+" (30% off)";
+    pr.parentNode.insertBefore(p, pr.nextSibling);
+    var f = document.createElement("span"); f.className = "bfflag"; f.textContent = card.classList.contains("pop") ? "Best value + Black Friday 30% off" : "Black Friday 30% off"; card.insertBefore(f, card.firstChild);
+  });
+  var SHOW = /^#?(home|pricing|subscribe|account|parents|lessons|school|books|studio)?$/;
+  function sync(){
+    var on = saleOn();
+    document.documentElement.classList.toggle("bf-on", on);
+    bar.classList.toggle("show", on && SHOW.test(location.hash||""));
+    $$("#v-pricing .plan .price").forEach(function(pr){ pr.classList.toggle("bf-was", on); });
+  }
+  window.saleSync = sync;
+  /* checkout: take the bigger of the sale and a discount code (Stripe allows one discount) */
+  var priceAfter0 = priceAfter;
+  priceAfter = function(plan, c){
+    var p = priceAfter0(plan, c);
+    if(saleOn() && !(c && c.kind==="gift")) p = Math.min(p, PRICE_OF[plan]*(1-SALE.pct/100));
+    return p;
+  };
+  var refreshCheckout2 = refreshCheckout;
+  refreshCheckout = function(){
+    refreshCheckout2();
+    if(!saleOn()) return;
+    var c = CODE_ON; if(c && c.kind==="gift") return;
+    var plan = selPlan(), codeBig = c && c.kind==="discount" && c.plans.indexOf(plan)>=0 && c.pct>SALE.pct;
+    Object.keys(PLANS).forEach(function(k){
+      var sp = $('[data-pp="'+k+'"]'); if(!sp) return;
+      var big = c && c.kind==="discount" && c.plans.indexOf(k)>=0 && c.pct>SALE.pct;
+      if(!big) sp.innerHTML = '<s>'+PLANS[k].price.replace(" a month","/mo").replace(" a year","/yr")+'</s> <span class="now">'+money(PRICE_OF[k]*(1-SALE.pct/100))+'</span>';
+    });
+    if(!codeBig){
+      var note = c && c.kind==="discount" ? " Codes don't add on top of the sale, so you get the bigger discount." : "";
+      $("#payTotal").innerHTML = 'Black Friday: today you pay <b>'+money(priceAfter(plan, null))+'</b> for the '+PERIOD_OF[plan]+' (30% off). After that, '+esc(PLANS[plan].price)+'.'+esc(note);
+    }
+  };
+  $$("input[name=plan]").forEach(function(r){ r.addEventListener("change", function(){ refreshCheckout(); }); });
+  addEventListener("hashchange", sync);
+  sync(); try{ refreshCheckout(); }catch(e){}
+  /* recheck every minute so an open page switches on Friday and off after Sunday by itself */
+  setInterval(function(){ var was = document.documentElement.classList.contains("bf-on"); sync(); if(was!==saleOn()){ try{ refreshCheckout(); }catch(e){} } }, 60000);
+  /* the live site asks the server, so a wrong clock on the phone can't show the wrong price */
+  if(PAY_LIVE && !(typeof APP_MODE!=="undefined" && APP_MODE)){
+    fetch("/api/sale", {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(d){
+      if(d && typeof d.on==="boolean"){ SALE_SERVER = d.on; sync(); try{ refreshCheckout(); }catch(e){} }
+    }).catch(function(){});
+  }
+})();
+
 })();
 </script>
 
