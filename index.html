@@ -4212,6 +4212,13 @@ html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16
 </div>
 <canvas id="confetti" hidden></canvas>
 
+<style>/* v59: rename child profile */
+.kids li{flex-wrap:wrap}
+.kids li .kren{font:inherit;font-size:14px;padding:6px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.kids li form.krenf{display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex:1;min-width:0}
+.kids li form.krenf input{font:inherit;font-size:17px;padding:8px 12px;border-radius:12px;border:3px solid var(--line);background:var(--card);color:var(--ink);flex:1;min-width:120px}
+.kids li form.krenf .err{width:100%;margin:0}
+</style>
 <script>
 (function(){
 "use strict";
@@ -16489,6 +16496,44 @@ function saleOn(){
       if(d && typeof d.on==="boolean"){ SALE_SERVER = d.on; sync(); try{ refreshCheckout(); }catch(e){} }
     }).catch(function(){});
   }
+})();
+
+/* v59: rename child profile */
+(function(){
+  if(typeof renderAccount!=="function") return;
+  var editing = null;
+  var base = renderAccount;
+  renderAccount = function(){
+    base();
+    var a = me(), ul = document.querySelector("#acctBody ul.kids");
+    if(!a || !ul || !Array.isArray(a.kids)) return;
+    var lis = ul.children;
+    a.kids.forEach(function(k, i){
+      var li = lis[i]; if(!li) return;
+      if(editing===k.id){
+        li.innerHTML = '<form class="krenf" novalidate><input maxlength="24" aria-label="New name for '+esc(k.name)+'" value="'+esc(k.name)+'" autocomplete="off"><button class="btn btn-go btn-sm" type="submit">Save name</button><button class="btn btn-soft btn-sm" type="button" data-kcancel>Cancel</button><p class="err" hidden></p></form>';
+        var f = li.querySelector("form"), inp = f.querySelector("input");
+        setTimeout(function(){ try{ inp.focus(); inp.select(); }catch(e){} }, 0);
+        f.querySelector("[data-kcancel]").addEventListener("click", function(){ editing = null; renderAccount(); });
+        f.addEventListener("submit", function(e){ e.preventDefault();
+          var n = inp.value.replace(/\s+/g," ").trim(), er = f.querySelector(".err");
+          if(!n){ er.textContent = "Please type a name."; er.hidden = false; inp.focus(); return; }
+          var old = k.name; k.name = n; editing = null;
+          saveAccts(); syncAccount(); renderChip(); renderCards();
+          try{ toast(old===n ? "Name kept." : old+" is now "+n+"."); }catch(e2){}
+          renderAccount();
+        });
+        return;
+      }
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "kren"; b.textContent = "Rename";
+      b.setAttribute("aria-label", "Rename "+k.name);
+      b.addEventListener("click", function(){ editing = k.id; renderAccount(); });
+      var nm = li.querySelector("b");
+      if(nm && nm.nextSibling && nm.nextSibling.nextSibling) li.insertBefore(b, nm.nextSibling.nextSibling); else li.appendChild(b);
+    });
+  };
+  if(location.hash==="#account"){ try{ renderAccount(); }catch(e){} }
 })();
 
 })();
