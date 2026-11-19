@@ -16377,7 +16377,8 @@ window.__v61 = window.__v61 || {}; window.__v61.g = function(){ return G; }; win
    Eight extra worlds a child can play only after a grown-up turns them on for that child in My account
    (behind the account password). Four salon and dress-up games, four trucks, dinos, rockets and heroes games.
    Any child can have any game. They live in BONUS (not GAMES), so world counts, stickers and SEO stay the same.
-   Level 1 is free, like every world; levels 2 to 30 need a plan. Saved per child as kid.bonus = [ids]. */
+   Level 1 is free, like every world; levels 2 to 30 need a plan. Saved per child as kid.bonus = [ids].
+   v62b: bonus games for everyone. Owner 2026-11-19: open to all kids, no parent switch; Sparkle Nail Studio hidden for later (HIDE). */
 (function(){
 if(typeof ENGINES==="undefined" || typeof GAMES==="undefined") return;
 var COL = [{w:"pink",c:"#FF6FAE"},{w:"red",c:"#E8443A"},{w:"blue",c:"#3E8EF0"},{w:"purple",c:"#9B5BD6"},{w:"yellow",c:"#FFC83A"},{w:"green",c:"#43B649"},{w:"orange",c:"#FF8A2A"}];
@@ -16658,6 +16659,9 @@ var BONUS = [
    about:"Be a kind superhero: spot how friends feel, choose the kind thing to do, and fly to the right floor to help a kitty.",
    art:'<svg viewBox="0 0 150 120"><text x="54" y="88" font-size="64" text-anchor="middle">🦸</text><text x="114" y="70" font-size="40" text-anchor="middle">🐱</text></svg>'}
 ];
+var HIDE = ["bnails"]; /* kept for later; not shown or playable */
+BONUS = BONUS.filter(function(g){ return HIDE.indexOf(g.id) < 0; });
+var EVERYONE = true; /* v62b: no parent switch needed */
 BONUS.forEach(function(g){ g.age = "2–7"; g.bonus = true; });
 AGE_TXT.bnails = ["Pick the polish colour Pip asks for","Count the sparkly nails, up to 10","Colour patterns and sparkle sums"];
 AGE_TXT.bface = ["Name the painted shape","Count the shapes, up to 9","Make both cheeks match, add hearts"];
@@ -16669,12 +16673,12 @@ AGE_TXT.brocket = ["Find the shapes that build the rocket","Countdown: find the 
 AGE_TXT.bheroes = ["How does the friend feel?","Choose the kind thing to do","First to fifth floor, kind choices"];
 if(typeof MUSIC_OF!=="undefined"){ MUSIC_OF.bnails = MUSIC_OF.bface = MUSIC_OF.bbows = "art"; MUSIC_OF.bwear = MUSIC_OF.bdinos = "nature"; MUSIC_OF.btrucks = MUSIC_OF.brocket = "numbers"; MUSIC_OF.bheroes = "art"; }
 var BY = {}; BONUS.forEach(function(g){ BY[g.id] = g; });
-var SHELF = [{k:"style", t:"Salon and dress-up", s:"Pretend nail polish, face paint, hair bows and weather outfits"},
+var SHELF = [{k:"style", t:"Face paint and dress-up", s:"Face paint, hair bows and weather outfits"},
              {k:"go", t:"Trucks, dinos and heroes", s:"Monster trucks, dinosaur digs, rockets and kind superheroes"}];
 
 /* ---------- who may play: a grown-up turns each game on per child ---------- */
 function onList(k){ return k && Array.isArray(k.bonus) ? k.bonus : []; }
-function allowed(id){ return onList(activeKid()).indexOf(id) >= 0; }
+function allowed(id){ if(EVERYONE) return !!BY[id]; return onList(activeKid()).indexOf(id) >= 0; }
 window.__v62 = {BONUS:BONUS, allowed:allowed};
 var GBI = gameById; gameById = function(id){ return GBI(id) || BY[id] || null; };
 var SG = startGame; startGame = function(id, band, level){
@@ -16692,7 +16696,7 @@ var RW = renderWorld; renderWorld = function(arg){
   var g0 = BY[String(arg).split("-")[0]], bk = $("#v-world .wrap > a.btn"); if(bk){ bk.setAttribute("href", g0 ? "#home" : "#lessons"); bk.textContent = g0 ? "Back" : "All worlds"; }
   var g = BY[String(arg).split("-")[0]]; if(!g) return;
   if(!allowed(g.id)){ $("#worldLevels").innerHTML = lockHTML(g); try{ say("Ask a grown-up to turn this game on!"); }catch(e){} }
-  else { var h = $("#worldHead .eyebrow"); if(h) h.textContent = "Parent pick · "+g.skill; }
+  else { var h = $("#worldHead .eyebrow"); if(h) h.textContent = (EVERYONE ? "Bonus game · " : "Parent pick · ")+g.skill; }
 };
 
 /* ---------- the Parent picks shelf on the home page and the games page ---------- */
@@ -16700,6 +16704,8 @@ function tile(g){ var ok = allowed(g.id), b = Math.min(S.band||2, 3);
   return '<a class="bn-tile'+(ok ? "" : " off")+'" href="#world-'+g.id+'-'+b+'" style="--bg:'+g.bg+';--c:'+g.color+'" aria-label="'+esc(g.name)+(ok ? "" : ", ask a grown-up to turn it on")+'"><span class="bn-art">'+g.art+'</span><b>'+esc(g.name)+'</b><small>'+(ok ? esc(g.skill) : "🔒 Ask a grown-up")+'</small></a>'; }
 function shelfHTML(){
   var k = activeKid(), n = onList(k).length;
+  if(EVERYONE) return '<div class="bn-head"><span class="bn-badge">New</span><h2 id="bnT">Bonus games</h2><p>Face paint, hair bows, dress-up for the weather, monster trucks, dinosaurs, rockets and kind superheroes.</p></div>'+
+    SHELF.map(function(s){ return '<h3 class="bn-shelf">'+s.t+'</h3><div class="bn-grid">'+BONUS.filter(function(g){ return g.shelf===s.k; }).map(tile).join("")+'</div>'; }).join("");
   return '<div class="bn-head"><span class="bn-badge">Parent picks</span><h2 id="bnT">Bonus games</h2><p>'+(n ? n+' bonus game'+(n===1 ? '' : 's')+' turned on'+(k && k.name ? ' for '+esc(k.name) : '')+'. ' : 'Extra games a grown-up turns on. ')+'<a href="#account">Grown-ups: choose in My account</a></p></div>'+
     SHELF.map(function(s){ return '<h3 class="bn-shelf">'+s.t+'</h3><div class="bn-grid">'+BONUS.filter(function(g){ return g.shelf===s.k; }).map(tile).join("")+'</div>'; }).join(""); }
 function paint(){
@@ -16728,7 +16734,7 @@ function cardHTML62(a){
     '<div class="row"><button class="btn btn-soft btn-sm" type="button" id="bnDone">Done</button></div>';
 }
 var RA = renderAccount; renderAccount = function(){
-  RA.apply(this, arguments);
+  RA.apply(this, arguments); if(EVERYONE) return;
   var a = me(), body = $("#acctBody"); if(!a || !body || !Array.isArray(a.kids)) return;
   var kids = $("ul.kids", body), host = kids && kids.closest(".acard"); if(!host) return;
   var card = el("div", "acard bn-acct"); card.id = "bnAcct"; card.innerHTML = cardHTML62(a); host.parentNode.insertBefore(card, host.nextSibling);
