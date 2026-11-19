@@ -2862,6 +2862,65 @@ html.xmas .t3box.snbox{background:linear-gradient(180deg,#BFD9F2 0%,#E4F0FA 14%,
 .snp.ate{background:#A5E04A;border-color:#3F9A2E;color:#173B40}
 .snp.now{background:#FFF3C4;border-color:#E5850F;color:#173B40;transform:scale(1.18)}
 @media (max-width:520px){.snp{min-width:22px;height:24px;font-size:13px;line-height:20px;border-radius:7px}}
+
+/* v62: parent picks bonus games */
+.bn-sec{margin:26px 0 22px;background:linear-gradient(180deg,#FFF6FB,#F1F7FF);border-radius:28px;padding:16px 18px 20px;box-shadow:var(--clay-sm,0 6px 0 rgba(23,59,64,.1))}
+.bn-head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:0 0 6px}
+.bn-head h2{margin:0;font-size:clamp(22px,2.6vw,30px);display:block!important;color:var(--ink,#173B40)!important;opacity:1!important;visibility:visible!important}
+.bn-head p{margin:0;flex-basis:100%;font-size:15px;color:var(--ink-soft,#4b6b70)}
+.bn-badge{background:#8C5BD6;color:#fff;font:900 13px/1 var(--body,system-ui);letter-spacing:.05em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.bn-shelf{font-size:18px;margin:14px 0 8px}
+.bn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.bn-tile{display:grid;gap:4px;text-decoration:none;color:var(--ink);background:var(--bg);border-radius:22px;padding:10px 10px 12px;box-shadow:0 6px 0 rgba(23,59,64,.12);border:3px solid #fff;position:relative;transition:transform .15s}
+.bn-tile:hover{transform:translateY(-3px)}
+.bn-tile .bn-art svg{width:100%;height:96px;display:block}
+.bn-tile b{font-size:16px;line-height:1.15;color:var(--c)}
+.bn-tile small{font-size:13px;color:var(--ink-soft,#4b6b70)}
+.bn-tile.off .bn-art{filter:grayscale(.55) opacity(.75)}
+.bn-tile.off small{font-weight:700;color:#7A4FD0}
+.bn-lock{background:#fff;border-radius:24px;padding:22px;text-align:center;display:grid;gap:10px;justify-items:center;box-shadow:var(--clay-sm,0 6px 0 rgba(23,59,64,.1));margin-top:18px}
+.bn-lock h2{margin:0}.bn-lock p{margin:0;max-width:520px}
+.bn-lockic{font-size:54px}
+.bn-acct .bn-kid{border-top:2px dashed var(--line);padding-top:12px;margin-top:12px}
+.bn-shelfp{margin:10px 0 6px;font-size:14px;font-weight:700;color:var(--ink-soft)}
+.bn-toggles{display:flex;flex-wrap:wrap;gap:8px}
+.bn-tg{font:inherit;font-size:15px;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.bn-sw{width:34px;height:20px;border-radius:999px;background:#C9D3D6;position:relative;flex:none;transition:background .15s}
+.bn-sw:after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s}
+.bn-tg[aria-pressed="true"]{border-color:#43B649;background:#EEF9EA}
+.bn-tg[aria-pressed="true"] .bn-sw{background:#43B649}
+.bn-tg[aria-pressed="true"] .bn-sw:after{left:16px}
+.bn-in{font:inherit;font-size:17px;padding:10px 12px;border-radius:12px;border:3px solid var(--line);background:var(--card);color:var(--ink);width:100%;max-width:320px}
+/* in the games */
+.bn-stage{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px}
+.bn-stage > svg{width:min(250px,62vw);height:auto;max-height:240px}
+.bn-hands{display:flex;gap:4px;justify-content:center}.bn-hands svg{width:min(190px,40vw);height:auto;max-height:220px}
+.bn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;max-width:560px}
+.bn-row .bn-emo{font-size:40px}
+.bn-gone{opacity:.45;text-decoration:line-through}
+.bn-op{font:900 40px/1 var(--display,system-ui);color:var(--ink)}
+.bn-wide{flex-direction:column}
+.bn-emo{font-size:52px;line-height:1;display:block}
+.bn-cap{display:block;font-size:17px;font-family:var(--body,system-ui);font-weight:800;margin-top:4px}
+.bn-ordcap{font-size:24px}
+.bn-pot{width:56px;height:74px}
+.bn-sh{width:64px;height:64px}
+.bn-dot{width:54px;height:54px;border-radius:50%;display:block;border:3px solid #173B40}
+.bn-bowrow .choice svg,.bn-trow .choice svg{display:block}
+.bn-bows{gap:2px}
+.bn-sky{display:flex;align-items:flex-end;justify-content:center;gap:18px;padding:14px 26px;border-radius:24px;min-width:220px}
+.bn-big{font-size:58px}.bn-kid{font-size:76px}
+.bn-dirt{background:#E9D2B0;border-radius:22px;padding:14px 16px;box-shadow:inset 0 -6px 0 rgba(120,80,40,.18)}
+.bn-fossil{display:inline-grid;place-items:center;min-width:58px;height:58px;padding:0 8px;border-radius:18px;background:#FFF8EC;border:3px solid #9A6A3A;font:900 28px/1 var(--display,system-ui);color:#173B40}
+.bn-space{background:#EEF1FF;border-color:#3B4BB8}
+.bn-count{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
+.bn-tower{display:grid;gap:4px;background:#C9D3E8;padding:8px;border-radius:14px;border:3px solid #173B40}
+.bn-floor{width:92px;height:44px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:26px;position:relative}
+.bn-floor small{position:absolute;left:4px;bottom:2px;font-size:12px;font-weight:800;color:#4b6b70}
+.bn-fly{font-size:46px}
+@media (prefers-reduced-motion:no-preference){ .bn-fly{animation:bnFly 2.4s ease-in-out infinite} }
+@keyframes bnFly{50%{transform:translateY(-12px) rotate(-6deg)}}
+.bn-kid > .row > b{font-size:20px;line-height:1.2;font-family:var(--body,system-ui)}
 </style>
 </head>
 <body>
@@ -16312,6 +16371,398 @@ if(typeof MUSIC_OF!=="undefined") MUSIC_OF[ID] = "numbers";
 var V61P = {"1": ["y_fruits-3", "y_trace-3", "y_numpond-2"], "2": ["y_trace-3", "y_numpond-2"], "3": ["y_trace-3", "y_numpond-3"]};
 if(typeof vPacks==="function"){ var BASE_VP61 = vPacks; vPacks = function(g){ var out = BASE_VP61(g); try{ if(g && g.id===ID && VP.man && out[0]==="y_shared") (V61P[g.band]||[]).forEach(function(p){ if(VP.man.packs[p] && out.indexOf(p)<0) out.push(p); }); }catch(e){} return out; }; }
 window.__v61 = window.__v61 || {}; window.__v61.g = function(){ return G; }; window.__v61.st = ST; window.__v61.eng = ENGINES;
+})();
+
+/* ---------- v62: parent picks bonus games ----------
+   Eight extra worlds a child can play only after a grown-up turns them on for that child in My account
+   (behind the account password). Four salon and dress-up games, four trucks, dinos, rockets and heroes games.
+   Any child can have any game. They live in BONUS (not GAMES), so world counts, stickers and SEO stay the same.
+   Level 1 is free, like every world; levels 2 to 30 need a plan. Saved per child as kid.bonus = [ids]. */
+(function(){
+if(typeof ENGINES==="undefined" || typeof GAMES==="undefined") return;
+var COL = [{w:"pink",c:"#FF6FAE"},{w:"red",c:"#E8443A"},{w:"blue",c:"#3E8EF0"},{w:"purple",c:"#9B5BD6"},{w:"yellow",c:"#FFC83A"},{w:"green",c:"#43B649"},{w:"orange",c:"#FF8A2A"}];
+function colN(n){ return shuffle(COL).slice(0, n); }
+function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+function ask(q, small){ setPrompt(esc(q), small ? esc(small) : ""); say(q); }
+function stage(area, svg, cls){ return textField(area, '<div class="bn-stage'+(cls ? " "+cls : "")+'">'+svg+'</div>'); }
+function onRight(row, fn){ $$(".choice", row).forEach(function(b){ b.addEventListener("click", function(){ setTimeout(function(){ if(b.classList.contains("right")) fn(b); }, 0); }); }); }
+function nums(n, lo, hi){ return numOpts(n, lo, hi); }
+function emo(e, w){ return '<span class="bn-emo">'+e+'</span>'+(w ? '<span class="bn-cap">'+esc(w)+'</span>' : ''); }
+function sizeK(c, lo, hi){ return Math.min(hi, lo + Math.floor(c.t*(hi-lo+1))); }
+
+/* ---------- drawings ---------- */
+var SKIN = ["#F6D2B4","#E8B48C","#C98A5E","#9A6040","#6E4428"];
+function hand(cols, marks){ /* five fingers, thumb first; cols[i] = nail colour or null, marks[i] = "star"|"?"|"" */
+  var sk = SKIN[1], ln = '#8C5A3C', F = [[30,66,22,64,-38],[52,18,22,92,0],[77,8,22,102,0],[102,16,22,94,0],[126,40,19,70,8]], s = '<svg viewBox="0 0 160 180">';
+  s += '<rect x="58" y="150" width="62" height="30" fill="'+sk+'" stroke="'+ln+'" stroke-width="3"/>';
+  F.forEach(function(f, i){ var g = '<g transform="rotate('+f[4]+' '+(f[0]+f[2]/2)+' '+(f[1]+f[3])+')"><rect x="'+f[0]+'" y="'+f[1]+'" width="'+f[2]+'" height="'+(f[3]+20)+'" rx="11" fill="'+sk+'" stroke="'+ln+'" stroke-width="3"/>'+
+    '<rect class="bn-nail" data-i="'+i+'" x="'+(f[0]+3.5)+'" y="'+(f[1]+4)+'" width="'+(f[2]-7)+'" height="19" rx="7" fill="'+(cols[i]||"#FFF7F2")+'" stroke="'+ln+'" stroke-width="2"/>';
+    var m = marks && marks[i], cx = f[0]+f[2]/2, cy = f[1]+17;
+    if(m==="star") g += '<text x="'+cx+'" y="'+cy+'" font-size="13" text-anchor="middle" fill="#fff" stroke="#173B40" stroke-width=".6">★</text>';
+    if(m==="?") g += '<text x="'+cx+'" y="'+(cy+1)+'" font-size="15" font-weight="900" text-anchor="middle" fill="#173B40">?</text>';
+    s += g+'</g>'; });
+  s += '<rect x="44" y="92" width="96" height="66" rx="28" fill="'+sk+'" stroke="'+ln+'" stroke-width="3"/><rect x="47" y="88" width="90" height="20" fill="'+sk+'"/><path d="M60 128q30 10 60 0" stroke="'+ln+'" stroke-width="2" fill="none" opacity=".4"/>';
+  return s+'</svg>'; }
+function shapeSVG(k, c, x, y, r){
+  if(k==="star"){ var p = []; for(var i=0;i<10;i++){ var a = -Math.PI/2 + i*Math.PI/5, rr = i%2 ? r*.45 : r; p.push((x+Math.cos(a)*rr).toFixed(1)+","+(y+Math.sin(a)*rr).toFixed(1)); } return '<polygon points="'+p.join(" ")+'" fill="'+c+'"/>'; }
+  if(k==="heart") return '<path d="M'+x+' '+(y+r*.9)+'C'+(x-r*1.6)+' '+(y-r*.2)+' '+(x-r*.7)+' '+(y-r*1.3)+' '+x+' '+(y-r*.4)+'C'+(x+r*.7)+' '+(y-r*1.3)+' '+(x+r*1.6)+' '+(y-r*.2)+' '+x+' '+(y+r*.9)+'z" fill="'+c+'"/>';
+  if(k==="circle") return '<circle cx="'+x+'" cy="'+y+'" r="'+(r*.8)+'" fill="'+c+'"/>';
+  if(k==="moon") return '<path d="M'+(x+r*.3)+' '+(y-r)+'A'+r+' '+r+' 0 1 0 '+(x+r*.3)+' '+(y+r)+'A'+(r*.75)+' '+(r*.75)+' 0 1 1 '+(x+r*.3)+' '+(y-r)+'z" fill="'+c+'"/>';
+  if(k==="flower"){ var f = ""; for(var j=0;j<5;j++){ var b = j*Math.PI*2/5; f += '<circle cx="'+(x+Math.cos(b)*r*.5).toFixed(1)+'" cy="'+(y+Math.sin(b)*r*.5).toFixed(1)+'" r="'+(r*.42)+'" fill="'+c+'"/>'; } return f+'<circle cx="'+x+'" cy="'+y+'" r="'+(r*.3)+'" fill="#FFC83A"/>'; }
+  if(k==="triangle") return '<polygon points="'+x+','+(y-r)+' '+(x+r)+','+(y+r*.8)+' '+(x-r)+','+(y+r*.8)+'" fill="'+c+'"/>';
+  if(k==="square") return '<rect x="'+(x-r*.8)+'" y="'+(y-r*.8)+'" width="'+(r*1.6)+'" height="'+(r*1.6)+'" rx="3" fill="'+c+'"/>';
+  return ""; }
+var SHAPE_W = {star:"star", heart:"heart", circle:"circle", moon:"moon", flower:"flower", triangle:"triangle", square:"square"};
+function face(skin, left, right, extra){ /* left/right = svg drawn on the cheeks */
+  return '<svg viewBox="0 0 160 150"><path d="M30 70C24 20 136 20 130 70" fill="#4A2E1E"/><ellipse cx="80" cy="80" rx="50" ry="56" fill="'+skin+'" stroke="#8C5A3C" stroke-width="3"/><path d="M32 66C40 30 120 30 128 66C110 50 60 44 32 66z" fill="#4A2E1E"/>'+
+    '<circle cx="62" cy="76" r="6" fill="#173B40"/><circle cx="98" cy="76" r="6" fill="#173B40"/><circle cx="64" cy="74" r="2" fill="#fff"/><circle cx="100" cy="74" r="2" fill="#fff"/><path d="M66 106q14 12 28 0" stroke="#B5404F" stroke-width="4" fill="none" stroke-linecap="round"/>'+
+    (left||"")+(right||"")+(extra||"")+'</svg>'; }
+function bowSVG(c, sc){ sc = sc||1; return '<svg viewBox="0 0 80 60" style="width:'+(70*sc)+'px;height:'+(52*sc)+'px"><path d="M40 30L8 10c-6-3-8 2-8 6v28c0 4 2 9 8 6z" fill="'+c+'" stroke="#173B40" stroke-width="2.5"/><path d="M40 30L72 10c6-3 8 2 8 6v28c0 4-2 9-8 6z" fill="'+c+'" stroke="#173B40" stroke-width="2.5"/><circle cx="40" cy="30" r="9" fill="'+c+'" stroke="#173B40" stroke-width="2.5"/></svg>'; }
+function truckSVG(c, n, sc){ sc = sc||1; return '<svg viewBox="0 0 120 90" style="width:'+(110*sc)+'px;height:'+(82*sc)+'px"><rect x="14" y="22" width="92" height="30" rx="8" fill="'+c+'" stroke="#173B40" stroke-width="3"/><path d="M60 22V8h28l14 14z" fill="'+c+'" stroke="#173B40" stroke-width="3"/><rect x="66" y="12" width="18" height="10" rx="2" fill="#BFE6FF"/>'+
+  (n!=null ? '<circle cx="40" cy="37" r="12" fill="#fff" stroke="#173B40" stroke-width="2"/><text x="40" y="42.5" font-size="15" font-weight="900" text-anchor="middle" fill="#173B40" font-family="Grandstander,system-ui,sans-serif">'+n+'</text>' : '')+
+  '<circle cx="32" cy="66" r="18" fill="#2B2B2B"/><circle cx="32" cy="66" r="7" fill="#9AA5A8"/><circle cx="90" cy="66" r="18" fill="#2B2B2B"/><circle cx="90" cy="66" r="7" fill="#9AA5A8"/></svg>'; }
+function row(list, cls){ return '<div class="bn-row'+(cls ? " "+cls : "")+'">'+list.join("")+'</div>'; }
+function rep(s, n){ var a = []; for(var i=0;i<n;i++) a.push(s); return a; }
+function sumQ(area, c, max, things, emoji){ /* a + b with pictures, or a - b */
+  var sub = c.t > .5 && Math.random() < .45, a, b, n;
+  if(sub){ a = rand(3, max); b = rand(1, a-1); n = a-b; } else { a = rand(1, max-1); b = rand(1, Math.max(1, max-a)); n = a+b; }
+  var q = sub ? a+" "+things+", "+b+" go away. How many are left?" : a+" "+things+" and "+b+" more. How many "+things+" in all?";
+  stage(area, row(rep(emoji, a))+'<div class="bn-op">'+(sub ? "−" : "+")+'</div>'+row(rep(emoji, b), sub ? "bn-gone" : ""), "bn-wide");
+  ask(q, sub ? a+" − "+b+" = ?" : a+" + "+b+" = ?"); numChoices(area, n, nums(n, 0, max+2)); return area.lastChild; }
+
+/* ---------- 1. Sparkle Nail Studio (pretend nail colours: colours, counting, patterns) ---------- */
+ENGINES.bnails = function(area, c){
+  if(c.a===1){
+    var k = c.t < .4 ? 2 : 3, opts = colN(k), t = pick(opts), cols = [null,null,null,null,null];
+    var box = stage(area, hand(cols));
+    ask("Let's paint the nails "+t.w+"! Tap the "+t.w+" polish.", "Tap the "+t.w+" bottle.");
+    choiceRow(area, opts.map(function(o){ return {html:'<svg viewBox="0 0 60 80" class="bn-pot"><rect x="22" y="4" width="16" height="22" rx="4" fill="#173B40"/><rect x="10" y="24" width="40" height="52" rx="12" fill="'+o.c+'" stroke="#173B40" stroke-width="3"/><rect x="16" y="32" width="8" height="26" rx="4" fill="#fff" opacity=".5"/></svg><span class="bn-cap">'+cap(o.w)+'</span>', label:o.w, say:cap(o.w), ok:o===t}; }));
+    var r = area.lastChild; onRight(r, function(){ $$(".bn-nail", box).forEach(function(n, i){ setTimeout(function(){ n.setAttribute("fill", t.c); }, i*120); }); }); return r;
+  }
+  if(c.a===2){
+    var hands = c.t < .5 ? 1 : 2, n = rand(1, hands*5), marks = [], all = [];
+    for(var i=0;i<hands*5;i++) all.push(i < n ? "star" : ""); all = shuffle(all);
+    var cl = pick(COL).c, html = "";
+    for(var h=0;h<hands;h++){ var cs = [], ms = all.slice(h*5, h*5+5); for(var j=0;j<5;j++) cs.push(ms[j] ? cl : "#FFE7F1"); html += hand(cs, ms); }
+    stage(area, '<div class="bn-hands">'+html+'</div>');
+    ask("How many nails have a sparkly star?", "Count the stars.");
+    numChoices(area, n, nums(n, 1, hands*5)); return area.lastChild;
+  }
+  if(c.t > .6 && c.round % 3 === 2) return sumQ(area, c, 10, "sparkles", "✨");
+  var two = colN(c.t < .3 ? 2 : 3), pat = c.t < .3 ? [0,1] : pick([[0,1],[0,0,1],[0,1,2],[0,1,1]]), seq = [];
+  for(var q=0;q<5;q++) seq.push(two[pat[q % pat.length] % two.length]);
+  var ans = seq[4], cols2 = seq.slice(0,4).map(function(o){ return o.c; }).concat([null]);
+  stage(area, hand(cols2, ["","","","","?"]));
+  ask("Look at the pattern. Which colour comes next?", seq.slice(0,4).map(function(o){ return o.w; }).join(", ")+", ...");
+  var opts2 = shuffle(two.concat(colN(4).filter(function(o){ return two.indexOf(o)<0; }).slice(0, 1)));
+  choiceRow(area, opts2.map(function(o){ return {html:'<span class="bn-dot" style="background:'+o.c+'"></span><span class="bn-cap">'+cap(o.w)+'</span>', label:o.w, say:cap(o.w), ok:o.w===ans.w}; }));
+  return area.lastChild;
+};
+
+/* ---------- 2. Face Paint Fair (pretend face paint: shapes, counting, matching) ---------- */
+var FP_SH = ["star","heart","circle","moon","flower"];
+ENGINES.bface = function(area, c){
+  var skin = pick(SKIN);
+  if(c.a===1){
+    var k = c.t < .4 ? 2 : 3, opts = shuffle(FP_SH).slice(0, k), t = pick(opts), cl = pick(COL).c;
+    stage(area, face(skin, shapeSVG(t, cl, 48, 96, 11), shapeSVG(t, cl, 112, 96, 11)));
+    ask("What did we paint on the cheeks?", "Tap the shape.");
+    choiceRow(area, opts.map(function(s){ return {html:'<svg viewBox="0 0 60 60" class="bn-sh">'+shapeSVG(s, cl, 30, 32, 22)+'</svg><span class="bn-cap">'+cap(s)+'</span>', label:s, say:cap(s)+"|"+s, ok:s===t}; }));
+    return area.lastChild;
+  }
+  if(c.a===2){
+    var max = c.t < .5 ? 5 : 9, n = rand(1, max), sh = pick(["star","heart","circle"]), cl2 = pick(COL).c, pts = [[40,96],[52,108],[112,96],[124,108],[80,40],[64,44],[96,44],[46,84],[118,84]], ex = "";
+    shuffle(pts).slice(0, n).forEach(function(p){ ex += shapeSVG(sh, cl2, p[0], p[1], 6); });
+    stage(area, face(skin, "", "", ex));
+    ask("How many "+sh+"s did we paint?", "Count the "+sh+"s.");
+    numChoices(area, n, nums(n, 1, max)); return area.lastChild;
+  }
+  if(c.t > .6 && c.round % 3 === 1) return sumQ(area, c, 10, "hearts", "💖");
+  var s0 = pick(FP_SH), c0 = pick(COL), wrongS = pick(FP_SH.filter(function(x){ return x!==s0; })), wrongC = pick(COL.filter(function(x){ return x!==c0; }));
+  stage(area, face(skin, shapeSVG(s0, c0.c, 48, 96, 11), '<text x="112" y="104" font-size="24" font-weight="900" text-anchor="middle" fill="#173B40">?</text>'));
+  ask("Make both cheeks match! Which one goes on the other cheek?", "Same shape and same colour.");
+  var opts3 = shuffle([{s:s0, c:c0, ok:true}, {s:wrongS, c:c0}, {s:s0, c:wrongC}].concat(c.t > .4 ? [{s:wrongS, c:wrongC}] : []));
+  choiceRow(area, opts3.map(function(o){ return {html:'<svg viewBox="0 0 60 60" class="bn-sh">'+shapeSVG(o.s, o.c.c, 30, 32, 22)+'</svg><span class="bn-cap">'+cap(o.c.w)+' '+o.s+'</span>', label:o.c.w+" "+o.s, say:cap(o.c.w)+" "+o.s, ok:!!o.ok}; }));
+  return area.lastChild;
+};
+
+/* ---------- 3. Hair Bow Boutique (big and small, counting, adding) ---------- */
+ENGINES.bbows = function(area, c){
+  if(c.a===1){
+    var big = Math.random() < .5, cl = pick(COL).c, k = c.t < .5 ? 2 : 3, sizes = k===2 ? [1.5, .7] : [1.6, 1.05, .6], tgt = big ? 0 : k-1;
+    var order = shuffle(sizes.map(function(s, i){ return i; }));
+    ask(big ? "Tap the BIG bow!" : "Tap the little bow!", big ? "The biggest one." : "The smallest one.");
+    choiceRow(area, order.map(function(i){ return {html:bowSVG(cl, sizes[i]), label:i===0 ? "big bow" : i===k-1 ? "little bow" : "middle bow", say:i===0 ? "Big!" : i===k-1 ? "Little!" : "Middle!", ok:i===tgt}; }));
+    var r = area.lastChild; r.classList.add("bn-bowrow"); return r;
+  }
+  if(c.a===2){
+    var max = c.t < .5 ? 5 : 10, n = rand(1, max), cl2 = pick(COL).c, more = c.t > .5 && Math.random() < .5;
+    stage(area, row(rep(bowSVG(cl2, .55), n), "bn-bows"));
+    if(more){ ask("There are "+n+" bows. One more bow makes how many?", n+" and 1 more"); numChoices(area, n+1, nums(n+1, 1, max+1)); }
+    else { ask("How many bows are on the shelf?", "Count the bows."); numChoices(area, n, nums(n, 1, max)); }
+    return area.lastChild;
+  }
+  return sumQ(area, c, c.t < .5 ? 10 : 20, "bows", "🎀");
+};
+
+/* ---------- 4. Weather Wardrobe (dress up for sun, rain and snow) ---------- */
+var WEAR = {
+  umbrella:{e:"☂️", w:"umbrella", for:["rain"]}, raincoat:{e:"🧥", w:"raincoat", for:["rain","snow"]}, boots:{e:"🥾", w:"boots", for:["rain","snow"], on:"feet"},
+  mittens:{e:"🧤", w:"mittens", for:["snow"], on:"hands"}, scarf:{e:"🧣", w:"scarf", for:["snow"], on:"neck"}, cap:{e:"🧢", w:"cap", for:["sun"], on:"head"},
+  sunglasses:{e:"🕶️", w:"sunglasses", for:["sun"], on:"eyes"}, swimsuit:{e:"🩱", w:"swimsuit", for:["sun"]}, sandals:{e:"🩴", w:"flip-flops", for:["sun"], on:"feet"},
+  shorts:{e:"🩳", w:"shorts", for:["sun"]}, dress:{e:"👗", w:"sun dress", for:["sun"]}, socks:{e:"🧦", w:"socks", for:["snow"], on:"feet"}, crown:{e:"👑", w:"crown", for:["party"], on:"head"}};
+var WX = {sun:{e:"☀️", w:"sunny", bg:"#FFF3B8"}, rain:{e:"🌧️", w:"rainy", bg:"#DCEBFA"}, snow:{e:"❄️", w:"snowy", bg:"#EEF6FF"}};
+function wearFor(w){ return Object.keys(WEAR).filter(function(k){ return WEAR[k].for.indexOf(w)>=0; }); }
+function wearNot(w){ return Object.keys(WEAR).filter(function(k){ return WEAR[k].for.indexOf(w)<0 && k!=="crown"; }); }
+function wearBtn(k, ok){ var it = WEAR[k]; return {html:emo(it.e, cap(it.w)), label:it.w, say:cap(it.w), ok:ok}; }
+ENGINES.bwear = function(area, c){
+  var wx = pick(["sun","rain","snow"]), W = WX[wx];
+  stage(area, '<div class="bn-sky" style="background:'+W.bg+'"><span class="bn-big">'+W.e+'</span><span class="bn-kid">🧒</span><span class="bn-big">'+W.e+'</span></div>');
+  if(c.a===1 || (c.a===2 && c.round%2===0)){
+    var t = pick(wearFor(wx)), k = c.a===1 ? (c.t < .4 ? 2 : 3) : 3, others = shuffle(wearNot(wx)).slice(0, k-1);
+    ask("It is "+W.w+" today! What should we wear?", "Tap the one for a "+W.w+" day.");
+    choiceRow(area, shuffle([t].concat(others)).map(function(x){ return wearBtn(x, x===t); })); return area.lastChild;
+  }
+  if(c.a===2){
+    var parts = {feet:"feet", hands:"hands", head:"head", neck:"neck", eyes:"eyes"}, on = Object.keys(WEAR).filter(function(k){ return WEAR[k].on; }), t2 = pick(on), p = WEAR[t2].on;
+    var oth = shuffle(on.filter(function(k){ return WEAR[k].on!==p; })).slice(0, 2);
+    ask("What goes on your "+parts[p]+"?", "Tap the one for your "+parts[p]+".");
+    choiceRow(area, shuffle([t2].concat(oth)).map(function(x){ return wearBtn(x, x===t2); })); return area.lastChild;
+  }
+  var odd = pick(wearNot(wx)), same = shuffle(wearFor(wx)).slice(0, 3);
+  ask("Which one is NOT for a "+W.w+" day?", "Find the one that doesn't belong.");
+  choiceRow(area, shuffle(same.concat([odd])).map(function(x){ return wearBtn(x, x===odd); })); return area.lastChild;
+};
+
+/* ---------- 5. Monster Truck Jump (counting, bigger number, adding) ---------- */
+ENGINES.btrucks = function(area, c){
+  if(c.a===1){
+    if(c.round % 2 === 0){ var n = rand(1, c.t < .5 ? 3 : 5), cl = pick(COL).c;
+      stage(area, row(rep(truckSVG(cl, null, .55), n), "bn-track"));
+      ask("How many monster trucks?", "Count the trucks."); numChoices(area, n, nums(n, 1, 5)); return area.lastChild; }
+    var opts = colN(c.t < .4 ? 2 : 3), t = pick(opts);
+    ask("Tap the "+t.w+" monster truck!", "Vroom!");
+    choiceRow(area, opts.map(function(o){ return {html:truckSVG(o.c, null, .75), label:o.w+" truck", say:cap(o.w), ok:o===t}; }));
+    var r = area.lastChild; r.classList.add("bn-trow"); return r;
+  }
+  if(c.a===2){
+    var max = c.t < .5 ? 10 : 20, a = rand(1, max), b; do{ b = rand(1, max); }while(b===a);
+    var big = Math.random() < .7, w = big ? Math.max(a, b) : Math.min(a, b), cl2 = colN(2);
+    ask(big ? "The truck with the BIGGER number jumps the farthest. Which one?" : "Which truck has the SMALLER number?", big ? "Tap the bigger number." : "Tap the smaller number.");
+    choiceRow(area, [a, b].map(function(v, i){ return {html:truckSVG(cl2[i].c, v, .85), label:"truck "+v, say:numSay(v), ok:v===w}; }));
+    var r2 = area.lastChild; r2.classList.add("bn-trow"); return r2;
+  }
+  return sumQ(area, c, c.t < .5 ? 10 : 20, "cars", "🚗");
+};
+
+/* ---------- 6. Dino Dig (big and small, counting bones, missing numbers) ---------- */
+ENGINES.bdinos = function(area, c){
+  if(c.a===1){
+    if(c.round % 2 === 1){ var n = rand(1, c.t < .5 ? 3 : 5); stage(area, row(rep('<span class="bn-emo bn-egg">🥚</span>', n), "bn-dirt")); ask("How many dino eggs did we dig up?", "Count the eggs."); numChoices(area, n, nums(n, 1, 5)); return area.lastChild; }
+    var big = Math.random() < .5, d = pick(["🦖","🦕"]);
+    ask(big ? "Tap the BIG dinosaur!" : "Tap the baby dinosaur!", big ? "The big one." : "The little one.");
+    choiceRow(area, shuffle([1, 0]).map(function(b){ return {html:'<span class="bn-emo" style="font-size:'+(b ? 74 : 34)+'px">'+d+'</span>', label:b ? "big dinosaur" : "baby dinosaur", say:b ? "Big!" : "Little!", ok:!!b===big}; }));
+    return area.lastChild;
+  }
+  if(c.a===2){
+    var max = c.t < .5 ? 6 : 10, n2 = rand(1, max);
+    stage(area, row(rep('<span class="bn-emo bn-bone">🦴</span>', n2), "bn-dirt"));
+    ask("Dig, dig! How many dino bones?", "Count the bones."); numChoices(area, n2, nums(n2, 1, max)); return area.lastChild;
+  }
+  if(c.t > .55 && c.round % 3 === 2) return sumQ(area, c, 12, "bones", "🦴");
+  var step = c.t < .35 ? 1 : c.t < .7 ? 2 : pick([5, 10]), start = step===1 ? rand(1, 14) : step===2 ? 2*rand(0, 5) : step*rand(0, 3), seq = [0,1,2,3,4].map(function(i){ return start + i*step; }), hole = rand(1, 3), ans = seq[hole];
+  stage(area, row(seq.map(function(v, i){ return '<span class="bn-fossil">'+(i===hole ? "?" : v)+'</span>'; }), "bn-dirt"));
+  ask("A number fell off the fossils! Which number is missing?", step===1 ? "Count up by ones." : "Count by "+step+"s.");
+  numChoices(area, ans, nums(ans, 0, 60)); return area.lastChild;
+};
+
+/* ---------- 7. Rocket Launch (shapes, countdown, take away) ---------- */
+var RK_SH = ["triangle","circle","square","star","heart"];
+ENGINES.brocket = function(area, c){
+  if(c.a===1){
+    var k = c.t < .4 ? 2 : 3, opts = shuffle(RK_SH).slice(0, k), t = pick(opts), cl = pick(COL).c;
+    stage(area, '<svg viewBox="0 0 160 150"><rect width="160" height="150" rx="18" fill="#1E2A5A"/><circle cx="20" cy="20" r="2" fill="#fff"/><circle cx="140" cy="34" r="2" fill="#fff"/><circle cx="30" cy="120" r="2" fill="#fff"/><polygon points="80,14 104,52 56,52" fill="#E8443A"/><rect x="58" y="52" width="44" height="60" fill="#E9EEF5"/><circle cx="80" cy="76" r="11" fill="#7FC8F8" stroke="#173B40" stroke-width="3"/><polygon points="58,96 40,124 58,112" fill="#FF8A2A"/><polygon points="102,96 120,124 102,112" fill="#FF8A2A"/><path d="M68 112q12 34 24 0" fill="#FFC83A"/></svg>', "bn-rk");
+    ask("Help build the rocket! Tap the "+t+".", "Find the "+t+".");
+    choiceRow(area, opts.map(function(s){ return {html:'<svg viewBox="0 0 60 60" class="bn-sh">'+shapeSVG(s, cl, 30, 32, 22)+'</svg><span class="bn-cap">'+cap(s)+'</span>', label:s, say:cap(s), ok:s===t}; }));
+    return area.lastChild;
+  }
+  if(c.a===2){
+    var top = c.t < .5 ? 5 : 10, seq = []; for(var v=top; v>=1; v--) seq.push(v); var show = seq.slice(0, Math.min(seq.length, 6)), hole = rand(1, show.length-2), ans = show[hole];
+    stage(area, '<div class="bn-count">'+show.map(function(x, i){ return '<span class="bn-fossil bn-space">'+(i===hole ? "?" : x)+'</span>'; }).join("")+'<span class="bn-emo">🚀</span></div>');
+    ask("Countdown to blast off! Which number is missing?", "Count down: "+show.map(function(x, i){ return i===hole ? "?" : x; }).join(", "));
+    numChoices(area, ans, nums(ans, 1, top)); return area.lastChild;
+  }
+  if(c.round % 2 === 0){ var n = rand(8, 20), more = Math.random() < .5, ans2 = more ? n+1 : n-1;
+    stage(area, '<div class="bn-count"><span class="bn-fossil bn-space">'+(more ? n : "?")+'</span><span class="bn-fossil bn-space">'+(more ? "?" : n)+'</span><span class="bn-emo">🚀</span></div>');
+    ask(more ? "What number comes right after "+n+"?" : "What number comes right before "+n+"?", more ? n+" and one more" : "one less than "+n);
+    numChoices(area, ans2, nums(ans2, 1, 21)); return area.lastChild; }
+  return sumQ(area, c, c.t < .5 ? 10 : 15, "stars", "⭐");
+};
+
+/* ---------- 8. Hero Helpers (feelings, kind choices, first to fifth) ---------- */
+var HERO_KIND = [
+  {q:"A friend dropped their blocks. What does a hero do?", ok:["🤝","Help pick them up"], no:[["😂","Laugh"],["🚶","Walk away"]]},
+  {q:"A friend is sad and crying. What does a hero do?", ok:["🤗","Give a hug"], no:[["🙈","Hide"],["😝","Make a face"]]},
+  {q:"It is snack time and a friend has none. What does a hero do?", ok:["🍎","Share a snack"], no:[["🙅","Say no"],["🏃","Run off"]]},
+  {q:"A new friend wants to play. What does a hero do?", ok:["⚽","Say come and play"], no:[["🚪","Close the door"],["🙉","Not listen"]]},
+  {q:"You made a big mess. What does a hero do?", ok:["🧹","Clean it up"], no:[["🙈","Hide it"],["😴","Go to sleep"]]},
+  {q:"A kitten is stuck in a tree. What does a hero do?", ok:["🪜","Get a grown-up and a ladder"], no:[["😂","Laugh"],["🚶","Walk away"]]}];
+var FEEL = [{e:"😀", w:"happy"},{e:"😢", w:"sad"},{e:"😠", w:"angry"},{e:"😨", w:"scared"},{e:"😴", w:"sleepy"}];
+var ORD = ["first","second","third","fourth","fifth"];
+ENGINES.bheroes = function(area, c){
+  if(c.a===1){
+    var k = c.t < .4 ? 2 : 3, opts = shuffle(FEEL).slice(0, k), t = pick(opts);
+    stage(area, '<div class="bn-sky" style="background:#FFE3D2"><span class="bn-big">🦸</span></div>');
+    ask("Hero time! Tap the friend who looks "+t.w+".", "Who is "+t.w+"?");
+    choiceRow(area, opts.map(function(o){ return {html:emo(o.e, cap(o.w)), label:o.w, say:cap(o.w), ok:o===t}; })); return area.lastChild;
+  }
+  if(c.a===2 || c.round % 2 === 0){
+    var s = scFresh("bnhero", HERO_KIND), items = [{e:s.ok[0], w:s.ok[1], ok:true}].concat(s.no.map(function(x){ return {e:x[0], w:x[1]}; }));
+    stage(area, '<div class="bn-sky" style="background:#E6DEF8"><span class="bn-big">🦸</span><span class="bn-big">🦹</span></div>');
+    ask(s.q, "Tap the kind choice.");
+    choiceRow(area, shuffle(items).map(function(o){ return {html:emo(o.e, o.w), label:o.w, say:o.w, ok:!!o.ok}; }), true); return area.lastChild;
+  }
+  var floors = c.t < .5 ? 3 : 5, f = rand(0, floors-1), win = "";
+  for(var i=floors-1;i>=0;i--) win += '<div class="bn-floor">'+(i===f ? "🐱" : "🪟")+'<small>'+(i+1)+'</small></div>';
+  stage(area, '<div class="bn-tower">'+win+'</div><span class="bn-emo bn-fly">🦸</span>', "bn-wide");
+  ask("The kitty needs help! Which floor is the kitty on?", "Count up from the bottom.");
+  choiceRow(area, shuffle([ORD[f]].concat(shuffle(ORD.slice(0, floors).filter(function(x){ return x!==ORD[f]; })).slice(0, 2))).map(function(o){ return {html:'<span class="bn-cap bn-ordcap">'+cap(o)+'</span>', label:o, say:cap(o), ok:o===ORD[f]}; }), true);
+  return area.lastChild;
+};
+
+/* ---------- the worlds ---------- */
+var ICON = function(bg, inner){ return '<svg viewBox="0 0 150 120"><rect width="150" height="120" rx="16" fill="'+bg+'"/>'+inner+'</svg>'; };
+var BONUS = [
+  {id:"bnails", shelf:"style", name:"Sparkle Nail Studio", skill:"Colours, counting and patterns", area:"Art", bg:"#FFE3F0", color:"#D93A86",
+   about:"Pretend nail polish: pick the colour Pip asks for, count the sparkly nails and finish colour patterns.",
+   art:hand(["#FF6FAE","#9B5BD6","#FF6FAE","#9B5BD6","#FFC83A"],["star","","star","",""])},
+  {id:"bface", shelf:"style", name:"Face Paint Fair", skill:"Shapes, counting and matching", area:"Art", bg:"#FFF0C9", color:"#D9581C",
+   about:"Pretend face paint at the fair: name the shapes on the cheeks, count the hearts and make both cheeks match.",
+   art:face("#F6D2B4", shapeSVG("star","#FF6FAE",48,96,11), shapeSVG("heart","#9B5BD6",112,96,11)).replace('viewBox="0 0 160 150"','viewBox="0 0 160 150"')},
+  {id:"bbows", shelf:"style", name:"Hair Bow Boutique", skill:"Big and small, counting, adding", area:"Math", bg:"#E9E2FF", color:"#7A4FD0",
+   about:"A bow shop for dolls: find the big bow and the little bow, count bows on the shelf and add them up.",
+   art:'<svg viewBox="0 0 150 120">'+bowSVG("#FF6FAE",1.2).replace(/<svg[^>]*>/,'<g transform="translate(8,18) scale(1.05)">').replace("</svg>","</g>")+bowSVG("#3E8EF0",.8).replace(/<svg[^>]*>/,'<g transform="translate(86,52) scale(.75)">').replace("</svg>","</g>")+'</svg>'},
+  {id:"bwear", shelf:"style", name:"Weather Wardrobe", skill:"Dress up for sun, rain and snow", area:"Nature", bg:"#DCEBFA", color:"#2E7FB8",
+   about:"Dress-up for the weather: pick an umbrella for rain, mittens for snow and sunglasses for sunny days.",
+   art:'<svg viewBox="0 0 150 120"><text x="75" y="58" font-size="46" text-anchor="middle">☂️🧤</text><text x="75" y="108" font-size="40" text-anchor="middle">🕶️🧣</text></svg>'},
+  {id:"btrucks", shelf:"go", name:"Monster Truck Jump", skill:"Counting, bigger numbers, adding", area:"Numbers", bg:"#FFE3D2", color:"#D9581C",
+   about:"Big-wheel trucks: count the trucks, pick the bigger number so the truck jumps farthest, and add up the cars.",
+   art:'<svg viewBox="0 0 150 120">'+truckSVG("#E8443A", 7, 1).replace(/<svg[^>]*>/,'<g transform="translate(14,18)">').replace("</svg>","</g>")+'</svg>'},
+  {id:"bdinos", shelf:"go", name:"Dino Dig", skill:"Sizes, counting and number order", area:"Nature", bg:"#F6E7D2", color:"#9A6A3A",
+   about:"Dig for dinosaurs: find the big dino and the baby, count bones and eggs, and fix the missing fossil numbers.",
+   art:'<svg viewBox="0 0 150 120"><text x="52" y="84" font-size="62" text-anchor="middle">🦖</text><text x="112" y="96" font-size="34" text-anchor="middle">🦴</text><text x="118" y="46" font-size="26" text-anchor="middle">🥚</text></svg>'},
+  {id:"brocket", shelf:"go", name:"Rocket Launch", skill:"Shapes, countdown, before and after", area:"Math", bg:"#DDE3FF", color:"#3B4BB8",
+   about:"Build a rocket out of shapes, count down to blast off, and find the number before and after.",
+   art:'<svg viewBox="0 0 150 120"><rect width="150" height="120" rx="14" fill="#1E2A5A"/><text x="75" y="84" font-size="60" text-anchor="middle">🚀</text><text x="26" y="30" font-size="16">⭐</text><text x="118" y="104" font-size="16">⭐</text></svg>'},
+  {id:"bheroes", shelf:"go", name:"Hero Helpers", skill:"Feelings, kind choices, first to fifth", area:"Feelings", bg:"#FFE9EE", color:"#C2185B",
+   about:"Be a kind superhero: spot how friends feel, choose the kind thing to do, and fly to the right floor to help a kitty.",
+   art:'<svg viewBox="0 0 150 120"><text x="54" y="88" font-size="64" text-anchor="middle">🦸</text><text x="114" y="70" font-size="40" text-anchor="middle">🐱</text></svg>'}
+];
+BONUS.forEach(function(g){ g.age = "2–7"; g.bonus = true; });
+AGE_TXT.bnails = ["Pick the polish colour Pip asks for","Count the sparkly nails, up to 10","Colour patterns and sparkle sums"];
+AGE_TXT.bface = ["Name the painted shape","Count the shapes, up to 9","Make both cheeks match, add hearts"];
+AGE_TXT.bbows = ["Big bow or little bow","Count bows and one more","Add and take away bows, up to 20"];
+AGE_TXT.bwear = ["What to wear for sun, rain or snow","What goes on your feet, hands and head","Find the one that doesn't belong"];
+AGE_TXT.btrucks = ["Count trucks, find the colour","Bigger and smaller numbers to 20","Add and take away cars, up to 20"];
+AGE_TXT.bdinos = ["Big dino or baby dino, count eggs","Count dino bones, up to 10","Missing numbers: count by 1s, 2s, 5s, 10s"];
+AGE_TXT.brocket = ["Find the shapes that build the rocket","Countdown: find the missing number","Before and after to 21, star sums"];
+AGE_TXT.bheroes = ["How does the friend feel?","Choose the kind thing to do","First to fifth floor, kind choices"];
+if(typeof MUSIC_OF!=="undefined"){ MUSIC_OF.bnails = MUSIC_OF.bface = MUSIC_OF.bbows = "art"; MUSIC_OF.bwear = MUSIC_OF.bdinos = "nature"; MUSIC_OF.btrucks = MUSIC_OF.brocket = "numbers"; MUSIC_OF.bheroes = "art"; }
+var BY = {}; BONUS.forEach(function(g){ BY[g.id] = g; });
+var SHELF = [{k:"style", t:"Salon and dress-up", s:"Pretend nail polish, face paint, hair bows and weather outfits"},
+             {k:"go", t:"Trucks, dinos and heroes", s:"Monster trucks, dinosaur digs, rockets and kind superheroes"}];
+
+/* ---------- who may play: a grown-up turns each game on per child ---------- */
+function onList(k){ return k && Array.isArray(k.bonus) ? k.bonus : []; }
+function allowed(id){ return onList(activeKid()).indexOf(id) >= 0; }
+window.__v62 = {BONUS:BONUS, allowed:allowed};
+var GBI = gameById; gameById = function(id){ return GBI(id) || BY[id] || null; };
+var SG = startGame; startGame = function(id, band, level){
+  if(BY[id] && !allowed(id)){ G = null; location.hash = "world-"+id+"-"+(band||1); return; }
+  return SG.apply(this, arguments); };
+var NG = nextGameFor; nextGameFor = function(def, band){
+  if(def && def.bonus){ var on = BONUS.filter(function(g){ return allowed(g.id); }), i = on.indexOf(def); return on.length > 1 ? on[(i+1) % on.length] : def; }
+  return NG.apply(this, arguments); };
+function lockHTML(g){
+  var a = me(), k = activeKid();
+  return '<div class="bn-lock"><span class="bn-lockic" aria-hidden="true">🔒</span><h2>Ask a grown-up!</h2><p>'+esc(g.name)+' is a bonus game. A grown-up can turn it on'+(k && k.name ? ' for '+esc(k.name) : '')+' in My account, under Parent picks.</p>'+
+    '<div class="row"><a class="btn btn-go btn-sm" href="#account">'+(a ? 'Grown-ups: turn it on' : 'Grown-ups: sign in')+'</a><a class="btn btn-soft btn-sm" href="#home">Play something else</a></div></div>'; }
+var RW = renderWorld; renderWorld = function(arg){
+  RW.apply(this, arguments);
+  var g0 = BY[String(arg).split("-")[0]], bk = $("#v-world .wrap > a.btn"); if(bk){ bk.setAttribute("href", g0 ? "#home" : "#lessons"); bk.textContent = g0 ? "Back" : "All worlds"; }
+  var g = BY[String(arg).split("-")[0]]; if(!g) return;
+  if(!allowed(g.id)){ $("#worldLevels").innerHTML = lockHTML(g); try{ say("Ask a grown-up to turn this game on!"); }catch(e){} }
+  else { var h = $("#worldHead .eyebrow"); if(h) h.textContent = "Parent pick · "+g.skill; }
+};
+
+/* ---------- the Parent picks shelf on the home page and the games page ---------- */
+function tile(g){ var ok = allowed(g.id), b = Math.min(S.band||2, 3);
+  return '<a class="bn-tile'+(ok ? "" : " off")+'" href="#world-'+g.id+'-'+b+'" style="--bg:'+g.bg+';--c:'+g.color+'" aria-label="'+esc(g.name)+(ok ? "" : ", ask a grown-up to turn it on")+'"><span class="bn-art">'+g.art+'</span><b>'+esc(g.name)+'</b><small>'+(ok ? esc(g.skill) : "🔒 Ask a grown-up")+'</small></a>'; }
+function shelfHTML(){
+  var k = activeKid(), n = onList(k).length;
+  return '<div class="bn-head"><span class="bn-badge">Parent picks</span><h2 id="bnT">Bonus games</h2><p>'+(n ? n+' bonus game'+(n===1 ? '' : 's')+' turned on'+(k && k.name ? ' for '+esc(k.name) : '')+'. ' : 'Extra games a grown-up turns on. ')+'<a href="#account">Grown-ups: choose in My account</a></p></div>'+
+    SHELF.map(function(s){ return '<h3 class="bn-shelf">'+s.t+'</h3><div class="bn-grid">'+BONUS.filter(function(g){ return g.shelf===s.k; }).map(tile).join("")+'</div>'; }).join(""); }
+function paint(){
+  var hv = $("#v-home"), wrap = hv && (hv.querySelector(".wrap") || hv);
+  if(wrap){ var sec = $("#bnHome");
+    if(!sec){ sec = el("section", "bn-sec"); sec.id = "bnHome"; sec.setAttribute("aria-labelledby", "bnT");
+      var after = $("#xmasRow") || wrap.querySelector(".ef-ages"); if(after && after.parentNode===wrap && after.nextSibling) wrap.insertBefore(sec, after.nextSibling); else wrap.appendChild(sec); }
+    sec.innerHTML = shelfHTML(); }
+  var ls = $("#filters"); if(ls){ var s2 = $("#bnLessons");
+    if(!s2){ s2 = el("section", "bn-sec"); s2.id = "bnLessons"; ls.parentNode.insertBefore(s2, ls); }
+    s2.innerHTML = shelfHTML().replace('id="bnT"', 'id="bnT2"'); s2.setAttribute("aria-labelledby", "bnT2"); }
+}
+var RC = renderCards; renderCards = function(){ RC.apply(this, arguments); try{ paint(); }catch(e){} };
+
+/* ---------- My account: Parent picks card, behind the account password ---------- */
+var OPEN_UNTIL = 0;
+function gateOk(a, v){ if(a.owner) return Promise.resolve(isOwner(a.email, v)); if(!a.hash) return Promise.resolve(null); return hashPw(v, a.salt).then(function(h){ return h===a.hash; }); }
+function cardHTML62(a){
+  var open = Date.now() < OPEN_UNTIL;
+  var h = '<h2>Parent picks: bonus games</h2><p style="font-size:15px;color:var(--ink-soft)">Extra games your child can play only when you turn them on. Choose for each child. Level 1 of each game is free; levels 2 to 30 open with a plan.</p>';
+  if(!open) return h+'<div class="row"><button class="btn btn-go btn-sm" type="button" id="bnUnlock">Choose bonus games</button></div>';
+  return h+a.kids.map(function(k){ var on = onList(k);
+    return '<div class="bn-kid"><div class="row" style="justify-content:space-between"><b>'+esc(k.name)+'</b><span><button class="btn btn-soft btn-sm" type="button" data-bnall="'+esc(k.id)+'">All on</button> <button class="btn btn-soft btn-sm" type="button" data-bnnone="'+esc(k.id)+'">All off</button></span></div>'+
+      SHELF.map(function(s){ return '<p class="bn-shelfp">'+s.t+'</p><div class="bn-toggles">'+BONUS.filter(function(g){ return g.shelf===s.k; }).map(function(g){ var x = on.indexOf(g.id)>=0;
+        return '<button type="button" class="bn-tg" data-bnk="'+esc(k.id)+'" data-bng="'+g.id+'" aria-pressed="'+x+'"><span class="bn-sw" aria-hidden="true"></span>'+esc(g.name)+'</button>'; }).join("")+'</div>'; }).join("")+'</div>'; }).join("")+
+    '<div class="row"><button class="btn btn-soft btn-sm" type="button" id="bnDone">Done</button></div>';
+}
+var RA = renderAccount; renderAccount = function(){
+  RA.apply(this, arguments);
+  var a = me(), body = $("#acctBody"); if(!a || !body || !Array.isArray(a.kids)) return;
+  var kids = $("ul.kids", body), host = kids && kids.closest(".acard"); if(!host) return;
+  var card = el("div", "acard bn-acct"); card.id = "bnAcct"; card.innerHTML = cardHTML62(a); host.parentNode.insertBefore(card, host.nextSibling);
+  wire(a, card);
+};
+function kidById(a, id){ for(var i=0;i<a.kids.length;i++) if(a.kids[i].id===id) return a.kids[i]; return null; }
+function redraw(a){ var c = $("#bnAcct"); if(!c) return; c.innerHTML = cardHTML62(a); wire(a, c); }
+function store(a){ saveAccts(); try{ renderCards(); }catch(e){} }
+function wire(a, card){
+  var u = $("#bnUnlock", card);
+  if(u) u.addEventListener("click", function(){
+    var old = $("#bnGate", card); if(old){ old.remove(); return; }
+    var x = 3+Math.floor(Math.random()*7), y = 4+Math.floor(Math.random()*6), usePw = !!a.hash || !!a.owner;
+    var f = el("form", "confirm"); f.id = "bnGate"; f.noValidate = true;
+    f.innerHTML = '<p><b>Grown-ups only.</b> '+(usePw ? 'Type your account password to choose bonus games.' : 'What is '+x+' × '+y+'?')+'</p><input id="bnPw" '+(usePw ? 'type="password" autocomplete="current-password" placeholder="Your password"' : 'inputmode="numeric" autocomplete="off" placeholder="Answer"')+' class="bn-in"><p class="err" hidden></p><div class="row"><button class="btn btn-go btn-sm" type="submit">Continue</button><button class="btn btn-soft btn-sm" type="button" data-no>Never mind</button></div>';
+    u.parentNode.parentNode.appendChild(f); var inp = $("#bnPw", f); try{ inp.focus({preventScroll:true}); }catch(e){}
+    $("[data-no]", f).addEventListener("click", function(){ f.remove(); });
+    f.addEventListener("submit", function(e){ e.preventDefault(); var v = inp.value;
+      (usePw ? gateOk(a, v) : Promise.resolve(parseInt(v, 10) === x*y)).then(function(ok){
+        if(!ok){ var er = $(".err", f); er.textContent = usePw ? "That password isn't right. Try again." : "That answer isn't right. Try again."; er.hidden = false; inp.value = ""; return; }
+        OPEN_UNTIL = Date.now() + 10*60000; redraw(a); }); });
+  });
+  $$("[data-bng]", card).forEach(function(b){ b.addEventListener("click", function(){
+    if(Date.now() >= OPEN_UNTIL){ redraw(a); return; }
+    var k = kidById(a, b.dataset.bnk); if(!k) return; var on = onList(k).slice(), i = on.indexOf(b.dataset.bng);
+    if(i>=0) on.splice(i, 1); else on.push(b.dataset.bng); k.bonus = on; store(a);
+    b.setAttribute("aria-pressed", String(i<0)); try{ toast((i<0 ? "On: " : "Off: ")+BY[b.dataset.bng].name+" for "+k.name+"."); }catch(e){} }); });
+  $$("[data-bnall],[data-bnnone]", card).forEach(function(b){ b.addEventListener("click", function(){
+    if(Date.now() >= OPEN_UNTIL){ redraw(a); return; }
+    var all = !!b.dataset.bnall, k = kidById(a, b.dataset.bnall || b.dataset.bnnone); if(!k) return;
+    k.bonus = all ? BONUS.map(function(g){ return g.id; }) : []; store(a); redraw(a); try{ toast((all ? "All bonus games on for " : "All bonus games off for ")+k.name+"."); }catch(e){} }); });
+  var d = $("#bnDone", card); if(d) d.addEventListener("click", function(){ OPEN_UNTIL = 0; redraw(a); toast("Bonus games saved."); });
+}
+setTimeout(function(){ try{ paint(); }catch(e){} }, 0);
 })();
 
 window.addEventListener("hashchange", route);
