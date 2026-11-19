@@ -4217,9 +4217,10 @@ html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16
 .finish .v60go .v60n{display:inline-grid;place-items:center;min-width:1.7em;height:1.7em;margin-left:.45em;border-radius:50%;background:rgba(255,255,255,.35);font-size:.9em;font-weight:900;line-height:1}
 .finish .v60go .v60bar{position:absolute;left:0;bottom:0;height:5px;width:100%;background:rgba(255,255,255,.75);transform-origin:left center;transform:scaleX(1);transition:transform 1s linear}
 .finish .v60stay{display:block;margin:0 auto 4px;background:none;border:0;color:var(--ink-soft);font:inherit;font-size:14px;text-decoration:underline;cursor:pointer}
+.finish .v60prize{font-size:16px;font-weight:800;color:var(--ink-soft);margin:6px 0 2px}
 .finish .v60note{font-size:14px;color:var(--ink-soft);margin:6px 0 0}
 @media (prefers-reduced-motion:reduce){.finish .v60go .v60bar{transition:none}}
-</style>
+</style><!-- v60 end -->
 <style>/* v59: rename child profile */
 .kids li{flex-wrap:wrap}
 .kids li .kren{font:inherit;font-size:14px;padding:6px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
@@ -16544,6 +16545,7 @@ function saleOn(){
   if(location.hash==="#account"){ try{ renderAccount(); }catch(e){} }
 })();
 
+/* v60 start */
 /* v60: auto next after 10 seconds. Toddlers can't find Next, so the finish screen counts down
    and goes on by itself. Pauses while any pop-up (egg, prize, plans) is open. If the next level
    needs a plan, it goes on to the next game's free level 1 instead of opening the plans box. */
@@ -16555,12 +16557,25 @@ function saleOn(){
   ["pointerdown","keydown"].forEach(function(t){ document.addEventListener(t, function(){ touched = Date.now(); }, true); });
   function openModal(){ var ms = document.querySelectorAll(".modal"); for(var i=0;i<ms.length;i++){ if(!ms[i].hidden && getComputedStyle(ms[i]).display!=="none") return ms[i]; } return null; }
   function lvOf(href){ var m = /^#play-.+-(\d+)$/.exec(href||""); return m ? +m[1] : 0; }
+  var CEL60 = celebrate;
+  celebrate = function(c){ CEL60.apply(this, arguments);
+    if(c && c.kind==="welcome"){ var t = $("#cText"); if(t) t.textContent = "You finished 5 games. Here is a present for Pip!"; } };
   var FIN60 = finishGame;
   finishGame = function(){
     stop();
     var me = G, def = me && me.def, band = me && me.band;
+    /* prizes (surprise egg, first-prize pop-up) only every 5th finished game */
+    var cnt = me ? (S.fin60 = (S.fin60||0) + 1) : 0, prize = cnt>0 && cnt%5===0, wel = S.welcomed;
+    if(me && !prize && !wel) S.welcomed = true;
     FIN60.apply(this, arguments);
+    if(me && !prize && !wel){ S.welcomed = false; }
+    if(me) save();
     var f = $("#board .finish"); if(!f || !me) return;
+    if(!prize){
+      var eg = f.querySelector(".eggopen"); if(eg) eg.remove();
+      var tl = 5 - cnt%5, tp = el("p", "v60prize", tl===1 ? "One more game for a surprise prize!" : tl+" more games for a surprise prize!");
+      var r0 = f.querySelector(".row"); if(r0) r0.parentNode.insertBefore(tp, r0);
+    }
     var row = f.querySelector(".row"), go = row && row.querySelector("a.btn-go"); if(!go) return;
     var href = go.getAttribute("href"), lv = lvOf(href);
     if(!lv) return; /* only count down into another game or level */
@@ -16592,7 +16607,7 @@ function saleOn(){
   };
   window.addEventListener("hashchange", function(){ if(timer && !$("#board .finish .v60go")) stop(); });
 })();
-
+/* v60 end */
 })();
 </script>
 
