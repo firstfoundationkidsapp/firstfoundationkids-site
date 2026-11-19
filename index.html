@@ -16851,5 +16851,17 @@ function kids(){
 })();
 </script>
 
+<style>/* v58: header scrolls away in games */
+html body.ffkgame header.top{position:relative!important;top:0!important}
+</style>
+<script>/* v58: header scrolls away in games */
+(function(){
+  var GAMEV = {play:1, paint:1, colorbook:1, color:1, food:1, studio:1};
+  function sync(){ var v = (location.hash||"").replace("#","").split("-")[0];
+    document.body.classList.toggle("ffkgame", !!GAMEV[v]); }
+  sync(); window.addEventListener("hashchange", sync);
+})();
+</script>
+
 </body>
 </html>
