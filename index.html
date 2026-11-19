@@ -4212,6 +4212,14 @@ html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16
 </div>
 <canvas id="confetti" hidden></canvas>
 
+<style>/* v60: auto next after 10 seconds */
+.finish .v60go{position:relative;overflow:hidden}
+.finish .v60go .v60n{display:inline-grid;place-items:center;min-width:1.7em;height:1.7em;margin-left:.45em;border-radius:50%;background:rgba(255,255,255,.35);font-size:.9em;font-weight:900;line-height:1}
+.finish .v60go .v60bar{position:absolute;left:0;bottom:0;height:5px;width:100%;background:rgba(255,255,255,.75);transform-origin:left center;transform:scaleX(1);transition:transform 1s linear}
+.finish .v60stay{display:block;margin:0 auto 4px;background:none;border:0;color:var(--ink-soft);font:inherit;font-size:14px;text-decoration:underline;cursor:pointer}
+.finish .v60note{font-size:14px;color:var(--ink-soft);margin:6px 0 0}
+@media (prefers-reduced-motion:reduce){.finish .v60go .v60bar{transition:none}}
+</style>
 <style>/* v59: rename child profile */
 .kids li{flex-wrap:wrap}
 .kids li .kren{font:inherit;font-size:14px;padding:6px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
@@ -16534,6 +16542,55 @@ function saleOn(){
     });
   };
   if(location.hash==="#account"){ try{ renderAccount(); }catch(e){} }
+})();
+
+/* v60: auto next after 10 seconds. Toddlers can't find Next, so the finish screen counts down
+   and goes on by itself. Pauses while any pop-up (egg, prize, plans) is open. If the next level
+   needs a plan, it goes on to the next game's free level 1 instead of opening the plans box. */
+(function(){
+  var WAIT = 10, timer = null;
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  /* prize pop-ups a toddler can't close: shut them after 15 s with no tap. Others (break time, plans) just pause. */
+  var SOFT = {celebrate:1, eggModal:1}, touched = Date.now();
+  ["pointerdown","keydown"].forEach(function(t){ document.addEventListener(t, function(){ touched = Date.now(); }, true); });
+  function openModal(){ var ms = document.querySelectorAll(".modal"); for(var i=0;i<ms.length;i++){ if(!ms[i].hidden && getComputedStyle(ms[i]).display!=="none") return ms[i]; } return null; }
+  function lvOf(href){ var m = /^#play-.+-(\d+)$/.exec(href||""); return m ? +m[1] : 0; }
+  var FIN60 = finishGame;
+  finishGame = function(){
+    stop();
+    var me = G, def = me && me.def, band = me && me.band;
+    FIN60.apply(this, arguments);
+    var f = $("#board .finish"); if(!f || !me) return;
+    var row = f.querySelector(".row"), go = row && row.querySelector("a.btn-go"); if(!go) return;
+    var href = go.getAttribute("href"), lv = lvOf(href);
+    if(!lv) return; /* only count down into another game or level */
+    if(!levelOpen(lv)){
+      /* next level is locked: keep that button (it opens the plans), and auto-go to the next game's free level */
+      var nx = nextGameFor(def, band); if(!nx || nx===def) return;
+      go.className = "btn btn-soft"; go.textContent = "Level "+(me.level+1)+" 🔒 with a plan";
+      var a = el("a", "btn btn-go", "Next game: "+esc(nx.name)); a.href = "#play-"+nx.id+"-"+band+"-1";
+      row.insertBefore(a, go); go = a; href = a.getAttribute("href");
+    }
+    go.classList.add("v60go");
+    var n = el("span", "v60n", String(WAIT)), bar = el("span", "v60bar"); go.appendChild(n); go.appendChild(bar);
+    var stay = el("button", "v60stay", "Stay here"); stay.type = "button"; row.parentNode.insertBefore(stay, row);
+    var left = WAIT, hash0 = location.hash, paused = false, lastM = null;
+    function quit(){ stop(); n.remove(); bar.remove(); stay.remove(); }
+    stay.addEventListener("click", quit);
+    function draw(){ n.textContent = String(left); bar.style.transform = "scaleX("+(left/WAIT)+")"; }
+    timer = setInterval(function(){
+      if(!document.body.contains(f) || location.hash!==hash0 || G!==me){ stop(); return; }
+      if(document.hidden){ paused = true; return; }
+      var m = openModal();
+      if(m!==lastM){ lastM = m; if(m) touched = Date.now(); }
+      if(m){ paused = true; if(SOFT[m.id] && Date.now()-touched > 15000) m.hidden = true; return; }
+      if(paused){ paused = false; if(left<5){ left = 5; draw(); return; } }
+      left--; draw();
+      if(left<=0){ stop(); location.hash = href.slice(1); }
+    }, 1000);
+    requestAnimationFrame(draw);
+  };
+  window.addEventListener("hashchange", function(){ if(timer && !$("#board .finish .v60go")) stop(); });
 })();
 
 })();
