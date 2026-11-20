@@ -17,10 +17,15 @@ const DESCS = {
   classroom15: "Homework with all 30 levels in every learning world for up to 15 students. Billed once a year.",
   classroom30: "Homework with all 30 levels in every learning world for up to 30 students. Billed once a year.",
 };
-// v55 Black Friday sale: 30% off the first payment on every plan, Fri 27 Nov 2026 00:00 to Sun 29 Nov 2026 23:59
-// Toronto time (EST = UTC-5). Turns on and off by itself; the coupon also stops working in Stripe at the end.
-export const SALE = { id: "ffk-blackfriday-2026", pct: 30, start: Date.UTC(2026, 10, 27, 5), end: Date.UTC(2026, 10, 30, 5), name: "Black Friday 30% off" };
-export function saleOn(now = Date.now()) { return now >= SALE.start && now < SALE.end; }
+// v55 Black Friday sale: 30% off the first payment on every plan. v64 (owner 2026-11-20): an early weekend sale,
+// 40% off Fri 20 Nov 2026 00:00 to Sun 22 Nov 2026 23:59 Toronto time, then the 30% sale Fri 27 to Sun 29 Nov.
+// Each window has its own Stripe coupon id. Turns on and off by itself; each coupon also stops working at its end.
+export const SALES = [
+  { id: "ffk-bfweekend40-2026", pct: 40, start: Date.UTC(2026, 10, 20, 5), end: Date.UTC(2026, 10, 23, 5), name: "Black Friday weekend 40% off" },
+  { id: "ffk-blackfriday-2026", pct: 30, start: Date.UTC(2026, 10, 27, 5), end: Date.UTC(2026, 10, 30, 5), name: "Black Friday 30% off" },
+];
+export function currentSale(now = Date.now()) { return SALES.find(s => now >= s.start && now < s.end) || null; }
+export function saleOn(now = Date.now()) { return !!currentSale(now); }
 const CODE_KEY = "ffk:7Hq2wP9z:codes:v1"; // same key the page uses for discount codes
 const CB32 = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 

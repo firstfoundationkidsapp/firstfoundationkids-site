@@ -17136,17 +17136,24 @@ function v24party(f){
 setTimeout(v24home, 400);
 
 /* ---------- v55: Black Friday sale, 30% off every plan (owner 2026-11-18) ----------
+   v64 (owner 2026-11-20): early weekend sale 40% off Fri 20 to Sun 22 Nov 2026, then 30% off Fri 27 to Sun 29 Nov.
+   SALES holds both windows; SALE is whichever one is on now (or the next one). Texts use SALE.pct.
    On by itself from Fri 27 Nov 2026 00:00 to Sun 29 Nov 2026 23:59 Toronto time, then off by itself.
    The server (/api/checkout) puts the same 30% Stripe coupon on the first payment during those dates, so the
    discount is real even if this page is old. A code with a bigger discount wins; gift codes are not changed.
    Hidden in the Android app (no purchases there). ?saletest=1 shows the look on a preview only (not the live site). */
-var SALE = {pct:30, start:Date.UTC(2026,10,27,5,0,0), end:Date.UTC(2026,10,30,5,0,0), name:"Black Friday"};
+var SALES = [
+  {pct:40, start:Date.UTC(2026,10,20,5,0,0), end:Date.UTC(2026,10,23,5,0,0), name:"Black Friday"},
+  {pct:30, start:Date.UTC(2026,10,27,5,0,0), end:Date.UTC(2026,10,30,5,0,0), name:"Black Friday"}
+];
+function pickSale(t){ for(var i=0;i<SALES.length;i++){ if(t<SALES[i].end) return SALES[i]; } return SALES[SALES.length-1]; }
+var SALE = pickSale(Date.now());
 var SALE_SERVER = null; /* true/false once /api/sale answers on the live site */
 function saleOn(){
   if(typeof APP_MODE!=="undefined" && APP_MODE) return false;
-  if(SALE_SERVER!==null) return SALE_SERVER;
+  if(SALE_SERVER!==null) return SALE_SERVER && Date.now()<SALE.end;
   if(!PAY_LIVE && /[?&]saletest=1/.test(location.search)) return true;
-  var t = Date.now(); return t>=SALE.start && t<SALE.end;
+  var t = Date.now(); SALE = pickSale(t); return t>=SALE.start && t<SALE.end;
 }
 (function(){
   var st = document.createElement("style");
@@ -17168,19 +17175,23 @@ function saleOn(){
   document.head.appendChild(st);
   var bar = document.createElement("div");
   bar.className = "bfbar"; bar.setAttribute("role", "region"); bar.setAttribute("aria-label", "Black Friday sale");
-  bar.innerHTML = '<span class="bftag">Black Friday</span><span class="bfspark" aria-hidden="true">✨</span>30% off every plan, this weekend only. Ends Sunday at midnight (Eastern). <a href="#pricing">See the deals</a>';
+  function barHtml(){ return '<span class="bftag">Black Friday</span><span class="bfspark" aria-hidden="true">✨</span>'+SALE.pct+'% off every plan, this weekend only. Ends Sunday at midnight (Eastern). <a href="#pricing">See the deals</a>'; }
+  bar.innerHTML = barHtml();
   var hd = document.querySelector("header.top"); if(hd) hd.parentNode.insertBefore(bar, hd);
   /* plan cards: show the sale price under the normal one */
   var per = {monthly:"for your first month", yearly:"for your first year", family:"for your first year"};
   $$("#v-pricing .plan").forEach(function(card){
     var a = $("[data-plan]", card), k = a && a.dataset.plan, pr = $(".price", card); if(!k || !pr || !PRICE_OF[k]) return;
-    var p = document.createElement("div"); p.className = "bfprice"; p.textContent = money(PRICE_OF[k]*(1-SALE.pct/100))+" "+per[k]+" (30% off)";
+    var p = document.createElement("div"); p.className = "bfprice"; p.dataset.bfk = k;
     pr.parentNode.insertBefore(p, pr.nextSibling);
-    var f = document.createElement("span"); f.className = "bfflag"; f.textContent = card.classList.contains("pop") ? "Best value + Black Friday 30% off" : "Black Friday 30% off"; card.insertBefore(f, card.firstChild);
+    var f = document.createElement("span"); f.className = "bfflag"; f.dataset.pop = card.classList.contains("pop") ? "1" : ""; card.insertBefore(f, card.firstChild);
   });
   var SHOW = /^#?(home|pricing|subscribe|account|parents|lessons|school|books|studio)?$/;
   function sync(){
     var on = saleOn();
+    bar.innerHTML = barHtml();
+    $$("#v-pricing .bfprice").forEach(function(p){ var k = p.dataset.bfk; p.textContent = money(PRICE_OF[k]*(1-SALE.pct/100))+" "+per[k]+" ("+SALE.pct+"% off)"; });
+    $$("#v-pricing .bfflag").forEach(function(f){ f.textContent = (f.dataset.pop ? "Best value + " : "")+"Black Friday "+SALE.pct+"% off"; });
     document.documentElement.classList.toggle("bf-on", on);
     bar.classList.toggle("show", on && SHOW.test(location.hash||""));
     $$("#v-pricing .plan .price").forEach(function(pr){ pr.classList.toggle("bf-was", on); });
@@ -17206,7 +17217,7 @@ function saleOn(){
     });
     if(!codeBig){
       var note = c && c.kind==="discount" ? " Codes don't add on top of the sale, so you get the bigger discount." : "";
-      $("#payTotal").innerHTML = 'Black Friday: today you pay <b>'+money(priceAfter(plan, null))+'</b> for the '+PERIOD_OF[plan]+' (30% off). After that, '+esc(PLANS[plan].price)+'.'+esc(note);
+      $("#payTotal").innerHTML = 'Black Friday: today you pay <b>'+money(priceAfter(plan, null))+'</b> for the '+PERIOD_OF[plan]+' ('+SALE.pct+'% off). After that, '+esc(PLANS[plan].price)+'.'+esc(note);
     }
   };
   $$("input[name=plan]").forEach(function(r){ r.addEventListener("change", function(){ refreshCheckout(); }); });
@@ -17217,7 +17228,7 @@ function saleOn(){
   /* the live site asks the server, so a wrong clock on the phone can't show the wrong price */
   if(PAY_LIVE && !(typeof APP_MODE!=="undefined" && APP_MODE)){
     fetch("/api/sale", {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(d){
-      if(d && typeof d.on==="boolean"){ SALE_SERVER = d.on; sync(); try{ refreshCheckout(); }catch(e){} }
+      if(d && typeof d.on==="boolean"){ SALE_SERVER = d.on; if(d.on && d.pct>0){ SALE = {pct:d.pct, start:d.start, end:d.end, name:"Black Friday"}; } sync(); try{ refreshCheckout(); }catch(e){} }
     }).catch(function(){});
   }
 })();
