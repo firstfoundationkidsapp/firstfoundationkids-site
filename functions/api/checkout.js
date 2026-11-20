@@ -1,5 +1,5 @@
 // POST {plan, email, code?} -> {url} of a Stripe Checkout page for that plan.
-import { stripe, priceIds, parseDiscount, json, fail, PLANS, SALE, saleOn } from "../_stripe.js";
+import { stripe, priceIds, parseDiscount, json, fail, PLANS, currentSale } from "../_stripe.js";
 
 export async function onRequestPost({ request, env }) {
   try {
@@ -33,7 +33,8 @@ export async function onRequestPost({ request, env }) {
       p.metadata.pct = d.pct;
     }
     // Black Friday: the sale coupon goes on unless a code already gives a bigger discount (Stripe takes one).
-    if (saleOn() && !(p.metadata.code && p.metadata.pct > SALE.pct)) {
+    const SALE = currentSale();
+    if (SALE && !(p.metadata.code && p.metadata.pct > SALE.pct)) {
       try { await stripe(env, "GET", "coupons/" + SALE.id); }
       catch (e) { if (e.status !== 404) throw e; await stripe(env, "POST", "coupons", { id: SALE.id, percent_off: SALE.pct, duration: "once", name: SALE.name, redeem_by: Math.floor(SALE.end / 1000) }); }
       p.discounts = { 0: { coupon: SALE.id } };
