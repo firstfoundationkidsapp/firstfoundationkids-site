@@ -14648,12 +14648,14 @@ window.__T3COVER = {"t3shape": "data:image/webp;base64,UklGRq4hAABXRUJQVlA4WAoAA
 var T3 = (function(){
 var URL3 = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js", P = null, T = null;
 function gl(){ try{ var c = document.createElement("canvas"); return !!(window.WebGLRenderingContext && (c.getContext("webgl") || c.getContext("experimental-webgl"))); }catch(e){ return false; } }
+/* v63: one three.js for the whole page: keep the first copy as window.THREE, so a second copy can never replace it (GLTFLoader must attach to this one) */
+function pin(t){ try{ Object.defineProperty(window, "THREE", {configurable:true, enumerable:true, get:function(){ return t; }, set:function(){}}); }catch(e){} return t; }
 function load(){
   if(T) return Promise.resolve(T);
-  if(window.THREE){ T = window.THREE; return Promise.resolve(T); }
+  if(window.THREE){ T = pin(window.THREE); return Promise.resolve(T); }
   if(!P) P = new Promise(function(res, rej){
     if(!gl()) return rej(new Error("no webgl"));
-    var done = function(){ if(window.THREE){ T = window.THREE; res(T); } else rej(new Error("three")); };
+    var done = function(){ if(window.THREE){ T = pin(window.THREE); res(T); } else rej(new Error("three")); };
     var old = document.querySelector('script[src="'+URL3+'"]');
     if(old){ old.addEventListener("load", done); old.addEventListener("error", function(){ P = null; rej(new Error("three")); }); setTimeout(function(){ if(window.THREE) done(); }, 50); return; }
     var s = document.createElement("script"); s.src = URL3; s.async = true; s.onload = done; s.onerror = function(){ P = null; rej(new Error("three")); };
@@ -14814,7 +14816,7 @@ function idle(o, t, i, amp){ var a = o.userData.act, base = o.userData.base || (
 /* ===== Meshy friends (Pip, a girl and a boy): rigged 3D characters in a corner of the stage who wave and cheer ===== */
 var FURL = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js", FBASE = "meshy/", FR = {}, FL = null, FW = {r:null, cv:null, sc:null, cam:null, cur:null, raf:0, last:0, act:null};
 var FRIENDS = ["pip", "girl", "boy"];
-function loader(){ if(T.GLTFLoader) return Promise.resolve(); if(!FL) FL = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ T.GLTFLoader ? res() : rej(); }; s.onerror = function(){ FL = null; rej(); }; document.head.appendChild(s); }); return FL; }
+function loader(){ if(T.GLTFLoader) return Promise.resolve(); if(!FL) FL = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ if(T.GLTFLoader) res(); else { FL = null; rej(); } }; s.onerror = function(){ FL = null; rej(); }; document.head.appendChild(s); }); return FL; }
 function friendGet(n){ if(!FR[n]) FR[n] = loader().then(function(){ return new Promise(function(res, rej){ new T.GLTFLoader().load(FBASE+n+".glb", function(gl){
     var m = gl.scene; m.traverse(function(o){ if(o.isMesh){ o.castShadow = true; o.frustumCulled = false; if(o.geometry) o.geometry.userData.keep = 1; [].concat(o.material).forEach(function(x){ x.userData.keep = 1; }); } });
     var mix = new T.AnimationMixer(m), A = {}, clip = function(k){ return T.AnimationClip.findByName(gl.animations, k); }, cut = function(k, a, z){ var c = clip(k); return c ? T.AnimationUtils.subclip(c, k+"_"+a, Math.round(a*30), Math.round(z*30), 30) : null; };
@@ -15178,7 +15180,7 @@ var MOVES = ["wave","jump","dance","cheer"];
 var MOD = {}, GL = null;
 function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
 function reduced(){ return !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); }
-function loader(){ if(T.GLTFLoader) return Promise.resolve(); if(!GL) GL = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ T.GLTFLoader ? res() : rej(); }; s.onerror = function(){ GL = null; rej(); }; document.head.appendChild(s); }); return GL; }
+function loader(){ if(T.GLTFLoader) return Promise.resolve(); if(!GL) GL = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ if(T.GLTFLoader) res(); else { GL = null; rej(); } }; s.onerror = function(){ GL = null; rej(); }; document.head.appendChild(s); }); return GL; }
 /* our own copy of each friend (separate from the corner friend in the other 3D games) */
 function get(id){ if(MOD[id]) return MOD[id];
   MOD[id] = loader().then(function(){ return new Promise(function(res, rej){ new T.GLTFLoader().load("meshy/"+id+".glb?v55", function(gl){
@@ -15287,7 +15289,7 @@ function reduced(){ return !!(window.matchMedia && matchMedia("(prefers-reduced-
 function others(t, pool, k, bad){ var o = shuffle(pool.filter(function(x){ return x!==t && (!bad || !bad(x)); })); return o.slice(0, k-1); }
 function driverId(){ var d = ""; try{ d = localStorage.getItem("ffk-kart-driver") || ""; }catch(e){} if(!DRIVERS.some(function(x){ return x.id===d; })) d = DRIVERS[((G && G.level || 1) - 1) % DRIVERS.length].id; return d; }
 function driverOf(id){ return DRIVERS.filter(function(x){ return x.id===id; })[0] || DRIVERS[0]; }
-function loadGL(T){ if(T.GLTFLoader) return Promise.resolve(); if(!GL) GL = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ T.GLTFLoader ? res() : rej(); }; s.onerror = function(){ GL = null; rej(); }; document.head.appendChild(s); }); return GL; }
+function loadGL(T){ if(T.GLTFLoader) return Promise.resolve(); if(!GL) GL = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ if(T.GLTFLoader) res(); else { GL = null; rej(); } }; s.onerror = function(){ GL = null; rej(); }; document.head.appendChild(s); }); return GL; }
 function getDriver(T, id){ if(!DRV[id]) DRV[id] = loadGL(T).then(function(){ return new Promise(function(res, rej){ new T.GLTFLoader().load("meshy/"+id+".glb", function(g){
     var m = g.scene; m.traverse(function(o){ if(o.isMesh){ o.castShadow = true; o.frustumCulled = false; if(o.geometry) o.geometry.userData.keep = 1; [].concat(o.material).forEach(function(x){ x.userData.keep = 1; if(x.map) x.map.userData = {keep:1}; }); } });
     var mix = new T.AnimationMixer(m), A = {}, clip = function(k){ return T.AnimationClip.findByName(g.animations, k); }, cut = function(k, a, z){ var c = clip(k); return c ? T.AnimationUtils.subclip(c, k+"_k", Math.round(a*30), Math.round(z*30), 30) : null; };
@@ -16166,7 +16168,7 @@ function numNear(t, lo, hi, k){ var c = [t-1, t+1, t-2, t+2, t+10, t-10]; if(t>=
 function ask(q, small, spoken){ setPrompt(esc(q), small ? esc(small) : ""); say(spoken || q); if(window.__v61lines) window.__v61lines.push(spoken || q); }
 
 /* ----- the Meshy snake head (Sunny), loaded once and shared ----- */
-function loadGL(T){ if(T.GLTFLoader) return Promise.resolve(); if(!GLP) GLP = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ T.GLTFLoader ? res() : rej(); }; s.onerror = function(){ GLP = null; rej(); }; document.head.appendChild(s); }); return GLP; }
+function loadGL(T){ if(T.GLTFLoader) return Promise.resolve(); if(!GLP) GLP = new Promise(function(res, rej){ var s = document.createElement("script"); s.src = FURL; s.async = true; s.onload = function(){ if(T.GLTFLoader) res(); else { GLP = null; rej(); } }; s.onerror = function(){ GLP = null; rej(); }; document.head.appendChild(s); }); return GLP; }
 function getHead(T){ if(!HEADP) HEADP = loadGL(T).then(function(){ return new Promise(function(res, rej){ new T.GLTFLoader().load("meshy/snake.glb", function(g){
     var m = g.scene; m.traverse(function(o){ if(o.isMesh){ o.castShadow = true; o.frustumCulled = false; if(o.geometry) o.geometry.userData.keep = 1; [].concat(o.material).forEach(function(x){ x.userData.keep = 1; if(x.map) x.map.userData = {keep:1}; }); } });
     var b = new T.Box3().setFromObject(m), s = b.getSize(new T.Vector3()), c = b.getCenter(new T.Vector3()), k = 1.7/s.y, w = T3.grp();
@@ -16958,6 +16960,7 @@ document.addEventListener("click", function(e){
 var V24 = {p:null};
 function v24gl(){ try{ var c = document.createElement("canvas"); return !!(window.WebGLRenderingContext && (c.getContext("webgl") || c.getContext("experimental-webgl"))); }catch(e){ return false; } }
 function v24three(){
+  if(typeof T3!=="undefined" && T3 && T3.load) return T3.load(); /* v63: one three.js for the whole page */
   if(window.THREE) return Promise.resolve(window.THREE);
   if(!V24.p) V24.p = new Promise(function(res, rej){
     if(!v24gl()) return rej(new Error("no webgl"));
