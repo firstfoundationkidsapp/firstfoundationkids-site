@@ -6402,7 +6402,8 @@ setTimeout(function(){
   var q = new URLSearchParams(location.search), sid = q.get("paid");
   function clean(h){ try{ history.replaceState(null, "", location.pathname + (h || location.hash)); }catch(e){} }
   if(sid){
-    clean();
+    /* keep ?paid= in the address until the Google Ads tag has loaded, so the "Paid plan (website)" conversion is counted */
+    (function waitTag(n){ var g = window.google_tag_manager; if((g && g["AW-18583615515"]) || n > 25) setTimeout(function(){ clean(); }, 800); else setTimeout(function(){ waitTag(n+1); }, 200); })(0);
     fetch("/api/verify?session_id="+encodeURIComponent(sid)).then(function(r){ return r.json(); }).then(function(d){
       if(d && !d.error) payApply(d, true); else toast((d && d.error) || "We couldn't confirm the payment yet. Refresh in a minute.");
     }, function(){ toast("We couldn't confirm the payment yet. Refresh in a minute."); });
