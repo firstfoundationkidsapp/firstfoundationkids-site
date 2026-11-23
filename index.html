@@ -4659,7 +4659,7 @@ function armNudge(){
 document.addEventListener("pointerdown", function(){ LAST_ACT = Date.now(); }, true);
 
 /* ---------- v18: Pip's natural recorded voice (clip packs in voice/) ---------- */
-function vClean(t){ return String(t==null ? "" : t).replace(/[“”"«»]/g,"").replace(/[‘’`]/g,"'").replace(/…/g,"...").replace(/\s+/g," ").trim(); }
+function vClean(t){ return String(t==null ? "" : t).replace(/(\d),(?=\d{3}(?!\d))/g,"$1").replace(/[“”"«»]/g,"").replace(/[‘’`]/g,"'").replace(/…/g,"...").replace(/\s+/g," ").trim(); }
 function vSegs(text){
   var t = vClean(text), out = [];
   if(!t) return out;
@@ -4792,17 +4792,31 @@ function vNameState(n){
 function vGs(){ return (VP.man && VP.man.gs) || 1; }
 function vGap(seg){ if(/!$/.test(seg)) return 0.3; if(/^(oh|ooh|wow|oh wow|oh yeah|yay|hooray|woo-hoo|ribbit)[ ,]*$/i.test(vClean(seg))) return 0.18; return vGs() * (/,$/.test(seg) ? 0.07 : /\?$/.test(seg) ? 0.24 : 0.16); }
 /* every piece of what Pip says, as clips; null if any piece is missing (then the device voice says it all) */
+/* clip keys for a number from 100 to 99999: "#12k," "#4h," "84?" (null when it is not one) */
+function vBigKeys(k){
+  var m = /^(#?)(\d{3,5})([,.?]?)$/.exec(k||""); if(!m) return null;
+  var n = +m[2], e = m[3]==="?" ? "?" : m[3]==="," ? "," : "."; if(n<100 || n>99999 || String(n)!==m[2]) return null;
+  var K = Math.floor(n/1000), R = n%1000, H = Math.floor(R/100), T = R%100, out = K ? ["#"+K+"k"+(R ? "," : e)] : [];
+  var end = function(x){ return e==="," ? "#"+x+"," : e==="?" ? x+"?" : String(x); };
+  if(R){ if(K && vFindKey(end(R))) out.push(end(R)); else { if(H) out.push("#"+H+"h"+(T ? "," : e)); if(T) out.push(end(T)); } }
+  return out;
+}
+function vBigPlan(k){ var ks = vBigKeys(k), cs = ks && ks.map(vFindKey); return cs && cs.every(Boolean) ? cs : null; }
 function vPlan(segs){
   if(!segs.length) return null;
   var out = [];
   for(var i=0;i<segs.length;i++){
     var c = vFindKey(vKey(segs[i]));
     if(c){ c.si = i; c.gap = vGap(segs[i]); out.push(c); continue; }
+    var bw = vBigPlan(vKey(segs[i]));
+    if(bw){ bw.forEach(function(x, z){ x.si = i; x.gap = z<bw.length-1 ? vGs()*0.04 : vGap(segs[i]); out.push(x); }); continue; }
     var np = vNumParts(segs[i]), op = np ? null : vOrParts(segs[i]), pp = np ? np.map(function(x){ return [x.key]; }) : op ? op.map(function(x){ return x.keys; }) : null;
     if(!pp) return null;
     for(var j=0;j<pp.length;j++){
       var cj = null; for(var q=0;q<pp[j].length && !cj;q++) cj = vFindKey(pp[j][q]);
-      if(!cj) return null; cj.si = i; cj.gap = j<pp.length-1 ? vGs()*(op ? 0.09 : 0.04) : vGap(segs[i]); out.push(cj);
+      if(!cj){ var bj = vBigPlan(pp[j][0]); if(!bj) return null;
+        for(var z=0;z<bj.length;z++){ bj[z].si = i; bj[z].gap = (z<bj.length-1 || j<pp.length-1) ? vGs()*0.04 : vGap(segs[i]); out.push(bj[z]); } continue; }
+      cj.si = i; cj.gap = j<pp.length-1 ? vGs()*(op ? 0.09 : 0.04) : vGap(segs[i]); out.push(cj);
     }
   }
   return out;
@@ -10479,7 +10493,8 @@ var VPACKS0 = vPacks;
 vPacks = function(g){ var o = VPACKS0(g), f = (o[0]==="y_shared" ? "y_" : "")+"fun"; if(VP.man && VP.man.packs && VP.man.packs[f] && o.indexOf(f)<0) o.push(f); if(o[0]==="y_shared" && VP.man && VP.man.packs && VP.man.packs.y_more && o.indexOf("y_more")<0) o.push("y_more");
   /* "y_<game>-<band>x": lines added later to a game's guy-voice pack */
   var gx = g || G; if(o[0]==="y_shared" && gx && VP.man && VP.man.packs){ var xp = "y_"+gx.id+"-"+gx.band+"x"; if(VP.man.packs[xp] && o.indexOf(xp)<0) o.push(xp);
-    var sx = "y_"+gx.id+"-"+gx.band; if(VP.man.parts && VP.man.parts[sx] && o.indexOf(sx)<0) o.push(sx); }
+    var sx = "y_"+gx.id+"-"+gx.band; if(VP.man.parts && VP.man.parts[sx] && o.indexOf(sx)<0) o.push(sx);
+    if(gx.band>=4 && VP.man.packs.y_nums && o.indexOf("y_nums")<0) o.push("y_nums"); }
   return o; };
 window.__v25 = {monSVG:monSVG, hideCard:hideCard, pizzaSVG:pizzaSVG, buddySVG:buddySVG, BUDDIES:BUDDIES, openEgg:openEgg};
 })();
