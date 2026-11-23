@@ -2734,6 +2734,34 @@ html.xmas .t3box.t3room{background:linear-gradient(180deg,#FFE3E0 0%,#FFF3EE 60%
 .t3friend{position:absolute;left:0;bottom:0;width:24% !important;height:96% !important;pointer-events:none;z-index:1;opacity:0;transform:translateY(12px);transition:opacity .35s,transform .35s}
 .t3friend.on{opacity:1;transform:none}
 @media (max-width:520px){.t3box.t3hasf .t3cv{width:76% !important}.t3friend{width:27% !important}}
+
+/* v65: every game as its own icon */
+.ai65{margin:22px 0 8px;padding:20px 18px 22px;background:#fff;border-radius:28px;box-shadow:0 6px 0 rgba(23,59,64,.08),0 18px 40px -24px rgba(23,59,64,.35)}
+.ai65 .aihead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 16px;margin-bottom:12px}
+.ai65 h2{margin:0;font-size:clamp(24px,3.4vw,34px);line-height:1.1}
+.ai65 .aihead p{margin:4px 0 0;color:var(--ink-soft,#5b7479);font-weight:700}
+.ai65 .aichips{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;margin:0 -2px 6px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.ai65 .aichips button{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;border:2px solid #DCEBEA;background:#F6FBFA;color:var(--ink,#173B40);border-radius:999px;padding:9px 15px;font:800 15px/1 inherit;font-family:inherit;cursor:pointer;min-height:44px}
+.ai65 .aichips button[aria-pressed="true"]{background:var(--ink,#173B40);border-color:var(--ink,#173B40);color:#fff}
+.ai65 .aigrp{margin-top:14px}
+.ai65 .aigrp h3{margin:0 0 10px;font-size:19px;display:flex;align-items:center;gap:8px}
+.ai65 .aigrp h3 small{font-size:14px;color:var(--ink-soft,#5b7479);font-weight:700}
+.ai65 .aigrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:16px 12px}
+.ai65 .aiic{display:flex;flex-direction:column;align-items:center;gap:7px;text-decoration:none;color:var(--ink,#173B40);text-align:center;-webkit-tap-highlight-color:transparent}
+.ai65 .aiic .ic{position:relative;width:100%;max-width:112px;aspect-ratio:1/1;border-radius:26px;background:var(--bg,#EEF6F5);display:flex;align-items:center;justify-content:center;overflow:hidden;
+  box-shadow:inset 0 -6px 0 rgba(0,0,0,.07),0 5px 0 rgba(23,59,64,.12),0 12px 20px -12px rgba(23,59,64,.45);transition:transform .15s ease,box-shadow .15s ease}
+.ai65 .aiic .ic svg{width:92%;height:92%;display:block}
+.ai65 .aiic .ic .em{font-size:46px;line-height:1}
+.ai65 .aiic b{font-size:14px;line-height:1.15;font-weight:800;max-width:118px}
+.ai65 .aiic:hover .ic,.ai65 .aiic:focus-visible .ic{transform:translateY(-3px) scale(1.04)}
+.ai65 .aiic:active .ic{transform:scale(.95)}
+.ai65 .aiic:focus-visible{outline:none}
+.ai65 .aiic:focus-visible .ic{outline:4px solid #3E9BDB;outline-offset:3px}
+.ai65 .aiic .new{position:absolute;top:6px;right:6px;background:#E7466B;color:#fff;font-size:11px;font-weight:900;border-radius:999px;padding:3px 7px}
+@media (max-width:760px){.ai65{padding:16px 12px 18px;border-radius:22px;margin-top:16px}.ai65 .aigrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px}.ai65 .aiic .ic{border-radius:22px}.ai65 .aiic b{font-size:13px}}
+@media (max-width:340px){.ai65 .aigrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.ai65 .aiic .ic{transition:none}}
+#v-lessons .ai65{margin-top:18px}
 </style>
 <style>/* live site: stop tilted 3D cards from making phones scroll sideways */html,body{overflow-x:clip}/* v55: Copy Party Friends */
 .t3box.cp55box{height:clamp(250px,50vw,400px);background:radial-gradient(70% 45% at 50% 8%,#FFF8D8 0%,rgba(255,248,216,0) 70%),linear-gradient(180deg,#8FD3FF 0%,#CDEBFF 52%,#A9DF8C 52.3%,#8FD46A 100%)}
@@ -14580,7 +14608,7 @@ var XMAS = (function(){
   var KEY = "ffk-xmas", root = document.documentElement;
   function seasonOn(){ var d = new Date(), m = d.getMonth(), day = d.getDate(); return m===10 || m===11 || (m===0 && day<=7); }
   function saved(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
-  function isOn(){ var s = saved(); return s==="on" ? true : s==="off" ? false : seasonOn(); }
+  function isOn(){ return false; } /* v65: Christmas look removed (owner 2026-11-23) */
   var built = false;
   function build(){
     if(built) return; built = true;
@@ -14627,7 +14655,7 @@ var XMAS = (function(){
     var vb = document.getElementById("voiceBtn");
     if(vb && vb.parentNode) vb.parentNode.insertBefore(b, vb); else { b.classList.add("xfloat"); document.body.appendChild(b); }
   }
-  mountButton(); paint();
+  paint(); try{ localStorage.removeItem(KEY); }catch(e){}
   window.addEventListener("hashchange", function(){ if(isOn() && /^#?(home)?$/.test(location.hash)) setTimeout(homeRow, 0); });
   return {isOn:isOn, paint:paint};
 })();
@@ -17335,6 +17363,82 @@ function saleOn(){
   window.addEventListener("hashchange", function(){ if(timer && !$("#board .finish .v60go")) stop(); });
 })();
 /* v60 end */
+/* ---------- v65: every game as its own icon (owner 2026-11-23): one icon grid on home and at the top of Games ---------- */
+(function(){
+  var FILTER = "All";
+  function q(s, r){ return (r||document).querySelector(s); }
+  function e(t){ return String(t==null ? "" : t).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function tileArt(href, extra){ var a = q('#v-home .ef-tile[href="'+href+'"]'+(extra||"")+' .art svg'); return a ? a.outerHTML : ""; }
+  function acts(){
+    return [
+      {k:"books", n:"Story Time", h:"#books", bg:"#FFE2C4", art:tileArt("#books", ":not([data-bktab])"), em:"📖"},
+      {k:"night", n:"Bedtime Stories", h:"#books", tab:"night", bg:"#1E2563", art:tileArt("#books", '[data-bktab="night"]'), em:"🌙"},
+      {k:"colorbook", n:"Color Book", h:"#colorbook", bg:"#FFD6E3", art:tileArt("#colorbook"), em:"🖍️"},
+      {k:"studio", n:"Paint Studio", h:"#studio", bg:"#FFF0C9", em:"🎨"},
+      {k:"food", n:"Fruit & Veggie Book", h:"#food", bg:"#FFE9EE", em:"🍎"},
+      {k:"school", n:"Pond School", h:"#school", bg:"#FFF0C9", art:tileArt("#school"), em:"🏫"},
+      {k:"path", n:"Pip's Path", h:"#path", bg:"#C9F1EA", art:tileArt("#path"), em:"🐸"},
+      {k:"printables", n:"Printables", h:"#printables", bg:"#E2F2DE", em:"🖨️"},
+      {k:"prizes", n:"My Prizes", h:"#prizes", bg:"#FFF3B8", em:"🏆"}
+    ];
+  }
+  function band(g){ var n = 3; try{ n = bandN(g); }catch(x){} return Math.max(1, Math.min(S.band||2, n)); }
+  function gameIcon(g){
+    return '<a class="aiic" href="#world-'+g.id+'-'+band(g)+'" aria-label="'+e(g.name)+'" title="'+e(g.skill||g.name)+'"><span class="ic" style="--bg:'+(g.bg||"#EEF6F5")+'">'+(g.art||"")+'</span><b>'+e(g.name)+'</b></a>';
+  }
+  function actIcon(a){
+    var inner = a.art || '<span class="em" aria-hidden="true">'+a.em+'</span>';
+    return '<a class="aiic" href="'+a.h+'"'+(a.tab ? ' data-bktab="'+a.tab+'"' : '')+' aria-label="'+e(a.n)+'"><span class="ic" style="--bg:'+a.bg+'">'+inner+'</span><b>'+e(a.n)+'</b></a>';
+  }
+  function groups(){
+    var out = [{k:"Make", label:"Stories, coloring and more", html:acts().map(actIcon), n:acts().length}];
+    var seen = {};
+    AREA_GROUPS.forEach(function(gr){
+      var list = GAMES.filter(function(g){ return !seen[g.id] && groupOf(g.area).k===gr.k; });
+      list.forEach(function(g){ seen[g.id] = 1; });
+      if(list.length) out.push({k:gr.k, label:gr.label, html:list.map(gameIcon), n:list.length});
+    });
+    var rest = GAMES.filter(function(g){ return !seen[g.id]; });
+    if(rest.length) out.push({k:"More", label:"More games", html:rest.map(gameIcon), n:rest.length});
+    var B = (window.__v62 && window.__v62.BONUS) || [];
+    if(B.length) out.push({k:"Bonus", label:"Bonus games", html:B.map(gameIcon), n:B.length});
+    /* Christmas games stay playable, listed last */
+    var xi = -1; out.forEach(function(g, i){ if(g.k==="Christmas") xi = i; });
+    if(xi>=0) out.push(out.splice(xi, 1)[0]);
+    return out;
+  }
+  function draw(box){
+    var G2 = groups(), total = 0; G2.forEach(function(g){ total += g.n; });
+    var chips = [{k:"All", label:"Everything"}].concat(G2).map(function(g){ return '<button type="button" data-aif="'+e(g.k)+'" aria-pressed="'+(g.k===FILTER)+'">'+e(g.label)+'</button>'; }).join("");
+    var body = G2.filter(function(g){ return FILTER==="All" || g.k===FILTER; }).map(function(g){
+      return '<div class="aigrp"><h3>'+e(g.label)+' <small>'+g.n+'</small></h3><div class="aigrid">'+g.html.join("")+'</div></div>'; }).join("");
+    box.innerHTML = '<div class="aihead"><div><h2>All games</h2><p>Every game has its own button. Tap one to play.</p></div></div>'+
+      '<div class="aichips" role="group" aria-label="Show games">'+chips+'</div>'+body;
+    box.setAttribute("data-total", total);
+  }
+  function mount(view, before){
+    var v = document.getElementById(view); if(!v) return null;
+    var box = q(".ai65", v);
+    if(!box){ box = document.createElement("section"); box.className = "ai65"; box.setAttribute("aria-label", "All games");
+      var anchor = before(v); if(!anchor) return null; anchor.parentNode.insertBefore(box, anchor.nextSibling); }
+    draw(box); return box;
+  }
+  function render(){
+    try{
+      mount("v-home", function(v){ var t = q(".ef-tiles", v); return t ? t.closest("section") : q(".wrap", v) && q(".wrap", v).firstElementChild; });
+      mount("v-lessons", function(v){ var w = q("#whoBar", v); return w || null; });
+    }catch(x){ try{ console.warn("v65", x); }catch(y){} }
+  }
+  document.addEventListener("click", function(ev){
+    var b = ev.target.closest && ev.target.closest(".ai65 [data-aif]"); if(!b) return;
+    FILTER = b.getAttribute("data-aif"); render();
+    try{ tone(660, 0, .08, "triangle", .08); }catch(x){}
+  });
+  window.addEventListener("hashchange", function(){ FILTER = "All"; setTimeout(render, 0); });
+  setTimeout(render, 0);
+  window.ffkIcons = render;
+})();
+
 })();
 </script>
 
