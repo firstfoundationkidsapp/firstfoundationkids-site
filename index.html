@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="FirstFoundationkids">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="FirstFoundationkids: learning games for ages 2 to 7">
-<meta property="og:description" content="70 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Level 1 of every age group is free, with no ads and no sign-up.">
+<meta property="og:description" content="74 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Level 1 of every age group is free, with no ads and no sign-up.">
 <meta property="og:url" content="https://www.firstfoundationkids.com/">
 <meta property="og:image" content="https://www.firstfoundationkids.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="Pip the frog and the FirstFoundationkids name: learning games for ages 2 to 7">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FirstFoundationkids: learning games for ages 2 to 7">
-<meta name="twitter:description" content="70 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Level 1 of every age group is free.">
+<meta name="twitter:description" content="74 playful learning worlds with Pip the frog, plus School practice for kindergarten through fourth grade. Level 1 of every age group is free.">
 <meta name="twitter:image" content="https://www.firstfoundationkids.com/og-image.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800;900&family=Lexend:wght@400;500;600;700&display=swap">
@@ -2953,6 +2953,118 @@ html.xmas .t3box.snbox{background:linear-gradient(180deg,#BFD9F2 0%,#E4F0FA 14%,
 @media (prefers-reduced-motion:no-preference){ .bn-fly{animation:bnFly 2.4s ease-in-out infinite} }
 @keyframes bnFly{50%{transform:translateY(-12px) rotate(-6deg)}}
 .bn-kid > .row > b{font-size:20px;line-height:1.2;font-family:var(--body,system-ui)}
+/* ---------- v64: brain challenges ---------- */
+.av-field{flex-direction:column;gap:12px;min-height:200px}
+.av-status{margin:0;min-height:1.4em;font:700 16px/1.35 var(--body);color:var(--ink-soft);text-align:center}
+.av-shake{animation:avShake .4s}
+@keyframes avShake{0%,100%{transform:none}25%{transform:translateX(-6px) rotate(-2deg)}75%{transform:translateX(6px) rotate(2deg)}}
+.av-tools{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.av-tools .btn{min-height:44px;padding:8px 16px;font-size:16px}
+.av-say{border:0;background:#E3F4F1;color:var(--ink);width:34px;height:34px;border-radius:50%;display:inline-grid;place-items:center;flex:0 0 auto;cursor:pointer}
+.av-say svg{width:20px;height:20px}
+/* number maze */
+.av-mztop{display:flex;gap:14px;justify-content:center}
+.av-mztop>span{display:grid;justify-items:center;background:#fff;border-radius:18px;padding:6px 18px;box-shadow:var(--clay-sm,0 4px 0 rgba(23,59,64,.15));min-width:92px}
+.av-mztop small{font:800 13px var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.av-mztop b{font:900 34px/1.05 var(--display)}
+.av-goal b{color:#D9822B}
+.av-now b{color:#2E8F7A;transition:color .2s}
+.av-mztop.over .av-now b{color:#E7466B}
+.av-mzgrid{display:grid;grid-template-columns:repeat(var(--w),minmax(0,1fr));gap:8px;width:min(100%,calc(var(--w)*84px))}
+.av-st{aspect-ratio:1;border-radius:18px;border:3px solid #9CC9C0;background:linear-gradient(180deg,#FFFFFF,#E7F3EF);box-shadow:0 5px 0 #9CC9C0;font:900 clamp(20px,5.4vw,30px)/1 var(--display);color:var(--ink);display:grid;place-items:center;position:relative;cursor:pointer;padding:0;transition:transform .15s,background .2s}
+.av-st:active{transform:translateY(3px);box-shadow:0 2px 0 #9CC9C0}
+.av-st.minus .av-n{color:#D93A60}.av-st.times .av-n{color:#7B52D6}
+.av-st.on{background:linear-gradient(180deg,#FFE58A,#FFC83A);border-color:#D9A21A;box-shadow:0 5px 0 #D9A21A}
+.av-st.on[data-step]::before{content:attr(data-step);position:absolute;top:3px;left:6px;font:800 11px var(--body);color:#8A5A00;opacity:.8}
+.av-st.head{outline:4px solid #2E8F7A;outline-offset:2px}
+.av-start{background:linear-gradient(180deg,#D7F5DA,#A9E3B1)}
+.av-end svg{width:78%;height:78%}
+.av-end.on{animation:avPop .6s}
+.av-pip{position:absolute;inset:-6px;display:grid;place-items:center;pointer-events:none;z-index:2;animation:stBob 2.4s ease-in-out infinite}
+.av-pip svg{width:88%;height:auto}
+.av-st.on:not(.av-start) .av-pip svg{width:70%}
+.av-st.head .av-n,.av-st.head .av-dots{opacity:.25}
+.av-won .av-st.on{animation:avPop .5s calc(var(--d,0)*.05s)}
+@keyframes avPop{0%{transform:scale(1)}40%{transform:scale(1.15)}100%{transform:scale(1)}}
+.av-dots{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;width:70%}
+.av-dots i{width:clamp(12px,3.4vw,18px);aspect-ratio:1;border-radius:50%;background:#173B40}
+.av-maze .av-dots+.av-n{position:absolute;bottom:3px;right:7px;font-size:13px;color:var(--ink-soft)}
+/* sudoku */
+.av-hearts{display:flex;gap:6px;font-size:26px;color:#E7466B}
+.av-hearts i{font-style:normal;transition:transform .3s,opacity .3s}
+.av-hearts i.gone{opacity:.2;transform:scale(.7)}
+.av-sgrid{display:grid;grid-template-columns:repeat(var(--bc),minmax(0,1fr));gap:4px;background:#173B40;border:4px solid #173B40;border-radius:16px;overflow:hidden;width:min(100%,calc(var(--n)*80px));aspect-ratio:1}
+.av-sgrid.n6{width:min(100%,456px)}
+.av-box{display:grid;grid-template-columns:repeat(var(--bw),minmax(0,1fr));grid-template-rows:repeat(var(--bh),minmax(0,1fr));gap:2px;background:#9DB8B4}
+.av-sc{min-width:0;min-height:0;border:0;margin:0;border-radius:0;background:#fff;display:grid;place-items:center;padding:8%;cursor:pointer;font:900 clamp(22px,6vw,36px)/1 var(--display);color:var(--ink);box-shadow:none}
+.av-sc svg{width:100%;height:100%}
+.av-sc.given{background:#F1F6F5;cursor:default}
+.av-sc.blank{background:#FFFBEA}
+.av-sc.sel{background:#FFE58A;animation:avGlow 1s ease-in-out infinite}
+@keyframes avGlow{50%{background:#FFF4C2}}
+.av-sc.placed{animation:avPop .45s}
+.av-sc.placed .av-num{color:#2E8F7A}
+.av-sc.clash{animation:avClash 1.2s}
+@keyframes avClash{0%,60%{background:#FFC2CC}100%{background:inherit}}
+.av-num{font:900 clamp(22px,6vw,36px)/1 var(--display)}
+.av-sgrid.n6 .av-num{font-size:clamp(18px,5vw,30px)}
+.av-tray{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.av-tr{width:clamp(56px,14vw,72px);aspect-ratio:1;border-radius:18px;border:3px solid var(--line,#CFE3E0);background:#fff;box-shadow:0 5px 0 var(--line,#CFE3E0);padding:9px;cursor:pointer;display:grid;place-items:center}
+.av-tr svg{width:100%;height:100%}
+.av-tr:active{transform:translateY(3px);box-shadow:0 2px 0 var(--line,#CFE3E0)}
+.av-won{animation:avPop .6s}
+/* detective */
+.av-case{background:#FFF7E2;border:3px solid #E8D3A3;border-radius:18px;padding:12px 16px;width:min(100%,640px);box-shadow:0 5px 0 #E8D3A3;text-align:left}
+.av-story{margin:0 0 6px;font:600 17px/1.45 var(--body)}
+.av-story b{font-family:var(--display);font-size:20px;display:block;color:#B8741A}
+.av-clues{margin:0;padding-left:26px;display:grid;gap:6px}
+.av-clues li{font:700 clamp(17px,2.4vw,20px)/1.35 var(--body);padding:2px 0}
+.av-clues li>span{margin-right:6px}
+.av-clues li .av-say{vertical-align:middle;width:30px;height:30px}
+.av-clues li.av-hint{animation:avHint 2s}
+@keyframes avHint{0%,70%{background:#FFE58A;border-radius:8px}100%{background:transparent}}
+.av-sus{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:12px;width:min(100%,760px)}
+.av-suspect{position:relative;background:#fff;border:3px solid #CFE3E0;border-radius:20px;box-shadow:0 5px 0 #CFE3E0;padding:8px 6px 10px;display:grid;justify-items:center;gap:3px;cursor:pointer;transition:transform .15s,opacity .25s}
+.av-suspect:hover{transform:translateY(-3px)}
+.av-suspect:focus-visible{outline:4px solid #3E9BDB;outline-offset:2px}
+.av-pic svg{width:clamp(78px,18vw,104px);height:auto}
+.av-name{font:900 18px var(--display);text-transform:capitalize}
+.av-place{display:flex;align-items:center;gap:4px;font:700 13px var(--body);color:var(--ink-soft)}
+.av-place svg{width:30px;height:16px}
+.av-x{position:absolute;top:6px;right:6px;width:34px;height:34px;border-radius:50%;border:2px solid #CFE3E0;background:#fff;color:#B3262E;font:900 16px var(--body);cursor:pointer;display:grid;place-items:center;padding:0}
+.av-suspect.out{opacity:.42}
+.av-suspect.out::after{content:"";position:absolute;inset:14% 12%;background:linear-gradient(45deg,transparent 46%,#E7466B 46%,#E7466B 54%,transparent 54%),linear-gradient(-45deg,transparent 46%,#E7466B 46%,#E7466B 54%,transparent 54%);pointer-events:none}
+.av-suspect.out .av-x{background:#FFE1E6}
+.av-suspect.av-caught{border-color:#FFC83A;box-shadow:0 0 0 6px rgba(255,200,58,.5),0 5px 0 #D9A21A;animation:avPop .6s}
+/* duel */
+.av-dhead{display:flex;align-items:center;justify-content:space-between;gap:10px;width:min(100%,640px)}
+.av-side{display:flex;align-items:center;gap:8px;font:900 20px var(--display);padding:6px 12px;border-radius:16px;background:#fff;box-shadow:var(--clay-sm,0 4px 0 rgba(23,59,64,.15));transition:outline .2s}
+.av-dhead:not(.pipturn) .av-side.you,.av-dhead.pipturn .av-side.pip{outline:4px solid #FFC83A}
+.av-dpip svg{width:46px;height:auto}
+.av-dhead.pipturn .av-dpip{animation:stBob 1s ease-in-out infinite}
+.av-jar{min-width:38px;height:38px;border-radius:12px;background:#E3F4F1;display:grid;place-items:center;font:900 18px var(--display);color:#2E8F7A}
+.av-left{display:grid;justify-items:center}
+.av-left b{font:900 40px/1 var(--display);color:#D9822B}
+.av-left small{font:800 12px var(--body);color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em}
+.av-rule{margin:0;font:600 17px/1.4 var(--body);text-align:center}
+.av-flies{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;width:min(100%,640px);min-height:64px}
+.av-fly{position:relative;flex:0 0 auto;width:56px;height:56px;transition:transform .6s cubic-bezier(.5,-.4,.6,1.4),opacity .6s;animation:avDrop .45s both;animation-delay:calc(var(--i,0)*.03s)}
+.av-fly .av-pad{position:absolute;left:3px;bottom:2px;width:calc(100% - 6px);height:18px;margin:0;padding:0;border-radius:50%;background:#5CC46A;box-shadow:inset 0 -3px 0 #2E8A3B}
+.av-fly svg{position:absolute;left:0;top:-6px;width:56px;height:56px;animation:avBuzz 1.6s ease-in-out infinite;animation-delay:calc(var(--i,0)*-.13s)}
+.av-fly.gone svg{animation:none}
+.av-fly.gone.toYou{transform:translate(-120px,-120px) scale(.2);opacity:0}
+.av-fly.gone.toPip{transform:translate(120px,-120px) scale(.2);opacity:0}
+.av-take{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.av-tk{min-height:56px;min-width:104px;font-size:20px}
+.av-tk:disabled{opacity:.4;cursor:not-allowed}
+.av-trick{margin:0;background:#FFF4C2;border-radius:14px;padding:8px 14px;font:600 16px/1.4 var(--body);max-width:600px;text-align:center}
+@keyframes avDrop{from{transform:translateY(-40px) scale(.6);opacity:0}to{transform:none;opacity:1}}
+/* home shelf */
+.av-shelf{margin:28px 0 6px}
+.av-shelf h2{font-size:clamp(26px,4vw,40px);margin:2px 0 4px}
+.av-bc small{font:600 13px/1.3 var(--body);color:var(--ink-soft);padding:2px 12px 0}
+@media (max-width:560px){ .av-fly{width:46px;height:48px} .av-fly svg{width:48px;height:48px;left:-1px} .av-mzgrid{gap:6px} .av-st{border-radius:14px} .av-sus{grid-template-columns:repeat(2,1fr)} .av-side{font-size:16px;padding:5px 8px} .av-dpip svg{width:34px} .av-left b{font-size:32px} .av-tk{min-width:86px} }
+@media (prefers-reduced-motion:reduce){ .av-fly,.av-fly svg,.av-pip,.av-sc.sel{animation:none} }
 </style>
 </head>
 <body>
@@ -3344,6 +3456,13 @@ html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16
       <p class="ftfine">Level 1 of every game is free, no sign-up needed.</p>
     </section>
 
+    <!-- v64: brain challenges -->
+    <section class="ef ef-big av-shelf" id="avShelf" aria-labelledby="avTitle">
+      <p class="eyebrow">New for ages 6 to 9</p>
+      <h2 id="avTitle">Brain challenges</h2>
+      <p class="lead" style="margin:0">Real puzzles that make kids think: number mazes, sudoku, mysteries to solve and a strategy game against Pip.</p>
+      <div class="ef-bigrow" id="avRow"></div>
+    </section>
     <!-- v51: big kids -->
     <section class="ef ef-big" id="efBig" aria-labelledby="efBigTitle">
       <p class="eyebrow">For big kids</p>
@@ -3606,7 +3725,7 @@ html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16
       <p class="eyebrow">Questions</p>
       <h2 class="h2big">Parents often ask</h2>
       <div class="faq" style="margin-top:20px">
-        <details><summary>What is free?</summary><p>Level 1 of every age group in all 70 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
+        <details><summary>What is free?</summary><p>Level 1 of every age group in all 74 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
         <details><summary>Does my child need to read?</summary><p>No. Pip reads every question and answer out loud, and kids answer by tapping or by saying the answer. You can switch the voice off at any time.</p></details>
         <details><summary>Does it help with school?</summary><p>Yes, that is what Pip's Pond School is for. Its short lessons practice skills commonly taught in kindergarten through fourth grade: listening to and reading short stories, sight words, handwriting, math word problems, telling time and early science. It is extra practice for home and does not replace your child's teacher or school.</p></details>
         <details><summary>Is there a free trial?</summary><p>No trial. Instead, the first level of every age group stays free, so you can try before you pay.</p></details>
@@ -4201,13 +4320,13 @@ html.xmas .v54g:nth-child(even){box-shadow:0 0 0 4px #E0303F,0 0 0 8px #fff,0 16
       <p class="lead" style="margin-top:10px">Can't find your answer? Email <a href="mailto:firstfoundationkidsapp@gmail.com">firstfoundationkidsapp@gmail.com</a>.</p>
       <div id="faqAll">
       <div class="faqcat"><h2>Getting started</h2><div class="faq">
-        <details><summary>What is FirstFoundationkids?</summary><p>An early-learning website for children ages 2 to 7. It has 70 game worlds, Pip's Pond School for kindergarten through fourth grade practice, a Fruit &amp; Veggie Book, and a Studio for painting, coloring and first computer skills. Pip the frog reads every question aloud.</p></details>
+        <details><summary>What is FirstFoundationkids?</summary><p>An early-learning website for children ages 2 to 7. It has 74 game worlds, Pip's Pond School for kindergarten through fourth grade practice, a Fruit &amp; Veggie Book, and a Studio for painting, coloring and first computer skills. Pip the frog reads every question aloud.</p></details>
         <details><summary>Which ages is it for?</summary><p>Ages 2 to 7, in three groups: Tadpoles (2–3), Froglets (4–5) and Jumpers (6–7). Each group gets its own version of every world, with 30 levels that get a little harder each time.</p></details>
         <details><summary>Does my child need to read?</summary><p>No. Pip reads every question and answer out loud, and kids answer by tapping or by saying the answer. You can switch the voice off at any time.</p></details>
         <details><summary>Which devices work?</summary><p>Any up-to-date web browser on a computer, tablet or phone. The mouse and keyboard worlds work best on a laptop or desktop, but tapping works too.</p></details>
       </div></div>
       <div class="faqcat"><h2>Plans and billing</h2><div class="faq">
-        <details><summary>What is free?</summary><p>Level 1 of every age group in all 70 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
+        <details><summary>What is free?</summary><p>Level 1 of every age group in all 74 worlds, the Fruit &amp; Veggie Book, Magic Paint, 3 Color Book pictures, Today's Hop, the School Day and stickers. No account or card needed.</p></details>
         <details><summary>How much does a plan cost?</summary><p>Monthly is $9.99 a month. Yearly is $79.99 a year, which works out to about $6.67 a month. Family is $99.99 a year for up to 4 child profiles.</p></details>
         <details><summary>Is there a free trial?</summary><p>No trial. Instead, the first level of every age group stays free, so you can try before you pay.</p></details>
         <details><summary>How do I cancel?</summary><p>From My account, any time. Your plan stays open until the end of the period you paid for.</p></details>
@@ -16802,6 +16921,366 @@ function wire(a, card){
   var d = $("#bnDone", card); if(d) d.addEventListener("click", function(){ OPEN_UNTIL = 0; redraw(a); toast("Bonus games saved."); });
 }
 setTimeout(function(){ try{ paint(); }catch(e){} }, 0);
+})();
+
+/* ---------- v64: brain challenges (Number Maze Quest, Shape Sudoku, Pond Detective, Lily Pad Duel) ---------- */
+(function(){
+if(typeof ENGINES==="undefined" || typeof GAMES==="undefined") return;
+function stageOf(area, cls){ var f = el("div", "field av-field "+(cls||"")); area.appendChild(f); return f; }
+function ask(q, small, spoken){ setPrompt(esc(q), small ? esc(small) : ""); say(spoken || q); }
+function lerp(a, b, t){ return Math.round(a + (b-a)*Math.max(0, Math.min(1, t))); }
+function later(fn, ms){ var me = G, id = setTimeout(function(){ if(G===me) fn(); }, ms); onCleanup(function(){ clearTimeout(id); }); return id; }
+function shake(node){ if(!node) return; node.classList.remove("av-shake"); void node.offsetWidth; node.classList.add("av-shake"); }
+function speakBtn(text){ var b = el("button", "av-say", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 010 7M18.5 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>'); b.type = "button"; b.setAttribute("aria-label", "Read it to me"); b.addEventListener("click", function(e){ e.stopPropagation(); say(text); }); return b; }
+function statusLine(f){ var s = el("p", "av-status"); s.setAttribute("aria-live", "polite"); f.appendChild(s); return s; }
+
+/* =====================================================================
+   NUMBER MAZE QUEST: find a path whose stones add up to the goal
+   ===================================================================== */
+var MZ = [null,
+  {w:3, h:2, ops:["+"], lo:1, hi:2, extra:0, dots:true},
+  {w:3, h:3, ops:["+"], lo:1, hi:3, extra:0, dots:true},
+  {w:4, h:3, ops:["+"], lo:1, hi:6, extra:2, w2:4, h2:4, hi2:9},
+  {w:4, h:4, ops:["+"], lo:2, hi:9, extra:2, tens:true, w2:5, h2:4},
+  {w:5, h:4, ops:["+","+","-"], lo:2, hi:9, extra:2, tens:true, w2:5, h2:5},
+  {w:5, h:5, ops:["+","+","-","x"], lo:2, hi:9, extra:4, tens:true}];
+function mzPath(w, h, lmin, lmax){
+  for(var tries=0; tries<400; tries++){
+    var seen = {}, path = [[0,0]]; seen["0,0"] = 1; var ok = false;
+    (function dfs(){ var cur = path[path.length-1];
+      if(cur[0]===w-1 && cur[1]===h-1){ var L = path.length-2; if(L>=lmin && L<=lmax){ ok = true; } return; }
+      if(path.length-2 > lmax) return;
+      var ds = shuffle([[1,0],[0,1],[1,0],[0,1],[-1,0],[0,-1]]);
+      for(var i=0;i<ds.length && !ok;i++){ var nx = cur[0]+ds[i][0], ny = cur[1]+ds[i][1], k = nx+","+ny;
+        if(nx<0 || ny<0 || nx>=w || ny>=h || seen[k]) continue;
+        seen[k] = 1; path.push([nx, ny]); dfs(); if(ok) return; path.pop(); delete seen[k]; } })();
+    if(ok) return path;
+  }
+  var p = [[0,0]]; for(var x=1;x<w;x++) p.push([x,0]); for(var y=1;y<h;y++) p.push([w-1,y]); return p;
+}
+function mzStone(cf, total, last){
+  var op = pick(cf.ops); if(last && op!=="+") op = "+";
+  if(op==="-" && total>=4) return {op:"-", v:rand(1, Math.min(5, total-1))};
+  if(op==="x" && total>=2 && total<=20) return {op:"x", v:2};
+  var v = cf.tens && Math.random()<.3 ? pick([10, 10, 20]) : rand(cf.lo, cf.hiNow);
+  return {op:"+", v:v};
+}
+function mzApply(t, s){ return s.op==="-" ? t - s.v : s.op==="x" ? t*s.v : t + s.v; }
+function mzLabel(s){ return (s.op==="-" ? "−" : s.op==="x" ? "×" : s.op==="+" ? "+" : "")+s.v; }
+function dotsHTML(n){ var s = ""; for(var i=0;i<n;i++) s += "<i></i>"; return '<span class="av-dots n'+n+'">'+s+'</span>'; }
+ENGINES.nmaze = function(area, c){
+  var cf = Object.assign({}, MZ[c.a]), late = c.t>.5;
+  if(late && cf.w2){ cf.w = cf.w2; cf.h = cf.h2; }
+  cf.hiNow = cf.hi2 && c.t>.4 ? cf.hi2 : cf.hi;
+  var W = cf.w, H = cf.h, shortest = W+H-3, path = mzPath(W, H, shortest + (c.t>.3 ? Math.round(cf.extra*c.t) : 0), shortest + cf.extra);
+  var grid = [], total = 0, onPath = {};
+  path.forEach(function(p){ onPath[p[0]+","+p[1]] = 1; });
+  for(var i=1;i<path.length-1;i++){ var s = mzStone(cf, total, i===path.length-2); total = mzApply(total, s); grid[path[i][1]*W+path[i][0]] = s; }
+  var dcf = Object.assign({}, cf, {ops:cf.ops.concat(["+","+","+"])});
+  for(var y=0;y<H;y++) for(var x=0;x<W;x++){ var k = y*W+x; if(grid[k] || (x===0&&y===0) || (x===W-1&&y===H-1)) continue; grid[k] = mzStone(dcf, Math.random()<.5 ? 6 : 30, false); }
+  var target = total;
+  var f = stageOf(area, "av-maze");
+  var top = el("div", "av-mztop", '<span class="av-goal"><small>Goal</small><b>'+target+'</b></span><span class="av-now"><small>Now</small><b>0</b></span>');
+  f.appendChild(top);
+  var board = el("div", "av-mzgrid"); board.style.setProperty("--w", W); f.appendChild(board);
+  var cells = [];
+  for(var yy=0;yy<H;yy++) for(var xx=0;xx<W;xx++){ (function(x, y){
+    var k = y*W+x, b = el("button", "av-st"); b.type = "button";
+    if(x===0 && y===0){ b.className += " av-start"; b.innerHTML = '<span class="av-pip">'+pipSVG()+'</span>'; b.setAttribute("aria-label", "start"); }
+    else if(x===W-1 && y===H-1){ b.className += " av-end"; b.innerHTML = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="26" width="44" height="28" rx="5" fill="#C9733A" stroke="#7A3E16" stroke-width="3"/><path d="M10 30q22-22 44 0" fill="#E59456" stroke="#7A3E16" stroke-width="3"/><rect x="27" y="32" width="10" height="10" rx="2" fill="#FFC83A" stroke="#7A3E16" stroke-width="2"/><circle cx="20" cy="16" r="3" fill="#FFE27A"/><circle cx="46" cy="12" r="2.5" fill="#FFE27A"/></svg>'; b.setAttribute("aria-label", String(target)); }
+    else { var s = grid[k]; b.innerHTML = cf.dots ? dotsHTML(s.v)+'<span class="av-n">'+s.v+'</span>' : '<span class="av-n'+(s.op!=="+" ? " av-op" : "")+'">'+(s.op==="+" && c.a<5 ? s.v : mzLabel(s))+'</span>'; b.setAttribute("aria-label", mzLabel(s).replace("−", "minus ").replace("×", "times ").replace("+", "")); if(s.op==="-") b.className += " minus"; if(s.op==="x") b.className += " times"; }
+    b.addEventListener("click", function(){ tap(x, y, b); }); board.appendChild(b); cells.push(b); })(xx, yy); }
+  var tools = el("div", "av-tools", '<button type="button" class="btn btn-soft av-undo">↶ Undo</button><button type="button" class="btn btn-soft av-reset">Start over</button>');
+  f.appendChild(tools); var st = statusLine(f);
+  var trail = [[0,0]], now = 0, done = false;
+  function cell(x, y){ return cells[y*W+x]; }
+  function paint(){ cells.forEach(function(b){ b.classList.remove("on", "head"); b.removeAttribute("data-step"); });
+    trail.forEach(function(p, i){ var b = cell(p[0], p[1]); b.classList.add("on"); if(i) b.dataset.step = i; });
+    var hd = trail[trail.length-1]; cell(hd[0], hd[1]).classList.add("head");
+    var nb = top.querySelector(".av-now b"); nb.textContent = now; top.classList.toggle("over", cf.ops.length===1 && now>target);
+    if(cf.ops.length===1 && now>target){ st.textContent = "Too much! Tap Undo and try another stone."; }
+    else if(now===target && trail.length>1){ st.textContent = "That makes "+target+"! Now hop to the treasure."; }
+    else st.textContent = trail.length>1 ? (target-now>0 && cf.ops.length===1 ? (target-now)+" more to go." : "") : "Tap a stone next to Pip to start.";
+    var pipEl = f.querySelector(".av-pip"); if(pipEl){ var hb = cell(hd[0], hd[1]); hb.appendChild(pipEl); } }
+  function recompute(){ now = 0; for(var i=1;i<trail.length;i++){ var s = grid[trail[i][1]*W+trail[i][0]]; if(s) now = mzApply(now, s); } }
+  function tap(x, y, b){ if(done || !G || G.locked) return;
+    var hd = trail[trail.length-1];
+    if(trail.length>1 && x===hd[0] && y===hd[1]){ trail.pop(); recompute(); tone(380, 0, .08, "triangle", .08); paint(); return; }
+    if(x===0 && y===0){ trail = [[0,0]]; recompute(); paint(); return; }
+    if(trail.some(function(p){ return p[0]===x && p[1]===y; })){ shake(b); st.textContent = "You already hopped there. Tap Undo to go back."; return; }
+    if(Math.abs(x-hd[0]) + Math.abs(y-hd[1]) !== 1){ shake(b); st.textContent = "Hop to a stone right next to Pip: up, down, left or right."; tone(260, 0, .1, "sine", .08); return; }
+    trail.push([x, y]); recompute(); sfx.tap(trail.length%6);
+    if(x===W-1 && y===H-1){ paint();
+      if(now===target){ done = true; board.classList.add("av-won"); answer(true, b, function(){ return 500; }); }
+      else { var made = now; answer(false, b); st.textContent = "You made "+made+", but the goal is "+target+". Try a different path!"; setPrompt(esc("You made "+made+". We need "+target+"."), esc("Try a different path to the treasure.")); later(function(){ trail = [[0,0]]; recompute(); paint(); }, 1100); }
+      return; }
+    paint(); }
+  tools.querySelector(".av-undo").addEventListener("click", function(){ if(done || trail.length<2) return; trail.pop(); recompute(); paint(); tone(380, 0, .08, "triangle", .08); });
+  tools.querySelector(".av-reset").addEventListener("click", function(){ if(done) return; trail = [[0,0]]; recompute(); paint(); });
+  paint(); f.__av = {path:path, target:target};
+  var q = c.a<=2 ? "Help Pip get to the treasure! Count the dots on the stones you hop on. Make "+target+"." :
+    cf.ops.length>1 ? "Hop to the treasure so your number ends on exactly "+target+". Watch out for the minus"+(cf.ops.indexOf("x")>=0 ? " and times" : "")+" stones!" :
+    "Find a path to the treasure whose stones add up to exactly "+target+".";
+  ask(q, "Hop up, down, left or right. Tap Undo to go back a step.");
+};
+
+/* =====================================================================
+   SHAPE SUDOKU: every row, column and box has one of each
+   ===================================================================== */
+var SHAPES = [
+  {n:"red circle", s:'<circle cx="32" cy="32" r="20" fill="#F2545B" stroke="#B3262E" stroke-width="4"/>'},
+  {n:"blue square", s:'<rect x="13" y="13" width="38" height="38" rx="7" fill="#4C9BE8" stroke="#22609E" stroke-width="4"/>'},
+  {n:"yellow triangle", s:'<path d="M32 9L56 52H8z" fill="#FFC83A" stroke="#C98A12" stroke-width="4" stroke-linejoin="round"/>'},
+  {n:"green star", s:'<path d="M32 7l7 15 16 2-12 11 3 17-14-8-14 8 3-17L9 24l16-2z" fill="#5CC46A" stroke="#2E8A3B" stroke-width="3.5" stroke-linejoin="round"/>'},
+  {n:"pink heart", s:'<path d="M32 54S9 40 9 24a11 11 0 0123-5 11 11 0 0123 5c0 16-23 30-23 30z" fill="#FF8FC1" stroke="#C94E86" stroke-width="3.5" stroke-linejoin="round"/>'},
+  {n:"purple diamond", s:'<path d="M32 7l22 25-22 25-22-25z" fill="#A47BEA" stroke="#6A43B5" stroke-width="3.5" stroke-linejoin="round"/>'}];
+var SDK = [null, {n:3, bh:1, bw:3, b:[1,1]}, {n:3, bh:1, bw:3, b:[2,4]}, {n:4, bh:2, bw:2, b:[4,7]}, {n:4, bh:2, bw:2, b:[7,10], num:.5}, {n:6, bh:2, bw:3, b:[11,17], num:1}, {n:6, bh:2, bw:3, b:[17,23], num:1}];
+function sdkSolve(g, n, bh, bw, limit){ var cnt = 0;
+  (function go(){ if(cnt>=limit) return; var i = g.indexOf(-1); if(i<0){ cnt++; return; }
+    var r = Math.floor(i/n), c = i%n;
+    for(var v=0; v<n; v++){ if(sdkOk(g, n, bh, bw, r, c, v)){ g[i] = v; go(); g[i] = -1; if(cnt>=limit) return; } } })();
+  return cnt; }
+function sdkOk(g, n, bh, bw, r, c, v){ for(var k=0;k<n;k++){ if(g[r*n+k]===v && k!==c) return false; if(g[k*n+c]===v && k!==r) return false; }
+  if(bh>1){ var r0 = r-r%bh, c0 = c-c%bw; for(var a=r0;a<r0+bh;a++) for(var b=c0;b<c0+bw;b++) if((a!==r || b!==c) && g[a*n+b]===v) return false; }
+  return true; }
+function sdkMake(n, bh, bw, blanks){
+  var rows = [], cols = [], sym = shuffle(range(n));
+  function range(k){ var a = []; for(var i=0;i<k;i++) a.push(i); return a; }
+  shuffle(range(n/bh)).forEach(function(bd){ shuffle(range(bh)).forEach(function(r){ rows.push(bd*bh+r); }); });
+  shuffle(range(n/bw)).forEach(function(sk){ shuffle(range(bw)).forEach(function(c){ cols.push(sk*bw+c); }); });
+  var sol = [];
+  for(var r=0;r<n;r++) for(var c=0;c<n;c++){ var R = rows[r], C = cols[c]; sol.push(sym[(bw*(R%bh) + Math.floor(R/bh) + C) % n]); }
+  var g = sol.slice(), order = shuffle(range(n*n)), out = 0;
+  for(var i=0;i<order.length && out<blanks;i++){ var k = order[i], keep = g[k]; g[k] = -1; if(sdkSolve(g.slice(), n, bh, bw, 2)===1) out++; else g[k] = keep; }
+  return {sol:sol, g:g};
+}
+ENGINES.sudoku = function(area, c){
+  var cf = SDK[c.a], n = cf.n, blanks = lerp(cf.b[0], cf.b[1], c.t), useNum = cf.num && Math.random()<cf.num;
+  var P = sdkMake(n, cf.bh, cf.bw, blanks), g = P.g.slice(), sol = P.sol;
+  function art(v){ return useNum ? '<span class="av-num">'+(v+1)+'</span>' : '<svg viewBox="0 0 64 64" aria-hidden="true">'+SHAPES[v].s+'</svg>'; }
+  function nameOf(v){ return useNum ? String(v+1) : SHAPES[v].n; }
+  var f = stageOf(area, "av-sdk");
+  var hearts = c.a>=3 ? 3 : 0, hb = null;
+  if(hearts){ hb = el("div", "av-hearts"); f.appendChild(hb); }
+  function drawHearts(){ if(!hb) return; var s = ""; for(var i=0;i<3;i++) s += '<i class="'+(i<hearts ? "" : "gone")+'">♥</i>'; hb.innerHTML = s; hb.setAttribute("aria-label", hearts+" hearts left"); }
+  drawHearts();
+  var board = el("div", "av-sgrid n"+n), bh = cf.bh>1 ? cf.bh : n, bw = cf.bh>1 ? cf.bw : n, boxes = [];
+  board.style.setProperty("--n", n); board.style.setProperty("--bc", n/bw); f.appendChild(board);
+  for(var bi=0; bi<(n/bh)*(n/bw); bi++){ var bx = el("div", "av-box"); bx.style.setProperty("--bw", bw); bx.style.setProperty("--bh", bh); board.appendChild(bx); boxes.push(bx); }
+  var cells = [], sel = -1, done = false;
+  g.forEach(function(v, i){ var r = Math.floor(i/n), col = i%n, b = el("button", "av-sc"+(v<0 ? " blank" : " given")); b.type = "button";
+    b.innerHTML = v<0 ? "" : art(v); b.setAttribute("aria-label", v<0 ? "empty square, row "+(r+1)+", column "+(col+1) : nameOf(v));
+    b.addEventListener("click", function(){ if(done || g[i]>=0) return; pickCell(i); });
+    b.dataset.i = i; boxes[Math.floor(r/bh)*(n/bw)+Math.floor(col/bw)].appendChild(b); cells.push(b); });
+  var tray = el("div", "av-tray"); f.appendChild(tray);
+  for(var v=0; v<n; v++){ (function(v){ var t = el("button", "av-tr", art(v)); t.type = "button"; t.setAttribute("aria-label", nameOf(v)); t.addEventListener("click", function(){ place(v, t); }); tray.appendChild(t); })(v); }
+  var st = statusLine(f);
+  function pickCell(i){ sel = i; cells.forEach(function(b, k){ b.classList.toggle("sel", k===i); }); tone(620, 0, .06, "triangle", .07); st.textContent = "Now tap the "+(useNum ? "number" : "shape")+" that goes there."; }
+  function firstBlank(){ return g.indexOf(-1); }
+  function conflicts(i, v){ var r = Math.floor(i/n), col = i%n, out = [];
+    for(var k=0;k<n*n;k++){ if(g[k]!==v || k===i) continue; var rr = Math.floor(k/n), cc = k%n;
+      if(rr===r || cc===col || (cf.bh>1 && Math.floor(rr/cf.bh)===Math.floor(r/cf.bh) && Math.floor(cc/cf.bw)===Math.floor(col/cf.bw))) out.push(k); }
+    return out; }
+  function place(v, t){ if(done || !G || G.locked) return;
+    if(sel<0 || g[sel]>=0){ var fb = firstBlank(); if(n===3 && blanks===1){ sel = fb; } else { shake(board); st.textContent = "First tap an empty square."; return; } }
+    var i = sel, b = cells[i];
+    if(sol[i]===v){ g[i] = v; b.innerHTML = art(v); b.classList.remove("blank", "sel"); b.classList.add("placed"); b.setAttribute("aria-label", nameOf(v)); sel = -1; sfx.tap(4);
+      var left = g.filter(function(x){ return x<0; }).length;
+      if(!left){ done = true; board.classList.add("av-won"); answer(true, b, function(){ return 600; }); }
+      else { st.textContent = left===1 ? "One more square!" : left+" squares left."; var nb = firstBlank(); if(n>3 || blanks>1) { /* keep the kid choosing */ } else pickCell(nb); }
+      return; }
+    var cl = conflicts(i, v); shake(b); cl.forEach(function(k){ cells[k].classList.remove("clash"); void cells[k].offsetWidth; cells[k].classList.add("clash"); });
+    st.textContent = cl.length ? "There is already a "+nameOf(v)+" in that "+whereClash(i, cl[0])+". Try another!" : "Not that one. Look at the row, the column"+(cf.bh>1 ? " and the box" : "")+" again.";
+    if(!hearts){ answer(false, t); return; }
+    hearts--; drawHearts(); tone(240, 0, .16, "sine", .1);
+    if(hearts===0){ answer(false, t); hearts = 3; later(drawHearts, 1400); }
+    else say(cl.length ? "Oops! There is already one in that "+whereClash(i, cl[0])+"." : "Not that one. Look again!"); }
+  function whereClash(i, k){ var r = Math.floor(i/n), col = i%n, rr = Math.floor(k/n), cc = k%n; return rr===r ? "row" : cc===col ? "column" : "box"; }
+  f.__av = {sol:sol, n:n, blanks:blanks};
+  if(n===3 && blanks===1) pickCell(firstBlank());
+  ask(c.a<=2 ? "Which one is missing? Each row and each column has one of each." : "Fill the puzzle! Every row, column and box gets one of each "+(useNum ? "number." : "shape."),
+      c.a<=2 ? "Tap the one that belongs in the empty square." : "Tap an empty square, then tap what goes there.");
+};
+
+/* =====================================================================
+   POND DETECTIVE: read the clues and find who did it
+   ===================================================================== */
+var DT_WHO = ["cat","dog","pig","cow","sheep","lion"];
+var DT_HATS = [{k:"red", c:"#F2545B"}, {k:"blue", c:"#4C9BE8"}, {k:"yellow", c:"#FFC83A"}, {k:"green", c:"#5CC46A"}];
+var DT_PLACES = [{k:"log", txt:"by the log"}, {k:"pad", txt:"on a lily pad"}, {k:"tree", txt:"under the tree"}];
+var DT_CASES = [
+  {q:"Who ate the cake?", s:"Someone ate Pip's birthday cake! Only crumbs are left."},
+  {q:"Who took the crown?", s:"Princess Rosie's shiny crown is gone from the pond castle."},
+  {q:"Who popped the balloons?", s:"Pop, pop, pop! All the party balloons are popped."},
+  {q:"Who hid the ball?", s:"The big red ball is missing from the playground."},
+  {q:"Who painted the rock?", s:"Someone painted silly stripes on the big rock."},
+  {q:"Who ate the berries?", s:"The berry basket is empty, and there are purple paw prints."},
+  {q:"Who took the map?", s:"The treasure map is gone from Captain Pip's boat."},
+  {q:"Who rang the bell?", s:"Someone rang the school bell in the middle of the night."},
+  {q:"Who borrowed the book?", s:"The library's dragon book is missing from the shelf."},
+  {q:"Who ate the cookies?", s:"The cookie jar is empty, and there is a trail of crumbs."}];
+var DT_CFG = [null, {n:2, k:[1,1], attrs:["hat"]}, {n:3, k:[1,2], attrs:["hat","place"]}, {n:3, k:[2,2], n2:4, attrs:["hat","place","glasses"], neg:true},
+  {n:4, k:[2,3], attrs:["hat","place","glasses"], neg:true}, {n:5, k:[3,3], attrs:["hat","place","glasses"], neg:true, or:true}, {n:6, k:[3,4], attrs:["hat","place","glasses"], neg:true, or:true}];
+function dtClues(sus, cul, cf){
+  var C = [], X = sus[cul];
+  function add(txt, f){ var el2 = []; sus.forEach(function(s, i){ if(i!==cul && !f(s)) el2.push(i); }); if(el2.length) C.push({t:txt, f:f, out:el2}); }
+  if(cf.attrs.indexOf("hat")>=0){ add("The one who did it wore a "+X.hat.k+" hat.", function(s){ return s.hat===X.hat; });
+    if(cf.neg) DT_HATS.forEach(function(h){ if(h!==X.hat) add("Their hat was not "+h.k+".", function(s){ return s.hat!==h; }); });
+    if(cf.or) DT_HATS.forEach(function(h){ if(h!==X.hat){ var two = shuffle([X.hat, h]); add("Their hat was "+two[0].k+" or "+two[1].k+".", function(s){ return s.hat===two[0] || s.hat===two[1]; }); } }); }
+  if(cf.attrs.indexOf("place")>=0){ add("They were "+X.place.txt+".", function(s){ return s.place===X.place; });
+    if(cf.neg) DT_PLACES.forEach(function(p){ if(p!==X.place) add("They were not "+p.txt+".", function(s){ return s.place!==p; }); }); }
+  if(cf.attrs.indexOf("glasses")>=0) add(X.gl ? "They wear glasses." : "They do not wear glasses.", function(s){ return s.gl===X.gl; });
+  if(cf.neg) sus.forEach(function(s, i){ if(i!==cul) add("It was not the "+s.who+".", function(t){ return t.who!==s.who; }); });
+  return C;
+}
+function dtMake(cf, n, K){
+  for(var tries=0; tries<300; tries++){
+    var who = shuffle(DT_WHO).slice(0, n), sus = who.map(function(w){ return {who:w, hat:pick(DT_HATS.slice(0, Math.max(2, Math.min(4, n)))), place:pick(DT_PLACES), gl:Math.random()<.5}; });
+    if(cf.attrs.indexOf("place")<0) sus.forEach(function(s){ s.place = DT_PLACES[0]; });
+    if(cf.attrs.indexOf("glasses")<0) sus.forEach(function(s){ s.gl = false; });
+    var cul = rand(0, n-1), C = dtClues(sus, cul, cf); if(!C.length) continue;
+    /* prefer positive clues less at higher levels: they solve too fast */
+    for(var t2=0; t2<40; t2++){
+      var pool = shuffle(C), got = [], outU = {};
+      for(var i=0;i<pool.length && got.length<K;i++){ var cl = pool[i], adds = cl.out.filter(function(x){ return !outU[x]; }); if(!adds.length) continue; if(got.length<K-1 && adds.length===n-1-Object.keys(outU).length && K>1) continue; got.push(cl); cl.out.forEach(function(x){ outU[x] = 1; }); }
+      if(Object.keys(outU).length!==n-1 || got.length!==K) continue;
+      var red = got.some(function(cl, j){ var o = {}; got.forEach(function(c2, m){ if(m!==j) c2.out.forEach(function(x){ o[x] = 1; }); }); return Object.keys(o).length===n-1; });
+      if(red) continue;
+      return {sus:sus, cul:cul, clues:shuffle(got)};
+    }
+  }
+  return null;
+}
+function dtArt(s){ var a = (ANIMALS[s.who]||{}).svg || "", inner = a.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
+  var hat = '<g transform="translate(26 -6)"><ellipse cx="24" cy="22" rx="26" ry="6" fill="'+s.hat.c+'" stroke="#173B40" stroke-width="2.5"/><path d="M8 22c0-14 6-20 16-20s16 6 16 20z" fill="'+s.hat.c+'" stroke="#173B40" stroke-width="2.5"/><rect x="8" y="15" width="32" height="5" fill="#fff" opacity=".55"/></g>';
+  var gl = s.gl ? '<g fill="rgba(255,255,255,.35)" stroke="#173B40" stroke-width="3.2"><circle cx="35" cy="44" r="10"/><circle cx="65" cy="44" r="10"/><path d="M45 44h10" fill="none"/></g>' : "";
+  return '<svg viewBox="0 -14 100 118" aria-hidden="true">'+inner+gl+hat+'</svg>'; }
+function dtPlace(p){ var ic = p.k==="log" ? '<svg viewBox="0 0 40 20"><rect x="2" y="5" width="34" height="12" rx="6" fill="#B07A4A" stroke="#6E4524" stroke-width="2"/><ellipse cx="34" cy="11" rx="4" ry="6" fill="#E5C08F" stroke="#6E4524" stroke-width="2"/></svg>' :
+  p.k==="pad" ? '<svg viewBox="0 0 40 20"><ellipse cx="20" cy="12" rx="17" ry="7" fill="#5CC46A" stroke="#2E8A3B" stroke-width="2"/><path d="M20 12L33 7" stroke="#2E8A3B" stroke-width="2"/></svg>' :
+  '<svg viewBox="0 0 40 20"><rect x="17" y="10" width="6" height="10" fill="#8B5A2B"/><circle cx="20" cy="8" r="8" fill="#5CC46A" stroke="#2E8A3B" stroke-width="2"/></svg>';
+  return '<span class="av-place">'+ic+'<em>'+p.txt+'</em></span>'; }
+ENGINES.detective = function(area, c){
+  var cf = DT_CFG[c.a], n = cf.n2 && c.t>.5 ? cf.n2 : cf.n, K = lerp(cf.k[0], cf.k[1], c.t*1.4), M = null;
+  for(var a=0; a<4 && !M; a++){ M = dtMake(cf, n, K); if(!M) K = Math.max(1, K-1); }
+  var cs = (typeof scFresh==="function") ? scFresh("v64case", DT_CASES) : pick(DT_CASES);
+  var f = stageOf(area, "av-det");
+  var spoken = c.a<=2; f.__av = {cul:M.cul, K:M.clues.length, n:n};
+  var card = el("div", "av-case");
+  card.innerHTML = '<p class="av-story"><b>'+esc(cs.q)+'</b> '+esc(cs.s)+'</p><ol class="av-clues"></ol>';
+  var ol = card.querySelector(".av-clues");
+  M.clues.forEach(function(cl, i){ var li = el("li", "", '<span>'+esc(cl.t)+'</span>'); li.appendChild(speakBtn(cl.t)); ol.appendChild(li); });
+  f.appendChild(card);
+  var row = el("div", "av-sus n"+n); f.appendChild(row);
+  var crossed = {}, done = false, tries = 0;
+  M.sus.forEach(function(s, i){
+    var b = el("div", "av-suspect"); b.setAttribute("role", "button"); b.tabIndex = 0; b.setAttribute("aria-label", "the "+s.who);
+    b.innerHTML = '<span class="av-pic">'+dtArt(s)+'</span><b class="av-name">'+s.who+'</b>'+(cf.attrs.indexOf("place")>=0 ? dtPlace(s.place) : "");
+    var x = el("button", "av-x", "✕"); x.type = "button"; x.setAttribute("aria-label", "cross out the "+s.who); x.title = "Not them";
+    x.addEventListener("click", function(e){ e.stopPropagation(); if(done) return; crossed[i] = !crossed[i]; b.classList.toggle("out", !!crossed[i]); tone(crossed[i] ? 330 : 520, 0, .08, "triangle", .08); });
+    b.appendChild(x);
+    function accuse(){ if(done || !G || G.locked) return;
+      if(i===M.cul){ done = true; answer(true, b, function(){ b.classList.add("av-caught"); return 700; }); return; }
+      tries++; var why = M.clues.filter(function(cl){ return cl.out.indexOf(i)>=0; })[0], wi = M.clues.indexOf(why);
+      crossed[i] = true; b.classList.add("out"); answer(false, b);
+      var lis = ol.querySelectorAll("li"); if(lis[wi]){ lis[wi].classList.remove("av-hint"); void lis[wi].offsetWidth; lis[wi].classList.add("av-hint"); }
+      setPrompt(esc("Not the "+s.who+"!"), esc("Clue "+(wi+1)+" says: "+why.t)); }
+    b.addEventListener("click", accuse); b.addEventListener("keydown", function(e){ if(e.key==="Enter" || e.key===" "){ e.preventDefault(); accuse(); } });
+    row.appendChild(b); });
+  if(spoken){ ask(cs.q+" "+M.clues.map(function(cl){ return cl.t; }).join(" "), "Listen to the clue, then tap who did it.", cs.q+" "+M.clues.map(function(cl){ return cl.t; }).join(" ")); }
+  else ask(cs.q+" Read the clues, then tap who did it.", "Tap ✕ to cross out friends who could not have done it.", cs.q+" Read the clues, then tap who did it!");
+};
+
+/* =====================================================================
+   LILY PAD DUEL: take 1 to k flies; Pip plays smarter each level
+   ===================================================================== */
+var DU = [null, {n:[5,6], k:2, smart:[0,0]}, {n:[7,9], k:2, smart:[0,.35]}, {n:[9,13], k:3, smart:[.3,.9]}, {n:[12,17], k:3, smart:[1,1]}, {n:[15,21], k:3, k2:4, smart:[1,1], mis:.4}, {n:[18,25], k:4, k2:5, smart:[1,1], mis:.6}];
+ENGINES.duel = function(area, c){
+  var cf = DU[c.a], k = cf.k2 && c.t>.5 ? cf.k2 : cf.k, mis = !!(cf.mis && (c.round%2===1 ? Math.random()<cf.mis+.3 : Math.random()<cf.mis-.2)), smart = cf.smart[0] + (cf.smart[1]-cf.smart[0])*c.t;
+  var f = stageOf(area, "av-duel"), losses = 0, done = false, N, left, turn, busy = false;
+  var head = el("div", "av-dhead", '<span class="av-side you"><b>You</b><span class="av-jar" data-n="0"></span></span><span class="av-left"><b>0</b><small>flies left</small></span><span class="av-side pip"><span class="av-jar" data-n="0"></span><b>Pip</b><span class="av-dpip">'+pipSVG()+'</span></span>');
+  f.appendChild(head);
+  var rule = el("p", "av-rule"); rule.innerHTML = "Take turns. Take <b>1 to "+k+"</b> flies. "+(mis ? "Whoever has to take the <b>last fly loses!</b>" : "Whoever takes the <b>last fly wins!</b>");
+  f.appendChild(rule);
+  var pond = el("div", "av-flies"); f.appendChild(pond);
+  var btns = el("div", "av-take"); f.appendChild(btns);
+  var st = statusLine(f);
+  var trick = el("p", "av-trick"); trick.hidden = true; f.appendChild(trick);
+  for(var i=1;i<=k;i++){ (function(m){ var b = el("button", "btn btn-go av-tk", "Take "+m); b.type = "button"; b.setAttribute("aria-label", "take "+m); b.addEventListener("click", function(){ youTake(m, b); }); btns.appendChild(b); })(i); }
+  function startN(){ var lo = cf.n[0], hi = cf.n[1], v, g = 0; do { v = rand(lo, hi); g++; } while(g<50 && (mis ? (v-1)%(k+1)===0 : v%(k+1)===0)); return v; }
+  function setup(){ N = startN(); left = N; turn = "you"; busy = false; pond.innerHTML = "";
+    for(var i=0;i<N;i++){ var p = el("span", "av-fly", '<i class="av-pad"></i>'+FLY); p.style.setProperty("--i", i); pond.appendChild(p); }
+    head.querySelectorAll(".av-jar").forEach(function(j){ j.dataset.n = "0"; j.textContent = "0"; }); draw(); st.textContent = "Your turn first!"; }
+  function draw(){ head.querySelector(".av-left b").textContent = left;
+    Array.prototype.forEach.call(btns.children, function(b, i){ b.disabled = busy || turn!=="you" || i+1>left; });
+    head.classList.toggle("pipturn", turn==="pip"); }
+  function takeFlies(m, who){ var live = pond.querySelectorAll(".av-fly:not(.gone)"), jar = head.querySelector(".av-side."+who+" .av-jar");
+    for(var i=0;i<m;i++){ var fl = live[live.length-1-i]; if(fl){ fl.classList.add("gone", who==="you" ? "toYou" : "toPip"); } }
+    left -= m; jar.dataset.n = String(+jar.dataset.n + m); jar.textContent = jar.dataset.n; }
+  function over(lastBy){ var youWin = mis ? lastBy==="pip" : lastBy==="you"; done = youWin; busy = true; draw();
+    if(youWin){ st.textContent = mis ? "Pip had to take the last fly. You win!" : "You took the last fly. You win!"; answer(true, head.querySelector(".av-side.you b"), function(){ return 600; }); return; }
+    losses++; st.textContent = mis ? "Oh no, you had to take the last fly. Pip wins this time!" : "Pip took the last fly. Pip wins this time!";
+    answer(false, null); setPrompt(esc("Pip won this one!"), esc("Let's play again. Can you beat Pip?"));
+    if(c.a>=3 && losses>=1){ var m = k+1, list = mis ? [1, 1+m, 1+2*m, 1+3*m] : [m, 2*m, 3*m, 4*m]; trick.hidden = false;
+      trick.innerHTML = "<b>Secret trick:</b> after your turn, try to leave Pip "+list.join(", ")+"… flies. "+(mis ? "Those are one more than the "+m+" times table." : "That is the "+m+" times table!"); }
+    else if(c.a<=2){ trick.hidden = false; trick.innerHTML = "<b>Tip:</b> count the flies left before you take some."; }
+    later(setup, 2200); }
+  function youTake(m, b){ if(busy || turn!=="you" || done || !G || G.locked || m>left) return;
+    takeFlies(m, "you"); sfx.tap(m);
+    if(left===0){ return over("you"); }
+    turn = "pip"; busy = true; draw(); st.textContent = "Pip is thinking…";
+    later(pipMove, 900 + Math.random()*400); }
+  function pipMove(){ if(!G) return; var m, mx = Math.min(k, left);
+    if(Math.random()<smart){ var r = mis ? (left-1)%(k+1) : left%(k+1); m = r>=1 && r<=mx ? r : (mis && left===1 ? 1 : rand(1, mx)); }
+    else m = rand(1, mx);
+    if(!mis && left<=k && Math.random()<Math.max(.5, smart)) m = left; /* Pip grabs an easy win */
+    if(mis && left>1 && left<=k+1 && Math.random()<Math.max(.5, smart)) m = left-1;
+    m = Math.max(1, Math.min(mx, m)); takeFlies(m, "pip"); tone(500, 0, .1, "triangle", .1);
+    if(left===0) return over("pip");
+    turn = "you"; busy = false; draw(); var msg = "Pip took "+m+". "+left+(left===1 ? " fly" : " flies")+" left. Your turn!"; st.textContent = msg; say(msg); }
+  f.__av = {k:k, mis:mis, get left(){ return left; }, get turn(){ return turn; }, get busy(){ return busy; }};
+  setup();
+  ask(mis ? "Fly duel! Take 1 to "+k+" flies. Whoever takes the last fly loses!" : "Fly duel with Pip! Take 1 to "+k+" flies each turn. Take the last fly to win!",
+      c.a>=4 ? "Pip plays smart. Think ahead!" : "Count the flies before you choose.");
+};
+
+/* =====================================================================
+   the four worlds
+   ===================================================================== */
+function inner(svg){ return String(svg).replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, ""); }
+var ART = {
+  nmaze:'<svg viewBox="0 0 150 120"><g font-family="Grandstander,sans-serif" font-weight="900" font-size="20" text-anchor="middle">'+(function(){ var s = "", v = [[0,0,""],[1,0,"3"],[2,0,"5"],[3,0,"2"],[0,1,"4"],[1,1,"6"],[2,1,"1"],[3,1,"7"],[0,2,"2"],[1,2,"8"],[2,2,"3"],[3,2,""]], on = {"1,0":1,"1,1":1,"2,1":1,"2,2":1};
+    v.forEach(function(p){ var x = 8+p[0]*34, y = 10+p[1]*34, o = on[p[0]+","+p[1]]; s += '<rect x="'+x+'" y="'+y+'" width="30" height="30" rx="9" fill="'+(o ? "#FFC83A" : "#E7F3EF")+'" stroke="#173B40" stroke-width="2.5"/>'+(p[2] ? '<text x="'+(x+15)+'" y="'+(y+22)+'" fill="#173B40">'+p[2]+'</text>' : ""); }); return s; })()+
+    '</g><g transform="translate(110 76) scale(.42)"><rect x="10" y="26" width="44" height="28" rx="5" fill="#C9733A" stroke="#7A3E16" stroke-width="4"/><path d="M10 30q22-22 44 0" fill="#E59456" stroke="#7A3E16" stroke-width="4"/></g><g transform="translate(4 6) scale(.32)">'+inner(pipSVG())+'</g></svg>',
+  sudoku:'<svg viewBox="0 0 150 120"><rect x="31" y="6" width="88" height="88" rx="10" fill="#fff" stroke="#173B40" stroke-width="3.5"/><path d="M75 6v88M31 50h88" stroke="#173B40" stroke-width="3.5"/><path d="M53 6v88M97 6v88M31 28h88M31 72h88" stroke="#BFD3D0" stroke-width="2"/>'+
+    [[0,0,0],[1,1,1],[2,2,3],[3,3,2],[0,2,2],[2,0,1],[3,1,0],[1,3,3]].map(function(p){ return '<g transform="translate('+(33+p[0]*22)+' '+(8+p[1]*22)+') scale(.28)">'+SHAPES[p[2]].s+'</g>'; }).join("")+'<rect x="100" y="94" width="30" height="20" rx="6" fill="#FFC83A" stroke="#173B40" stroke-width="2.5"/><text x="115" y="109" font-family="Grandstander,sans-serif" font-weight="900" font-size="14" text-anchor="middle" fill="#173B40">?</text></svg>',
+  detective:'<svg viewBox="0 0 150 120"><rect x="8" y="10" width="66" height="84" rx="8" fill="#FFF7E2" stroke="#173B40" stroke-width="3"/><path d="M18 30h46M18 44h40M18 58h44M18 72h30" stroke="#C9B48A" stroke-width="4" stroke-linecap="round"/><g transform="translate(70 18) scale(.7)">'+inner(dtArt({who:"cat", hat:DT_HATS[0], gl:true}))+'</g><circle cx="100" cy="88" r="17" fill="rgba(160,220,255,.45)" stroke="#173B40" stroke-width="5"/><path d="M112 100l20 16" stroke="#8B5A2B" stroke-width="9" stroke-linecap="round"/></svg>',
+  duel:'<svg viewBox="0 0 150 120"><ellipse cx="75" cy="92" rx="66" ry="20" fill="#9FDCE8"/>'+[[30,84],[56,92],[84,86],[110,94],[66,74],[96,72]].map(function(p){ return '<ellipse cx="'+p[0]+'" cy="'+p[1]+'" rx="13" ry="6" fill="#5CC46A" stroke="#2E8A3B" stroke-width="2"/><g transform="translate('+(p[0]-10)+' '+(p[1]-20)+') scale(.32)">'+inner(FLY)+'</g>'; }).join("")+'<g transform="translate(46 0) scale(.5)">'+inner(pipSVG())+'</g><g font-family="Grandstander,sans-serif" font-weight="900" font-size="16" fill="#173B40"><rect x="6" y="12" width="40" height="24" rx="8" fill="#FFC83A" stroke="#173B40" stroke-width="2.5"/><text x="26" y="29" text-anchor="middle">1-3</text></g></svg>'
+};
+GAMES.push(
+  {id:"nmaze", name:"Number Maze Quest", skill:"Mental math and planning", area:"Math", age:"4–9", bg:"#FFF1D0", color:"#D9822B",
+   about:"Finds a path through a maze of number stones that adds up to the goal. Bigger kids plan ahead with tens, minus stones and times stones.", art:ART.nmaze},
+  {id:"sudoku", name:"Shape Sudoku", skill:"Logic puzzles", area:"Logic", age:"4–9", bg:"#EDE6FF", color:"#7B52D6",
+   about:"Solves picture puzzles where every row, column and box has one of each, from 3 by 3 picture grids up to 6 by 6 number sudoku.", art:ART.sudoku},
+  {id:"detective", name:"Pond Detective", skill:"Reading clues and reasoning", area:"Reading", age:"4–9", bg:"#FFF4DF", color:"#B8741A",
+   about:"Reads a short mystery and its clues, crosses out the friends who could not have done it, and finds who did it.", art:ART.detective},
+  {id:"duel", name:"Lily Pad Duel", skill:"Strategy and number sense", area:"Logic", age:"4–9", bg:"#DDF4F0", color:"#2E8F7A",
+   about:"Plays a take-away strategy game against Pip. Pip gets smarter every level, so kids find the winning trick with times tables.", art:ART.duel}
+);
+var IDS = ["nmaze","sudoku","detective","duel"];
+IDS.forEach(function(id){ if(typeof G23_IDS!=="undefined" && G23_IDS.indexOf(id)<0) G23_IDS.push(id); });
+AGE_TXT.nmaze = ["Count the dots on the stones to reach the treasure","Add small numbers along the path","Grade 1: paths that add up to 20 and more","Grade 2: bigger mazes with tens, sums to 60","Grade 3: plus and minus stones, plan ahead","Grade 4: plus, minus and times stones in a big maze"];
+AGE_TXT.sudoku = ["Which picture is missing?","3 by 3 picture puzzles","Grade 1: 4 by 4 shape sudoku with boxes","Grade 2: 4 by 4 sudoku with shapes and numbers","Grade 3: 6 by 6 number sudoku","Grade 4: hard 6 by 6 sudoku"];
+AGE_TXT.detective = ["Listen to the clue: who has the red hat?","Two or three friends and a spoken clue","Grade 1: read two clues and find who did it","Grade 2: three clues with 'not' in them","Grade 3: five friends, 'or' clues","Grade 4: six friends and four tricky clues"];
+AGE_TXT.duel = ["Take 1 or 2 flies, take the last one to win","Count the flies left and plan your turn","Grade 1: Pip starts to play smart","Grade 2: beat smart Pip with the 4 times table","Grade 3: last fly loses rounds and take up to 4","Grade 4: big games, take up to 5, smart Pip"];
+if(typeof MUSIC_OF!=="undefined"){ MUSIC_OF.nmaze = "numbers"; MUSIC_OF.sudoku = "numbers"; MUSIC_OF.detective = "letters"; MUSIC_OF.duel = "nature"; }
+
+/* home shelf: Brain challenges for 6 to 9 year olds */
+function shelf(){ var r = document.getElementById("avRow"); if(!r) return;
+  r.innerHTML = IDS.map(gameById).filter(Boolean).map(function(g){ var gr = "";
+    [3,4,5].forEach(function(b){ gr += '<a href="#world-'+g.id+'-'+b+'" style="--gc:'+g.color+'">'+(b===3 ? "Grade 1" : b===4 ? "Grade 2" : "Grade 3")+'</a>'; });
+    return '<div class="ef-bc av-bc" style="--gbg:'+g.bg+'"><a class="art" href="#world-'+g.id+'-3" aria-label="'+esc(g.name)+'">'+g.art+'</a><b>'+esc(g.name)+'</b><small>'+esc(g.skill)+'</small><div class="gr">'+gr+'</div></div>'; }).join(""); }
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", shelf); else shelf();
+window.__v64 = {mzPath:mzPath, sdkMake:sdkMake, sdkSolve:sdkSolve, dtMake:dtMake, DT_CFG:DT_CFG, MZ:MZ, DU:DU};
 })();
 
 window.addEventListener("hashchange", route);
