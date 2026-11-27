@@ -17596,7 +17596,7 @@ setTimeout(v24home, 400);
    Hidden in the Android app (no purchases there). ?saletest=1 shows the look on a preview only (not the live site). */
 var SALES = [
   {pct:40, start:Date.UTC(2026,10,20,5,0,0), end:Date.UTC(2026,10,23,5,0,0), name:"Black Friday"},
-  {pct:30, start:Date.UTC(2026,10,27,5,0,0), end:Date.UTC(2026,10,30,5,0,0), name:"Black Friday"}
+  {pct:40, start:Date.UTC(2026,10,27,5,0,0), end:Date.UTC(2026,10,30,5,0,0), name:"Black Friday"}
 ];
 function pickSale(t){ for(var i=0;i<SALES.length;i++){ if(t<SALES[i].end) return SALES[i]; } return SALES[SALES.length-1]; }
 var SALE = pickSale(Date.now());
